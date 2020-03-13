@@ -1,0 +1,811 @@
+package com.hcl.sdp.shared.management.widget;
+
+import java.util.Date;
+
+import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.user.client.Window;
+import com.google.gwt.user.client.ui.DeckPanel;
+import com.google.gwt.user.client.ui.FlexTable;
+import com.google.gwt.user.client.ui.HTML;
+import com.google.gwt.user.client.ui.HasHorizontalAlignment;
+import com.google.gwt.user.client.ui.HorizontalPanel;
+import com.google.gwt.user.client.ui.Label;
+import com.google.gwt.user.client.ui.PopupPanel;
+import com.google.gwt.user.client.ui.TextBox;
+import com.google.gwt.user.client.ui.Widget;
+import com.hcl.sdp.shared.bean.PagingBean;
+import com.hcl.sdp.shared.bean.PartnerTaxLocation;
+import com.hcl.sdp.shared.bean.SDPCustomerTaxClassCode;
+import com.hcl.sdp.shared.bean.SDPOrdersAndAuditlogsBean;
+import com.hcl.sdp.shared.bean.SDPProgram;
+import com.hcl.sdp.shared.bean.SDPTenant;
+import com.hcl.sdp.shared.bean.SDPUser;
+import com.hcl.sdp.shared.bean.SDPXPartner;
+import com.hcl.sdp.shared.framework.Nexus;
+import com.hcl.sdp.shared.framework.constants.LabelConstants;
+import com.hcl.sdp.shared.framework.constants.ProviderLabelConstants;
+import com.hcl.sdp.shared.framework.util.I18NDateUtil;
+import com.hcl.sdp.shared.management.uielement.RootUIElement;
+
+/**
+ * Description: Widget for Support Center Orders and Audit logs tool.
+ * Copyright(c) 2018, HCL Technologies.
+ *
+ * @date Sep 3, 2018 6:32:14 PM
+ * @author koteswararaoc
+ */
+public class OrdersAndAuditlogsWidget extends PopupPanel {
+
+	/** CON_0. */
+	private static final int CON_0 = 0;
+	/** CON_1. */
+	private static final int CON_1 = 1;
+	/** CON_2. */
+	private static final int CON_2 = 2;
+	/** CON_3. */
+	private static final int CON_3 = 3;
+	/** CON_4. */
+	private static final int CON_4 = 4;
+	/** CON_5. */
+	private static final int CON_5 = 5;
+	/** CON_6. */
+	private static final int CON_6 = 6;
+	/** CON_7. */
+	private static final int CON_7 = 7;
+	/** CON_8. */
+	private static final int CON_8 = 8;
+	/** CON_9. */
+	private static final int CON_9 = 9;
+	/** CON_10. */
+	private static final int CON_10 = 10;
+	/** CON_11. */
+	private static final int CON_11 = 11;
+
+	/** constant YES. */
+	private static final String YES = "Yes";
+	/** constant NO. */
+	private static final String NO = "No";
+	/** constant GRAY_COLOR_CONSTANT. */
+	private static final String GRAY_COLOR_CONSTANT = "#cccccc";
+	/** constant BACK_GROUND_COLOR. */
+	private static final String BACK_GROUND_COLOR = "backgroundColor";
+	/** constant WIDTH_CONSTANT. */
+	private static final String WIDTH_CONSTANT = "100%";
+	/** mandatory constant. */
+	private static final String MANDATORY = "mandatory";
+	/** headerBorder constant. */
+	private static final String HEADER_BORDER = "header-border";
+	/** gwt-BoldLabel constant. */
+	private static final String GWT_BOLD_LABEL = "gwt-BoldLabel";
+	/** ROW_BORDER_RIGHT_SIDE constant. */
+	private static final String ROW_BORDER_RIGHT_SIDE = "rowBorderRightSide";
+	/** ROW_BORDER_LEFT_SIDE constant. */
+	private static final String ROW_BORDER_LEFT_SIDE = "rowBorderLeftSide";
+	/** tableAllSidesborders constant. */
+	private static final String TABLEALLSIDE_BORDER = "tableAllSidesborders";
+	/** gwtLabel constant. */
+	private static final String GWT_LABEL = "gwt-Label";
+	/** step constant. */
+	private int step = 0;
+	/** ruleLabel. */
+	private HTML ruleLabel = null;
+	/** reqFieldPanel. */
+	private HorizontalPanel reqFieldPanel = null;
+	/** flexTable. */
+	private FlexTable flexTable = null;
+	/** Layout table for style setting. */
+	private FlexTable layout = null;
+	/** ordersAndAuditlogs Label. */
+	private Label ordersAndAuditlogsLbl = null;
+	/** mandatory Label. */
+	private Label mandatoryLbl = null;
+	/** required field Label. */
+	private Label requiredFieldLbl = null;
+	/** customerNameTxtBox. */
+	private TextBox customerNameTxtBox = null;
+	/** customerLoginNameLbl. */
+	private Label customerLoginNameLbl;
+	/** detailsTable. */
+	private FlexTable customerInformationTable = null;
+	/** detailsTable. */
+	private FlexTable userTable = null;
+	/** buttonPanel. */
+	private HorizontalPanel buttonPanel = null;
+	/** Close Button. */
+	private PayGoWebButton closeButton = null;
+	/** Proceed Button. */
+	private PayGoWebButton proceedButton = null;
+	/** backButton Button. */
+	private PayGoWebButton backButton = null;
+	/** SDPOrdersAndAuditlogsBean. */
+	private SDPOrdersAndAuditlogsBean sdpOrdersAndAuditlogsBean;
+	/** Deck panel to toggle the view. */
+	private DeckPanel portalDeckPanel = null;
+	/** OrderListWidget */
+	private OrderListWidget orderListWidget;
+	/** OrderLineItemListWidget. */
+	private OrderLineItemListWidget orderLineItemListWidget;
+	/** orderNumberTxtBox. */
+	private TextBox orderNumberTxtBox = null;
+	/** order Number Label. */
+	private Label orderNumberLbl = null;
+	
+
+	/**
+	 * Constructor.
+	 */
+	public OrdersAndAuditlogsWidget() {
+		widgetInitialize();
+		setProperties();
+		setLayoutProperties();
+		this.setWidget(layout);
+	}
+
+	/**
+	 * This method is to add the listener for backButton.
+	 *
+	 * @param handler - clickHandler
+	 */
+	public void backButtonClickHandler(final ClickHandler clickHandler) {
+		backButton.addClickHandler(clickHandler);
+	}
+
+	/**
+	 * This method is to add the listener for closeButton.
+	 *
+	 * @param handler - clickHandler
+	 */
+	public void closeButtonClickHandler(final ClickHandler clickHandler) {
+		closeButton.addClickHandler(clickHandler);
+	}
+
+	/**
+	 * Method to get customer Name entered.
+	 *
+	 * @return getCustomerName -
+	 */
+	public String getCustomerName() {
+		return customerNameTxtBox.getText();
+	}
+
+	/**
+	 * @return the orderLineItemListWidget
+	 */
+	public OrderLineItemListWidget getOrderLineItemListWidget() {
+		return orderLineItemListWidget;
+	}
+
+	/**
+	 * @return the orderListWidget
+	 */
+	public OrderListWidget getOrderListWidget() {
+		return orderListWidget;
+	}
+
+	/**
+	 * @return the sdpOrdersAndAuditlogsBean
+	 */
+	public SDPOrdersAndAuditlogsBean getSdpOrdersAndAuditlogsBean() {
+		return sdpOrdersAndAuditlogsBean;
+	}
+
+	/**
+	 * Method to get order Number entered.
+	 *
+	 * @return getOrderNumber -
+	 */
+	public String getOrderNumber() {
+		return orderNumberTxtBox.getText();
+	}
+
+	/**
+	 * @return the step
+	 */
+	public int getStep() {
+		return step;
+	}
+
+	/**
+	 * @param sdpOrdersAndAuditlogsBean
+	 * @return
+	 */
+	private Widget populateCustomerInformationTable(final SDPOrdersAndAuditlogsBean sdpOrdersAndAuditlogsBean) {
+
+		customerInformationTable.setText(CON_0, CON_0,
+				ProviderLabelConstants.CUSTOMER_LOGIN_LBL.concat(ProviderLabelConstants.COLON_LABL));
+		customerInformationTable.setText(CON_0, CON_2, ProviderLabelConstants.CURRENT_ENABLEMENT_FLAGS_LBL);
+		customerInformationTable.getFlexCellFormatter().setColSpan(CON_0, CON_2, CON_2);
+		customerInformationTable.getFlexCellFormatter().setStyleName(CON_0, CON_2, ROW_BORDER_LEFT_SIDE);
+		customerInformationTable.getFlexCellFormatter().setStyleName(CON_0, CON_2, ROW_BORDER_RIGHT_SIDE);
+		customerInformationTable.setText(CON_0, CON_3, ProviderLabelConstants.CURRENT_TAX_STATUS_LBL);
+
+		customerInformationTable.getFlexCellFormatter().setColSpan(CON_0, CON_3, CON_2);
+
+		setLabelStyle(CON_0, CON_0, customerInformationTable, GWT_LABEL);
+		setLabelStyle(CON_0, CON_1, customerInformationTable, GWT_LABEL);
+
+		customerInformationTable.setWidget(CON_1, CON_0, new Label());
+		customerInformationTable.getFlexCellFormatter().setStyleName(CON_1, CON_0, HEADER_BORDER);
+		customerInformationTable.getFlexCellFormatter().setColSpan(CON_1, CON_0, CON_6);
+
+		customerInformationTable.getFlexCellFormatter().setStyleName(CON_0, CON_2, GWT_LABEL);
+		customerInformationTable.getFlexCellFormatter().setStyleName(CON_0, CON_3, GWT_LABEL);
+		customerInformationTable.getFlexCellFormatter().setHorizontalAlignment(CON_0, CON_2,
+				HasHorizontalAlignment.ALIGN_CENTER);
+		customerInformationTable.getFlexCellFormatter().setHorizontalAlignment(CON_0, CON_3,
+				HasHorizontalAlignment.ALIGN_CENTER);
+
+		customerInformationTable.setText(CON_2, CON_0, ProviderLabelConstants.CUSTOMER_NAME_TXT);
+		customerInformationTable.setText(CON_3, CON_0,
+				ProviderLabelConstants.COMPANY_LBL.concat(ProviderLabelConstants.COLON_LABL));
+		customerInformationTable.setText(CON_4, CON_0,
+				ProviderLabelConstants.CUSTOMER_PHONENUMBER_LABEL.concat(ProviderLabelConstants.COLON_LABL));
+		customerInformationTable.setText(CON_5, CON_0,
+				ProviderLabelConstants.CUSTOMER_EMAIL_LABEL.concat(ProviderLabelConstants.COLON_LABL));
+		customerInformationTable.setText(CON_6, CON_0,
+				ProviderLabelConstants.PARTNER_TEXT.concat(ProviderLabelConstants.COLON_LABL));
+		customerInformationTable.setText(CON_7, CON_0,
+				ProviderLabelConstants.PROGRAM_LBL.concat(ProviderLabelConstants.COLON_LABL));
+		customerInformationTable.setText(CON_8, CON_0,
+				ProviderLabelConstants.PAYMENT_TERMS_LBL.concat(ProviderLabelConstants.COLON_LABL));
+		customerInformationTable.setText(CON_9, CON_0,
+				ProviderLabelConstants.PRICELIST_NAME_LBL.concat(ProviderLabelConstants.COLON_LABL));
+		customerInformationTable.setText(CON_10, CON_0,
+				ProviderLabelConstants.PARTS_OFFERINGN_LBL.concat(ProviderLabelConstants.COLON_LABL));
+		customerInformationTable.setText(CON_11, CON_0,
+				ProviderLabelConstants.TAX_CALCULATION_LOCATION.concat(ProviderLabelConstants.COLON_LABL));
+
+		setLabelStyle(CON_2, CON_0, customerInformationTable, GWT_LABEL);
+		setLabelStyle(CON_3, CON_0, customerInformationTable, GWT_LABEL);
+		setLabelStyle(CON_4, CON_0, customerInformationTable, GWT_LABEL);
+		setLabelStyle(CON_5, CON_0, customerInformationTable, GWT_LABEL);
+		setLabelStyle(CON_6, CON_0, customerInformationTable, GWT_LABEL);
+		setLabelStyle(CON_7, CON_0, customerInformationTable, GWT_LABEL);
+		setLabelStyle(CON_8, CON_0, customerInformationTable, GWT_LABEL);
+		setLabelStyle(CON_9, CON_0, customerInformationTable, GWT_LABEL);
+		setLabelStyle(CON_10, CON_0, customerInformationTable, GWT_LABEL);
+		setLabelStyle(CON_11, CON_0, customerInformationTable, GWT_LABEL);
+		
+		customerInformationTable.setText(CON_0, CON_1, sdpOrdersAndAuditlogsBean.getSdpUser().getLoginName());
+
+		setLabelStyle(CON_0, CON_1, customerInformationTable, GWT_LABEL);
+
+		SDPUser sdpUser = sdpOrdersAndAuditlogsBean.getSdpUser();
+		String userName = "";
+
+		if (sdpUser.getFirstName() != null && sdpUser.getLastName() != null) {
+			userName = sdpUser.getFirstName().concat(" ").concat(sdpUser.getLastName());
+		} else if (sdpUser.getFirstName() != null) {
+			userName = sdpUser.getFirstName();
+		}
+
+		customerInformationTable.setText(CON_2, CON_1, userName);
+		setLabelStyle(CON_2, CON_1, customerInformationTable, GWT_LABEL);
+
+		customerInformationTable.setText(CON_3, CON_1, sdpOrdersAndAuditlogsBean.getSdpCompany().getName());
+		 customerInformationTable.setText(CON_4, CON_1,sdpOrdersAndAuditlogsBean.getSdpContact().getOfficePhone());
+		 customerInformationTable.setText(CON_5, CON_1,sdpOrdersAndAuditlogsBean.getSdpContact().getEmail());		 
+		customerInformationTable.setText(CON_6, CON_1, sdpOrdersAndAuditlogsBean.getPartnerCompanyName().concat(" ")
+				.concat("(".concat(sdpOrdersAndAuditlogsBean.getResellerId()).concat(")")));
+		customerInformationTable.setText(CON_7, CON_1, sdpOrdersAndAuditlogsBean.getSdpProgram().getName());
+		
+
+		Label paymetTermsLabel = new Label();
+		if ("OPEN_ACCOUNT".equalsIgnoreCase(sdpOrdersAndAuditlogsBean.getSdpTenant().getPaymentTerms())) {
+			paymetTermsLabel.setText(ProviderLabelConstants.OPEN_ACCOUNT);
+		} else {
+			paymetTermsLabel.setText(ProviderLabelConstants.CREDIT_CARD);
+		}
+		customerInformationTable.setWidget(CON_8, CON_1, paymetTermsLabel);
+
+		customerInformationTable.getFlexCellFormatter().addStyleName(CON_8, CON_1, "wordbreak");
+
+		Label priceListNameLabel = new Label();
+		if (sdpOrdersAndAuditlogsBean.getPriceListName() != null) {
+			priceListNameLabel.setText(sdpOrdersAndAuditlogsBean.getPriceListName());
+		}
+		customerInformationTable.setWidget(CON_9, CON_1, priceListNameLabel);
+
+		Label partOfferingsLabel = new Label();
+		String partOffering = sdpOrdersAndAuditlogsBean.getSdpxPartner().getPartOffering();
+		if ("OEM".equalsIgnoreCase(partOffering)) {
+			partOfferingsLabel.setText(LabelConstants.OEM_PART);
+		} else if ("REPLACEMENT".equalsIgnoreCase(partOffering)) {
+			partOfferingsLabel.setText(LabelConstants.REPLACEMENT_PART);
+		} else if ("OEM_AND_REPLACEMENT".equalsIgnoreCase(partOffering)) {
+			partOfferingsLabel.setText(LabelConstants.BOTH_PART);
+		}
+
+		customerInformationTable.setWidget(CON_10, CON_1, partOfferingsLabel);
+
+		int taxingLocationId = sdpOrdersAndAuditlogsBean.getSdpTenant().getTaxingLocation();
+		String taxLocation = PartnerTaxLocation.getPartnerTaxLocationString(taxingLocationId);
+		customerInformationTable.setText(CON_11, CON_1, taxLocation);
+
+		setLabelStyle(CON_3, CON_1, customerInformationTable, GWT_LABEL);
+		setLabelStyle(CON_4, CON_1, customerInformationTable, GWT_LABEL);
+		setLabelStyle(CON_5, CON_1, customerInformationTable, GWT_LABEL);
+		setLabelStyle(CON_6, CON_1, customerInformationTable, GWT_LABEL);
+		setLabelStyle(CON_7, CON_1, customerInformationTable, GWT_LABEL);
+		setLabelStyle(CON_8, CON_1, customerInformationTable, GWT_LABEL);
+		setLabelStyle(CON_9, CON_1, customerInformationTable, GWT_LABEL);
+		setLabelStyle(CON_10, CON_1, customerInformationTable, GWT_LABEL);
+		setLabelStyle(CON_11, CON_1, customerInformationTable, GWT_LABEL);
+
+		customerInformationTable.setText(CON_2, CON_2,
+				ProviderLabelConstants.ORDER_BY_MODEL_LBL.concat(ProviderLabelConstants.COLON_LABL));
+		customerInformationTable.setText(CON_3, CON_2,
+				ProviderLabelConstants.PARTNER_ORDERING_LBL.concat(ProviderLabelConstants.COLON_LABL));
+		customerInformationTable.setText(CON_4, CON_2,
+				ProviderLabelConstants.PROMOTION_LABEL.concat(ProviderLabelConstants.COLON_LABL));
+		customerInformationTable.setText(CON_5, CON_2,
+				ProviderLabelConstants.DEVICE_PURCHASING_LABEL.concat(ProviderLabelConstants.COLON_LABL));
+		customerInformationTable.setText(CON_6, CON_2, "");
+		customerInformationTable.setText(CON_7, CON_2, "");
+		customerInformationTable.setText(CON_8, CON_2, "");
+		customerInformationTable.setText(CON_9, CON_2, "");
+
+		customerInformationTable.getFlexCellFormatter().setStyleName(CON_2, CON_2, ROW_BORDER_LEFT_SIDE);
+		customerInformationTable.getFlexCellFormatter().setStyleName(CON_3, CON_2, ROW_BORDER_LEFT_SIDE);
+		customerInformationTable.getFlexCellFormatter().setStyleName(CON_4, CON_2, ROW_BORDER_LEFT_SIDE);
+		customerInformationTable.getFlexCellFormatter().setStyleName(CON_5, CON_2, ROW_BORDER_LEFT_SIDE);
+		customerInformationTable.getFlexCellFormatter().setStyleName(CON_5, CON_2, ROW_BORDER_LEFT_SIDE);
+		customerInformationTable.getFlexCellFormatter().setStyleName(CON_6, CON_2, ROW_BORDER_LEFT_SIDE);
+		customerInformationTable.getFlexCellFormatter().setStyleName(CON_7, CON_2, ROW_BORDER_LEFT_SIDE);
+		customerInformationTable.getFlexCellFormatter().setStyleName(CON_8, CON_2, ROW_BORDER_LEFT_SIDE);
+		customerInformationTable.getFlexCellFormatter().setStyleName(CON_9, CON_2, ROW_BORDER_LEFT_SIDE);
+		customerInformationTable.getFlexCellFormatter().setStyleName(CON_10, CON_2, ROW_BORDER_LEFT_SIDE);
+		customerInformationTable.getFlexCellFormatter().setStyleName(CON_11, CON_2, ROW_BORDER_LEFT_SIDE);
+
+		setLabelStyle(CON_2, CON_2, customerInformationTable, GWT_LABEL);
+		setLabelStyle(CON_3, CON_2, customerInformationTable, GWT_LABEL);
+		setLabelStyle(CON_4, CON_2, customerInformationTable, GWT_LABEL);
+		setLabelStyle(CON_5, CON_2, customerInformationTable, GWT_LABEL);
+
+		customerInformationTable.getFlexCellFormatter().setStyleName(CON_2, CON_3, ROW_BORDER_RIGHT_SIDE);
+		customerInformationTable.getFlexCellFormatter().setStyleName(CON_3, CON_3, ROW_BORDER_RIGHT_SIDE);
+		customerInformationTable.getFlexCellFormatter().setStyleName(CON_4, CON_3, ROW_BORDER_RIGHT_SIDE);
+		customerInformationTable.getFlexCellFormatter().setStyleName(CON_5, CON_3, ROW_BORDER_RIGHT_SIDE);
+		customerInformationTable.getFlexCellFormatter().setStyleName(CON_6, CON_3, ROW_BORDER_RIGHT_SIDE);
+		customerInformationTable.getFlexCellFormatter().setStyleName(CON_7, CON_3, ROW_BORDER_RIGHT_SIDE);
+		customerInformationTable.getFlexCellFormatter().setStyleName(CON_8, CON_3, ROW_BORDER_RIGHT_SIDE);
+		customerInformationTable.getFlexCellFormatter().setStyleName(CON_9, CON_3, ROW_BORDER_RIGHT_SIDE);
+		customerInformationTable.getFlexCellFormatter().setStyleName(CON_10, CON_3, ROW_BORDER_RIGHT_SIDE);
+		customerInformationTable.getFlexCellFormatter().setStyleName(CON_11, CON_3, ROW_BORDER_RIGHT_SIDE);
+
+		if (sdpOrdersAndAuditlogsBean.isOderByModelFlag() && sdpOrdersAndAuditlogsBean.getSdpProgram() != null
+				&& sdpOrdersAndAuditlogsBean.getSdpProgram().getOrderByModel()) {
+			customerInformationTable.setText(CON_2, CON_3, YES);
+		} else {
+			customerInformationTable.setText(CON_2, CON_3, NO);
+		}
+
+		setLabelStyle(CON_2, CON_3, customerInformationTable, GWT_LABEL);
+
+		customerInformationTable.setText(CON_2, CON_4,
+				ProviderLabelConstants.TAX_STATUS_LBL.concat(ProviderLabelConstants.COLON_LABL));
+		customerInformationTable.setText(CON_3, CON_4,
+				ProviderLabelConstants.CLASS_CODE_LABEL.concat(ProviderLabelConstants.COLON_LABL));
+		customerInformationTable.setText(CON_4, CON_4,
+				ProviderLabelConstants.CERTIFICATE_LBL.concat(ProviderLabelConstants.COLON_LABL));
+		customerInformationTable.setText(CON_5, CON_4,
+				ProviderLabelConstants.EXPIRATION_LBL.concat(ProviderLabelConstants.COLON_LABL));
+		customerInformationTable.setText(CON_6, CON_4, "");
+		customerInformationTable.setText(CON_7, CON_4, "");
+		customerInformationTable.setText(CON_8, CON_4, "");
+		customerInformationTable.setText(CON_9, CON_4, "");
+		customerInformationTable.setText(CON_10, CON_4,"");
+		customerInformationTable.setText(CON_11, CON_4,"");
+
+		setLabelStyle(CON_2, CON_4, customerInformationTable, GWT_LABEL);
+		setLabelStyle(CON_3, CON_4, customerInformationTable, GWT_LABEL);
+		setLabelStyle(CON_4, CON_4, customerInformationTable, GWT_LABEL);
+		setLabelStyle(CON_5, CON_4, customerInformationTable, GWT_LABEL);
+		setLabelStyle(CON_6, CON_4, customerInformationTable, GWT_LABEL);
+		setLabelStyle(CON_7, CON_4, customerInformationTable, GWT_LABEL);
+		setLabelStyle(CON_8, CON_4, customerInformationTable, GWT_LABEL);
+		setLabelStyle(CON_9, CON_4, customerInformationTable, GWT_LABEL);
+		setLabelStyle(CON_10, CON_4, customerInformationTable, GWT_LABEL);
+		setLabelStyle(CON_11, CON_4, customerInformationTable, GWT_LABEL);
+
+		SDPTenant sdpTenant = sdpOrdersAndAuditlogsBean.getSdpTenant();
+		SDPProgram sdpProgram = sdpOrdersAndAuditlogsBean.getSdpProgram();
+		SDPXPartner sdpxPartner = sdpOrdersAndAuditlogsBean.getSdpxPartner();
+		/** method to set all flags values. */
+		setFalgsValues(sdpTenant, sdpProgram, sdpxPartner);
+
+		SDPCustomerTaxClassCode customerTaxClassCode = sdpOrdersAndAuditlogsBean.getSdpTenant().getSdpClassCodeList()
+				.get(0);
+		if (customerTaxClassCode != null) {
+			customerInformationTable.setText(CON_3, CON_5, customerTaxClassCode.getClassCode()
+					.concat(ProviderLabelConstants.COLON_LABL).concat(customerTaxClassCode.getClassCodeName()));
+			setLabelStyle(CON_3, CON_5, customerInformationTable, GWT_LABEL);
+		}
+
+		customerInformationTable.setStyleName(TABLEALLSIDE_BORDER);
+
+		customerInformationTable.getCellFormatter().getElement(0, 2).getStyle().setProperty(BACK_GROUND_COLOR,
+				GRAY_COLOR_CONSTANT);
+		customerInformationTable.getCellFormatter().getElement(0, 3).getStyle().setProperty(BACK_GROUND_COLOR,
+				GRAY_COLOR_CONSTANT);
+
+		customerInformationTable.setWidth("100%");
+
+		customerInformationTable.getElement().getStyle().setProperty("borderCollapse", "collapse");
+
+		return customerInformationTable;
+	}
+
+	/**
+	 * This method is to add the listener for proceedButton.
+	 *
+	 * @param handler - clickHandler
+	 */
+	public void proceedButtonClickHandler(final ClickHandler clickHandler) {
+		proceedButton.addClickHandler(clickHandler);
+	}
+
+	/**
+	 * Removes the blocking panel on popup close.
+	 */
+	public void removeBGLayer() {
+		hide();
+	}
+
+	/**
+	 * @param sdpTenant
+	 * @param sdpProgram
+	 * @param sdpxPartner
+	 */
+	private void setAllFalgsValues(final SDPTenant sdpTenant, final SDPProgram sdpProgram,
+			final SDPXPartner sdpxPartner) {
+
+		if (sdpProgram != null && sdpProgram.isEnableOrderByPartner() && sdpTenant.getIsPartnerAuthOrder()) {
+			customerInformationTable.setText(CON_3, CON_3, YES);
+		} else {
+			customerInformationTable.setText(CON_3, CON_3, NO);
+		}
+
+		setLabelStyle(CON_3, CON_3, customerInformationTable, GWT_LABEL);
+		if (sdpTenant.isSupplyPromotionsEnabled() && sdpProgram != null && sdpProgram.getIsAllowPromotions()
+				&& sdpxPartner != null && sdpxPartner.getIsSupplyPromoEnabled()) {
+			customerInformationTable.setText(CON_4, CON_3, YES);
+		} else {
+			customerInformationTable.setText(CON_4, CON_3, NO);
+		}
+
+		setLabelStyle(CON_4, CON_3, customerInformationTable, GWT_LABEL);
+
+		if (sdpTenant.isDevicePurchasingEnabled() && sdpProgram != null && sdpProgram.getIsDevicePurchaseEnabled()
+				&& sdpxPartner != null && sdpxPartner.getIsDevicePurchasingEnabled()) {
+			customerInformationTable.setText(CON_5, CON_3, YES);
+		} else {
+			customerInformationTable.setText(CON_5, CON_3, NO);
+		}
+		setLabelStyle(CON_5, CON_3, customerInformationTable, GWT_LABEL);
+	}
+	/**
+	 * @param sdpTenant
+	 * @param sdpProgram
+	 * @param sdpxPartner
+	 */
+	private void setFalgsValues(final SDPTenant sdpTenant, final SDPProgram sdpProgram, final SDPXPartner sdpxPartner) {
+
+		if (sdpTenant != null) {
+			/** method for setting the all flags values. */
+			setAllFalgsValues(sdpTenant, sdpProgram, sdpxPartner);
+
+			boolean taxExempty = sdpTenant.getTaxExempt();
+			if (taxExempty) {
+				customerInformationTable.setText(CON_2, CON_5, "Exempt");
+			} else {
+				customerInformationTable.setText(CON_2, CON_5, "Taxable");
+			}
+			setLabelStyle(CON_2, CON_5, customerInformationTable, GWT_LABEL);
+
+			customerInformationTable.setText(CON_4, CON_5, sdpTenant.getCertificateCode());
+
+			Date expirationDate = sdpTenant.getExpirationDate();
+			Label expirationDateLabel = new Label();
+			if (expirationDate != null) {
+				String expirationDateString = I18NDateUtil.getFormatedDateGWT(expirationDate);
+				expirationDateLabel.setText(expirationDateString);
+			}
+
+			customerInformationTable.setWidget(CON_5, CON_5, expirationDateLabel);
+			customerInformationTable.setText(CON_6, CON_5, "");
+			customerInformationTable.setText(CON_7, CON_5, "");
+			customerInformationTable.setText(CON_8, CON_5, "");
+			customerInformationTable.setText(CON_9, CON_5, "");
+			customerInformationTable.setText(CON_10, CON_5, "");
+			customerInformationTable.setText(CON_11, CON_5, "");
+
+			setLabelStyle(CON_4, CON_5, customerInformationTable, GWT_LABEL);
+			setLabelStyle(CON_5, CON_5, customerInformationTable, GWT_LABEL);
+			setLabelStyle(CON_6, CON_5, customerInformationTable, GWT_LABEL);
+			setLabelStyle(CON_7, CON_5, customerInformationTable, GWT_LABEL);
+			setLabelStyle(CON_8, CON_5, customerInformationTable, GWT_LABEL);
+			setLabelStyle(CON_9, CON_5, customerInformationTable, GWT_LABEL);
+			setLabelStyle(CON_10, CON_5, customerInformationTable, GWT_LABEL);
+			setLabelStyle(CON_11, CON_5, customerInformationTable, GWT_LABEL);
+
+		}
+	}
+
+	/**
+	 * @param row
+	 * @param col
+	 * @param widget
+	 * @param pixelSize
+	 * @param table
+	 * @param style
+	 * @param verticalAlignment
+	 */
+	private void setLabelStyle(final int row, final int col, final FlexTable table, final String style) {
+
+		if (style != null && !style.isEmpty()) {
+			table.getCellFormatter().addStyleName(row, col, style);
+		}
+
+		table.getFlexCellFormatter().setHorizontalAlignment(row, col, HasHorizontalAlignment.ALIGN_LEFT);
+	}
+
+	/**
+	 * Set the component layout properties.
+	 */
+	private void setLayoutProperties() {
+
+		setGlassEnabled(true);
+		setAnimationEnabled(true);
+		setGlassStyleName("block-all");
+
+		layout.setBorderWidth(0);
+		layout.setCellPadding(0);
+		layout.setCellSpacing(0);
+
+		layout.getFlexCellFormatter().setWidth(0, 0, "10px");
+		layout.getFlexCellFormatter().setHeight(0, 0, "10px");
+
+		layout.getFlexCellFormatter().setWidth(0, 2, "10px");
+		layout.getFlexCellFormatter().setHeight(0, 2, "10px");
+
+		layout.getFlexCellFormatter().setWidth(2, 0, "10px");
+		layout.getFlexCellFormatter().setHeight(2, 0, "10px");
+
+		layout.getFlexCellFormatter().setWidth(2, 2, "10px");
+		layout.getFlexCellFormatter().setHeight(2, 2, "10px");
+
+		layout.getFlexCellFormatter().addStyleName(0, 0, "rcTopLeft");
+		layout.getFlexCellFormatter().addStyleName(0, 1, "rcTopCenter");
+		layout.getFlexCellFormatter().addStyleName(0, 2, "rcTopRight");
+
+		layout.getFlexCellFormatter().setWidth(1, 2, "10px");
+		layout.getFlexCellFormatter().addStyleName(1, 0, "rcMiddleLeft");
+		layout.getFlexCellFormatter().addStyleName(1, 2, "rcMiddleRight");
+
+		layout.getFlexCellFormatter().addStyleName(2, 0, "rcBottomLeft");
+		layout.getFlexCellFormatter().addStyleName(2, 1, "rcBottomCenter");
+		layout.getFlexCellFormatter().addStyleName(2, 2, "rcBottomRight");
+
+		getElement().getStyle().setProperty(BACK_GROUND_COLOR, "transparent");
+		layout.getCellFormatter().getElement(1, 1).getStyle().setProperty(BACK_GROUND_COLOR, "#FFFFFF");
+	}
+
+	/**
+	 * @param orderLineItemListWidget the orderLineItemListWidget to set
+	 */
+	public void setOrderLineItemListWidget(final OrderLineItemListWidget orderLineItemListWidget) {
+		this.orderLineItemListWidget = orderLineItemListWidget;
+	}
+
+	/**
+	 * @param orderListWidget the orderListWidget to set
+	 */
+	public void setOrderListWidget(final OrderListWidget orderListWidget) {
+		this.orderListWidget = orderListWidget;
+	}
+
+	/**
+	 * this method is to set the properties for widgets.
+	 */
+	private void setProperties() {
+
+		portalDeckPanel.setWidth(WIDTH_CONSTANT);
+		orderListWidget.setWidth(WIDTH_CONSTANT);
+		orderLineItemListWidget.setWidth(WIDTH_CONSTANT);
+
+		buttonPanel.setSpacing(CON_5);
+		reqFieldPanel.setSpacing(CON_3);
+		reqFieldPanel.setWidth("550px");
+		reqFieldPanel.setStyleName(HEADER_BORDER);
+
+		FlexTable ftb = new FlexTable();
+
+		reqFieldPanel.add(ftb);
+
+		reqFieldPanel.setCellHorizontalAlignment(ftb, HasHorizontalAlignment.ALIGN_RIGHT);
+
+		closeButton.setText(ProviderLabelConstants.CLOSE_BUTTON_TXT);
+		proceedButton.setText(ProviderLabelConstants.PROCEED_LBL);
+		backButton.setText(ProviderLabelConstants.BACK_BUTTON_TXT);
+
+		ordersAndAuditlogsLbl.setText(ProviderLabelConstants.ORDER_AND_AUDITLOGS_TXT);
+		mandatoryLbl.setText(ProviderLabelConstants.MANDATORY_LABEL_TXT);
+		mandatoryLbl.setStyleName(MANDATORY);
+		requiredFieldLbl.setText(ProviderLabelConstants.MANDATRY_INFO_LBL);
+
+		customerLoginNameLbl.setText(ProviderLabelConstants.CUSTOMER_LGN_ID_LBL + ProviderLabelConstants.SPACE_LABEL
+				+ ProviderLabelConstants.COLON_LABL);
+
+		orderNumberLbl.setText(ProviderLabelConstants.ORDER_NUMBER_LBL + ProviderLabelConstants.SPACE_LABEL
+				+ ProviderLabelConstants.COLON_LABL);
+
+		flexTable.getFlexCellFormatter().setHorizontalAlignment(CON_3, CON_0, HasHorizontalAlignment.ALIGN_CENTER);
+		flexTable.getFlexCellFormatter().setHorizontalAlignment(CON_4, CON_0, HasHorizontalAlignment.ALIGN_RIGHT);
+
+		closeButton.setGrayButton();
+		backButton.setGrayButton();
+	}
+
+	/**
+	 * @param sdpOrdersAndAuditlogsBean the sdpOrdersAndAuditlogsBean to set
+	 */
+	public void setSdpOrdersAndAuditlogsBean(final SDPOrdersAndAuditlogsBean sdpOrdersAndAuditlogsBean) {
+		this.sdpOrdersAndAuditlogsBean = sdpOrdersAndAuditlogsBean;
+	}
+
+	/**
+	 *
+	 */
+	public void showDeckPanel() {
+		buttonPanel.clear();
+		buttonPanel.add(closeButton);
+		portalDeckPanel.showWidget(0);
+	}
+
+	/**
+	 *
+	 * @param sdpOrdersAndAuditlogsBean
+	 */
+	public void showForStepTwo(final SDPOrdersAndAuditlogsBean sdpOrdersAndAuditlogsBean) {
+
+		orderListWidget.setUserId(sdpOrdersAndAuditlogsBean.getSdpUser().getId());
+		orderListWidget.setSdpOrdersAndAuditlogsBean(sdpOrdersAndAuditlogsBean);
+
+		if (null != sdpOrdersAndAuditlogsBean.getOrderNumber()
+				&& sdpOrdersAndAuditlogsBean.getOrderNumber().length() > 0) {
+			orderListWidget.setOrderNumber(sdpOrdersAndAuditlogsBean.getOrderNumber());
+		}
+
+		flexTable.clear();
+		buttonPanel.clear();
+
+		flexTable.setText(CON_0, CON_0, ProviderLabelConstants.CUSTOMER_INFORMATION);
+		setLabelStyle(CON_0, CON_0, flexTable, GWT_BOLD_LABEL);
+		flexTable.setWidget(CON_1, CON_0, ruleLabel);
+		populateCustomerInformationTable(sdpOrdersAndAuditlogsBean);
+		flexTable.setWidget(CON_2, CON_0, customerInformationTable);
+
+		buttonPanel.add(closeButton);
+
+		boolean isNext = false;
+		PagingBean page = new PagingBean();
+		page.setSortAscending(true);
+		page.setSortOrder("id");
+		int pageConstant = Integer.parseInt((String) Nexus.getNexus().getProperty("PAGE"));
+		page.setPagingConstant(pageConstant);
+		page.setStartingRecord(orderListWidget.getCurrentPage().getStartingRecord());
+
+		if (page.getStartingRecord() >= page.getPagingConstant()) {
+			isNext = true;
+		}
+		orderListWidget.showOrderList(page, isNext);
+		orderListWidget.showUserList(sdpOrdersAndAuditlogsBean);
+		portalDeckPanel.add(orderListWidget);
+		portalDeckPanel.add(orderLineItemListWidget);
+
+		portalDeckPanel.showWidget(0);
+		flexTable.setWidget(CON_3, CON_0, portalDeckPanel);
+
+		flexTable.setWidget(CON_4, CON_0, buttonPanel);
+		/** method for show to popup. */
+		showPopUp(2);
+	}
+
+	/**
+	 * Overrides the popup show method.
+	 */
+	public void showPopUp(final int step) {
+		if (step == 1) {
+			super.show();
+			super.center();
+		} else {
+			RootUIElement root = (RootUIElement) Nexus.getNexus().getElementByName("root");
+			MainWidget main = (MainWidget) root.getWidget();
+			getElement().getStyle().setProperty("width", "885px");
+			setPopupPosition(main.getAbsoluteLeft(), main.getAbsoluteTop());
+			Window.scrollTo(0, 0);
+		}
+
+	}
+
+	/**
+	 * @param sdpOrdersAndAuditlogsBean
+	 */
+	public void showStepThree(final SDPOrdersAndAuditlogsBean sdpOrdersAndAuditlogsBean) {
+		portalDeckPanel.remove(orderLineItemListWidget);
+		orderLineItemListWidget = new OrderLineItemListWidget();
+		portalDeckPanel.add(orderLineItemListWidget);
+		orderLineItemListWidget.setSdpOrdersAndAuditlogsBean(sdpOrdersAndAuditlogsBean);
+		orderLineItemListWidget
+				.setSdpOrdersAndAuditlogsLineItemBean(sdpOrdersAndAuditlogsBean.getSdpOrdersAndAuditlogsLineItemBean());
+		orderLineItemListWidget.setTotalInformation();
+		portalDeckPanel.showWidget(1);
+		buttonPanel.add(backButton);
+		/** method for show to popup. */
+		showPopUp(3);
+	}
+
+	/**
+	 * This method is to initialize the widgets.
+	 */
+	private void widgetInitialize() {
+
+		portalDeckPanel = new DeckPanel();
+
+		orderListWidget = new OrderListWidget();
+		orderLineItemListWidget = new OrderLineItemListWidget();
+
+		layout = new FlexTable();
+		flexTable = new FlexTable();
+
+		requiredFieldLbl = new Label();
+		mandatoryLbl = new Label();
+		ordersAndAuditlogsLbl = new Label();
+
+		ruleLabel = new HTML();
+		reqFieldPanel = new HorizontalPanel();
+
+		buttonPanel = new HorizontalPanel();
+		closeButton = new PayGoWebButton();
+		proceedButton = new PayGoWebButton();
+		backButton = new PayGoWebButton();
+
+		customerInformationTable = new FlexTable();
+		userTable = new FlexTable();
+
+		buttonPanel.add(closeButton);
+		buttonPanel.add(proceedButton);
+
+		customerLoginNameLbl = new Label();
+		Label customerNameMandatoryLbl = new Label();
+		customerNameTxtBox = new TextBox();
+		orderNumberLbl = new Label();
+		orderNumberTxtBox = new TextBox();
+
+		FlexTable customerNameTable = new FlexTable();
+		customerNameTable.setWidget(CON_0, CON_0, customerLoginNameLbl);
+		customerNameTable.setWidget(CON_0, CON_1, customerNameMandatoryLbl);
+		customerNameTable.setWidget(CON_0, CON_2, customerNameTxtBox);
+		customerNameTable.setWidget(CON_1, CON_0, orderNumberLbl);
+		customerNameTable.setWidget(CON_1, CON_2, orderNumberTxtBox);
+
+		customerNameTable.getCellFormatter().setHorizontalAlignment(CON_0, CON_0, HasHorizontalAlignment.ALIGN_RIGHT);
+
+		customerNameTable.getCellFormatter().setHorizontalAlignment(CON_1, CON_0, HasHorizontalAlignment.ALIGN_RIGHT);
+
+		flexTable.setWidget(CON_0, CON_0, ordersAndAuditlogsLbl);
+		flexTable.setWidget(CON_1, CON_0, ruleLabel);
+		flexTable.setWidget(CON_2, CON_0, reqFieldPanel);
+		flexTable.setWidget(CON_3, CON_0, customerNameTable);
+		flexTable.setWidget(CON_4, CON_0, buttonPanel);
+
+		ordersAndAuditlogsLbl.setStyleName(GWT_BOLD_LABEL);
+		layout.setWidget(CON_1, CON_1, flexTable);
+
+		step = 1;
+		
+		
+	}
+
+}

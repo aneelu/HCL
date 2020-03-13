@@ -1,0 +1,652 @@
+
+package com.hcl.sdp.shared.management.widget;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.user.client.DOM;
+import com.google.gwt.user.client.ui.DialogBox;
+import com.google.gwt.user.client.ui.FlexTable;
+import com.google.gwt.user.client.ui.HasHorizontalAlignment;
+import com.google.gwt.user.client.ui.HasVerticalAlignment;
+import com.google.gwt.user.client.ui.Label;
+import com.google.gwt.user.client.ui.ScrollPanel;
+import com.google.gwt.user.client.ui.VerticalPanel;
+import com.google.gwt.user.client.ui.Widget;
+import com.hcl.sdp.shared.bean.Filter;
+import com.hcl.sdp.shared.bean.PagingBean;
+import com.hcl.sdp.shared.bean.SDPBeanBundle;
+import com.hcl.sdp.shared.bean.SDPLookup;
+import com.hcl.sdp.shared.bean.SDPOrder;
+import com.hcl.sdp.shared.bean.SDPOrdersAndAuditlogsBean;
+import com.hcl.sdp.shared.bean.SDPUser;
+import com.hcl.sdp.shared.framework.callback.AsyncCallbackWithStatus;
+import com.hcl.sdp.shared.framework.constants.NexusConstants;
+import com.hcl.sdp.shared.framework.constants.ProviderLabelConstants;
+import com.hcl.sdp.shared.framework.constants.WidgetConstant;
+import com.hcl.sdp.shared.framework.util.I18NDateUtil;
+import com.hcl.sdp.shared.service.OrdersAndAuditlogsServiceAsync;
+
+/**
+ * Description: Copyright (c) 2018, HCL Technologies.
+ *
+ * @date Sep 20, 2018 8:11:38 PM
+ * @author koteswararaoc
+ */
+
+public class OrderListWidget extends PaginationWidget {
+
+	/** constant variable for 0. */
+	private static final int CON_0 = 0;
+	/** constant variable for 1. */
+	private static final int CON_1 = 1;
+	/** constant variable for 2. */
+	private static final int CON_2 = 2;
+	/** constant variable for 3. */
+	private static final int CON_3 = 3;
+	/** constant variable for 4. */
+	private static final int CON_4 = 4;
+	/** constant variable for 5. */
+	private static final int CON_5 = 5;
+	/** constant variable for 6. */
+	private static final int CON_6 = 6;
+	/** constant variable for 7. */
+	private static final int CON_7 = 7;
+	/** constant variable for 8. */
+	private static final int CON_8 = 8;
+	/** constant variable for 9. */
+	private static final int CON_9 = 9;
+	/** constant variable for 10. */
+	private static final int CON_10 = 10;
+	/** constant for 100px. */
+	private static final String CONSTANT_100_PX = "100px";
+	/** constant for 90px. */
+	private static final String CONSTANT_90_PX = "90px";
+	/** constant for TABLE_SPACING. */
+	private static final int TABLE_SPACING = 10;
+	/** constant for TABLE_CELL. */
+	private static final String TABLE_CELL = "table_cell";
+	/** constant for TABLE_HEADER. */
+	private static final String TABLE_HEADER = "table_header";
+	/** constant for TABLE_BORDER. */
+	private static final String TABLE_BORDER = "table_border";
+	/** gwt-BoldLabel constant. */
+	private static final String GWT_BOLD_LABEL = "gwt-BoldLabel";
+	/** error constant. */
+	private static final String ERROR = "error";
+	/** VerticalPanel Declaration. **/
+	private VerticalPanel viewCustomersPanel = null;
+	/** table to display the customers. */
+	private FlexTable mainTableDisplay = null;
+
+	/** table to display the users. */
+	private FlexTable userTableDisplay = null;
+
+	/** table to display the Orders. */
+	private FlexTable tableDisplay = null;
+	/** view click listener. */
+	private ClickHandler viewOrderListener;
+	/** Selected row item ID. */
+	private long anchorRow = 0;
+	/** Reload status. */
+	private boolean reload = false;
+	/** Selected row item ID. */
+	private long selectedRow = 0;
+	/** Page Filter. */
+	private Filter filter;
+	/** constant for userid. */
+	private long userId;
+	/** SDPOrdersAndAuditlogsBean. */
+	private SDPOrdersAndAuditlogsBean sdpOrdersAndAuditlogsBean;
+	/** gwt-BoldLabel constant. */
+	private static final String ORDER_HIGHLIGHT = "orderHighlight";
+	/** constant for orderNumber. */
+	private String orderNumber;
+
+	FlexTable userTableDisplay1 = new FlexTable();
+
+	/**
+	 * Default Constructor.
+	 */
+	public OrderListWidget() {
+		widgetInitialize();
+		setComponentID();
+		setProperties();
+		drawTable();
+
+		mainTableDisplay.setWidget(CON_0, CON_0, userTableDisplay);
+		mainTableDisplay.setText(CON_1, CON_0, ProviderLabelConstants.SELECT_ORDER_LBL);
+		mainTableDisplay.getFlexCellFormatter().setStyleName(CON_0, CON_0, GWT_BOLD_LABEL);
+		mainTableDisplay.setWidget(CON_2, CON_0, tableDisplay);
+		viewCustomersPanel.add(mainTableDisplay);
+		initWidget(viewCustomersPanel);
+	}
+
+	private Widget drawUserTable() {
+
+		FlexTable userTableDisplay = new FlexTable();
+		
+		userTableDisplay.setWidth("55%");
+		userTableDisplay.setText(CON_0, CON_0, ProviderLabelConstants.CUSTOMER_LOGIN_LBL);
+		userTableDisplay.getFlexCellFormatter().setWidth(CON_0, CON_0, "82px");
+		userTableDisplay.getCellFormatter().addStyleName(CON_0, CON_0, TABLE_HEADER);
+		
+		userTableDisplay.setText(CON_0, CON_1, ProviderLabelConstants.CUSTOMER_NAME_LBL);
+		userTableDisplay.getFlexCellFormatter().setWidth(CON_0, CON_1, "83px");
+		userTableDisplay.getCellFormatter().addStyleName(CON_0, CON_1, TABLE_HEADER);
+		
+		userTableDisplay.setText(CON_0, CON_2, ProviderLabelConstants.TYPE_LABEL);
+		userTableDisplay.getFlexCellFormatter().setWidth(CON_0, CON_2, "90px");
+		userTableDisplay.getCellFormatter().addStyleName(CON_0, CON_2, TABLE_HEADER);
+		
+		userTableDisplay.setStyleName(TABLE_BORDER);
+
+		return userTableDisplay;
+
+	}
+
+	private Widget userInformation(SDPOrdersAndAuditlogsBean sdpOrdersAndAuditlogsBean) {
+
+		FlexTable userTableDisplay = new FlexTable();
+
+		List<SDPUser> sdpUserList = sdpOrdersAndAuditlogsBean.getSdpUserList();
+		int rowCount = userTableDisplay.getRowCount();
+
+		if (sdpUserList == null || sdpUserList.isEmpty()) {
+			userTableDisplay.getFlexCellFormatter().setColSpan(CON_1, CON_0, CON_3);
+			userTableDisplay.setWidget(CON_1, CON_0, new NoRecordWidget());
+			userTableDisplay.getCellFormatter().setHorizontalAlignment(CON_1, CON_0,
+					HasHorizontalAlignment.ALIGN_CENTER);
+			userTableDisplay.getCellFormatter().setVerticalAlignment(CON_1, CON_0, HasVerticalAlignment.ALIGN_MIDDLE);
+
+		} else {
+			for (SDPUser sdpUser : sdpUserList) {
+				userTableDisplay.getFlexCellFormatter().addStyleName(rowCount, CON_0, TABLE_CELL);
+				userTableDisplay.getFlexCellFormatter().setWidth(rowCount, CON_0, CONSTANT_100_PX);
+				userTableDisplay.setWidget(rowCount, CON_0, new Label(sdpUser.getLoginName()));
+
+				userTableDisplay.getFlexCellFormatter().addStyleName(rowCount, CON_1, TABLE_CELL);
+				userTableDisplay.getFlexCellFormatter().setWidth(rowCount, CON_1, CONSTANT_100_PX);
+				userTableDisplay.setWidget(rowCount, CON_1,
+						new Label(sdpUser.getFirstName() != null && sdpUser.getLastName() != null
+								? sdpUser.getFirstName().concat(" ").concat(sdpUser.getLastName())
+								: sdpUser.getFirstName()));
+
+				userTableDisplay.getFlexCellFormatter().addStyleName(rowCount, CON_2, TABLE_CELL);
+				userTableDisplay.getFlexCellFormatter().setWidth(rowCount, CON_2, CONSTANT_100_PX);
+				userTableDisplay.setWidget(rowCount, CON_2,
+						new Label(sdpUser.getType() == 4 ? "Primary" : "Secondary"));
+
+				rowCount++;
+
+			}
+
+			userTableDisplay.getCellFormatter().setHorizontalAlignment(0, 0, HasHorizontalAlignment.ALIGN_LEFT);
+			userTableDisplay.getCellFormatter().setHorizontalAlignment(0, 2, HasHorizontalAlignment.ALIGN_LEFT);
+			userTableDisplay.setStyleName(TABLE_BORDER);
+			userTableDisplay.setWidth("500px");
+
+		}
+		ScrollPanel panel = new ScrollPanel();
+
+		if (rowCount > 4) {
+			panel.setHeight("65px");
+			panel.setWidth("55%");
+
+			userTableDisplay.setWidth("100%");
+			userTableDisplay.setCellSpacing(0);
+			userTableDisplay.setBorderWidth(0);
+			userTableDisplay.setCellPadding(0);
+		}
+		panel.add(userTableDisplay);
+		return panel;
+
+	}
+
+	/**
+	 * Method for draw the table.
+	 */
+	private void drawTable() {
+		tableDisplay.setText(CON_0, CON_0, ProviderLabelConstants.ORDER_NUMBER_LBL);
+		tableDisplay.getFlexCellFormatter().setWidth(CON_0, CON_0, "120px");
+		tableDisplay.getCellFormatter().addStyleName(CON_0, CON_0, TABLE_HEADER);
+		tableDisplay.setText(CON_0, CON_1, ProviderLabelConstants.ORDER_TYPE_LBL);
+		tableDisplay.getFlexCellFormatter().setWidth(CON_0, CON_1, CONSTANT_100_PX);
+		tableDisplay.getCellFormatter().addStyleName(CON_0, CON_1, TABLE_HEADER);
+		tableDisplay.setText(CON_0, CON_2, ProviderLabelConstants.ORDER_STATUS_LBL);
+		tableDisplay.getFlexCellFormatter().setWidth(CON_0, CON_2, CONSTANT_100_PX);
+		tableDisplay.getCellFormatter().addStyleName(CON_0, CON_2, TABLE_HEADER);
+		tableDisplay.setText(CON_0, CON_3, ProviderLabelConstants.ORDERED_DATE_LBL);
+		tableDisplay.getFlexCellFormatter().setWidth(CON_0, CON_3, CONSTANT_100_PX);
+		tableDisplay.getCellFormatter().addStyleName(CON_0, CON_3, TABLE_HEADER);
+		tableDisplay.setText(CON_0, CON_4, ProviderLabelConstants.ORDER_CONF);
+		tableDisplay.getFlexCellFormatter().setWidth(CON_0, CON_4, CONSTANT_100_PX);
+		tableDisplay.getCellFormatter().addStyleName(CON_0, CON_4, TABLE_HEADER);
+		tableDisplay.setText(CON_0, CON_5, ProviderLabelConstants.PART_SUBTOTAL_LBL);
+		tableDisplay.getFlexCellFormatter().setWidth(CON_0, CON_5, CONSTANT_90_PX);
+		tableDisplay.getCellFormatter().addStyleName(CON_0, CON_5, TABLE_HEADER);
+		tableDisplay.setText(CON_0, CON_6, ProviderLabelConstants.PROMO_CODE_LBL);
+		tableDisplay.getFlexCellFormatter().setWidth(CON_0, CON_6, CONSTANT_90_PX);
+		tableDisplay.getCellFormatter().addStyleName(CON_0, CON_6, TABLE_HEADER);
+		tableDisplay.setText(CON_0, CON_7, ProviderLabelConstants.DISCOUNT_LBL);
+		tableDisplay.getFlexCellFormatter().setWidth(CON_0, CON_7, CONSTANT_90_PX);
+		tableDisplay.getCellFormatter().addStyleName(CON_0, CON_7, TABLE_HEADER);
+		tableDisplay.setText(CON_0, CON_8, ProviderLabelConstants.SHIPPING_LBL);
+		tableDisplay.getFlexCellFormatter().setWidth(CON_0, CON_8, CONSTANT_90_PX);
+		tableDisplay.getCellFormatter().addStyleName(CON_0, CON_8, TABLE_HEADER);
+		tableDisplay.setText(CON_0, CON_9, ProviderLabelConstants.TAX);
+		tableDisplay.getFlexCellFormatter().setWidth(CON_0, CON_9, CONSTANT_90_PX);
+		tableDisplay.getCellFormatter().addStyleName(CON_0, CON_9, TABLE_HEADER);
+		tableDisplay.setText(CON_0, CON_10, ProviderLabelConstants.TOTAL_LABEL);
+		tableDisplay.getFlexCellFormatter().setWidth(CON_0, CON_10, CONSTANT_90_PX);
+		tableDisplay.getCellFormatter().addStyleName(CON_0, CON_10, TABLE_HEADER);
+
+		tableDisplay.setStyleName("table_border");
+	}
+
+	/**
+	 * @return anchorRow
+	 */
+	public long getAnchorRow() {
+		return anchorRow;
+	}
+
+	/**
+	 * Method to pass the value to current page.
+	 *
+	 * @return the bean.
+	 */
+	public PagingBean getCurrentPage() {
+		return getCurrentPage("name");
+	}
+
+	/**
+	 * Method to get the Table Count.
+	 *
+	 * @return the count.
+	 */
+	@Override
+	protected int getCurrentRecordCount() {
+		return tableDisplay.getRowCount() - 1;
+	}
+
+	/**
+	 * @return filter
+	 */
+	public Filter getFilter() {
+		return filter;
+	}
+
+	/**
+	 * Method to pass the value to next page.
+	 *
+	 * @return the bean.
+	 */
+	@Override
+	public PagingBean getNextPage() {
+		return getNextPage("name");
+	}
+
+	/**
+	 * Method to get the Previous value.
+	 *
+	 * @return the bean.
+	 */
+	@Override
+	public PagingBean getPreviousPage() {
+		return getPreviousPage("name");
+	}
+
+	/**
+	 * @return the sdpOrdersAndAuditlogsBean
+	 */
+	public SDPOrdersAndAuditlogsBean getSdpOrdersAndAuditlogsBean() {
+		return sdpOrdersAndAuditlogsBean;
+	}
+
+	/**
+	 * @return selectedRow
+	 */
+	public long getSelectedRow() {
+		return selectedRow;
+	}
+
+	/**
+	 * @return the userId
+	 */
+	public long getUserId() {
+		return userId;
+	}
+
+	public String getOrderNumber() {
+		return orderNumber;
+	}
+
+	/**
+	 * Got to selected row after View/Edit actions.
+	 */
+	public void goToSelectedRow() {
+
+		if (getAnchorRow() > 0) {
+			DOM.getElementById(String.valueOf(getAnchorRow())).scrollIntoView();
+		}
+	}
+
+	/**
+	 * @return reload
+	 */
+	public boolean isReload() {
+		return reload;
+	}
+
+	/**
+	 * This method is to display the all Customers..
+	 *
+	 * @param sdpOrderList - MODEL.
+	 *
+	 */
+
+	public final void refreshTable(final List<SDPOrder> sdpOrderList) {
+		final int count = tableDisplay.getRowCount();
+
+		for (int i = count - 1; i >= 1; i--) {
+			tableDisplay.removeRow(i);
+		}
+
+		if (sdpOrderList == null || sdpOrderList.isEmpty()) {
+			tableDisplay.getFlexCellFormatter().setColSpan(CON_1, CON_0, 12);
+			tableDisplay.setWidget(CON_1, CON_0, new NoRecordWidget(true));
+			tableDisplay.getCellFormatter().setHorizontalAlignment(CON_1, CON_0, HasHorizontalAlignment.ALIGN_CENTER);
+			tableDisplay.getCellFormatter().setVerticalAlignment(CON_1, CON_0, HasVerticalAlignment.ALIGN_MIDDLE);
+			setEmptyRows();
+
+		} else {
+			int[] row = { 1 };
+
+			Map<String, List<SDPLookup>> lookupTypeMap = sdpOrdersAndAuditlogsBean.getSdpLookupList().stream()
+					.collect(Collectors.groupingBy(SDPLookup::getLookupType));
+
+			sdpOrderList.stream().forEach(orderBean -> {
+
+				UserLink viewLink = new UserLink();
+				viewLink.setText(orderBean.getOrderNumber());
+				viewLink.setId(orderBean.getId());
+				viewLink.setActionId(WidgetConstant.VIEW_ACTION);
+				viewLink.addClickHandler(viewOrderListener);
+				viewLink.setStyleName("link-data");
+				if (null != orderNumber && orderNumber.length() > 0
+						&& orderNumber.equalsIgnoreCase(orderBean.getOrderNumber())) {
+					viewLink.setStyleName(ORDER_HIGHLIGHT);
+				}
+
+				tableDisplay.getFlexCellFormatter().setWidth(row[0], CON_0, "140px");
+				tableDisplay.setWidget(row[0], CON_0, viewLink);
+				tableDisplay.getCellFormatter().addStyleName(row[0], CON_0, TABLE_CELL);
+
+				List<SDPLookup> sdpLookupList = new ArrayList<>();
+				int ordertype = orderBean.getOrderType();
+				sdpLookupList = lookupTypeMap.get("ORDER_TYPE");
+				String orderTypeValue = sdpLookupList.stream().filter(l -> l.getLookupId() == ordertype)
+						.map(SDPLookup::getLookupValue).findFirst().orElse("");
+
+				tableDisplay.getFlexCellFormatter().setWidth(row[0], CON_1, CONSTANT_100_PX);
+				tableDisplay.setWidget(row[0], CON_1, new Label(orderTypeValue));
+				tableDisplay.getCellFormatter().addStyleName(row[0], CON_1, TABLE_CELL);
+
+				int status = orderBean.getStatus();
+				sdpLookupList = lookupTypeMap.get("ORDER_STATUS");
+				String orderStatusValue = sdpLookupList.stream().filter(l -> l.getLookupId() == status)
+						.map(SDPLookup::getLookupValue).findFirst().orElse("");
+
+				tableDisplay.getFlexCellFormatter().setWidth(row[0], CON_2, CONSTANT_100_PX);
+				tableDisplay.setWidget(row[0], CON_2, new Label(orderStatusValue));
+				tableDisplay.getCellFormatter().addStyleName(row[0], CON_2, TABLE_CELL);
+
+				Date orderedDate = orderBean.getOrderedDate();
+				if (orderedDate != null) {
+					String orderedDateString = I18NDateUtil.getFormatedDateGWTFull(orderedDate);
+					tableDisplay.getFlexCellFormatter().addStyleName(row[0], CON_3, TABLE_CELL);
+					tableDisplay.getFlexCellFormatter().setWidth(row[0], CON_3, CONSTANT_100_PX);
+					tableDisplay.setWidget(row[0], CON_3, new Label(orderedDateString));
+				}
+				Date orderedConfirmationDate = orderBean.getOrderConfirmationDate();
+				if (orderedConfirmationDate != null) {
+					String orderedDateString = I18NDateUtil.getFormatedDateGWTFull(orderedConfirmationDate);
+					tableDisplay.getFlexCellFormatter().addStyleName(row[0], CON_4, TABLE_CELL);
+					tableDisplay.getFlexCellFormatter().setWidth(row[0], CON_4, CONSTANT_100_PX);
+					tableDisplay.setWidget(row[0], CON_4, new Label(orderedDateString));
+				}
+
+				tableDisplay.getFlexCellFormatter().addStyleName(row[0], CON_5, TABLE_CELL);
+				tableDisplay.getFlexCellFormatter().setWidth(row[0], CON_5, CONSTANT_90_PX);
+				tableDisplay.setWidget(row[0], CON_5,
+						new Label(NumericTextBox.getFormattedCurrency(String.valueOf(orderBean.getSubTotal()))));
+				setLabelStyle(row[0], CON_5, tableDisplay, false);
+
+				tableDisplay.getFlexCellFormatter().addStyleName(row[0], CON_6, TABLE_CELL);
+				tableDisplay.getFlexCellFormatter().setWidth(row[0], CON_6, CONSTANT_90_PX);
+
+				String promoCode = orderBean.getPromoCode();
+				/** method to set promocode. */
+				setPromoCodeValues(promoCode, row[0]);
+
+				double discount = orderBean.getDiscount();
+
+				Label discountLable = new Label();
+				discountLable.setText(NumericTextBox.getFormattedCurrency(String.valueOf(discount)));
+				tableDisplay.getFlexCellFormatter().addStyleName(row[0], CON_7, TABLE_CELL);
+				tableDisplay.getFlexCellFormatter().setWidth(row[0], CON_7, CONSTANT_90_PX);
+
+				if (discount > 0.00d) {
+					discountLable.setText(
+							"(".concat(NumericTextBox.getFormattedCurrency(String.valueOf(discount))).concat(")"));
+					discountLable.setStyleName(ERROR);
+				}
+
+				tableDisplay.setWidget(row[0], CON_7, discountLable);
+				setLabelStyle(row[0], CON_7, tableDisplay, false);
+
+				tableDisplay.getFlexCellFormatter().addStyleName(row[0], CON_8, TABLE_CELL);
+				tableDisplay.getFlexCellFormatter().setWidth(row[0], CON_8, CONSTANT_90_PX);
+				tableDisplay.setWidget(row[0], CON_8,
+						new Label(NumericTextBox.getFormattedCurrency(String.valueOf(orderBean.getShippingPrice()))));
+				setLabelStyle(row[0], CON_8, tableDisplay, false);
+
+				tableDisplay.getFlexCellFormatter().addStyleName(row[0], CON_9, TABLE_CELL);
+				tableDisplay.getFlexCellFormatter().setWidth(row[0], CON_9, CONSTANT_90_PX);
+				tableDisplay.setWidget(row[0], CON_9,
+						new Label(NumericTextBox.getFormattedCurrency(String.valueOf(orderBean.getTax()))));
+				setLabelStyle(row[0], CON_9, tableDisplay, false);
+
+				tableDisplay.getFlexCellFormatter().addStyleName(row[0], CON_10, TABLE_CELL);
+				tableDisplay.getFlexCellFormatter().setWidth(row[0], CON_10, CONSTANT_90_PX);
+				tableDisplay.setWidget(row[0], CON_10,
+						new Label(NumericTextBox.getFormattedCurrency(String.valueOf(orderBean.getOrderValue()))));
+				setLabelStyle(row[0], CON_10, tableDisplay, false);
+
+				row[0]++;
+
+			});
+			setPaginationValues();
+			mainTableDisplay.setWidget(CON_3, CON_0, getPageLinks());
+		}
+	}
+
+	/**
+	 * @param aRow -
+	 */
+	public void setAnchorRow(final long aRow) {
+		anchorRow = aRow;
+	}
+
+	/**
+	 * Method to set the Component Id's.
+	 */
+	private void setComponentID() {
+		/**
+		 * Component Id's.
+		 */
+	}
+
+	/**
+	 * @param pageFilter -
+	 */
+	public void setFilter(final Filter pageFilter) {
+		filter = pageFilter;
+	}
+
+	/**
+	 * @param row
+	 * @param col
+	 * @param widget
+	 * @param pixelSize
+	 * @param table
+	 * @param style
+	 * @param verticalAlignment
+	 */
+	private void setLabelStyle(final int row, final int col, final FlexTable table, final boolean alighment) {
+
+		if (alighment) {
+			table.getFlexCellFormatter().setHorizontalAlignment(row, col, HasHorizontalAlignment.ALIGN_LEFT);
+		} else {
+			table.getFlexCellFormatter().setHorizontalAlignment(row, col, HasHorizontalAlignment.ALIGN_RIGHT);
+		}
+
+	}
+
+	/**
+	 * @param promoCode
+	 * @param row
+	 */
+	private void setPromoCodeValues(final String promoCode, final int row) {
+		if (promoCode != null) {
+			tableDisplay.setWidget(row, CON_6, new Label(promoCode));
+		} else {
+			tableDisplay.setWidget(row, CON_6, new Label(""));
+		}
+	}
+
+	/**
+	 * Method to set the Properties.
+	 */
+	private void setProperties() {
+		viewCustomersPanel.setSpacing(0);
+		tableDisplay.setWidth("100%");
+		tableDisplay.setCellPadding(TABLE_SPACING);
+		tableDisplay.setCellSpacing(0);
+
+		userTableDisplay.setWidth("100%");
+		userTableDisplay.setCellPadding(TABLE_SPACING);
+		userTableDisplay.setCellSpacing(0);
+	}
+
+	/**
+	 * @param reloadVal - status
+	 */
+	public void setReload(final boolean reloadVal) {
+		reload = reloadVal;
+	}
+
+	/**
+	 * @param sdpOrdersAndAuditlogsBean the sdpOrdersAndAuditlogsBean to set
+	 */
+	public void setSdpOrdersAndAuditlogsBean(final SDPOrdersAndAuditlogsBean sdpOrdersAndAuditlogsBeanParam) {
+		sdpOrdersAndAuditlogsBean = sdpOrdersAndAuditlogsBeanParam;
+	}
+
+	/**
+	 * @param rowItemId -
+	 */
+	public void setSelectedRow(final long rowItemId) {
+		selectedRow = rowItemId;
+	}
+
+	/**
+	 * @param userId the userId to set
+	 */
+	public void setUserId(final long userIdParam) {
+		userId = userIdParam;
+	}
+
+	/**
+	 * @param userId the orderNumber to set
+	 */
+	public void setOrderNumber(String orderNumber) {
+		this.orderNumber = orderNumber;
+	}
+
+	/**
+	 * @param page
+	 * @param next
+	 */
+	public void showOrderList(final PagingBean page, final boolean next) {
+		OrdersAndAuditlogsServiceAsync.Util.getInstance().getAllOrdersByUserId(page.getStartingRecord(),
+				page.getPagingConstant(), userId, sdpOrdersAndAuditlogsBean,
+				new AsyncCallbackWithStatus<SDPBeanBundle<SDPOrder>>() {
+
+					@Override
+					protected void onFailureInternal(final Throwable throwable) {
+						DialogBox dialogBox = new CustomDialogBox(NexusConstants.INFO_MESSAGE,
+								ProviderLabelConstants.ORDER_NOT_EXIT_MSG);
+						dialogBox.show();
+					}
+
+					@Override
+					protected void onSuccessInternal(final SDPBeanBundle<SDPOrder> sdpBeanBundle) {
+
+						List<SDPOrder> sdpOrderList = sdpBeanBundle.getBeans();
+
+						if (sdpOrderList != null && !sdpOrderList.isEmpty()) {
+
+							// for Paging
+							setTotalRecords(sdpBeanBundle.getCount());
+							setPagingInfo(page, sdpBeanBundle.getBeans().size(), next);
+							// for list Widget.
+							if (!isReload()) {
+								setAnchorRow(0);
+								setSelectedRow(0);
+							}
+							refreshTable(sdpOrderList);
+
+							if (isReload()) {
+								goToSelectedRow();
+							}
+							setReload(false);
+						} else {
+							refreshTable(sdpOrderList);
+						}
+
+					}
+
+				});
+	}
+
+	public void showUserList(SDPOrdersAndAuditlogsBean sdpOrdersAndAuditlogsBean) {
+		FlexTable leftPanel = (FlexTable) mainTableDisplay.getWidget(0, 0);
+		leftPanel.setWidget(0, 0, drawUserTable());
+		leftPanel.setWidget(1, 0, userInformation(sdpOrdersAndAuditlogsBean));
+	}
+
+	/**
+	 * This method defines clickListener property for view link.
+	 *
+	 * @param showListener - Listener.
+	 */
+	public final void viewOrderDetailsClickListener(final ClickHandler showListener) {
+		viewOrderListener = showListener;
+	}
+
+	/**
+	 * initialize the Widgets.
+	 */
+	private void widgetInitialize() {
+		viewCustomersPanel = new VerticalPanel();
+		mainTableDisplay = new FlexTable();
+		userTableDisplay = new FlexTable();
+		tableDisplay = new FlexTable();
+	}
+}

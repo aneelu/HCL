@@ -1,0 +1,1697 @@
+package com.hcl.sdp.server.service;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import com.hcl.sdp.server.ServiceFactory;
+import com.hcl.sdp.server.ThreadSessionManager;
+import com.hcl.sdp.server.audit.helper.AuditHelper;
+import com.hcl.sdp.server.db.ConsumablePriceDAO;
+import com.hcl.sdp.server.db.ContactDAO;
+import com.hcl.sdp.server.db.DAOHelper;
+import com.hcl.sdp.server.db.DeviceDAO;
+import com.hcl.sdp.server.db.MasterDAO;
+import com.hcl.sdp.server.db.OrderDAO;
+import com.hcl.sdp.server.db.PartnerShippingDAO;
+import com.hcl.sdp.server.db.PlanDAO;
+import com.hcl.sdp.server.db.ProgramDAO;
+import com.hcl.sdp.server.db.PromoCouponsDAO;
+import com.hcl.sdp.server.db.QuickBuyDAO;
+import com.hcl.sdp.server.db.StoreDetailDAO;
+import com.hcl.sdp.server.db.UserContactDAO;
+import com.hcl.sdp.server.db.UserDAO;
+import com.hcl.sdp.server.helper.ServiceHelper;
+import com.hcl.sdp.server.helper.TemplateHelper;
+import com.hcl.sdp.server.logger.SDPLogger;
+import com.hcl.sdp.server.security.PermissionCheck;
+import com.hcl.sdp.server.shared.entity.Company;
+import com.hcl.sdp.server.shared.entity.ConsumableStatus;
+import com.hcl.sdp.server.shared.entity.Contact;
+import com.hcl.sdp.server.shared.entity.Country;
+import com.hcl.sdp.server.shared.entity.CustomerPlan;
+import com.hcl.sdp.server.shared.entity.CustomerTaxClassCode;
+import com.hcl.sdp.server.shared.entity.Device;
+import com.hcl.sdp.server.shared.entity.DeviceModel;
+import com.hcl.sdp.server.shared.entity.LoyaltyProgramType;
+import com.hcl.sdp.server.shared.entity.Order;
+import com.hcl.sdp.server.shared.entity.OrderHoldAmountLimit;
+import com.hcl.sdp.server.shared.entity.Partner;
+import com.hcl.sdp.server.shared.entity.PartnerPriceList;
+import com.hcl.sdp.server.shared.entity.PartnerShippingHandling;
+import com.hcl.sdp.server.shared.entity.Plan;
+import com.hcl.sdp.server.shared.entity.Program;
+import com.hcl.sdp.server.shared.entity.ProgramPartner;
+import com.hcl.sdp.server.shared.entity.ProgramTenant;
+import com.hcl.sdp.server.shared.entity.ProviderPromoCoupons;
+import com.hcl.sdp.server.shared.entity.ProviderPromoCustomers;
+import com.hcl.sdp.server.shared.entity.ProviderPromoPrograms;
+import com.hcl.sdp.server.shared.entity.QuickBuy;
+import com.hcl.sdp.server.shared.entity.QuickBuyLineItem;
+import com.hcl.sdp.server.shared.entity.Report;
+import com.hcl.sdp.server.shared.entity.Role;
+import com.hcl.sdp.server.shared.entity.State;
+import com.hcl.sdp.server.shared.entity.StoreDetail;
+import com.hcl.sdp.server.shared.entity.SupplyPromoUsage;
+import com.hcl.sdp.server.shared.entity.Template;
+import com.hcl.sdp.server.shared.entity.Tenant;
+import com.hcl.sdp.server.shared.entity.TenantCustomerType;
+import com.hcl.sdp.server.shared.entity.User;
+import com.hcl.sdp.server.shared.entity.UserContact;
+import com.hcl.sdp.server.shared.entity.XPartner;
+import com.hcl.sdp.server.shared.util.Constants;
+import com.hcl.sdp.server.shared.util.EntityAndAttributeConstants;
+import com.hcl.sdp.server.shared.util.MergeTagHelper;
+import com.hcl.sdp.server.shared.util.SDPBeanUtils;
+import com.hcl.sdp.server.shared.util.TemplateConstants;
+import com.hcl.sdp.server.upgrade.ConfigParser;
+import com.hcl.sdp.server.upgrade.StandardMergeTag;
+import com.hcl.sdp.shared.bean.EntityBean;
+import com.hcl.sdp.shared.bean.Filter;
+import com.hcl.sdp.shared.bean.OrderType;
+import com.hcl.sdp.shared.bean.PartnerTaxLocation;
+import com.hcl.sdp.shared.bean.PaymentTerms;
+import com.hcl.sdp.shared.bean.PromoOfferCategories;
+import com.hcl.sdp.shared.bean.ResellerTypes;
+import com.hcl.sdp.shared.bean.SDPBeanBundle;
+import com.hcl.sdp.shared.bean.SDPBuyOutDetail;
+import com.hcl.sdp.shared.bean.SDPConsumableStatus;
+import com.hcl.sdp.shared.bean.SDPConsumableThresholds;
+import com.hcl.sdp.shared.bean.SDPContact;
+import com.hcl.sdp.shared.bean.SDPCustomerDetails;
+import com.hcl.sdp.shared.bean.SDPCustomerDeviceModels;
+import com.hcl.sdp.shared.bean.SDPCustomerOrders;
+import com.hcl.sdp.shared.bean.SDPCustomerPlan;
+import com.hcl.sdp.shared.bean.SDPCustomerPromoCoupons;
+import com.hcl.sdp.shared.bean.SDPCustomerTaxClassCode;
+import com.hcl.sdp.shared.bean.SDPDevice;
+import com.hcl.sdp.shared.bean.SDPDeviceModel;
+import com.hcl.sdp.shared.bean.SDPLoyaltyProgramType;
+import com.hcl.sdp.shared.bean.SDPPartnerCustomerType;
+import com.hcl.sdp.shared.bean.SDPPartnerPriceList;
+import com.hcl.sdp.shared.bean.SDPPlan;
+import com.hcl.sdp.shared.bean.SDPQuickBuy;
+import com.hcl.sdp.shared.bean.SDPQuickBuyLineItem;
+import com.hcl.sdp.shared.bean.SDPReport;
+import com.hcl.sdp.shared.bean.SDPState;
+import com.hcl.sdp.shared.bean.SDPStoreDetail;
+import com.hcl.sdp.shared.bean.SDPTenant;
+import com.hcl.sdp.shared.bean.SDPUser;
+import com.hcl.sdp.shared.bean.StaplesCustomerBean;
+import com.hcl.sdp.shared.exception.DAOException;
+import com.hcl.sdp.shared.exception.SDPException;
+import com.hcl.sdp.shared.exception.ThreadSessionException;
+import com.hcl.sdp.shared.service.AlertManagementService;
+import com.hcl.sdp.shared.service.CustomerPlanService;
+import com.hcl.sdp.shared.service.GeoService;
+import com.hcl.sdp.shared.service.ResellerCustomerManagementService;
+import com.hcl.sdp.shared.service.ShoppingCartService;
+
+/**
+ * 
+ * @author navathejl
+ *
+ */
+public class ResellerCustomerManagementServiceImpl implements ResellerCustomerManagementService {
+
+    /**
+     * User DAO.
+     */
+    private UserDAO userDAO = null;
+    /**
+     * Object of MasterDAO.
+     */
+    private MasterDAO masterDAO = null;
+    /**
+     * Object of userContactDAO.
+     */
+    private UserContactDAO userContactDAO = null;
+    /**
+     * Instance of contactDAO.
+     */
+    private ContactDAO contactDAO = null;
+    /**
+     * Instance of OrderDAO.
+     */
+    private OrderDAO orderDAO = null;
+    /**
+     * Instance of ConsumablePriceDAO.
+     */
+    private ConsumablePriceDAO consumablePriceDAO = null;
+    /**
+     * Instance of PlanDAO.
+     */
+    private PlanDAO planDAO;
+    /**
+    * Instance of StoeDetailDAO.
+    */
+    private StoreDetailDAO storeDetailDAO;
+    /**
+     * Instance of PartnerShippingDAO.
+     */
+    private PartnerShippingDAO partnerShippingDAO;
+    /**
+     * Instance of quickBuyDAO.
+     */
+    private QuickBuyDAO quickBuyDAO;
+    /**
+     * Instance of quickBuyDAO.
+     */
+    private ProgramDAO programDAO;
+    /**
+     * Instance of quickBuyDAO.
+     */
+    private DeviceDAO deviceDAO;
+    /**
+     * promoCouponsDAO - DAO to manage promoCoupons.
+     */
+    private PromoCouponsDAO promoCouponsDAO = null;
+    
+    private static final String FOR_THE_CUSTOMER = "for the customer";
+    
+    private static final String CREDIT_LIMIT_MEG = "Credit Limit must be greater than or equal to ";
+    
+    private static final String AVAILABLE_CREDIT_LIMIT_MSG = "Available Credit cannot be greater than Credit Limit";
+    
+    private static final String AVAILABLE_CREDIT_LESSER_ORDER_HOLD_AMOUNT_LIMIT = "Available Credit cannot be lesser than OrderHoldAmountLimit.";
+    
+    private static final String TO_DOLLER = " to $";
+
+    /**
+    * @param storeDetailDAOParam the storeDetailDAO to set
+    */
+    public void setStoreDetailDAO(final StoreDetailDAO storeDetailDAOParam) {
+        this.storeDetailDAO = storeDetailDAOParam;
+    }
+    
+    /**
+    * @param quickBuyDAOParam the quickBuyDAO to set
+    */
+    public void setQuickBuyDAO(final QuickBuyDAO quickBuyDAOParam) {
+        this.quickBuyDAO = quickBuyDAOParam;
+    }
+    
+    /**
+    * @param programDAOParam the programDAO to set
+    */
+    public void setProgramDAO(final ProgramDAO programDAOParam) {
+        this.programDAO = programDAOParam;
+    }
+    
+    /**
+    * @param deviceDAOParam the deviceDAO to set
+    */
+    public void setDeviceDAO(final DeviceDAO deviceDAOParam) {
+        this.deviceDAO = deviceDAOParam;
+    }
+    
+    /**
+	 * @return the promoCouponsDAO
+	 */
+	public PromoCouponsDAO getPromoCouponsDAO() {
+		return promoCouponsDAO;
+	}
+
+	/**
+	 * @param promoCouponsDAO the promoCouponsDAO to set
+	 */
+	public void setPromoCouponsDAO(PromoCouponsDAO promoCouponsDAO) {
+		this.promoCouponsDAO = promoCouponsDAO;
+	}
+
+    /**
+     * Method to update customer details.
+     * @param sdpTenant - instance of SDPTenant.
+     * @return - message code.
+     * @throws SDPException - exception on failure.
+     */
+	@Override
+    public long updateCustomerDetails(final SDPTenant sdpTenant) throws SDPException {
+    	
+        try {
+        	Company company = masterDAO.getEntity(Company.class, sdpTenant.getId());
+            Tenant tenant = masterDAO.getEntity(Tenant.class, sdpTenant.getId());
+
+            List<Filter> filterList = new ArrayList<>();
+         	filterList.add(new Filter(EntityAndAttributeConstants.ADMIN_GROUP_ID, String.valueOf(sdpTenant.getId()), Filter.OP_EQ, Filter.TYPE_LONG));
+         	filterList.add(new Filter(EntityAndAttributeConstants.IS_RETIRED, String.valueOf(false), Filter.OP_EQ, Filter.TYPE_BOOLEAN));
+         	filterList.add(new Filter(EntityAndAttributeConstants.TYPE, String.valueOf(User.TYPE_CUSTOMER_ADMIN), Filter.OP_EQ, Filter.TYPE_INT));
+            List<User> userList =  masterDAO.getAllEntity(User.class, filterList, Filter.LOP_AND, true, EntityAndAttributeConstants.FIRST_NAME, -1, -1);
+            
+            if (!sdpTenant.getTaxExempt()) {
+            	Filter filter1 = new Filter(EntityAndAttributeConstants.CLASS_CODE, CustomerTaxClassCode.TAXABLE, Filter.OP_EQ, Filter.TYPE_STRING);
+            	Filter filter2 = new Filter(EntityAndAttributeConstants.COUNTRY_ID, String.valueOf(contactDAO.getContactCountryId(userList.get(0).getId())), 
+            			Filter.OP_EQ, Filter.TYPE_LONG);
+            	Filter f3 = new Filter(filter1, Filter.LOP_AND, filter2);
+            	CustomerTaxClassCode classCode = masterDAO.getEntity(CustomerTaxClassCode.class, f3);
+            	sdpTenant.setClassCode(classCode.getId());
+            }
+           
+            // tax Calculation Location is only for VAR reseller
+            if (sdpTenant.getResellerType().contains(ResellerTypes.VAR.toString()) || sdpTenant.getResellerType().contains(ResellerTypes.CANVAR.toString())) {
+
+                Filter filter = new Filter(EntityAndAttributeConstants.ID, String.valueOf(sdpTenant.getId()),
+                        Filter.OP_EQ, Filter.TYPE_LONG);
+                Tenant dtenant = masterDAO.getEntity(Tenant.class, filter);
+                Filter userFilter = new Filter(EntityAndAttributeConstants.ADMIN_GROUP_ID,
+                        String.valueOf(dtenant.getProviderId()), Filter.OP_EQ, Filter.TYPE_LONG);
+                List<User> users = masterDAO.getAllEntity(User.class, userFilter);
+                String message = "The Taxing Location has been changed from "
+                        + PartnerTaxLocation.getPartnerTaxLocationString(dtenant.getTaxingLocation()) + " to "
+                        + PartnerTaxLocation.getPartnerTaxLocationString(sdpTenant.getTaxingLocation()) + " by "
+                        + users.get(0).getLoginName() +" for "+userList.get(0).getLoginName();
+                AuditHelper.createCustomAuditLogMsg(message);
+                dtenant.setTaxingLocation(sdpTenant.getTaxingLocation());
+            }
+            
+            long messageCode = 0;
+            Tenant dbTenant = (Tenant) tenant.copyTo();
+            List<String> auditLogMessages = new ArrayList<>();
+            
+            if (sdpTenant.getResellerType().contains(ResellerTypes.VAR.toString())) {
+                //open accounts is only for VAR reseller
+                auditLogMessages = checkForOpenAccounts(dbTenant, sdpTenant, userList.get(0).getLoginName());
+            }
+           
+            if (!sdpTenant.getResellerType().equalsIgnoreCase(ResellerTypes.STAPLES.toString())) {
+                //only for VAR and XD partners
+            	Filter filter = new Filter(EntityAndAttributeConstants.TENANT_ID, String.valueOf(sdpTenant.getId()), Filter.OP_EQ, Filter.TYPE_LONG);
+                ProgramTenant programTenant = masterDAO.getEntity(ProgramTenant.class, filter);
+                programTenant.setPriceListName(sdpTenant.getPriceListName());
+                
+                if (programTenant.getOrderByModel() != sdpTenant.getOrderByModel()) {
+                    String message = "OrderByModel flag updated as " + sdpTenant.getOrderByModel() + " "+FOR_THE_CUSTOMER+" " 
+                    		+ userList.get(0).getLoginName();
+                    AuditHelper.createCustomAuditLogMsg(message);
+                }
+
+                if (!sdpTenant.getShippingRateScheduleName().equalsIgnoreCase(programTenant.getShippingRateScheduleName())) {
+                    String message = "ShippingRateScheduleName updated from " + programTenant.getShippingRateScheduleName()
+                    		+ " to " + sdpTenant.getShippingRateScheduleName() + " "+FOR_THE_CUSTOMER+" " + userList.get(0).getLoginName();
+                    AuditHelper.createCustomAuditLogMsg(message);
+                }
+                programTenant.setShippingRateScheduleName(sdpTenant.getShippingRateScheduleName());
+                programTenant.setOrderByModel(sdpTenant.getOrderByModel());
+                masterDAO.updateEntity(programTenant);
+            }
+            
+            if (sdpTenant.getTaxExempt() && !sdpTenant.getResellerType().equalsIgnoreCase(ResellerTypes.CANVAR.toString())) {
+                DAOHelper helper = new DAOHelper();
+                Date expirationDate = ServiceHelper.convertToDate(sdpTenant.getStringExpirationDate());
+                Date dbExpirationDate = tenant.getExpirationDate();
+                Date dbDateWithoutTime = null;
+                
+                if (dbExpirationDate != null) {
+                    dbDateWithoutTime = helper.removeTime(dbExpirationDate).getTime();
+                }
+                
+                if (sdpTenant.getStringExpirationDate() != null 
+                		&& (dbDateWithoutTime == null || (dbDateWithoutTime != null && dbDateWithoutTime.compareTo(expirationDate) != 0))) {
+                
+                		Calendar calendar = helper.removeTime(new Date());
+                        
+                		if (expirationDate.before(calendar.getTime())) {
+                            SDPLogger.getInstance().error(Constants.EXP_DATE_SHOULD_NOT_BE_CURRENTDATE,
+                            		"Expiration Date should be greater than or equal to current date");
+                            throw new SDPException(SDPException.EXP_DATE_SHOULD_NOT_BE_CURRENTDATE,
+                            		"Expiration Date should be greater than or equal to current date");
+                		}
+                }
+                sdpTenant.setExpirationDate(helper.add23Hours59Secs(expirationDate).getTime());
+            }
+            
+            sdpTenant.setCustomerProfileId(tenant.getCustomerProfileId());
+            SDPBeanUtils.getInstance().copyProperties(sdpTenant, company);
+            company.setName(sdpTenant.getSDPUserList().get(0).getCompanyName());
+            User user = userList.get(0);
+            SDPUser sdUser = new SDPUser();
+            SDPBeanUtils.getInstance().copyProperties(user, sdUser);
+            sdUser.setFirstName(sdpTenant.getSDPUserList().get(0).getFirstName());
+            sdUser.setLastName(sdpTenant.getSDPUserList().get(0).getLastName());
+            SDPBeanUtils.getInstance().copyProperties(sdUser, user);
+            masterDAO.updateEntity(user);
+            masterDAO.updateEntity(company);
+            List<UserContact> userContactList = userContactDAO.getAllContactByUserID(userList.get(0).getId());
+            Contact primaryContact = null;
+
+            for (UserContact userContact : userContactList) {
+                long contactId = userContact.getContactId();
+                Contact contact = contactDAO.getContactByUser(contactId);
+            
+                if (contact.getType() == SDPContact.PRIMARY_ADDRESS) {
+                    primaryContact = contact;
+                    primaryContact.setEmail(sdpTenant.getEMail());
+
+                    if (sdpTenant.getSDPUserList() != null) {
+                        SDPUser sdpUser = sdpTenant.getSDPUserList().get(0);
+
+                        if (sdpUser.getSdpContact() != null) {
+                            primaryContact.setAddress1(sdpUser.getSdpContact().getAddress1());
+                            primaryContact.setAddress2(sdpUser.getSdpContact().getAddress2());
+                            primaryContact.setCity(sdpUser.getSdpContact().getCity());
+                            primaryContact.setZip(sdpUser.getSdpContact().getZip());
+                            primaryContact.setState(sdpUser.getSdpContact().getState());
+                        }
+                    }
+                }
+            }
+            masterDAO.updateEntity(primaryContact);
+            if (sdpTenant.getResellerType().equalsIgnoreCase(ResellerTypes.VAR.toString()) 
+            		&& sdpTenant.getPaymentTerms().equalsIgnoreCase(PaymentTerms.OPEN_ACCOUNT.toString())) {
+                
+                    StringBuilder auditLogMessage = new StringBuilder();
+                    for (String auditMessage : auditLogMessages) {
+                    	auditLogMessage.append(auditMessage);
+                    }
+                    if (auditLogMessage.length() > 0) {
+                        AuditHelper.createCustomAuditLogMsg(auditLogMessage.toString());
+                    }
+            }
+            
+            if (sdpTenant.getResellerType().equalsIgnoreCase(ResellerTypes.CDWPLUS.toString())) {
+                Filter tenantFilter = new Filter(EntityAndAttributeConstants.TENANT_ID, String.valueOf(tenant.getId()), Filter.OP_EQ, Filter.TYPE_LONG);
+                TenantCustomerType tenantCustomerType = masterDAO.getEntity(TenantCustomerType.class, tenantFilter);
+                
+                if (tenantCustomerType != null) {
+                    tenantCustomerType.setCustomerTypeId(sdpTenant.getCustomerTypeId());
+                    masterDAO.updateEntity(tenantCustomerType);
+                }
+            }
+            Tenant newDbTenant =  masterDAO.getEntity(Tenant.class, sdpTenant.getId());
+            newDbTenant.setCustomerAccountNumber(sdpTenant.getCustomerAccountNumber());
+            newDbTenant.setPartnerOrderingEnabled(sdpTenant.isPartnerOrderingEnabled());
+            newDbTenant.setSupplyPromotionsEnabled(sdpTenant.isSupplyPromotionsEnabled());
+            newDbTenant.setDevicePurchasingEnabled(sdpTenant.isDevicePurchasingEnabled());
+            masterDAO.updateEntity(newDbTenant);
+            return messageCode;
+        } catch (SDPException e) {
+            SDPLogger.getInstance().error(e.getMessage(), e);
+            throw new SDPException(e);
+            
+        } catch (Exception e) {
+            SDPLogger.getInstance().error(Constants.UNKNOWN_ERROR, e);
+            throw new SDPException(SDPException.UNKNOWN_ERROR, e);
+        }
+    }
+    
+    /**
+     * Method to check custoemr for open account.
+     * @param tenant - 
+     * @param sdpTenant - 
+     * @param userName - 
+     * @return long - messageCode
+     * @throws SDPException - 
+     */
+    private List<String> checkForOpenAccounts(final Tenant tenant, final SDPTenant sdpTenant, final String userName) throws SDPException {
+        List<String> auditLogMessages = new ArrayList<>();
+        
+        //if the customer is of open account type.
+        if (sdpTenant.getPaymentTerms().equalsIgnoreCase(PaymentTerms.OPEN_ACCOUNT.toString())) {        
+            //checking whether the credit limit value is not less than the value configured at provider level.
+            OrderHoldAmountLimit orderHoldAmountLimit = orderDAO.getOrderHoldAmountLimit(sdpTenant.getProviderId());
+            
+            if (orderHoldAmountLimit != null && sdpTenant.getCreditLimit() < orderHoldAmountLimit.getAmount()) {
+                SDPLogger.getInstance().error(CREDIT_LIMIT_MEG 
+                        + orderHoldAmountLimit.getAmount(),
+                        CREDIT_LIMIT_MEG + orderHoldAmountLimit.getAmount());
+                throw new SDPException(SDPException.CREDIT_LIMIT_MUST_BE_GREATER_THAN_PROVIDER_CREDIT_LIMIT,
+                		CREDIT_LIMIT_MEG + orderHoldAmountLimit.getAmount());
+            }
+            
+            //change in credit limit value.
+            double availableCredit = sdpTenant.getAvailableCredit();
+            String auditMsg;
+            
+            if (tenant.getCreditLimit() != sdpTenant.getCreditLimit() && tenant.getCreditLimit() != 0) {
+                auditMsg = "Credit Limit has been changed from $" 
+                           + tenant.getCreditLimit() + TO_DOLLER + sdpTenant.getCreditLimit() 
+                           + " and Available Credit has been changed from $" 
+                           + tenant.getAvailableCredit() + TO_DOLLER + sdpTenant.getAvailableCredit()
+                           + " "+FOR_THE_CUSTOMER+" " + userName + ". ";
+                auditLogMessages.add(auditMsg);
+                
+                //if their is a change in credit limit.
+                if (tenant.getCreditLimit() < sdpTenant.getCreditLimit()) {
+                    //if the credit limit increases then check whether available credit is greater than credit limit
+                    //if yes then set available credit to credit limit.
+                    if (availableCredit > sdpTenant.getCreditLimit()) {
+                        availableCredit = sdpTenant.getCreditLimit();
+                        String availableCreditSetToTenantCreditLimit = "Available Credit set to $" + sdpTenant.getCreditLimit()
+                                       + " as it cannot exceed Customer Credit Limit of $" + sdpTenant.getCreditLimit()
+                                       + " "+FOR_THE_CUSTOMER+" " + userName;
+                        auditLogMessages.add(availableCreditSetToTenantCreditLimit);
+                    }
+                } else {
+                    //if the credit limit decreases then check whether available credit is less than order hold amount
+                    //if yes then set available credit to order hold amount.
+                    if (orderHoldAmountLimit != null && availableCredit < orderHoldAmountLimit.getAmount()) {
+                        availableCredit = orderHoldAmountLimit.getAmount();
+                        String availableCreditSetToProviderCreditLimit = "Available Credit set to $" + orderHoldAmountLimit.getAmount()
+                                       + " as it cannot be lower than the Provider Minimum Credit Limit of  $" + orderHoldAmountLimit.getAmount()
+                                       + " "+FOR_THE_CUSTOMER+" " + userName;
+                        auditLogMessages.add(availableCreditSetToProviderCreditLimit);
+                    }
+                }
+            } 
+            
+            if (tenant.getAvailableCredit() != sdpTenant.getAvailableCredit()) {
+                //if their is a change in available credit
+                if (availableCredit > sdpTenant.getCreditLimit()) {
+                    //if available credit greater than credit limit then throw exception.
+                    SDPLogger.getInstance().error(AVAILABLE_CREDIT_LIMIT_MSG,
+                    		AVAILABLE_CREDIT_LIMIT_MSG);
+                    throw new SDPException(SDPException.AVAILABLE_CREDIT_GREATER_THAN_CREDIT_LIMIT,
+                    		AVAILABLE_CREDIT_LIMIT_MSG);
+                }
+        
+                sdpTenant.setAvailableCredit(availableCredit);
+                
+                if (orderHoldAmountLimit != null && availableCredit < orderHoldAmountLimit.getAmount()) {
+                    //if available credit less than order hold amount then throw exception.
+                    SDPLogger.getInstance().error(AVAILABLE_CREDIT_LESSER_ORDER_HOLD_AMOUNT_LIMIT,
+                    		AVAILABLE_CREDIT_LESSER_ORDER_HOLD_AMOUNT_LIMIT);
+                    throw new SDPException(SDPException.AVAILABLE_CREDIT_LESSER_THAN_PROVIDER_CREDIT_LIMIT,
+                    		AVAILABLE_CREDIT_LESSER_ORDER_HOLD_AMOUNT_LIMIT);
+                }
+                
+                String availableCreditChangeMessage = "Available Credit has been changed from $" + tenant.getAvailableCredit() 
+                		+ TO_DOLLER + availableCredit + " "+FOR_THE_CUSTOMER+" " + userName;
+                auditLogMessages.add(availableCreditChangeMessage);
+           }
+        } else {
+            sdpTenant.setCreditLimit(tenant.getCreditLimit());
+            sdpTenant.setAvailableCredit(tenant.getAvailableCredit());
+        }
+        return auditLogMessages;
+    }
+    
+    /**
+     * Method to fetch customer details.
+     * @param tenantId - tenant id.
+     * @return - instance of SDPCustomerRegistration.
+     * @throws SDPException - exception on failure.
+     */
+    @Override
+    public SDPCustomerDetails fetchCustomerDetails(final long tenantId) throws SDPException {
+        
+        try {
+            SDPBeanUtils beanUtils = SDPBeanUtils.getInstance();
+            
+            //fetching tenant details
+            SDPTenant sdpTenant = new SDPTenant();
+            Tenant tenant = masterDAO.getEntity(Tenant.class, tenantId);
+            Filter filter = new Filter(EntityAndAttributeConstants.TENANT_ID, String.valueOf(tenantId), Filter.OP_EQ, Filter.TYPE_LONG);
+            ProgramTenant programTenant = masterDAO.getEntity(ProgramTenant.class, filter);
+            sdpTenant.setPriceListName(programTenant.getPriceListName());
+            sdpTenant.setShippingRateScheduleName(programTenant.getShippingRateScheduleName());
+            sdpTenant.setOrderByModel(programTenant.getOrderByModel());
+            beanUtils.copyProperties(tenant, sdpTenant);
+            
+            Program program = masterDAO.getEntity(Program.class, programTenant.getProgramId());
+            sdpTenant.setProgramOrderByModel(program.getOrderByModel());
+            long userId = ThreadSessionManager.getCurrentThreadSession().getUserId();
+            String resellerType = userDAO.getResellerTypeForUserId(userId);
+            boolean isCreditCardParam = false;
+            boolean isOpenAccountParam = false;
+          
+            Filter xpartnerFilter = new Filter(EntityAndAttributeConstants.PARTNER_ID, String.valueOf(tenant.getProviderId()), Filter.OP_EQ, Filter.TYPE_LONG);
+        	XPartner xpartner = masterDAO.getEntity(XPartner.class, xpartnerFilter);
+        	
+            if (resellerType.equalsIgnoreCase(ResellerTypes.VAR.toString()) || resellerType.equalsIgnoreCase(ResellerTypes.CANVAR.toString())){
+            	isCreditCardParam = xpartner.getIsCreditCard();
+                isOpenAccountParam = xpartner.getIsOpenAccount();
+            }
+            
+            if (sdpTenant.getTaxExempt() && !resellerType.equalsIgnoreCase(ResellerTypes.CANVAR.toString())) {
+                String expirationDate = ServiceHelper.convertToString(sdpTenant.getExpirationDate());
+                sdpTenant.setStringExpirationDate(expirationDate);
+            }
+            
+            // fetching Tax Calculation Location
+             if(resellerType.equalsIgnoreCase(ResellerTypes.VAR.toString()) || resellerType.equalsIgnoreCase(ResellerTypes.CANVAR.toString())) {
+                 Filter tenantFilter = new Filter(EntityAndAttributeConstants.ID, String.valueOf(tenantId), Filter.OP_EQ, Filter.TYPE_LONG);
+                 Tenant dtenant = masterDAO.getEntity(Tenant.class, tenantFilter);
+                 sdpTenant.setTaxingLocation(dtenant.getTaxingLocation());
+            }
+            //fetching sales person
+            List<User> userList = userDAO.getAllUserForComapanyId(tenant.getProviderId()); 
+            List<SDPUser> sdpUserList = beanUtils.convertList(userList, SDPUser.class);
+            sdpTenant.setSDPUserList(sdpUserList);
+            
+            //fetching company name.
+            Company company = masterDAO.getEntity(Company.class, tenantId);
+            
+            //fetching primary user and contact details.
+            User user = userDAO.getCustomerUser(tenantId);
+            SDPUser sdpUser = new SDPUser();
+            beanUtils.copyProperties(user, sdpUser);
+            
+            //fetch primary contact
+            SDPContact contact = getPrimaryContactForUser(user.getId());
+            
+            //fetching class codes.
+            sdpTenant.setSdpClassCodeList(getAllCustomerTaxClassCodes(contact.getCountry()));
+            
+            if (!resellerType.equalsIgnoreCase(ResellerTypes.STAPLES.toString())) {
+                //fetching partner price list.
+                sdpTenant.setSdpPartnerPriceList(getAllPartnerPriceListForCustomer(tenant.getProviderId()));
+                sdpTenant.setShippingRateScheduleNameList(getAllShippingRateScheduleName(tenant.getProviderId()));
+                //setting provider credit limit.
+                OrderHoldAmountLimit orderHoldAmountLimit = orderDAO.getOrderHoldAmountLimit(tenant.getProviderId());
+
+                if (orderHoldAmountLimit != null) {
+                    sdpTenant.setProviderCreditLimitNotConfigured(false);
+                    sdpTenant.setProviderCreditLimit(orderHoldAmountLimit.getAmount());
+                
+                } else {
+                    sdpTenant.setProviderCreditLimitNotConfigured(true);
+                }
+            }
+            
+            SDPCustomerDetails customerDetails = new SDPCustomerDetails();
+            customerDetails.setCompany(company.getName());
+            customerDetails.setContact(contact);
+            customerDetails.setSDPUser(sdpUser);
+            customerDetails.setSdpTenant(sdpTenant);
+            customerDetails.setProgramStartdate(company.getCreateDate());
+            customerDetails.setStringProgramStartdate(ServiceHelper.convertToString(customerDetails.getProgramStartdate()));
+            customerDetails.setLastUpdatedDate(company.getModifiedDate());
+            customerDetails.setStringLastUpdatedDate(ServiceHelper.convertToString(customerDetails.getLastUpdatedDate()));
+            customerDetails.setEnableOrderByPartner(program.isEnableOrderByPartner());
+            customerDetails.setProgramEnabledPromotion(program.getIsAllowPromotions());
+            customerDetails.setProgramEnabledDevicePurchasing(program.getIsDevicePurchaseEnabled());
+            customerDetails.setPartnerOrderingEnabled(sdpTenant.isPartnerOrderingEnabled());
+	    	customerDetails.setSupplyPromotionsEnabled(sdpTenant.isSupplyPromotionsEnabled());
+	    	//adding device purchaasing enabled  to get from database
+	    	customerDetails.setDevicePurchasingEnabled(sdpTenant.isDevicePurchasingEnabled());
+	    	customerDetails.setPartnerEnabledPromotion(xpartner.getIsSupplyPromoEnabled());
+	    	customerDetails.setPartnerEnabledDevicePurchasing(xpartner.getIsDevicePurchasingEnabled());
+            Order order = orderDAO.getLastActivityForCustomer(sdpUser.getId());
+
+            if (order != null) {
+                SDPLogger.getInstance().info("fetchCustomerDetails method for tenantId : " + tenantId 
+                        + " for order id : " + order.getId() + " with orderedDate as : " + order.getOrderedDate());
+                customerDetails.setLastActivity(order.getOrderedDate());
+                customerDetails.setStringLastActivityDate(ServiceHelper.convertToString(order.getOrderedDate()));
+            }
+            
+            long partnerId = tenant.getProviderId();
+            
+            if (resellerType.equalsIgnoreCase(ResellerTypes.CDWPLUS.toString())) {
+                GeoService geoService = (GeoService) ServiceFactory.getInstance().getService(GeoService.class.getName());
+                List<SDPPartnerCustomerType> sdpPartnerCustomerTypeList = geoService.fetchPartnerCustomerTypeDetails(partnerId);
+                customerDetails.setSdpPartnerCustomerTypeList(sdpPartnerCustomerTypeList);
+                Filter tenantFilter = new Filter(EntityAndAttributeConstants.TENANT_ID, String.valueOf(tenantId), 
+                        Filter.OP_EQ, Filter.TYPE_LONG);
+                TenantCustomerType tenantCustomerType = masterDAO.getEntity(TenantCustomerType.class, tenantFilter);
+                
+                if (tenantCustomerType != null) {
+                    customerDetails.setCustomerTypeId(tenantCustomerType.getCustomerTypeId());
+                }
+            }
+            customerDetails.setCreditCard(isCreditCardParam);
+            customerDetails.setOpenAccount(isOpenAccountParam);
+            return customerDetails;
+        } catch (SDPException e) {
+            SDPLogger.getInstance().error(e.getMessage(), e);
+            throw new SDPException(e);
+            
+        } catch (Exception e) {
+            SDPLogger.getInstance().error(Constants.UNKNOWN_ERROR, e);
+            throw new SDPException(SDPException.UNKNOWN_ERROR, e);
+        }
+    }
+    
+    /**
+     * Method to get partner shipping rate schedule names.
+     * @param partnerId - 0
+     * @return - 
+     * @throws SDPException - 
+     */
+    private List<String> getAllShippingRateScheduleName(final long partnerId) throws SDPException {
+        List<String> shippingRateScheduleNameList = new ArrayList<>();
+        List<PartnerShippingHandling> partnerShippingHandlingList = partnerShippingDAO.getPartnerShippingHandlings(partnerId);
+
+        for (PartnerShippingHandling partnerShippingHandling : partnerShippingHandlingList) {
+        
+        	if (!shippingRateScheduleNameList.contains(partnerShippingHandling.getShippingRateScheduleName())) {
+                shippingRateScheduleNameList.add(partnerShippingHandling.getShippingRateScheduleName());
+            }
+        }
+        return shippingRateScheduleNameList;
+    }
+    
+    /**
+     * @param userDAOObj
+     *            the userDAO to set
+     */
+    @PermissionCheck(permission = {Constants.ALLOW })
+    public void setUserDAO(final UserDAO userDAOObj) {
+        this.userDAO = userDAOObj;
+    }
+        
+    /**
+     * @param masterDAO1 the masterDAO to set
+     */
+    @PermissionCheck(permission = { Constants.ALLOW })
+    public void setMasterDAO(final MasterDAO masterDAO1) {
+        masterDAO = masterDAO1;
+    }
+    
+    /**
+     * @param userContactDAOParam the userContactDAO to set
+     */
+    public void setUserContactDAO(final UserContactDAO userContactDAOParam) {
+        this.userContactDAO = userContactDAOParam;
+    }
+    
+    /**
+     * @param contactDAOParam the contactDAO to set
+     */
+    public void setContactDAO(final ContactDAO contactDAOParam) {
+        this.contactDAO = contactDAOParam;
+    }
+    
+    /**
+     * @param orderDAOParam the orderDAO to set
+     */
+    public void setOrderDAO(final OrderDAO orderDAOParam) {
+        this.orderDAO = orderDAOParam;
+    }
+    
+    /**
+     * @param consumablePriceDAOParam the consumablePriceDAO to set
+     */
+    public void setConsumablePriceDAO(final ConsumablePriceDAO consumablePriceDAOParam) {
+        this.consumablePriceDAO = consumablePriceDAOParam;
+    }
+    
+    /**
+     * @param planDAOParam the planDAO to set
+     */
+    public void setPlanDAO(final PlanDAO planDAOParam) {
+        this.planDAO = planDAOParam;
+    }
+    
+    /**
+     * @param partnerShippingDAOParam the partnerShippingDAO to set
+     */
+    public void setPartnerShippingDAO(final PartnerShippingDAO partnerShippingDAOParam) {
+        this.partnerShippingDAO = partnerShippingDAOParam;
+    }
+
+    /**
+     * This method will return all the consumable prices for the given filter.
+     * @param filter - filter criteria.
+     * @param isAscending - If isAscending is true we will order the elements by ascending order else we will order the elements by descending order.
+     * @param orderBy - The order representing an ordering to be applied to the results. Name of the column we are going to order the elements.
+     * @param firstResult - Set the first result to be retrieved (index starts from 0)
+     * @param maxResult - Set a limit upon the number of objects to be retrieved (set as -1 if all is needed)
+     * @param userId - userId.
+     * @return SDPBeanBundle < SDPConsumablePrice > - List of SDPConsumablePrice
+     * @throws SDPException -
+     */
+    @Override
+    public SDPBeanBundle < SDPCustomerDeviceModels > getAllCustomersByFilter(final Filter filter, final boolean isAscending,
+            final String orderBy, final int firstResult, final int maxResult, final long userId) throws SDPException {
+    	
+        try {
+            return CustomerManagementServiceHelper.getAllCustomersByFilter(filter, firstResult, maxResult, userId, isAscending, orderBy);
+        
+        } catch (SDPException e) {
+            SDPLogger.getInstance().error(e.getMessage(), e);
+            throw new SDPException(e);
+        
+        } catch (Exception e) {
+            SDPLogger.getInstance().error(Constants.UNKNOWN_ERROR, e);
+            throw new SDPException(SDPException.UNKNOWN_ERROR, e);
+        }
+    }
+    
+    /**
+     * This method will return all the consumable prices for the given filter.
+     * @param filter - filter criteria.
+     * @param isAscending - If isAscending is true we will order the elements by ascending order else we will order the elements by descending order.
+     * @param orderBy - The order representing an ordering to be applied to the results. Name of the column we are going to order the elements.
+     * @param firstResult - Set the first result to be retrieved (index starts from 0)
+     * @param maxResult - Set a limit upon the number of objects to be retrieved (set as -1 if all is needed)
+     * @return SDPBeanBundle < SDPConsumablePrice > - List of SDPConsumablePrice
+     * @throws SDPException -
+     */
+    @Override
+    public SDPBeanBundle<SDPCustomerDeviceModels> getCustomerDeviceModelsByFilter(final Filter filter, 
+            final boolean isAscending, final String orderBy, final int firstResult, final int maxResult) throws SDPException {
+        long userId = ThreadSessionManager.getCurrentThreadSession().getUserId();
+        String resellerType = userDAO.getResellerTypeForUserId(userId);
+        
+        if (resellerType.equalsIgnoreCase(ResellerTypes.STAPLES.toString())) {
+            return CustomerManagementServiceHelper.getStaplesCustomerDeviceModelsByFilter(filter, isAscending, 
+                    orderBy, firstResult, maxResult);
+        } else {
+            List<Integer> orderTypeList = new ArrayList<>();
+            orderTypeList.add(OrderType.PART.getOrderType());
+            orderTypeList.add(OrderType.MODEL.getOrderType());
+            return CustomerManagementServiceHelper.getCustomerDeviceModelsByFilter(filter, isAscending, 
+                    orderBy, firstResult, maxResult, orderTypeList);
+        }
+    }
+    
+    /**
+     * This method will return all the consumable prices for the given filter.
+     * @param filter - filter criteria.
+     * @param isAscending - If isAscending is true we will order the elements by ascending order else we will order the elements by descending order.
+     * @param orderBy - The order representing an ordering to be applied to the results. Name of the column we are going to order the elements.
+     * @param firstResult - Set the first result to be retrieved (index starts from 0)
+     * @param maxResult - Set a limit upon the number of objects to be retrieved (set as -1 if all is needed)
+     * @return SDPBeanBundle < SDPConsumablePrice > - List of SDPConsumablePrice
+     * @throws SDPException -
+     */
+    @Override
+    public SDPBeanBundle<SDPCustomerOrders> getCustomerOrdersByFilter(final Filter filter, final boolean isAscending,
+            final String orderBy, final int firstResult, final int maxResult) throws SDPException {
+    	
+        long userId = ThreadSessionManager.getCurrentThreadSession().getUserId();
+        String resellerType = userDAO.getResellerTypeForUserId(userId);
+        
+        if (resellerType.equalsIgnoreCase(ResellerTypes.STAPLES.toString())) {
+            return CustomerManagementServiceHelper.getStaplesCustomerOrdersByFilter(filter, isAscending, orderBy, firstResult, maxResult);
+        }
+        return CustomerManagementServiceHelper.getCustomerOrdersByFilter(filter, isAscending, orderBy, firstResult, maxResult, "", null, false, false);
+    }
+    
+    /**
+     * This method will return all the plan orders for the given filter.
+     * @param filter - filter criteria.
+     * @param isAscending - If isAscending is true we will order the elements by ascending order else we will order the elements by descending order.
+     * @param orderBy - The order representing an ordering to be applied to the results. Name of the column we are going to order the elements.
+     * @param firstResult - Set the first result to be retrieved (index starts from 0)
+     * @param maxResult - Set a limit upon the number of objects to be retrieved (set as -1 if all is needed)
+     * @return SDPBeanBundle < SDPConsumablePrice > - List of SDPConsumablePrice
+     * @throws SDPException -
+     */
+    @Override
+    public SDPBeanBundle<SDPCustomerOrders> getCustomerPlanOrdersByFilter(final Filter filter, final boolean isAscending,
+            final String orderBy, final int firstResult, final int maxResult) throws SDPException {
+        return CustomerManagementServiceHelper.getStaplesCustomerPlanOrdersByFilter(filter, isAscending, orderBy, firstResult, maxResult);
+    }
+    
+    /**
+     * This method is used to fetch the report for reseller's terms and condition.
+     * @return SDPReport -
+     * @throws SDPException -
+     */
+    public final SDPReport getPartnerTermsAndCondition() throws SDPException {
+
+        try {
+        	  List<Filter> filterList = new ArrayList<>();
+        	  filterList.add(new Filter(EntityAndAttributeConstants.REPORT_NAME, "Terms And Condition", Filter.OP_EQ, Filter.TYPE_STRING));
+        	  filterList.add(new Filter(EntityAndAttributeConstants.ROLE_TYPE, String.valueOf(User.TYPE_CUSTOMER_ADMIN), Filter.OP_EQ, Filter.TYPE_INT));
+        	  List<Report>  reportList = masterDAO.getAllEntity(Report.class, filterList, Filter.LOP_AND);
+            SDPLogger.getInstance().info("Reseller's Terms and Condition Fetched.");
+
+            // Converting hibernate models into SDPModel
+            ArrayList<SDPReport> sdpReportList = SDPBeanUtils.getInstance().convertList(reportList, SDPReport.class);
+            return sdpReportList.get(0);
+
+        } catch (final DAOException e) {
+            SDPLogger.getInstance().error(Constants.ENTITY_DB_OPERATION_VIOLATION, e);
+            throw new SDPException(DAOException.ENTITY_DB_OPERATION_VIOLATION, e);
+
+        } catch (final ThreadSessionException e) {
+            SDPLogger.getInstance().error(Constants.SESSION_FAIL, e);
+            throw new SDPException(ThreadSessionException.THREAD_SESSION_CODE, e);
+        }
+    }
+    
+    /**
+     * Method to get total revenue for partner.
+     * @param userId - userId.
+     * @return - map - key as string and value as revenue.
+     * @throws SDPException - exception on failure.
+     */
+    @Override
+    public Map<String, String> getTotalRevenueForPartner(final long userId) throws SDPException {
+        
+        try {
+            String resellerType = userDAO.getResellerTypeForUserId(userId);
+            List<Integer> orderTypeList = new ArrayList<>();
+        
+            if (resellerType.equalsIgnoreCase(ResellerTypes.STAPLES.toString())) {
+                orderTypeList.add(OrderType.PAGE.getOrderType());
+            
+            } else if (resellerType.equalsIgnoreCase(ResellerTypes.FCP.toString())) {
+                orderTypeList.add(OrderType.PART.getOrderType());
+                orderTypeList.add(OrderType.LINKED_REFUND.getOrderType());
+                orderTypeList.add(OrderType.UNDERUSAGE.getOrderType());
+                orderTypeList.add(OrderType.NONREPORTING.getOrderType());
+                orderTypeList.add(OrderType.UNLINKED_REFUND.getOrderType());
+                orderTypeList.add(OrderType.OPT_OUT.getOrderType());
+                orderTypeList.add(OrderType.ADJUSTMENT.getOrderType());
+                orderTypeList.add(OrderType.REBILL.getOrderType());
+            } else {
+                orderTypeList.add(OrderType.PART.getOrderType());
+                orderTypeList.add(OrderType.MODEL.getOrderType());
+            }
+            if (resellerType.equalsIgnoreCase(ResellerTypes.FCP.toString())) {
+                return new HashMap<>();
+            }
+            return CustomerManagementServiceHelper.getTotalRevenueForPartner(userId, orderTypeList);
+            
+        } catch (SDPException e) {
+            SDPLogger.getInstance().error(e.getMessage(), e);
+            throw new SDPException(e);
+            
+        } catch (Exception e) {
+            SDPLogger.getInstance().error(Constants.UNKNOWN_ERROR, e);
+            throw new SDPException(SDPException.UNKNOWN_ERROR, e);
+        }
+    }
+    
+    /**
+     * Method to get total revenue for customer.
+     * @param tenantId - tenantId.
+     * @return - map - key as string and value as revenue.
+     * @throws SDPException - exception on failure.
+     */
+    @Override
+    public Map<String, String> getTotalRevenueForCustomer(final long tenantId) throws SDPException {
+        long userId = 0L;
+        
+        try {
+            userId = ThreadSessionManager.getCurrentThreadSession().getUserId();
+            String resellerType = userDAO.getResellerTypeForUserId(userId);
+            final List<Integer> orderTypeList = new ArrayList<>();
+        
+            if (resellerType.equalsIgnoreCase(ResellerTypes.STAPLES.toString())) {
+                orderTypeList.add(OrderType.PAGE.getOrderType());
+            
+            } else if (resellerType.equalsIgnoreCase(ResellerTypes.FCP.toString())) {
+                orderTypeList.add(OrderType.PART.getOrderType());
+                orderTypeList.add(OrderType.LINKED_REFUND.getOrderType());
+                orderTypeList.add(OrderType.UNDERUSAGE.getOrderType());
+                orderTypeList.add(OrderType.NONREPORTING.getOrderType());
+                orderTypeList.add(OrderType.UNLINKED_REFUND.getOrderType());
+                orderTypeList.add(OrderType.OPT_OUT.getOrderType());
+                orderTypeList.add(OrderType.ADJUSTMENT.getOrderType());
+                orderTypeList.add(OrderType.REBILL.getOrderType());
+            } else {
+                orderTypeList.add(OrderType.PART.getOrderType());
+                orderTypeList.add(OrderType.MODEL.getOrderType());
+            }
+
+            return CustomerManagementServiceHelper.getTotalRevenueForCustomer(tenantId, orderTypeList);
+        } catch (SDPException e) {
+            
+            if (userId == -1) {
+                SDPLogger.getInstance().error(String.valueOf(SDPException.SYSTEM_ERROR), "Session time out.");
+                throw new SDPException(SDPException.SYSTEM_ERROR, "Session time out.");
+            
+            } else {
+                SDPLogger.getInstance().error(e.getMessage(), e);
+                throw new SDPException(e);
+            }
+
+        } catch (Exception e) {
+            SDPLogger.getInstance().error(Constants.UNKNOWN_ERROR, e);
+            throw new SDPException(SDPException.UNKNOWN_ERROR, e);
+        }
+    }
+    
+    /**
+     * Method to get all plan for add or remove.
+     * @param tenantId - 
+     * @param partnerId - 
+     * @return - 
+     * @throws SDPException - 
+     */
+    @Override
+    public StaplesCustomerBean getAllStaplesCustPlanForAddOrRemove(final long tenantId, final long partnerId) throws SDPException {
+
+    	try {
+            //fetching user id.
+            Filter customerFilter = new Filter(EntityAndAttributeConstants.ADMIN_GROUP_ID, String.valueOf(tenantId), Filter.OP_EQ, Filter.TYPE_LONG);
+            User user = masterDAO.getEntity(User.class, customerFilter);
+            //fetching all plans
+            Filter filter = new Filter(EntityAndAttributeConstants.PARTNER_ID, String.valueOf(partnerId), Filter.OP_EQ, Filter.TYPE_LONG);
+            List<Plan> planList = masterDAO.getAllEntity(Plan.class, filter);
+            List<Long> deviceModelIds = new ArrayList<>();
+            Map<Long, Plan> planMap = new HashMap<>();
+            
+            for (Plan plan : planList) {
+                planMap.put(plan.getId(), plan);
+                deviceModelIds.add(plan.getDeviceModelId());
+            }
+            //fetching device model
+            Map<Long, DeviceModel> deviceModelMap = masterDAO.getAllEntityByCollection(DeviceModel.class, EntityAndAttributeConstants.ID, 
+            		deviceModelIds);
+            SDPBeanUtils beanUtils = SDPBeanUtils.getInstance();
+            //fetching customer plans
+            List<CustomerPlan> customerPlanList = planDAO.getAllCustomerPlan(user.getId());
+            List<SDPCustomerPlan> selectedCustomerPlanList = new ArrayList<>();
+            
+            for (CustomerPlan customerPlan : customerPlanList) {
+                SDPCustomerPlan sdpCustomerPlan = new SDPCustomerPlan();
+                beanUtils.copyProperties(customerPlan, sdpCustomerPlan);
+                selectedCustomerPlanList.add(sdpCustomerPlan);
+                SDPPlan sdpPlan = new SDPPlan();
+                beanUtils.copyProperties(planMap.get(sdpCustomerPlan.getCurrentPlanId()), sdpPlan);
+                sdpCustomerPlan.setCurrentSDPPlan(sdpPlan);
+                sdpCustomerPlan.setModelName(deviceModelMap.get(sdpPlan.getDeviceModelId()).getName());
+            }
+
+            selectedCustomerPlanList.sort((final SDPCustomerPlan c1, final SDPCustomerPlan c2) -> 
+            	c1.getModelName().toLowerCase().compareTo(c2.getModelName().toLowerCase()));
+            
+            
+            Date currentDate = new Date();
+            Map<String, List<SDPPlan>> planDeviceModelMap = new HashMap<>();
+            
+            for (Plan plan : planList) {
+                Date planStartDate = plan.getStartDate();
+                Date planEndDate = plan.getEndDate();
+            
+                //checking if the plan is current
+                if ((planStartDate.before(currentDate) || planStartDate.compareTo(currentDate) == 0) 
+                        && (planEndDate.after(currentDate) || planEndDate.compareTo(currentDate) == 0)) {
+                    SDPPlan sdpPlan = new SDPPlan();
+                    beanUtils.copyProperties(plan, sdpPlan);
+                    DeviceModel deviceModel = deviceModelMap.get(plan.getDeviceModelId());
+                    List<SDPPlan> sdpPlanList = planDeviceModelMap.get(deviceModel.getName());
+                    
+                    if (sdpPlanList == null) {
+                        sdpPlanList = new ArrayList<>();
+                        sdpPlanList.add(sdpPlan);
+                        planDeviceModelMap.put(deviceModel.getName(), sdpPlanList);
+                    
+                    } else {
+                        sdpPlanList.add(sdpPlan);
+                    }
+                }
+            }
+            List<String> keyList = new ArrayList<>(planDeviceModelMap.keySet());
+            Map<String, List<SDPPlan>> sortedPlanDeviceModelMap = new HashMap<>();
+
+            for (String modelName : keyList) {
+                List<SDPPlan> planLst = planDeviceModelMap.get(modelName);
+                
+                planLst.sort((final SDPPlan p1, final SDPPlan p2) -> 
+                	p1.getName().toLowerCase().compareTo(p2.getName().toLowerCase()));
+                
+                sortedPlanDeviceModelMap.put(modelName, planLst);
+            }
+            //fetching store details
+            List<StoreDetail> storeDetailList = storeDetailDAO.getAllSortedStoreDetail(); 
+            List<SDPStoreDetail> sdpStoreDetailList = beanUtils.convertList(storeDetailList, SDPStoreDetail.class);
+            
+            StaplesCustomerBean staplesCustomerBean = new StaplesCustomerBean();
+            staplesCustomerBean.setSelectedCustomerPlanList(selectedCustomerPlanList);
+            staplesCustomerBean.setUnSelectedPlanMap(sortedPlanDeviceModelMap);
+            staplesCustomerBean.setSdpStoreDetailList(sdpStoreDetailList);
+            
+            staplesCustomerBean.setFirstName(user.getFirstName());
+            staplesCustomerBean.setLastName(user.getLastName());
+            staplesCustomerBean.setUserId(user.getLoginName());
+            
+            return staplesCustomerBean;
+            
+        } catch (SDPException e) {
+            SDPLogger.getInstance().error(e.getMessage(), e);
+            throw new SDPException(e);
+            
+        } catch (Exception e) {
+            SDPLogger.getInstance().error(Constants.UNKNOWN_ERROR, e);
+            throw new SDPException(SDPException.UNKNOWN_ERROR, e);
+        }
+    }
+    
+    /**
+     * Method to add or remove customer plan.
+     * @param sdpCustomerPlanList - 
+     * @param tenantId - 
+     * @return - true if success else false.
+     * @throws SDPException - 
+     */
+    @Override
+    public boolean addOrRemoveCustomerPlan(final List<SDPCustomerPlan> sdpCustomerPlanList, final long tenantId) throws SDPException {
+        
+        try {
+            //fetching user id.
+            Filter customerFilter = new Filter(EntityAndAttributeConstants.ADMIN_GROUP_ID, String.valueOf(tenantId), Filter.OP_EQ, Filter.TYPE_LONG);
+            User user = masterDAO.getEntity(User.class, customerFilter);
+            long userId = user.getId();
+            //fetching customer plans
+            List<CustomerPlan> customerPlanList = planDAO.getAllCustomerPlan(userId);
+            Map<Long, CustomerPlan> customerPlanMap = new HashMap<>();
+            
+            for (CustomerPlan customerPlan : customerPlanList) {
+                customerPlanMap.put(customerPlan.getId(), customerPlan);
+            }
+            
+            List<SDPCustomerPlan> createCustomerPlanList = new ArrayList<>();
+            //Collect plan ids that were removed by the user.
+            //exist in DB, but not recieved from UI. 
+            for (SDPCustomerPlan sdpCustomerPlan : sdpCustomerPlanList) {
+                //create customer plan
+                if (customerPlanMap.remove(sdpCustomerPlan.getId()) == null) {
+                    createCustomerPlanList.add(sdpCustomerPlan);
+                }
+            }
+            
+            CustomerPlanService customerPlanSvc = (CustomerPlanService) ServiceFactory.getInstance().getService(
+                    CustomerPlanService.class.getName());
+            customerPlanSvc.createCustomerPlan(createCustomerPlanList, userId);
+        
+            //delete customer plans that were removed by the user on UI.
+            if (!customerPlanMap.isEmpty()) {
+                List<CustomerPlan>  plansToDelete = new ArrayList<>();
+                plansToDelete.addAll(customerPlanMap.values());
+                List<SDPCustomerPlan> sdpPlansToDelete =  SDPBeanUtils.getInstance().convertList(plansToDelete, SDPCustomerPlan.class);
+                customerPlanSvc.deleteCustomerPlan(sdpPlansToDelete, userId);
+            }
+            
+            if (!createCustomerPlanList.isEmpty()) {
+                //send plan added email
+                CustomerPlanHelper.sendPlanAddedEmail(createCustomerPlanList, userId);
+            }
+            
+            return true;
+            
+        } catch (SDPException e) {
+            SDPLogger.getInstance().error(e.getMessage(), e);
+            throw new SDPException(e);
+            
+        } catch (Exception e) {
+            SDPLogger.getInstance().error(Constants.UNKNOWN_ERROR, e);
+            throw new SDPException(SDPException.UNKNOWN_ERROR, e);
+        }
+    }
+    
+    /**
+     * Method to fetch all customer tax class codes.
+     * @param countryId - 
+     * @return - 
+     * @throws SDPException - 
+     */
+    private List<SDPCustomerTaxClassCode> getAllCustomerTaxClassCodes(final Long countryId) throws SDPException {
+        //fetching class codes.
+    	  List<Filter> filterList = new ArrayList<>();
+    	  filterList.add(new Filter(EntityAndAttributeConstants.CLASS_CODE_NAME, "Taxable", Filter.OP_NOT_EQ, Filter.TYPE_STRING));
+    	  filterList.add(new Filter(EntityAndAttributeConstants.COUNTRY_ID, String.valueOf(countryId), Filter.OP_EQ, Filter.TYPE_LONG));
+        List<CustomerTaxClassCode> classCodeList = masterDAO.getAllEntity(CustomerTaxClassCode.class, filterList, Filter.LOP_AND);
+        
+        return SDPBeanUtils.getInstance().convertList(classCodeList, SDPCustomerTaxClassCode.class);
+    }
+    
+    /**
+     * Method to get primary contact for user.
+     * @param userId - 
+     * @return - 
+     * @throws SDPException - 
+     */
+    private SDPContact getPrimaryContactForUser(final long userId) throws SDPException {
+        List<UserContact> userContactList = userContactDAO.getAllContactByUserID(userId);
+        Contact primaryContact = null;
+
+        for (UserContact userContact : userContactList) {
+            long contactId = userContact.getContactId();
+            Contact contact = contactDAO.getContactByUser(contactId);
+        
+            if (contact.getType() == SDPContact.PRIMARY_ADDRESS) {
+                primaryContact = contact;
+            }
+        }
+        SDPContact contact = new SDPContact();
+        SDPBeanUtils.getInstance().copyProperties(primaryContact, contact);
+        //fetching State name.
+        State state;            
+
+        if (primaryContact != null && primaryContact.getState() != 0) {
+            state = masterDAO.getEntity(State.class, primaryContact.getState());
+            SDPState sdpState = new SDPState();
+            SDPBeanUtils.getInstance().copyProperties(state , sdpState);
+            contact.setStateName(sdpState.getCode());
+            contact.setState(primaryContact.getState());
+        
+        } else {
+            contact.setStateName("");
+        }
+        if (primaryContact != null && primaryContact.getCountry() != 0) {
+            contact.setCountry(primaryContact.getCountry());
+             Country country = masterDAO.getEntity(Country.class, primaryContact.getCountry());
+             contact.setCountryCode(country.getCountryCode());
+        }
+        return contact;
+    }
+    
+    /**
+     * Method to get all partner price list for customer.
+     * @param partnerId - 
+     * @return - 
+     * @throws SDPException - 
+     */
+    private List<SDPPartnerPriceList> getAllPartnerPriceListForCustomer(final long partnerId) throws SDPException {
+        //fetching partner price list.
+        List<PartnerPriceList> partnerPriceList = consumablePriceDAO.getPartnerPriceListForCustomer(partnerId); 
+        List<SDPPartnerPriceList> sdpPartnerPriceList = SDPBeanUtils.getInstance().convertList(partnerPriceList, SDPPartnerPriceList.class);
+        Map<String, SDPPartnerPriceList> partnerPriceListMap = new HashMap<>();
+        Map<String, SDPPartnerPriceList> currentPriceMap = new HashMap<>();
+        for (SDPPartnerPriceList priceList : sdpPartnerPriceList) {
+             Date date = new Date();
+             Date startDate = priceList.getStartDate();
+             Date endDate = priceList.getEndDate();
+        
+             if ((date.after(startDate) || date.compareTo(startDate) == 0) && (date.before(endDate) || date.compareTo(endDate) == 0)) {
+                 currentPriceMap.put(priceList.getName(), priceList);
+             }
+             
+             partnerPriceListMap.put(priceList.getName(), priceList);
+        }
+        List<SDPPartnerPriceList> priceListNames = new ArrayList<>();
+        Set<Entry<String, SDPPartnerPriceList>> set = currentPriceMap.entrySet();
+        
+        for (Entry<String, SDPPartnerPriceList> entry : set) {
+            SDPPartnerPriceList sdpPriceList = entry.getValue();
+        
+            if (currentPriceMap.get(sdpPriceList.getName()) != null) {
+                sdpPriceList.setHasCurrentPriceList(true);
+            
+            } else {
+                sdpPriceList.setHasCurrentPriceList(false);
+            }
+            priceListNames.add(sdpPriceList);
+        }
+        return priceListNames;
+    }
+    
+    /**
+     * Returns the buy out details for a customer/device plan.
+     * @param deviceId -
+     * @param userId -
+     * @return SDPBuyOutDetail Buy out details
+     * @throws SDPException -
+     */
+    @Override
+    public SDPBuyOutDetail getBuyOutValue(final long deviceId, final long userId) throws SDPException {
+        CustomerPlanService customerPlanSvc = (CustomerPlanService) ServiceFactory.getInstance().getService(CustomerPlanService.class.getName());
+        return customerPlanSvc.computeBuyOutValue(deviceId, userId);
+    }
+
+    /**
+     * Returns Active Orders available or not.
+     * @param deviceId -
+     * @return - true if success else false.
+     * @throws SDPException -
+     */
+    @Override
+    public boolean getIsActiveOrdersAvailable(final long deviceId) throws SDPException {
+        List<Order> activeOrdersForDevice = orderDAO.getActiveOrdersForDevice(deviceId);
+
+        return !activeOrdersForDevice.isEmpty();
+    }
+    
+    /**
+     * This method will return all the quick buys for the given filter.
+     * @param filter - filter criteria.
+     * @param isAscending - If isAscending is true we will order the elements by ascending order else we will order the elements by descending order.
+     * @param orderBy - The order representing an ordering to be applied to the results. Name of the column we are going to order the elements.
+     * @param firstResult - Set the first result to be retrieved (index starts from 0)
+     * @param maxResult - Set a limit upon the number of objects to be retrieved (set as -1 if all is needed)
+     * @param userId - 
+     * @param isCustomerSelected - True if any one customer is selected
+     * @return SDPBeanBundle <SDPQuickBuy> 
+     * @throws SDPException -
+     */
+    @Override
+     public SDPBeanBundle<SDPQuickBuy> getQuickBuyOrdersByFilter(final Filter filter, final boolean isAscending, final String orderBy, 
+             final int firstResult, final int maxResult, final String userId, final boolean isCustomerSelected) throws SDPException {
+         try {
+             SDPBeanBundle<SDPQuickBuy>  quickBuyBean = new SDPBeanBundle<>();
+             List<SDPQuickBuy> sdpQuickBuyList = isQuickBuyExists(filter, isAscending, orderBy, firstResult, maxResult, isCustomerSelected);
+             quickBuyBean.setCount(sdpQuickBuyList.size());
+             if (!sdpQuickBuyList.isEmpty()) {
+            	 sdpQuickBuyList = orderDAO.getQuickAddInfoList(sdpQuickBuyList, isAscending, orderBy, firstResult, maxResult);
+             }
+             quickBuyBean.setBeans(sdpQuickBuyList);
+             return quickBuyBean;
+         } catch (SDPException e) {
+             SDPLogger.getInstance().error(e.getMessage(), e);
+             throw new SDPException(e);
+             
+         } catch (Exception e) {
+             SDPLogger.getInstance().error(Constants.UNKNOWN_ERROR, e);
+             throw new SDPException(SDPException.UNKNOWN_ERROR, e);
+         }
+     }
+     
+     /**
+      * This method will return all the quick buys for the given filter.
+      * @param filter - filter criteria.
+      * @param isAscending - If isAscending is true we will order the elements by ascending order else we will order the elements by descending order.
+      * @param orderBy - The order representing an ordering to be applied to the results. Name of the column we are going to order the elements.
+      * @param firstResult - Set the first result to be retrieved (index starts from 0)
+      * @param maxResult - Set a limit upon the number of objects to be retrieved (set as -1 if all is needed)
+      * @param userId - 
+      * @param isCustomerSelected - True if any one customer is selected
+      * @return SDPBeanBundle <SDPQuickBuy> 
+      * @throws SDPException -
+      */
+    @Override
+      public List <SDPQuickBuy> isQuickBuyExists(final Filter filter, final boolean isAscending, final String orderBy, 
+              final int firstResult, final int maxResult, final boolean isCustomerSelected) throws SDPException {
+          try {
+        	  
+              long partnerUserId = ThreadSessionManager.getCurrentThreadSession().getUserId();
+              User user = userDAO.getUser(partnerUserId);
+              long partnerCompanyId = user.getAdminGroupId();
+              
+              boolean isAdmin = false;
+        	  Role role = AcegiHelper.getRoleByUserId(partnerUserId);
+        	  if ((role != null && role.getName() != null && role.getName().equalsIgnoreCase(Constants.RESELLER_ADMIN_ROLE))
+        			  || user.getType() == User.TYPE_RESELLER_ADMIN) {
+        		  isAdmin = true;
+        	  }
+
+              return getAllQuickBuysReady(partnerCompanyId, Long.parseLong(filter.getValue()), 
+            		  	isAdmin, firstResult, maxResult);
+            
+          } catch (SDPException e) {
+              SDPLogger.getInstance().error(e.getMessage(), e);
+              throw new SDPException(e);
+              
+          } catch (Exception e) {
+              SDPLogger.getInstance().error(Constants.UNKNOWN_ERROR, e);
+              throw new SDPException(SDPException.UNKNOWN_ERROR, e);
+          }
+      }
+
+      /**
+       * This method update partner order enable.
+       * @param tenantId
+       * @param isPartOrderEnable
+       */
+    @Override
+	public boolean updatePartnerOrderEnable(final long tenantId, final boolean isPartOrderEnable) throws SDPException {
+		
+		Tenant dbTenant =  masterDAO.getEntity(Tenant.class, tenantId);
+		if (dbTenant != null) {
+			dbTenant.setPartnerOrderingEnabled(isPartOrderEnable);
+			Date authStartDate = dbTenant.getPartnerAuthOrderStartDate();
+			Date authEndDate = dbTenant.getPartnerAuthOrderEndDate();
+			Date currentDate = new Date();
+			if (currentDate.after(authStartDate) && currentDate.before(authEndDate)) {
+				dbTenant.setPartnerAuthOrderEndDate(currentDate);
+			} else if(currentDate.before(authStartDate)) {
+				dbTenant.setPartnerAuthOrderStartDate(null);
+				dbTenant.setPartnerAuthOrderEndDate(null);
+			}
+			dbTenant.setIsPartnerAuthOrder(isPartOrderEnable);
+			masterDAO.updateEntity(dbTenant);
+			User user = userDAO.getCustomerUser(tenantId);
+			List<Long> companyIds = new ArrayList <>();
+            companyIds.add(dbTenant.getProviderId());
+            List<User> admins = userDAO.getAllResellerAdmin(companyIds);
+            User partnerAdmin = admins.get(0);       
+            long partnerId = partnerAdmin.getAdminGroupId();
+			Template  template;
+            template = TemplateHelper.getTemplateByNameAndCustomerCompId(TemplateConstants.PARTNER_ORDER_ENABLE_DEACTIVATE, user);
+            if (template.getIsHtml()) {
+                TemplateHelper.replaceMergeTagWithValueInContent(template, StandardMergeTag.getDisPartnerLogo(), 
+                        TemplateHelper.getHTMLImgTagforPartnerLogo(dbTenant.getProviderId()));
+            } else {
+            	Filter filter = new Filter(EntityAndAttributeConstants.PARTNER_ID, String.valueOf(dbTenant.getProviderId()), Filter.OP_EQ, Filter.TYPE_LONG);
+                XPartner xPartner = masterDAO.getEntity(XPartner.class, filter);
+                TemplateHelper.replaceMergeTagWithValueInContent(template, StandardMergeTag.getDisPartnerLogo(), 
+                        xPartner.getResellerName());
+            }
+            HashMap < String, Long > values = new HashMap <>();
+            values.put("userId", user.getId());
+            values.put("partnerId", partnerId);
+            values.put("customerUserId", user.getId());
+            List < EntityBean > entityBeanList = MergeTagHelper.getEntityBeanListFromTemplate(template, values);
+            EmailServicesHelper.prepareAndSendEmail(user, template, entityBeanList, user.getAdminGroupId());
+            
+			return true;
+		}
+		
+		return false;
+	}
+	
+	
+	 /**
+     * 
+     * @param userIdList - List of UserIds having quick buys 
+     * @param isAscending -
+     * @param orderBy -
+     * @param firstResult -
+     * @param maxResult -
+     * @param userIdTentantMap -
+     * @return - List of Quick buy orders.
+     * @throws SDPException -
+     */
+    private List < SDPQuickBuy > getAllQuickBuysReady(final long partnerCompanyId, final long customerCompanyId, final boolean isAdmin, 
+            final int firstResult, final int maxResult) throws SDPException {
+        try {
+        	List<SDPQuickBuy> eligibleQuickBuyList = new ArrayList<>();
+        		List<QuickBuy> quickBuyList = quickBuyDAO.getQuickBuyList(partnerCompanyId, customerCompanyId, isAdmin);
+            	
+            	if (quickBuyList != null && !quickBuyList.isEmpty()) {
+            		List<SDPQuickBuy> sdpQuickBuyList = SDPBeanUtils.getInstance().convertList(quickBuyList, SDPQuickBuy.class);
+                	Map<Long, SDPQuickBuy> quickBuyIdMap = new HashMap<>();
+                	Map<Long, List<SDPQuickBuy>> companyIdquickBuyMap = new HashMap<>();
+                	ShoppingCartService	 shoppingCartService = (ShoppingCartService) 
+                     		ServiceFactory.getInstance().getService(ShoppingCartService.class.getName());
+                	List<Long> companyIdList = new ArrayList<>();
+                	for (SDPQuickBuy quickBuy : sdpQuickBuyList) {
+                		companyIdList.add(quickBuy.getCompanyId());
+                		quickBuyIdMap.put(quickBuy.getId(), quickBuy);
+                		if (companyIdquickBuyMap.containsKey(quickBuy.getCompanyId())) {
+                			List<SDPQuickBuy> quickbuyListPerCompany = companyIdquickBuyMap.get(quickBuy.getCompanyId());
+                			quickbuyListPerCompany.add(quickBuy);
+                		} else {
+                			List<SDPQuickBuy> quickbuyListPerCompany = new ArrayList<>();
+                			quickbuyListPerCompany.add(quickBuy);
+                			companyIdquickBuyMap.put(quickBuy.getCompanyId(), quickbuyListPerCompany);
+                		}
+                	}
+                	
+                	List<ProgramTenant> programTenantList = programDAO.getProgramTenantList(companyIdList);
+                	
+                	Map<Long, ProgramTenant> programTenantMap = new HashMap<>();
+                	
+                	for (ProgramTenant programTenant : programTenantList) {
+                		programTenantMap.put(programTenant.getTenantId(), programTenant);
+                	}
+                	
+                	List<QuickBuyLineItem> quickBuyLineItemList = quickBuyDAO.getQuickBuyLineItems(new ArrayList(quickBuyIdMap.keySet()));
+                	
+                	
+                	List<LoyaltyProgramType> loyalityProgramTypeList = masterDAO.getAllEntities(LoyaltyProgramType.class);
+                	Map <Long, SDPLoyaltyProgramType> loyalityProgramTypeMap = new HashMap<>();
+                	
+                    for (LoyaltyProgramType loyaltyProgramType : loyalityProgramTypeList) {
+                    	SDPLoyaltyProgramType sdpLoyaltyProgramType = new SDPLoyaltyProgramType();
+                    	SDPBeanUtils.getInstance().copyProperties(loyaltyProgramType, sdpLoyaltyProgramType);
+                        loyalityProgramTypeMap.put(loyaltyProgramType.getId(), sdpLoyaltyProgramType);
+                    }
+                    
+                    List<Long> deviceIdList = new ArrayList<>();
+                    List<Long> deviceModelIdList = new ArrayList<>();
+                    for (QuickBuyLineItem quickBuyLineItem : quickBuyLineItemList) {
+                    	deviceIdList.add(quickBuyLineItem.getDeviceId());
+                    	deviceModelIdList.add(quickBuyLineItem.getDeviceModelId());
+                    }
+                    
+                    if (deviceIdList != null && !deviceIdList.isEmpty()) {
+                    	
+                    	Filter deviceIdListFilter = new Filter(EntityAndAttributeConstants.ID, Filter.OP_IN, Filter.TYPE_LIST, deviceIdList);
+                    	List<Device> deviceList = quickBuyDAO.getAllEntity(Device.class, deviceIdListFilter);
+                    	Filter deviceModelListFilter = new Filter(EntityAndAttributeConstants.ID, Filter.OP_IN, Filter.TYPE_LIST, deviceModelIdList);
+                    	List<DeviceModel> deviceModelList = quickBuyDAO.getAllEntity(DeviceModel.class, deviceModelListFilter);
+                        List<SDPDevice> sdpDeviceList = SDPBeanUtils.getInstance().convertList(deviceList, SDPDevice.class);
+                    	Map<Long, SDPDeviceModel> deviceModelMap = new HashMap<>();
+
+                    	for (DeviceModel deviceModel : deviceModelList) {
+                    		SDPDeviceModel sdpDeviceModel = new SDPDeviceModel();
+                    		SDPBeanUtils.getInstance().copyProperties(deviceModel, sdpDeviceModel);
+                    		deviceModelMap.put(deviceModel.getId(), sdpDeviceModel);
+                    	}
+                    
+                        List<ConsumableStatus> consumableStatusList = deviceDAO.getConsumableStatusList(deviceIdList);
+                        List<SDPConsumableStatus> sdpConsumableStatusList = SDPBeanUtils.getInstance().
+                        		convertList(consumableStatusList, SDPConsumableStatus.class);
+                        
+                        Map<Long, Long> deviceIdModelIdMap = new HashMap<>();
+                        List<Long> deviceModelIds = new ArrayList<>();
+                        List<Long> categoryIdList = new ArrayList<>();
+                        Map<Long, SDPDevice> deviceIdSDPDeviceMap = new HashMap<>();
+                        Map<Long, Map<Long, SDPConsumableStatus>> deviceCatConsumableStatusMap = new HashMap<>();
+                        Map<Long, Map<Long,SDPConsumableThresholds>> deviceCatConsumableThresholdsMap = new HashMap<>();
+                        
+                        AlertManagementService alertManagementService = (AlertManagementService) 
+                         		ServiceFactory.getInstance().getService(AlertManagementService.class.getName());
+                        alertManagementService.prepareDeviceCatConsumableStatusMap(sdpDeviceList, deviceModelIds, 
+                        		deviceIdSDPDeviceMap, deviceIdModelIdMap, categoryIdList, sdpConsumableStatusList, deviceCatConsumableStatusMap);
+                        
+                        
+                        alertManagementService.prepareConThresholdsMap(deviceModelIds, categoryIdList, deviceCatConsumableThresholdsMap);
+                    	
+                        Map<Long, Map<Long, SDPQuickBuyLineItem>> eligibleQBLineItemMap;
+                        
+                        
+                    	for (Map.Entry<Long, List<SDPQuickBuy>> companyIdquickBuyEntry : companyIdquickBuyMap.entrySet()) {
+                    		
+                    		long companyId = companyIdquickBuyEntry.getKey();
+                    		boolean isOrderByModel = programTenantMap.get(companyId).getOrderByModel();
+                    		List<SDPQuickBuy> sdpQuickBuyListPerComp = companyIdquickBuyEntry.getValue();
+                    		
+                    		eligibleQBLineItemMap = shoppingCartService.getQuickBuyDetails(companyId, isOrderByModel, deviceModelMap, 
+                    				loyalityProgramTypeMap, deviceCatConsumableStatusMap, 
+                    				deviceCatConsumableThresholdsMap,deviceIdModelIdMap,  sdpQuickBuyListPerComp);
+                    		if (!eligibleQBLineItemMap.isEmpty()) {
+                           	 for (Map.Entry<Long, Map<Long, SDPQuickBuyLineItem>> eligibleQBLineItemEntry : eligibleQBLineItemMap.entrySet()) {
+                           		 List<SDPQuickBuyLineItem> sdpQuickBuyLineItems = new ArrayList<>(eligibleQBLineItemEntry.getValue().values());
+                           		 for (SDPQuickBuyLineItem sdpQuickBuyLineItem : sdpQuickBuyLineItems) {
+                           			 SDPQuickBuy sdpQuickBuy = quickBuyIdMap.get(sdpQuickBuyLineItem.getQuickBuyId());
+                           			 if (sdpQuickBuy != null && !eligibleQuickBuyList.contains(sdpQuickBuy)) {
+                           				 eligibleQuickBuyList.add(sdpQuickBuy);
+                           				 if (firstResult == 0 && maxResult == -1) {
+                           					 break;
+                           				 }
+                           			 }
+                           		 }
+                           	 }
+                           	 if (firstResult == 0 && maxResult == -1 && !eligibleQuickBuyList.isEmpty()) {
+              					 break;
+              				 }
+                            }
+                    	}
+                    	
+                    }
+            	}
+        	return eligibleQuickBuyList;
+            
+        } catch (SDPException e) {
+            SDPLogger.getInstance().error(e.getMessage(), e);
+            throw new SDPException(e);
+            
+        } catch (Exception e) {
+            SDPLogger.getInstance().error(Constants.UNKNOWN_ERROR, e);
+            throw new SDPException(SDPException.UNKNOWN_ERROR, e);
+        }
+    }
+
+    /**
+     * This method will return all the customer promotions for the given filter.
+     * @param tenantId -
+     * @param userId -
+     * @param providerId - 
+     * @return SDPBeanBundle <SDPCustomerPromoCoupons> 
+     * @throws SDPException -
+     */
+    @Override
+	public SDPBeanBundle<SDPCustomerPromoCoupons> getCustomerPromoByFilter(final int firstResult, final int maxResult, 
+			final long tenantId, final long userId, final long providerId) throws SDPException {
+		
+		SDPBeanBundle<SDPCustomerPromoCoupons> locationBean = new SDPBeanBundle<>();
+		User partnerUser = promoCouponsDAO.getEntity(User.class, userId);
+		List< SDPCustomerPromoCoupons > activeAndExpiredList = new ArrayList <>();
+
+        Tenant tenant = masterDAO.getEntity(Tenant.class, tenantId);
+        
+		if (partnerUser != null) {
+			
+			Partner partner = promoCouponsDAO.getEntity(Partner.class, partnerUser.getAdminGroupId());
+			List<ProviderPromoCoupons> totalPromoCouponList = new ArrayList<>();
+			if (partner != null) {
+				String offerTypeAllQuery = "from "
+						+ ProviderPromoCoupons.class.getName()
+						+ " provpromo  where provpromo.providerId="
+						+ partner.getProviderId()
+						+ "and provpromo.id in(select prog.providerPromocouponsId from "
+						+ ProviderPromoPrograms.class.getName()
+						+ " prog,"
+						+ ProgramPartner.class.getName()
+						+ " propart where propart.partnerId="
+						+ partnerUser.getAdminGroupId()
+						+ " and prog.programId = propart.programId) and provpromo.offerTo="
+						+ PromoOfferCategories.GENERAL.getOfferCategory();
+
+				List<ProviderPromoCoupons> promoCouponList = promoCouponsDAO.executeQuery(offerTypeAllQuery);
+
+				if (promoCouponList != null && !promoCouponList.isEmpty()) {
+					totalPromoCouponList.addAll(promoCouponList);
+				}
+					String offerTypeCustomerQuery = "from "
+							+ ProviderPromoCoupons.class.getName()
+							+ " provpromo  where provpromo.providerId="
+							+ partner.getProviderId()
+							+ "and provpromo.id in(select promocust.providerPromocouponsId"
+							+ " from "
+							+ ProviderPromoCustomers.class.getName()
+							+ " promocust,"
+							+ ProviderPromoPrograms.class.getName()
+							+ " prog,"
+							+ ProgramPartner.class.getName()
+							+ " propart where promocust.tenantId="
+							+ tenantId
+							+ " and propart.partnerId="
+							+ partnerUser.getAdminGroupId()
+							+ " and prog.programId = propart.programId) and provpromo.offerTo="
+							+ PromoOfferCategories.CUSTOMER.getOfferCategory();
+					
+					List<ProviderPromoCoupons> customerMappedList = promoCouponsDAO.executeQuery(offerTypeCustomerQuery);
+					
+					if (customerMappedList != null && !customerMappedList.isEmpty()) {
+
+						totalPromoCouponList.addAll(customerMappedList);
+					}
+					
+				if (totalPromoCouponList != null && !totalPromoCouponList.isEmpty()) {
+					
+					List<SDPCustomerPromoCoupons> sdpProviderPromoCouponsList = 
+							SDPBeanUtils.getInstance().convertList(totalPromoCouponList, SDPCustomerPromoCoupons.class);
+					
+					for (SDPCustomerPromoCoupons promoCoupons : sdpProviderPromoCouponsList) {
+						List<Filter> filterList = new ArrayList<>();
+				     	filterList.add(new Filter(EntityAndAttributeConstants.PROMO_COUPON_ID, String.valueOf(promoCoupons.getId()), Filter.OP_EQ, Filter.TYPE_LONG));
+				     	filterList.add(new Filter(EntityAndAttributeConstants.TENANT_ID, String.valueOf(tenantId), Filter.OP_EQ, Filter.TYPE_LONG));
+				     	
+				        List<SupplyPromoUsage> promoUsage = promoCouponsDAO.getAllEntity(SupplyPromoUsage.class, filterList, Filter.LOP_AND, false,
+				        		EntityAndAttributeConstants.USAGE_DATE, 0, -1);
+				        if (promoUsage != null && !promoUsage.isEmpty()) {
+				        	promoCoupons.setStatus(Constants.STATUS_USED);
+				        	promoCoupons.setStrUsageDate(ServiceHelper.convertToString(promoUsage.get(0).getUsageDate()));
+						} else {
+							promoCoupons.setStatus(Constants.STATUS_UNUSED);
+						}
+					}
+					
+					int promotionActiveDays = 0;
+			        if (!ConfigParser.getInstance().getString(ConfigParser.PROMOTION_ACTIVE_DAYS_FOR_PARTNER).isEmpty()) {
+			        	promotionActiveDays = Integer.parseInt(ConfigParser.getInstance().getString(ConfigParser.PROMOTION_ACTIVE_DAYS_FOR_PARTNER).trim());
+			        }
+					Calendar configFutureDate = getDateWithOutTime(new Date());
+			        configFutureDate.add(Calendar.DATE, promotionActiveDays);
+			        
+					for (SDPCustomerPromoCoupons promoCoupons : sdpProviderPromoCouponsList) {
+						
+						Calendar startDate = getDateWithOutTime(promoCoupons.getStartDate());
+						
+						if (!startDate.after(configFutureDate)) {							
+							promoCoupons.setStrStartDate(ServiceHelper.convertToString(promoCoupons.getStartDate()));
+							promoCoupons.setStrEndDate(ServiceHelper.convertToString(promoCoupons.getEndDate()));
+							
+							if(tenant.isSupplyPromotionsEnabled() || promoCoupons.getStatus().equals(Constants.STATUS_USED)) {
+								activeAndExpiredList.add(promoCoupons);
+							}		
+						}
+					}
+					
+					Collections.sort(activeAndExpiredList, new SortPromoCouponsTab(new PromoStartDateSort(), new PromoCouponSortPromoCode()));
+				}
+			}
+		}
+		List<SDPCustomerPromoCoupons> sdpCustomerPromoCoupons = new ArrayList<>();
+		int totalPriceListSize = activeAndExpiredList.size();
+        int endResult = firstResult + maxResult;
+        
+		if (endResult > totalPriceListSize) {
+			endResult = endResult - (endResult - totalPriceListSize);
+			
+			for (int i = firstResult; i < endResult; i++) {
+				sdpCustomerPromoCoupons.add(activeAndExpiredList.get(i));
+			}
+		} else {
+			
+			for (int i = firstResult; i < endResult; i++) {
+				sdpCustomerPromoCoupons.add(activeAndExpiredList.get(i));
+			}
+		}
+		locationBean.setCount(activeAndExpiredList.size());
+		locationBean.setBeans(sdpCustomerPromoCoupons);
+		return locationBean;
+	}
+	
+	/**
+	 * This class to sort promo coupon list.
+	 * @author chandramohan_a
+	 *
+	 */
+	public class SortPromoCouponsTab implements Comparator<SDPCustomerPromoCoupons> {
+		/** List of Comparator SDPCustomerPromoCoupons **/
+	    private List<Comparator<SDPCustomerPromoCoupons>> listComparators;
+	 
+	    @SafeVarargs
+		public SortPromoCouponsTab(Comparator<SDPCustomerPromoCoupons>... comparators) {
+	        this.listComparators = Arrays.asList(comparators);
+	    }
+	 
+	    @Override
+	    public int compare(SDPCustomerPromoCoupons sdpCustPromo1, SDPCustomerPromoCoupons sdpCustPromo2) {
+	    	
+	        for (Comparator<SDPCustomerPromoCoupons> comparator : listComparators) {
+	            int result = comparator.compare(sdpCustPromo1, sdpCustPromo2);
+	        
+	            if (result != 0) {
+	                return result;
+	            }
+	        }
+	        return 0;
+	    }
+	}
+	
+	/**
+	 * This class to sort promo coupon (ascending) list.
+	 * @author chandramohan_a
+	 *
+	 */
+	public class PromoCouponSortPromoCode implements Comparator<SDPCustomerPromoCoupons> {
+		 
+	    @Override
+	    public int compare(SDPCustomerPromoCoupons sdpCustPromo1, SDPCustomerPromoCoupons sdpCustPromo2) {
+	        return sdpCustPromo1.getPromoCode().toLowerCase().compareTo(sdpCustPromo2.getPromoCode().toLowerCase());
+	    }
+	}
+	
+	/**
+	 * This class to sort promo coupon start Date (descending) list.
+	 * @author chandramohan_a
+	 *
+	 */
+	public class PromoStartDateSort implements Comparator<SDPCustomerPromoCoupons> {
+		 
+	    @Override
+	    public int compare(SDPCustomerPromoCoupons sdpCustPromo1, SDPCustomerPromoCoupons sdpCustPromo2) {
+	    	int retVal;
+		    Date firstDate = sdpCustPromo1.getStartDate();
+		    Date secondDate = sdpCustPromo2.getStartDate();     
+		    retVal = secondDate.compareTo(firstDate);
+		    return retVal;
+	    }
+	}
+	
+	 /**
+     * This method will return the date by removing the time.
+     * @param date - date
+     * @return Calendar - instance of Calendar with given date
+     */
+    private Calendar getDateWithOutTime(final Date date) {
+        Calendar currentDate = Calendar.getInstance();
+        currentDate.setTime(date);
+        // Remove the hours, minutes, seconds and milliseconds.
+        currentDate.set(Calendar.HOUR_OF_DAY, 0);
+        currentDate.set(Calendar.MINUTE, 0);
+        currentDate.set(Calendar.SECOND, 0);
+        currentDate.set(Calendar.MILLISECOND, 0);
+        
+        return currentDate;
+    }
+}

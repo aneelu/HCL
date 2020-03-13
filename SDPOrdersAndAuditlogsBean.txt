@@ -1,0 +1,276 @@
+
+package com.hcl.sdp.shared.bean;
+
+import java.util.List;
+
+/**
+ * Description: Copyright (c) 2018, HCL Technologies.
+ * 
+ * @date Sep 3, 2018 7:55:05 PM
+ * @author koteswararaoc
+ */
+public class SDPOrdersAndAuditlogsBean extends SDPBean {
+
+	/**
+	 * serialVersionUID.
+	 */
+	private static final long serialVersionUID = 6485746020830843424L;
+
+	/**
+	 * instance of partnerCompanyName.
+	 */
+	private String partnerCompanyName;
+	/**
+	 * instance of resellerId.
+	 */
+	private String resellerId;
+	/**
+	 * instance of priceListName.
+	 */
+	private String priceListName;
+	/**
+	 * instance of isOderByModelFlag.
+	 */
+	private boolean isOderByModelFlag;
+	/**
+	 * instance of SDPUser.
+	 */
+	private SDPUser sdpUser;
+	/**
+	 * instance of List<SDPUser>.
+	 */
+	private List<SDPUser> sdpUserList;
+	/**
+	 * instance of SDPCompany.
+	 */
+	private SDPCompany sdpCompany;
+	/**
+	 * instance of SDPTenant.
+	 */
+	private SDPTenant sdpTenant;
+	/**
+	 * instance of SDPProgram.
+	 */
+	private SDPProgram sdpProgram;
+
+	/**
+	 * instance of SDPContact.
+	 */
+	private SDPContact sdpContact;
+
+	/**
+	 * instance of SDPLookup.
+	 */
+	private List<SDPLookup> sdpLookupList;
+	/**
+	 * instance of SDPOrdersAndAuditlogsLineItemBean.
+	 */
+	private SDPOrdersAndAuditlogsLineItemBean sdpOrdersAndAuditlogsLineItemBean;
+	/**
+	 * instance of SDPXPartner.
+	 */
+	private SDPXPartner sdpxPartner;
+	/**
+	 * instance of orderNumber.
+	 */
+	private String orderNumber;
+
+	/**
+	 * @return the resellerId
+	 */
+	public String getResellerId() {
+		return resellerId;
+	}
+
+	/**
+	 * @param resellerId the resellerId to set
+	 */
+	public void setResellerId(String resellerId) {
+		this.resellerId = resellerId;
+	}
+
+	/**
+	 * @return the partnerCompanyName
+	 */
+	public String getPartnerCompanyName() {
+		return partnerCompanyName;
+	}
+
+	/**
+	 * @param partnerCompanyName the partnerCompanyName to set
+	 */
+	public void setPartnerCompanyName(String partnerCompanyName) {
+		this.partnerCompanyName = partnerCompanyName;
+	}
+
+	/**
+	 * @return the isOderByModelFlag
+	 */
+	public boolean isOderByModelFlag() {
+		return isOderByModelFlag;
+	}
+
+	/**
+	 * @param isOderByModelFlag the isOderByModelFlag to set
+	 */
+	public void setOderByModelFlag(boolean isOderByModelFlag) {
+		this.isOderByModelFlag = isOderByModelFlag;
+	}
+
+	/**
+	 * @return the sdpUser
+	 */
+	public SDPUser getSdpUser() {
+		return sdpUser;
+	}
+
+	/**
+	 * @param sdpUser the sdpUser to set
+	 */
+	public void setSdpUser(SDPUser sdpUser) {
+		this.sdpUser = sdpUser;
+	}
+
+	/**
+	 * @return the sdpCompany
+	 */
+	public SDPCompany getSdpCompany() {
+		return sdpCompany;
+	}
+
+	/**
+	 * @param sdpCompany the sdpCompany to set
+	 */
+	public void setSdpCompany(SDPCompany sdpCompany) {
+		this.sdpCompany = sdpCompany;
+	}
+
+	/**
+	 * @return the sdpTenant
+	 */
+	public SDPTenant getSdpTenant() {
+		return sdpTenant;
+	}
+
+	/**
+	 * @param sdpTenant the sdpTenant to set
+	 */
+	public void setSdpTenant(SDPTenant sdpTenant) {
+		this.sdpTenant = sdpTenant;
+	}
+
+	/**
+	 * @return the sdpProgram
+	 */
+	public SDPProgram getSdpProgram() {
+		return sdpProgram;
+	}
+
+	/**
+	 * @param sdpProgram the sdpProgram to set
+	 */
+	public void setSdpProgram(SDPProgram sdpProgram) {
+		this.sdpProgram = sdpProgram;
+	}
+
+	/**
+	 * @return the sdpContact
+	 */
+	public SDPContact getSdpContact() {
+		return sdpContact;
+	}
+
+	/**
+	 * @param sdpContact the sdpContact to set
+	 */
+	public void setSdpContact(SDPContact sdpContact) {
+		this.sdpContact = sdpContact;
+	}
+
+	/**
+	 * @return the sdpLookupList
+	 */
+	public List<SDPLookup> getSdpLookupList() {
+		return sdpLookupList;
+	}
+
+	/**
+	 * @param sdpLookupList the sdpLookupList to set
+	 */
+	public void setSdpLookupList(List<SDPLookup> sdpLookupList) {
+		this.sdpLookupList = sdpLookupList;
+	}
+
+	/**
+	 * @return the sdpOrdersAndAuditlogsLineItemBean
+	 */
+	public SDPOrdersAndAuditlogsLineItemBean getSdpOrdersAndAuditlogsLineItemBean() {
+		return sdpOrdersAndAuditlogsLineItemBean;
+	}
+
+	/**
+	 * @param sdpOrdersAndAuditlogsLineItemBean the
+	 *                                          sdpOrdersAndAuditlogsLineItemBean to
+	 *                                          set
+	 */
+	public void setSdpOrdersAndAuditlogsLineItemBean(
+			SDPOrdersAndAuditlogsLineItemBean sdpOrdersAndAuditlogsLineItemBean) {
+		this.sdpOrdersAndAuditlogsLineItemBean = sdpOrdersAndAuditlogsLineItemBean;
+	}
+
+	/**
+	 * @return the sdpxPartner
+	 */
+	public SDPXPartner getSdpxPartner() {
+		return sdpxPartner;
+	}
+
+	/**
+	 * @param sdpxPartner the sdpxPartner to set
+	 */
+	public void setSdpxPartner(SDPXPartner sdpxPartner) {
+		this.sdpxPartner = sdpxPartner;
+	}
+
+	/**
+	 * @return the orderNumber
+	 */
+	public String getOrderNumber() {
+		return orderNumber;
+	}
+
+	/**
+	 * @param sdpxPartner the orderNumber to set
+	 */
+	public void setOrderNumber(String orderNumber) {
+		this.orderNumber = orderNumber;
+	}
+
+	/**
+	 * @return the priceListName
+	 */
+	public String getPriceListName() {
+		return priceListName;
+	}
+
+	/**
+	 * @param priceListName the priceListName to set
+	 */
+	public void setPriceListName(String priceListName) {
+		this.priceListName = priceListName;
+	}
+
+	/**
+	 * @return the sdpUserList
+	 */
+	public List<SDPUser> getSdpUserList() {
+		return sdpUserList;
+	}
+
+	/**
+	 * @param sdpUserList the sdpUserList to set
+	 */
+	public void setSdpUserList(List<SDPUser> sdpUserList) {
+		this.sdpUserList = sdpUserList;
+	}
+}

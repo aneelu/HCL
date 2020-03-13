@@ -1,0 +1,2738 @@
+package com.hcl.sdp.shared.management.uielement;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import com.google.gwt.user.client.Window;
+import com.google.gwt.user.client.rpc.AsyncCallback;
+import com.google.gwt.user.client.ui.ListBox;
+import com.google.gwt.user.client.ui.Panel;
+import com.google.gwt.user.client.ui.Widget;
+import com.hcl.sdp.shared.bean.OrderStatusType;
+import com.hcl.sdp.shared.bean.PagingBean;
+import com.hcl.sdp.shared.bean.ProviderType;
+import com.hcl.sdp.shared.bean.RemovedDeviceDetailsFromTool;
+import com.hcl.sdp.shared.bean.SDPCompany;
+import com.hcl.sdp.shared.bean.SDPCreateOrderBean;
+import com.hcl.sdp.shared.bean.SDPCustomerOrders;
+import com.hcl.sdp.shared.bean.SDPDevice;
+import com.hcl.sdp.shared.bean.SDPDeviceModel;
+import com.hcl.sdp.shared.bean.SDPDeviceModelDetails;
+import com.hcl.sdp.shared.bean.SDPDeviceProgramDetails;
+import com.hcl.sdp.shared.bean.SDPOrder;
+import com.hcl.sdp.shared.bean.SDPOrderBean;
+import com.hcl.sdp.shared.bean.SDPOrderShipmentLineItem;
+import com.hcl.sdp.shared.bean.SDPOrdersAndAuditlogsBean;
+import com.hcl.sdp.shared.bean.SDPServiceSystemManualActivity;
+import com.hcl.sdp.shared.bean.SDPStackManagementBean;
+import com.hcl.sdp.shared.bean.SDPUser;
+import com.hcl.sdp.shared.exception.SDPException;
+import com.hcl.sdp.shared.framework.Nexus;
+import com.hcl.sdp.shared.framework.SimpleNexus;
+import com.hcl.sdp.shared.framework.callback.AsyncCallbackWithStatus;
+import com.hcl.sdp.shared.framework.constants.LabelConstants;
+import com.hcl.sdp.shared.framework.constants.MessageConstants;
+import com.hcl.sdp.shared.framework.constants.NexusConstants;
+import com.hcl.sdp.shared.framework.constants.PropertyConstant;
+import com.hcl.sdp.shared.framework.constants.ProviderLabelConstants;
+import com.hcl.sdp.shared.framework.constants.ProviderMessageConstants;
+import com.hcl.sdp.shared.framework.controller.AbstractUIElement;
+import com.hcl.sdp.shared.framework.controller.UIElement;
+import com.hcl.sdp.shared.framework.helpers.InitExceptionMessageHelper;
+import com.hcl.sdp.shared.framework.util.I18NUtil;
+import com.hcl.sdp.shared.management.model.CreateOrderToolInfoModel;
+import com.hcl.sdp.shared.management.model.UpdateIPAddressToolModel;
+import com.hcl.sdp.shared.management.uielement.listeners.ToolsListUIListener;
+import com.hcl.sdp.shared.management.widget.CancelOrderPopUpWizard;
+import com.hcl.sdp.shared.management.widget.ChangeProgramDevicePopupWidget;
+import com.hcl.sdp.shared.management.widget.CreateOrderToolImageLink;
+import com.hcl.sdp.shared.management.widget.CreateOrderWidget;
+import com.hcl.sdp.shared.management.widget.CustomConfirmationBox;
+import com.hcl.sdp.shared.management.widget.CustomConfirmationBox.ConfirmationBoxListener;
+import com.hcl.sdp.shared.management.widget.CustomDialogBox;
+import com.hcl.sdp.shared.management.widget.CustomerPasswordResetWizard;
+import com.hcl.sdp.shared.management.widget.DeleteCustomerPopUpWizard;
+import com.hcl.sdp.shared.management.widget.ManualShipmentPopupWidget;
+import com.hcl.sdp.shared.management.widget.OrderListWidget;
+import com.hcl.sdp.shared.management.widget.OrdersAndAuditlogsWidget;
+import com.hcl.sdp.shared.management.widget.RemoveDevicePopupWidget;
+import com.hcl.sdp.shared.management.widget.ReprocessTaxInvoicePopupWidget;
+import com.hcl.sdp.shared.management.widget.ResubmitOrderPopupWidget;
+import com.hcl.sdp.shared.management.widget.RetrievePartnerURLWizard;
+import com.hcl.sdp.shared.management.widget.ServiceContractPopupWidget;
+import com.hcl.sdp.shared.management.widget.StackManagementWidget;
+import com.hcl.sdp.shared.management.widget.SwapResellerPopUpWizard;
+import com.hcl.sdp.shared.management.widget.ToolsListWidget;
+import com.hcl.sdp.shared.management.widget.UpdateDeviceProgramInitialWidget;
+import com.hcl.sdp.shared.management.widget.UpdateIPAddressWidget;
+import com.hcl.sdp.shared.management.widget.UserLink;
+import com.hcl.sdp.shared.service.AdminServiceAsync;
+import com.hcl.sdp.shared.service.CreateOrderServiceAsync;
+import com.hcl.sdp.shared.service.OrdersAndAuditlogsServiceAsync;
+import com.hcl.sdp.shared.service.ProgramDeviceShiftServiceAsync;
+import com.hcl.sdp.shared.service.ProviderToolsServiceAsync;
+import com.hcl.sdp.shared.service.ServiceSystemManualActivityServiceAsync;
+import com.hcl.sdp.shared.service.StackManagementServiceAsync;
+import com.hcl.sdp.shared.service.UserManagementServiceAsync;
+
+/**
+ * @author vivek.ram
+ *
+ */
+public class ToolsListUIElement extends AbstractUIElement {
+
+    /** Constant for three. */
+    private static final int CONST_3 = 3;
+    /** Constant for four. */
+    private static final int CONST_4 = 4;
+    /** Constant for 250. */
+    private static final int CONST_250 = 250;
+    /** SERIALNUMBER_NOT_EXIST. */
+    public static final int SERIALNUMBER_NOT_EXIST = 4018;
+    /** USER_DOESNOT_EXIST. */
+    public static final int USER_DOESNOT_EXIST = 40054;
+    /** CONTRACT_ID_NOT_FOUND. */
+    public static final int CONTRACT_ID_NOT_FOUND = 40037;
+    /** Error code for user not owning the tenant account. */
+    public static final int USER_DOESNOT_OWN_ACCOUNT = 37779;
+    /** Error code for No devices found. */
+    public static final int NO_DEVICES_FOUND = 600;
+    /** DEVICE_SERIAL_NUMBER. */
+    public static final int NO_DEVICE_SERIAL_NUMBER = 4006;
+    /** Error code for DULICATE_SERIAL_NUMBER. */
+    public static final int DUPLICATE_SERIAL_NUMBER = 5324;
+    /** User Id Min Val. */
+    private static final int USER_ID_MIN_VAL = 7;
+    /** User Id Max Val. */
+    private static final int USER_ID_MAX_VAL = 35;
+    /** ToolsListWidget declaration. */
+    private ToolsListWidget toolsListWidget;
+    /** dialogBox. */
+    private CustomDialogBox dialogBox = null;
+    /** CustomConfirmationBox initialization. **/
+    private CustomConfirmationBox confirmationBox = null;
+    /** Error list. */
+    private List<String> errorList;
+    /** sdpDevice. */
+    private SDPDevice sdpDevice;
+    /** updateIPAddressWidget. */
+    private UpdateIPAddressWidget updateIPAddressWidget = null;
+    /** RetrievePartnerURLWizard. */
+    private RetrievePartnerURLWizard retrievePartnerURLWizard = null;
+    /** CustomerPasswordResetWizard. */
+    private CustomerPasswordResetWizard customerPasswordResetWizard = null;
+    /** serviceContractWidget. */
+    private ServiceContractPopupWidget serviceContractWidget = null;
+    /** manualShipmentPopupWidget. */
+    private ManualShipmentPopupWidget manualShipmentPopupWidget = null;
+    /** changeProgramDevicePopupWidget. */
+    private ChangeProgramDevicePopupWidget changeProgramDevicePopupWidget = null;
+    /** resubmitOrderPopupWidget. */
+    private ResubmitOrderPopupWidget resubmitOrderPopupWidget = null;
+    /** RemoveDeviceInSuppliesAssistantWidget. */
+    private RemoveDevicePopupWidget removeDeviceInSuppliesAssistant = null;
+    /** ReprocessTaxInvoicePopupWidget. */
+    private ReprocessTaxInvoicePopupWidget reprocessTaxPopupWidget = null;
+    /** sdpCreateOrderBeanParam. */
+    private boolean createOrderAddButtonFlag = false;
+
+    /**
+     * @param element -
+     */
+    @Override
+    public void addChild(final UIElement element) {
+        /** defult element */
+    }
+
+    /**
+     * addToolsAction.
+     */
+    private void addToolsAction(final int providerType) {
+        if (providerType != ProviderType.REPLENISHMENT.getProviderType()) {
+            toolsListWidget.deleteCustomerClickHandler(clickEvent -> deleteCustomerAction());
+
+            toolsListWidget.resellerSwapClickHandler(clickEvent -> resellerSwapAction());
+
+            toolsListWidget.cancelOrderClickHandler(clickEvent -> cancelOrderAction());
+
+            toolsListWidget.updatePrinterIPClickHandler(clickEvent -> updatePrinterIPAction());
+
+            toolsListWidget.stackManagementClickHandler(clickEvent -> stackManagementAction());
+
+            toolsListWidget.retrievePartnerRegistrationandDownloadURLClickHandler(
+                    clickEvent -> retrievePartnerRegistrationandDownloadURLAction());
+
+            toolsListWidget.resetCustomerPasswordClickHandler(clickEvent -> resetCustomerPasswordAction());
+
+            toolsListWidget.serviceContractClickHandler(clickEvent -> serviceContractAction());
+
+            toolsListWidget.manualShipmentClickHandler(clickEvent -> manualShipmentAction());
+
+            toolsListWidget.updateDeviceProgramClickHandler(clickEvent -> updateDeviceProgram());
+
+            toolsListWidget.resubmitOrderButtonClickHandler(clickEvent -> resubmitOrderAction());
+
+            toolsListWidget.removeDeviceInSAButtonClickHandler(clickEvent -> removeCustomerDevice());
+
+            toolsListWidget.reprocessTaxButtonClickHandler(clickEvent -> reprocessTaxInvoiceAction());
+
+            toolsListWidget.orderCreationClickHandler(clickEvent -> orderCreationAction());
+
+            toolsListWidget.ordersAndAuditlogsClickHandler(clickEvent -> ordersAndAuditlogsAction());
+        }
+    }
+
+    /**
+     * cancelOrderAction.
+     */
+    private void cancelOrderAction() {
+        final CancelOrderPopUpWizard cancelOrderPopUpWizard = new CancelOrderPopUpWizard();
+        cancelOrderPopUpWizard.showPopUp();
+
+        cancelOrderPopUpWizard.closeButtonClickHandler(clickEvent ->
+
+        cancelOrderPopUpWizard.removeBGLayer());
+
+        cancelOrderPopUpWizard.updateButtonClickHandler(clickEvent -> {
+
+            if (cancelOrderPopUpWizard.getStep() == 1) {
+                final String orderNumber = cancelOrderPopUpWizard.getOrderNumber();
+
+                if (orderNumber.length() > 0) {
+                    long providerId = Long
+                            .parseLong((String) Nexus.getNexus().getProperty(PropertyConstant.COMPANY_ID));
+
+                    ProviderToolsServiceAsync.Util.getInstance().checkOrderNumber(orderNumber, providerId,
+                            new AsyncCallbackWithStatus<SDPOrder>() {
+
+                                @Override
+                                protected void onFailureInternal(final Throwable throwable) {
+
+                                    if (throwable instanceof SDPException) {
+                                        SDPException exception = (SDPException) throwable;
+
+                                        if (exception.getCode() == SDPException.ORDER_DOESNOT_EXIST) {
+                                            dialogBox = new CustomDialogBox(NexusConstants.FAILURE_MESSAGE,
+                                                    ProviderLabelConstants.ENTER_VALID_ORDER_NUMBER_MSG);
+                                            dialogBox.show();
+
+                                        } else {
+                                            dialogBox = new CustomDialogBox(NexusConstants.FAILURE_MESSAGE,
+                                                    ProviderLabelConstants.FAILED_TO_FETCH_MSG);
+                                            dialogBox.show();
+                                        }
+                                    }
+                                }
+
+                                @Override
+                                protected void onSuccessInternal(final SDPOrder sdpOrder) {
+                                    cancelOrderPopUpWizard.showForStepTwo(sdpOrder);
+                                }
+                            });
+                } else {
+                    dialogBox = new CustomDialogBox(NexusConstants.INFO_MESSAGE,
+                            ProviderLabelConstants.ENTER_ORDER_NUMBER_MSG);
+                    dialogBox.show();
+                }
+
+            } else {
+                final SDPOrder sdpOrder = cancelOrderPopUpWizard.getSdpOrder();
+
+                if (sdpOrder.getStatus() != OrderStatusType.CANCELLED.getOrderStatusType()) {
+
+                    ProviderToolsServiceAsync.Util.getInstance().cancelOrder(sdpOrder,
+                            new AsyncCallbackWithStatus<Boolean>() {
+
+                                @Override
+                                protected void onFailureInternal(final Throwable throwable) {
+                                    dialogBox = new CustomDialogBox(NexusConstants.FAILURE_MESSAGE,
+                                            ProviderLabelConstants.ORDER_CANCEL_FAILURE_MSG);
+                                    dialogBox.show();
+                                }
+
+                                @Override
+                                protected void onSuccessInternal(final Boolean object) {
+                                    cancelOrderPopUpWizard.removeBGLayer();
+                                    dialogBox = new CustomDialogBox(NexusConstants.SUCCESS_MESSAGE,
+                                            ProviderLabelConstants.ORDER_CANCEL_SUCCESS_MSG);
+                                    dialogBox.show();
+                                }
+                            });
+                } else {
+                    cancelOrderPopUpWizard.removeBGLayer();
+                    dialogBox = new CustomDialogBox(NexusConstants.INFO_MESSAGE,
+                            ProviderLabelConstants.ORDER_ALREADY_CANCELED_MSG);
+                    dialogBox.show();
+                }
+            }
+        });
+    }
+
+    /**
+     * deleteCustomerAction.
+     */
+    private void deleteCustomerAction() {
+        final DeleteCustomerPopUpWizard deleteCustomerPopUpWizard = new DeleteCustomerPopUpWizard();
+        deleteCustomerPopUpWizard.showPopUp();
+
+        deleteCustomerPopUpWizard.closeButtonClickHandler(clickEvent -> deleteCustomerPopUpWizard.removeBGLayer());
+
+        deleteCustomerPopUpWizard.deleteButtonClickHandler(clickEvent -> {
+
+            if (deleteCustomerPopUpWizard.getStep() == 1) {
+                final String customerId = deleteCustomerPopUpWizard.getCustomerID();
+
+                if (customerId.length() > 0) {
+                    long providerId = Long
+                            .parseLong((String) Nexus.getNexus().getProperty(PropertyConstant.COMPANY_ID));
+                    ProviderToolsServiceAsync.Util.getInstance().validateCustomerId(customerId, providerId,
+                            new AsyncCallbackWithStatus<SDPUser>() {
+
+                                @Override
+                                protected void onFailureInternal(final Throwable throwable) {
+
+                                    if (throwable instanceof SDPException) {
+                                        SDPException exception = (SDPException) throwable;
+
+                                        if (exception.getCode() == SDPException.USER_DOESNOT_EXIST) {
+                                            dialogBox = new CustomDialogBox(NexusConstants.FAILURE_MESSAGE,
+                                                    ProviderLabelConstants.ENTER_VALID_CISTOMER_ID_MSG);
+                                            dialogBox.show();
+
+                                        } else if (exception.getCode() == SDPException.USER_DOESNOT_EXIST_FOR_PARTNER) {
+                                            dialogBox = new CustomDialogBox(NexusConstants.FAILURE_MESSAGE,
+                                                    ProviderLabelConstants.ENTER_VALID_ID_UNDER_YOUR_PURVIEW_MSG);
+                                            dialogBox.show();
+
+                                        } else {
+                                            dialogBox = new CustomDialogBox(NexusConstants.FAILURE_MESSAGE,
+                                                    ProviderLabelConstants.FAILED_TO_FETCH_MSG);
+                                            dialogBox.show();
+                                        }
+                                    }
+                                }
+
+                                @Override
+                                protected void onSuccessInternal(final SDPUser sdpUser) {
+                                    deleteCustomerPopUpWizard.showForStepTwo(sdpUser);
+                                }
+                            });
+                } else {
+                    dialogBox = new CustomDialogBox(NexusConstants.INFO_MESSAGE,
+                            ProviderLabelConstants.ENTER_CUSTOMER_ID_MSG);
+                    dialogBox.show();
+                }
+            } else {
+                final SDPUser sdpUser = deleteCustomerPopUpWizard.getSdpUser();
+
+                ProviderToolsServiceAsync.Util.getInstance().deleteCustomer(sdpUser,
+                        new AsyncCallbackWithStatus<Boolean>() {
+
+                            @Override
+                            protected void onFailureInternal(final Throwable throwable) {
+
+                                if (throwable instanceof SDPException) {
+                                    SDPException exception = (SDPException) throwable;
+
+                                    if (exception.getCode() == SDPException.ORDER_OR_DEVICE_EXISTS) {
+                                        dialogBox = new CustomDialogBox(NexusConstants.FAILURE_MESSAGE,
+                                                ProviderLabelConstants.DELETE_CUSTOMER_FAILURE_MSG
+                                                        + ProviderLabelConstants.SPACE_LABEL
+                                                        + ProviderLabelConstants.ORDER_OR_DEVICE_ASSOCIATED_MSG);
+                                        dialogBox.show();
+
+                                    } else if (exception.getCode() == SDPException.USER_ALREADY_DISABLED) {
+                                        dialogBox = new CustomDialogBox(NexusConstants.FAILURE_MESSAGE,
+                                                ProviderLabelConstants.DELETE_FCPCUSTOMER_EXIST_MSG);
+                                        dialogBox.show();
+
+                                    } else {
+                                        dialogBox = new CustomDialogBox(NexusConstants.FAILURE_MESSAGE,
+                                                ProviderLabelConstants.DELETE_CUSTOMER_FAILURE_MSG);
+                                        dialogBox.show();
+                                    }
+                                }
+                            }
+
+                            @Override
+                            protected void onSuccessInternal(final Boolean object) {
+                                deleteCustomerPopUpWizard.removeBGLayer();
+                                dialogBox = new CustomDialogBox(NexusConstants.SUCCESS_MESSAGE,
+                                        ProviderLabelConstants.DELETE_CUSTOMER_SUCCESS_MSG);
+                                dialogBox.show();
+                            }
+                        });
+            }
+        });
+    }
+
+    /**
+     * @param customerId -
+     */
+    private void fetchDeviceModelConfigDetails(final String customerId) {
+        long providerId = Long.parseLong((String) Nexus.getNexus().getProperty(PropertyConstant.COMPANY_ID));
+
+        ProviderToolsServiceAsync.Util.getInstance().fetchDeviceModelConfigDetails(customerId, providerId,
+                new AsyncCallbackWithStatus<SDPDeviceModelDetails>() {
+
+                    @Override
+                    protected void onFailureInternal(final Throwable throwable) {
+
+                        if (throwable instanceof SDPException) {
+                            SDPException exception = (SDPException) throwable;
+
+                            if (exception.getCode() == SDPException.USER_DOESNOT_EXIST) {
+                                dialogBox = new CustomDialogBox(NexusConstants.FAILURE_MESSAGE,
+                                        ProviderLabelConstants.ENTER_VALID_CISTOMER_ID_MSG);
+                                dialogBox.show();
+
+                            } else if (exception.getCode() == SDPException.USER_DOESNOT_EXIST_FOR_PARTNER) {
+                                dialogBox = new CustomDialogBox(NexusConstants.FAILURE_MESSAGE,
+                                        ProviderLabelConstants.ENTER_VALID_ID_UNDER_YOUR_PURVIEW_MSG);
+                                dialogBox.show();
+
+                            } else if (exception.getCode() == SDPException.DEVICE_NOT_EXIST) {
+                                dialogBox = new CustomDialogBox(NexusConstants.FAILURE_MESSAGE,
+                                        ProviderLabelConstants.DEVICE_NOT_FOUND_MSG);
+                                dialogBox.show();
+
+                            } else {
+                                dialogBox = new CustomDialogBox(NexusConstants.FAILURE_MESSAGE,
+                                        ProviderLabelConstants.FAILED_TO_FETCH_MSG);
+                                dialogBox.show();
+                            }
+                        }
+                    }
+
+                    @Override
+                    protected void onSuccessInternal(final SDPDeviceModelDetails sdpDeviceModelDetails) {
+                        updateIPAddressWidget.populateListBox(sdpDeviceModelDetails);
+                        updateIPAddressWidget.showForStepOne();
+                    }
+                });
+    }
+
+    /**
+     * getChildren.
+     *
+     * @return List
+     */
+    @Override
+    public List getChildren() {
+        return null;
+    }
+
+    private void getConsumableDetails(final SDPStackManagementBean sdpStackManagementBean,
+            final StackManagementWidget stackManagementWidget) {
+        StackManagementServiceAsync.Util.getInstance().fetchConsumableDetails(sdpStackManagementBean,
+                new AsyncCallbackWithStatus<SDPStackManagementBean>() {
+                    @Override
+                    protected void onFailureInternal(final Throwable throwable) {
+                        dialogBox = new CustomDialogBox(NexusConstants.INFO_MESSAGE,
+                                ProviderLabelConstants.INVALID_SERIAL_NUMBER_MSG);
+                        dialogBox.show();
+                    }
+
+                    @Override
+                    protected void onSuccessInternal(final SDPStackManagementBean sdpStackManagementBean) {
+                        stackManagementWidget.setSdpStackManagementBean(sdpStackManagementBean);
+                        stackManagementWidget.showForStepTwo(stackManagementWidget.getSdpStackManagementBean());
+                        stackManagementWidget.setRetainedSDPStackManagementBean(sdpStackManagementBean);
+
+                    }
+                });
+    }
+
+    /**
+     * @return Panel
+     */
+    @Override
+    public Panel getContainerWidget() {
+        return null;
+    }
+
+    /**
+     * get the UpdateIPAddressToolModel.
+     *
+     * @param ipAddressToolModel - ipAddressToolModel.
+     * @return the CustomerModel.
+     */
+    private UpdateIPAddressToolModel getUpdateIPAddressToolModel(final UpdateIPAddressToolModel ipAddressToolModel) {
+
+        if (validateUpdateIPAddressToolModel(ipAddressToolModel)) {
+            return new UpdateIPAddressToolModel();
+        }
+        return null;
+    }
+
+    /**
+     * @return widget -
+     */
+    @Override
+    public Widget getWidget() {
+        return toolsListWidget;
+    }
+
+    /**
+     * initialize.
+     */
+    @Override
+    public void initialize() {
+        registerListeners();
+        int providerType = (int) Nexus.getNexus().getProperty(PropertyConstant.PROVIDER_TYPE);
+        toolsListWidget = new ToolsListWidget(providerType);
+        addToolsAction(providerType);
+    }
+
+    /**
+     * manualShipmentAction.
+     */
+    private void manualShipmentAction() {
+        manualShipmentPopupWidget = new ManualShipmentPopupWidget();
+        manualShipmentPopupWidget.setStep(1);
+        manualShipmentPopupWidget.showPopUp();
+
+        manualShipmentPopupWidget.closeButtonClickHandler(clickEvent -> manualShipmentPopupWidget.hidePopUp());
+
+        manualShipmentPopupWidget.proceedButtonClickHandler(clickEvent -> {
+
+            if (manualShipmentPopupWidget.getCurrentStep() == 1) {
+
+                if (manualShipmentPopupWidget.getOrderNoTxt().trim().equalsIgnoreCase("")) {
+                    dialogBox = new CustomDialogBox(NexusConstants.INFO_MESSAGE, LabelConstants.MANDATORY_FIELD_MSG);
+                    dialogBox.show();
+
+                } else {
+                    long providerId = Long
+                            .parseLong((String) Nexus.getNexus().getProperty(PropertyConstant.COMPANY_ID));
+                    long userId = Long.parseLong((String) Nexus.getNexus().getProperty(PropertyConstant.USER_ID));
+
+                    ProviderToolsServiceAsync.Util.getInstance().fetchOrderDetails(
+                            manualShipmentPopupWidget.getOrderNoTxt().trim(), providerId, userId,
+                            new AsyncCallback<SDPCustomerOrders>() {
+
+                                @Override
+                                public void onFailure(final Throwable throwable) {
+                                    String exceptionMsg = null;
+
+                                    if (throwable instanceof SDPException) {
+                                        final SDPException sdpException = (SDPException) throwable;
+                                        exceptionMsg = InitExceptionMessageHelper.getInitExceptionMessageHelper()
+                                                .getExceptionDescription(sdpException.getCode());
+                                    }
+                                    if (exceptionMsg == null) {
+                                        exceptionMsg = ProviderLabelConstants.ORDER_CANNOT_SHIP_MSG;
+                                    }
+                                    dialogBox = new CustomDialogBox(NexusConstants.FAILURE_MESSAGE, exceptionMsg);
+                                    dialogBox.show();
+                                }
+
+                                @Override
+                                public void onSuccess(final SDPCustomerOrders sdpCustomerOrders) {
+                                    manualShipmentPopupWidget.setSdpCustomerOrders(sdpCustomerOrders);
+                                    manualShipmentPopupWidget.setStep(2);
+                                    manualShipmentPopupWidget.showPopUp();
+                                }
+                            });
+                }
+
+            } else if (manualShipmentPopupWidget.getCurrentStep() == 2) {
+
+                if (manualShipmentPopupWidget.getOrderShipment().getShipmentLineItems().size() >= 0) {
+                    boolean isAllQtyZero = true;
+                    boolean isShipQtyGreater = false;
+                    boolean isEmptySerialNumber = false;
+                    boolean isDuplicateSerialNumberExist = false;
+                    String validSerialNumber = null;
+                    Set<String> serialNumberSet = new HashSet<>();
+
+                    for (SDPOrderShipmentLineItem sdpOrderShipmentLineItem : manualShipmentPopupWidget
+                            .getOrderShipment().getShipmentLineItems()) {
+                        if (sdpOrderShipmentLineItem.getDispatchQuantity() > 0) {
+                            isAllQtyZero = false;
+                            if (sdpOrderShipmentLineItem.getIsDevicePart()
+                                    && manualShipmentPopupWidget.getSerialNumberMap()
+                                            .containsKey(sdpOrderShipmentLineItem.getDeviceId())
+                                    && sdpOrderShipmentLineItem.getSerialNumber().isEmpty()) {
+                                isEmptySerialNumber = true;
+
+                            } else if (manualShipmentPopupWidget.getSerialNumberMap()
+                                    .containsKey(sdpOrderShipmentLineItem.getDeviceId())
+                                    && sdpOrderShipmentLineItem.getSerialNumber() != null
+                                    && !sdpOrderShipmentLineItem.getSerialNumber().isEmpty()) {
+                                validSerialNumber = sdpOrderShipmentLineItem.getSerialNumber();
+                                if (!serialNumberSet.add(validSerialNumber)) {
+                                    isDuplicateSerialNumberExist = true;
+                                }
+                            }
+                        }
+                        if (sdpOrderShipmentLineItem.getDispatchQuantity()
+                                + sdpOrderShipmentLineItem.getShippedQuantity() > sdpOrderShipmentLineItem
+                                        .getOrderedQuantity()) {
+                            isShipQtyGreater = true;
+                        }
+                    }
+
+                    if (manualShipmentPopupWidget.getTrackingNoTxt().trim().equalsIgnoreCase("")
+                            || manualShipmentPopupWidget.getShipFromTxt().trim().equalsIgnoreCase("")) {
+                        dialogBox = new CustomDialogBox(NexusConstants.INFO_MESSAGE,
+                                LabelConstants.MANDATORY_FIELD_MSG);
+                        dialogBox.show();
+
+                    } else if (isAllQtyZero) {
+                        dialogBox = new CustomDialogBox(NexusConstants.INFO_MESSAGE,
+                                ProviderLabelConstants.ENTER_SHIP_QUANTITY_MSG);
+                        dialogBox.show();
+
+                    } else if (isShipQtyGreater) {
+                        dialogBox = new CustomDialogBox(NexusConstants.INFO_MESSAGE,
+                                ProviderLabelConstants.SHIP_QUANTITY_GREATER_MSG);
+                        dialogBox.show();
+
+                    } else if (isEmptySerialNumber) {
+                        dialogBox = new CustomDialogBox(NexusConstants.INFO_MESSAGE,
+                                ProviderLabelConstants.SERIAL_NUMBER_TXT_MSG);
+                        dialogBox.show();
+
+                    } else if (isDuplicateSerialNumberExist) {
+                        dialogBox = new CustomDialogBox(NexusConstants.FAILURE_MESSAGE,
+                                ProviderLabelConstants.ORDER_SHIPFAIL_DUPLICATE_SN_MSG);
+                        dialogBox.show();
+
+                    } else if (!com.hcl.sdp.shared.management.validation.Validator.isValidSerialNum(validSerialNumber)
+                            && validSerialNumber != null) {
+                        dialogBox = new CustomDialogBox(NexusConstants.INFO_MESSAGE,
+                                ProviderLabelConstants.INVALID_SERIAL_NUMBER_MSG);
+                        dialogBox.show();
+
+                    } else {
+
+                        ProviderToolsServiceAsync.Util.getInstance().proceedForShipment(
+                                manualShipmentPopupWidget.getOrderShipment(),
+                                manualShipmentPopupWidget.getSdpCustomerOrders().getSdpOrder(),
+                                new AsyncCallback<Boolean>() {
+
+                                    @Override
+                                    public void onFailure(final Throwable throwable) {
+                                        if (throwable instanceof SDPException) {
+                                            final SDPException sdpException = (SDPException) throwable;
+
+                                            if (sdpException.getCode() == DUPLICATE_SERIAL_NUMBER) {
+                                                dialogBox = new CustomDialogBox(NexusConstants.FAILURE_MESSAGE,
+                                                        ProviderLabelConstants.ORDER_SHIPFAIL_DUPLICATE_SN_MSG);
+                                                dialogBox.show();
+                                            } else {
+                                                dialogBox = new CustomDialogBox(NexusConstants.FAILURE_MESSAGE,
+                                                        ProviderLabelConstants.ORDER_SHIP_FAIL_MSG);
+                                                dialogBox.show();
+                                            }
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onSuccess(final Boolean isPartiallyShipped) {
+                                        String message = "";
+
+                                        if (isPartiallyShipped) {
+                                            message = ProviderLabelConstants.ORDER_STATUS_PARTIAL_SUCCESS_MSG;
+                                        } else {
+                                            message = ProviderLabelConstants.ORDER_STATUS_SUCCESS_MSG;
+                                        }
+                                        confirmationBox = new CustomConfirmationBox(message, false, false, true);
+                                        confirmationBox.show();
+
+                                        confirmationBox.addConfirmationBoxListener(new ConfirmationBoxListener() {
+
+                                            @Override
+                                            public void cancelButtonClicked() {
+                                                /**
+                                                 * cancel button click action.
+                                                 */
+                                            }
+
+                                            @Override
+                                            public void noButtonClicked() {
+                                                /**
+                                                 * no button click action.
+                                                 */
+                                            }
+
+                                            @Override
+                                            public void yesButtonClicked() {
+                                                manualShipmentPopupWidget.setStep(CONST_3);
+                                                manualShipmentPopupWidget.showPopUp();
+                                            }
+                                        });
+                                    }
+                                });
+                    }
+                }
+            }
+        });
+    }
+
+    /**
+     * orderCreationAction -
+     */
+    private void orderCreationAction() {
+
+        final CreateOrderWidget createOrderWidget = new CreateOrderWidget();
+
+        createOrderWidget.showPopUp();
+        /** action for Remove Icon. */
+        createOrderWidget.addRemoveIconListener(clickEvent -> {
+            boolean[] row = { false };
+            if (clickEvent.getSource() instanceof CreateOrderToolImageLink) {
+                final CreateOrderToolImageLink removeIcon = (CreateOrderToolImageLink) clickEvent.getSource();
+                if (createOrderWidget.getSdpOrderBean().getSdpOrderLineItemList() != null
+                        && !createOrderWidget.getSdpOrderBean().getSdpOrderLineItemList().isEmpty()) {
+
+                    createOrderWidget.getSdpOrderBean().getSdpOrderLineItemList().stream().forEach(orderLineItem -> {
+                        if (!row[0]) {
+                            if (orderLineItem.getSerialNumber() != null) {
+                                if (orderLineItem.getDeviceModelId() == removeIcon.getId()
+                                        && orderLineItem.getConsumablePartCategoryId() == removeIcon.getPartCategoryId()
+                                        && orderLineItem.getSerialNumber()
+                                                .equalsIgnoreCase(removeIcon.getSerialNumber())
+                                        && orderLineItem.getUnitPrice() == removeIcon.getUnitPrice()) {
+                                    createOrderWidget.getSdpOrderBean().getSdpOrderLineItemList().remove(orderLineItem);
+                                    createOrderWidget.removeLineItemRow(removeIcon.getParent(),
+                                            orderLineItem.getSubTotal());
+                                    row[0] = true;
+                                    if (createOrderWidget.getSdpOrderBean().getSdpOrderLineItemList() == null
+                                            || createOrderWidget.getSdpOrderBean().getSdpOrderLineItemList()
+                                                    .isEmpty()) {
+                                        createOrderWidget.clearTotal();
+                                    }
+                                }
+                            } else {
+                                if (orderLineItem.getDeviceModelId() == removeIcon.getId()
+                                        && orderLineItem.getConsumablePartCategoryId() == removeIcon.getPartCategoryId()
+                                        && orderLineItem.getUnitPrice() == removeIcon.getUnitPrice()) {
+                                    createOrderWidget.getSdpOrderBean().getSdpOrderLineItemList().remove(orderLineItem);
+                                    createOrderWidget.removeLineItemRow(removeIcon.getParent(),
+                                            orderLineItem.getSubTotal());
+                                    row[0] = true;
+                                    if (createOrderWidget.getSdpOrderBean().getSdpOrderLineItemList() == null
+                                            || createOrderWidget.getSdpOrderBean().getSdpOrderLineItemList()
+                                                    .isEmpty()) {
+                                        createOrderWidget.clearTotal();
+                                    }
+
+                                }
+                            }
+                        }
+                    });
+
+                }
+            }
+
+        });
+
+        /** action for Add button. */
+        createOrderWidget.addButtonClickHandler(clickEvent -> {
+            CreateOrderToolInfoModel modelInfo = createOrderWidget.getModel();
+            if (modelInfo.getQuantity().trim() == "" || Integer.parseInt(modelInfo.getQuantity().trim()) == 0) {
+                dialogBox = new CustomDialogBox(NexusConstants.FAILURE_MESSAGE,
+                        ProviderLabelConstants.QUANTITY_NOT_EXIST_MSG);
+                dialogBox.show();
+                setMessageBoxAlignment(dialogBox, createOrderWidget);
+            } else if (createOrderWidget.validateAddButtonFields(modelInfo)) {
+                createOrderAddButtonFlag = true;
+                createOrderWidget.setCreateOrderAddButtonFlag(createOrderAddButtonFlag);
+                createOrderWidget.addLineItem(modelInfo);
+            } else {
+                final Map<String, String> errorMap = modelInfo.getInValidErrMap();
+                final int count = errorMap.size();
+                String errMsg = "";
+
+                if (count > 1) {
+                    errMsg = ProviderMessageConstants.MANDATORY_FIELD_MSG;
+
+                    for (int i = 1; i <= count; i++) {
+                        errMsg = errMsg + "<br>" + i + ProviderLabelConstants.DOT_SPACE_LABEL
+                                + errorMap.get(String.valueOf(i));
+                    }
+                } else {
+                    errMsg = MessageConstants.MNDTRY_MESG + ProviderLabelConstants.SPACE_LABEL
+                            + errorMap.get(String.valueOf(count)) + ProviderLabelConstants.DOT_LABEL;
+                }
+
+                dialogBox = new CustomDialogBox(NexusConstants.INFO_MESSAGE, errMsg);
+                dialogBox.show();
+            }
+
+        });
+        /** action for close button. */
+        createOrderWidget.closeButtonClickHandler(clickEvent -> createOrderWidget.removeBGLayer());
+
+        createOrderWidget.modelListChangeListener(changeEvent -> {
+
+            long modelId = createOrderWidget.getSelectedModelId();
+            if (modelId > 0) {
+                createOrderWidget.loadSerialNumber(modelId);
+                createOrderWidget.loadPartNumber(modelId);
+            } else {
+                createOrderWidget.resetSelectedSerialNumberList();
+                createOrderWidget.resetSelectedPartNumberList();
+                createOrderWidget.clearPartDescription();
+            }
+        });
+
+        createOrderWidget.partNumberListChangeListener(changeEvent -> {
+
+            long partId = createOrderWidget.getPartCategoryIdMap().get(createOrderWidget.getSelectedPartCategoryId());
+            if (partId > 0) {
+                createOrderWidget.setPartDescription(partId);
+            } else {
+                createOrderWidget.clearPartDescription();
+            }
+        });
+
+        /** action for order type change. */
+        createOrderWidget.orderTypeChangeListener(changeEvent -> {
+            createOrderWidget.clearTotal();
+            if (createOrderWidget.getAddFlexTableList() != null && !createOrderWidget.getAddFlexTableList().isEmpty()) {
+                createOrderWidget.getAddFlexTableList().clear();
+            }
+            if (createOrderWidget.getSdpOrderBean() != null) {
+                createOrderWidget.getSdpOrderBean().getSdpOrderLineItemList().clear();
+            }
+            ListBox orderTypeListBox = (ListBox) changeEvent.getSource();
+            createOrderWidget.showForStepTwo(createOrderWidget.getSdpCreateOrderBean(),
+                    orderTypeListBox.getSelectedIndex());
+        });
+
+        /** by default to hide the company table visibility. */
+        createOrderWidget.setCompanyTableVisibility(false);
+        /** action for proceed button. */
+        createOrderWidget.proceedButtonClickHandler(clickEvent -> {
+            int step = createOrderWidget.getStep();
+            if (step == 1) {
+                int count = 1 + createOrderWidget.getProcessedButtonClickCount();
+                createOrderWidget.setProcessedButtonClickCount(count);
+                int clickCount = createOrderWidget.getProcessedButtonClickCount();
+                String userName = createOrderWidget.getCustomerName().trim();
+                if (clickCount == 1) {
+                    if (userName.isEmpty()) {
+                        createOrderWidget.setProcessedButtonClickCount(0);
+                        dialogBox = new CustomDialogBox(NexusConstants.INFO_MESSAGE,
+                                ProviderLabelConstants.CUSTOMER_LOGIN_ID_LBL);
+                        dialogBox.show();
+                        setMessageBoxAlignment(dialogBox, createOrderWidget);
+                    } else if (!com.hcl.sdp.shared.management.validation.Validator.isLoginNameType(userName)
+                            || !(USER_ID_MIN_VAL <= userName.length() && USER_ID_MAX_VAL >= userName.length())) {
+                        createOrderWidget.setProcessedButtonClickCount(0);
+                        dialogBox = new CustomDialogBox(NexusConstants.FAILURE_MESSAGE,
+                                ProviderLabelConstants.INVALID_CUSTOMER_ID_MSG);
+                        dialogBox.show();
+                        setMessageBoxAlignment(dialogBox, createOrderWidget);
+                    } else if (userName.length() > 0) {
+
+                        CreateOrderServiceAsync.Util.getInstance().fetchCustomerOrderDetails(userName,
+                                new AsyncCallbackWithStatus<SDPCreateOrderBean>() {
+
+                                    @Override
+                                    protected void onFailureInternal(final Throwable throwable) {
+                                        if (throwable instanceof SDPException) {
+                                            createOrderWidget.setProcessedButtonClickCount(0);
+                                            dialogBox = new CustomDialogBox(NexusConstants.FAILURE_MESSAGE,
+                                                    ProviderLabelConstants.INVALID_CUSTOMER_ID_MSG);
+                                            dialogBox.show();
+                                            setMessageBoxAlignment(dialogBox, createOrderWidget);
+
+                                        }
+                                    }
+
+                                    @Override
+                                    protected void onSuccessInternal(final SDPCreateOrderBean sdpCreateOrderBean) {
+                                        createOrderWidget.setSdpCreateOrderBean(sdpCreateOrderBean);
+                                        createOrderWidget.setDetails(sdpCreateOrderBean);
+                                        createOrderWidget.setProgramTypeId(sdpCreateOrderBean.getProgramTypeId());
+                                        createOrderWidget.setCompanyTableVisibility(true);
+                                    }
+                                });
+
+                    }
+                } else {
+                    long shippingLocationId = Long.parseLong(createOrderWidget.getShipToLocatonId());
+                    if (shippingLocationId == 0) {
+                        dialogBox = new CustomDialogBox(NexusConstants.INFO_MESSAGE,
+                                ProviderLabelConstants.SELECT_SHIP_TO_LOCATION_MSG);
+                        dialogBox.show();
+                    } else {
+                        SDPCreateOrderBean sdpCreateOrderBean = createOrderWidget.getSdpCreateOrderBean();
+                        CreateOrderServiceAsync.Util.getInstance().fethCompanyAssociatedInformaton(shippingLocationId,
+                                sdpCreateOrderBean, new AsyncCallbackWithStatus<SDPCreateOrderBean>() {
+
+                                    @Override
+                                    protected void onFailureInternal(final Throwable throwable) {
+                                        dialogBox = new CustomDialogBox(NexusConstants.INFO_MESSAGE,
+                                                "This location doesn't have any device.");
+                                        dialogBox.show();
+                                    }
+
+                                    @Override
+                                    protected void onSuccessInternal(final SDPCreateOrderBean sdpCreateOrderBean) {
+                                        createOrderWidget.setShippingLocationId(shippingLocationId);
+                                        createOrderWidget.showForStepTwo(sdpCreateOrderBean, 0);
+                                        createOrderWidget.setRetainedSDPCreateOrderBean(sdpCreateOrderBean);
+                                        createOrderWidget.setProgramTypeId(sdpCreateOrderBean.getProgramTypeId());
+                                    }
+
+                                });
+                    }
+
+                }
+            } else {
+                if (createOrderWidget.getSelectedPartCategoryId() > 0
+                        || createOrderWidget.getExtentedPriceLabel() == null) {
+                    dialogBox = new CustomDialogBox(NexusConstants.FAILURE_MESSAGE,
+                            ProviderLabelConstants.ADD_LINE_ITEM_ERROR_MSG);
+                    dialogBox.show();
+                } else {
+                    CreateOrderToolInfoModel modelInfo = createOrderWidget.getModelForCreateOrder();
+                    if (!createOrderWidget.validateCreateButtonFields(modelInfo)) {
+
+                        final Map<String, String> errorMap = modelInfo.getInValidErrMap();
+                        final int count = errorMap.size();
+                        String errMsg = "";
+                        if (count > 0) {
+                            errMsg = ProviderMessageConstants.MANDATORY_FIELD_MSG;
+                        }
+                        dialogBox = new CustomDialogBox(NexusConstants.INFO_MESSAGE, errMsg);
+                        dialogBox.show();
+
+                    } else {
+                        if (!createOrderWidget.isCreateOrderAddButtonFlag()) {
+                            dialogBox = new CustomDialogBox(NexusConstants.INFO_MESSAGE,
+                                    ProviderMessageConstants.MANDATORY_FIELD_MSG);
+                            dialogBox.show();
+                        } else {
+                            createOrderAddButtonFlag = false;
+                            SDPOrderBean sdpOrderBean = createOrderWidget.validateOrderDetails();
+                            if (sdpOrderBean != null) {
+                                sdpOrderBean.setContactId(Long.parseLong(createOrderWidget.getShipToLocatonId()));
+                                CreateOrderServiceAsync.Util.getInstance().createOrderForNpOrNpplus(sdpOrderBean,
+                                        createOrderWidget.getProgramTypeId(),
+                                        createOrderWidget.isTrackingNumberCheckBoxChecked(),
+                                        new AsyncCallbackWithStatus<Void>() {
+
+                                            @Override
+                                            protected void onFailureInternal(final Throwable throwable) {
+
+                                                if (throwable instanceof SDPException) {
+                                                    SDPException exception = (SDPException) throwable;
+                                                    if (exception.getCode() == SDPException.DUPLICATE_ORDER_NUMBER) {
+                                                        dialogBox = new CustomDialogBox(NexusConstants.FAILURE_MESSAGE,
+                                                                ProviderLabelConstants.ORDER_EXIST_MSG);
+                                                        dialogBox.show();
+                                                    } else {
+
+                                                        dialogBox = new CustomDialogBox(NexusConstants.FAILURE_MESSAGE,
+                                                                ProviderLabelConstants.FAILED_TO_PROCESS_MSG);
+                                                        dialogBox.show();
+                                                    }
+                                                }
+
+                                            }
+
+                                            @Override
+                                            protected void onSuccessInternal(final Void object) {
+                                                dialogBox = new CustomDialogBox(NexusConstants.SUCCESS_MESSAGE,
+                                                        "Order created successfully.");
+                                                dialogBox.show();
+                                                createOrderWidget.removeBGLayer();
+                                            }
+
+                                        });
+                            }
+
+                        }
+
+                    }
+                }
+
+            }
+        });
+    }
+
+    /**
+     * ordersAndAuditlogsAction
+     */
+    private void ordersAndAuditlogsAction() {
+
+        final OrdersAndAuditlogsWidget ordersAndAuditlogsWidget = new OrdersAndAuditlogsWidget();
+        OrderListWidget orderListWidget = ordersAndAuditlogsWidget.getOrderListWidget();
+
+        /** to visible the popup. */
+        ordersAndAuditlogsWidget.showPopUp(1);
+        /** action for close button. */
+        ordersAndAuditlogsWidget.closeButtonClickHandler(clickEvent -> ordersAndAuditlogsWidget.removeBGLayer());
+        /** *action for ProceedButton. */
+        ordersAndAuditlogsWidget.proceedButtonClickHandler(clickEvent -> {
+            String userName = ordersAndAuditlogsWidget.getCustomerName().trim();
+            String orderNumber = ordersAndAuditlogsWidget.getOrderNumber().trim();
+            
+            if((userName == null || userName.isEmpty()) && (orderNumber == null || orderNumber.isEmpty())) {
+            	dialogBox = new CustomDialogBox(NexusConstants.INFO_MESSAGE,
+            			ProviderLabelConstants.CUSTOMER_ORDER_LGN_LBL);
+                dialogBox.show();
+                setMessageBoxAlignment(dialogBox, ordersAndAuditlogsWidget);
+            } else if(userName != null && !userName.isEmpty() && orderNumber != null && !orderNumber.isEmpty()) {
+            	
+            	if (!com.hcl.sdp.shared.management.validation.Validator.isLoginNameType(userName)
+	                    || !(USER_ID_MIN_VAL <= userName.length() && USER_ID_MAX_VAL >= userName.length())) {
+	                dialogBox = new CustomDialogBox(NexusConstants.FAILURE_MESSAGE,
+	                        ProviderLabelConstants.INVALID_CUSTOMER_LOGIN);
+	                dialogBox.show();
+	                setMessageBoxAlignment(dialogBox, ordersAndAuditlogsWidget);
+		        } else if (userName.length() > 0) {		            	
+		            
+	            	OrdersAndAuditlogsServiceAsync.Util.getInstance().checkUserAndOrderNumber(userName, orderNumber, 
+	            			new AsyncCallbackWithStatus<SDPOrdersAndAuditlogsBean>() {
+	            		
+	            		@Override
+						protected void onFailureInternal(Throwable throwable) {
+	            			
+	            			 if (throwable instanceof SDPException) {
+	            				 
+	            				 SDPException exception = (SDPException) throwable;
+	                             if (exception.getCode() == SDPException.INVALID_USER) {
+	                                 dialogBox = new CustomDialogBox(NexusConstants.FAILURE_MESSAGE,
+	                                         ProviderLabelConstants.INVALID_CUSTOMER_LOGIN);
+	                                 dialogBox.show();
+	                             } else if (exception.getCode() == SDPException.ORDERNUMBER_NOT_VALID) {
+	                                 dialogBox = new CustomDialogBox(NexusConstants.FAILURE_MESSAGE,
+	                                         ProviderLabelConstants.INVALID_ORDER_NUMBERR);
+	                                 dialogBox.show();
+	                             } else if (exception.getCode() == SDPException.ENTER_VALID_ORDER_NUMBER_MSG) {
+	                                 dialogBox = new CustomDialogBox(NexusConstants.FAILURE_MESSAGE,
+	                                         ProviderLabelConstants.INVALID_ORDER_UNDER_CUSTOMER);
+	                                 dialogBox.show();
+	                             }
+	                         }						
+						}
+	            		
+						@Override
+						protected void onSuccessInternal(
+								final SDPOrdersAndAuditlogsBean sdpOrdersAndAuditlogsBean) {
+							sdpOrdersAndAuditlogsBean.setOrderNumber(orderNumber);
+							ordersAndAuditlogsWidget.setSdpOrdersAndAuditlogsBean(sdpOrdersAndAuditlogsBean);
+	                        ordersAndAuditlogsWidget
+	                                .showForStepTwo(ordersAndAuditlogsWidget.getSdpOrdersAndAuditlogsBean());
+						}
+	
+	            	});
+                }
+            } else if(userName != null && !userName.isEmpty()) {
+
+            	 if (!com.hcl.sdp.shared.management.validation.Validator.isLoginNameType(userName)
+	                    || !(USER_ID_MIN_VAL <= userName.length() && USER_ID_MAX_VAL >= userName.length())) {
+	                dialogBox = new CustomDialogBox(NexusConstants.FAILURE_MESSAGE,
+	                        ProviderLabelConstants.INVALID_CUSTOMER_LOGIN);
+	                dialogBox.show();
+	                setMessageBoxAlignment(dialogBox, ordersAndAuditlogsWidget);
+		            } else if (userName.length() > 0) {
+	                /** fetchUserOrders service call. */
+	                OrdersAndAuditlogsServiceAsync.Util.getInstance().fetchUserOrders(userName,
+	                        new AsyncCallbackWithStatus<SDPOrdersAndAuditlogsBean>() {
+	
+	                            @Override
+	                            protected void onFailureInternal(final Throwable throwable) {
+	                                if (throwable instanceof SDPException) {
+	                                    dialogBox = new CustomDialogBox(NexusConstants.FAILURE_MESSAGE,
+	                                            ProviderLabelConstants.INVALID_CUSTOMER_LOGIN);
+	                                    dialogBox.show();
+	                                    setMessageBoxAlignment(dialogBox, ordersAndAuditlogsWidget);
+	                                }
+	
+	                            }
+	
+	                            @Override
+	                            protected void onSuccessInternal(
+	                                    final SDPOrdersAndAuditlogsBean sdpOrdersAndAuditlogsBean) {
+	                                ordersAndAuditlogsWidget.setSdpOrdersAndAuditlogsBean(sdpOrdersAndAuditlogsBean);
+	                                ordersAndAuditlogsWidget
+	                                        .showForStepTwo(ordersAndAuditlogsWidget.getSdpOrdersAndAuditlogsBean());
+	
+	                            }
+	
+	                        });
+	            }
+            	
+            } else if(orderNumber != null && !orderNumber.isEmpty()) {
+            	//checking Order Number
+            	OrdersAndAuditlogsServiceAsync.Util.getInstance().fetchOrdersByOrderNumber(orderNumber, new AsyncCallbackWithStatus<SDPOrdersAndAuditlogsBean>() {
+            		
+            		@Override
+					protected void onFailureInternal(Throwable throwable) {
+            			
+            			if(throwable instanceof SDPException) {
+            				dialogBox = new CustomDialogBox(NexusConstants.FAILURE_MESSAGE,
+                                    ProviderLabelConstants.INVALID_ORDER_NUMBERR);
+                            dialogBox.show();
+                            setMessageBoxAlignment(dialogBox, ordersAndAuditlogsWidget);
+            			}
+						
+					}
+            		
+					@Override
+					protected void onSuccessInternal(
+							 final SDPOrdersAndAuditlogsBean sdpOrdersAndAuditlogsBean) {
+						sdpOrdersAndAuditlogsBean.setOrderNumber(orderNumber);
+						ordersAndAuditlogsWidget.setSdpOrdersAndAuditlogsBean(sdpOrdersAndAuditlogsBean);
+                        ordersAndAuditlogsWidget
+                                .showForStepTwo(ordersAndAuditlogsWidget.getSdpOrdersAndAuditlogsBean());						
+					}
+            		
+            	});
+            	
+            } 
+        });
+        /** click handler for viewing the order details. */
+        orderListWidget.viewOrderDetailsClickListener(clickEvent -> {
+            if (clickEvent.getSource() instanceof UserLink) {
+                UserLink link = (UserLink) clickEvent.getSource();
+                final long orderId = link.getId();
+                final SDPOrdersAndAuditlogsBean sdpOrdersAndAuditlogsBean = ordersAndAuditlogsWidget
+                        .getSdpOrdersAndAuditlogsBean();
+                /** fetchOrderInformation service call. */
+                OrdersAndAuditlogsServiceAsync.Util.getInstance().fetchOrderInformation(orderId,
+                        sdpOrdersAndAuditlogsBean, new AsyncCallbackWithStatus<SDPOrdersAndAuditlogsBean>() {
+
+                            @Override
+                            protected void onFailureInternal(final Throwable throwable) {
+                                /**
+                                 *
+                                 */
+                            }
+
+                            @Override
+                            protected void onSuccessInternal(
+                                    final SDPOrdersAndAuditlogsBean sdpOrdersAndAuditlogsBean) {
+                                ordersAndAuditlogsWidget.setSdpOrdersAndAuditlogsBean(sdpOrdersAndAuditlogsBean);
+                                ordersAndAuditlogsWidget
+                                        .showStepThree(ordersAndAuditlogsWidget.getSdpOrdersAndAuditlogsBean());
+                            }
+
+                        });
+
+            }
+
+        });
+
+        ordersAndAuditlogsWidget.backButtonClickHandler(clickEvent -> {
+            ordersAndAuditlogsWidget.showDeckPanel();
+            Window.scrollTo(0, 0);
+        });
+
+        if (orderListWidget != null) {
+            orderListWidget.addNextClickedHandler(clickEvent -> {
+                PagingBean page = null;
+                page = orderListWidget.getNextPage();
+                orderListWidget.setAnchorRow(0);
+                orderListWidget.setSelectedRow(0);
+                orderListWidget.showOrderList(page, true);
+                Window.scrollTo(0, 0);
+            });
+
+            orderListWidget.addPreviousClickedHandler(clickEvent -> {
+                PagingBean page = null;
+                page = orderListWidget.getPreviousPage();
+                orderListWidget.setAnchorRow(0);
+                orderListWidget.setSelectedRow(0);
+                orderListWidget.showOrderList(page, false);
+                Window.scrollTo(0, 0);
+            });
+        }
+
+    }
+
+    /**
+     * @param stackManagementWidget
+     */
+    private void proceedButtonHandlerForStep1(final StackManagementWidget stackManagementWidget) {
+
+        SDPStackManagementBean sdpStackManagementBean = stackManagementWidget.getSdpStackManagementBean();
+        if (stackManagementWidget.isFindButtonClicked()
+                && stackManagementWidget.getSerialNumber() == sdpStackManagementBean.getSerialNumber()) {
+            if (!(stackManagementWidget.getUserListBox().getItemCount() == 1)) {
+                final String userName = stackManagementWidget.getUserId();
+                if (userName == "0") {
+                    stackManagementWidget.setAllowProceedButton(false);
+                    dialogBox = new CustomDialogBox(NexusConstants.INFO_MESSAGE,
+                            ProviderLabelConstants.INVALID_USER_SELECT_TXT_MSG);
+                    dialogBox.show();
+                } else {
+                    stackManagementWidget.setAllowProceedButton(true);
+                }
+            } else {
+                stackManagementWidget.setAllowProceedButton(true);
+            }
+        } else {
+            final String serialNumber = stackManagementWidget.getSerialNumber();
+            if (serialNumber.trim().isEmpty()) {
+                stackManagementWidget.showProceedbutton(false);
+                stackManagementWidget.setUserTableVisibility(false);
+                dialogBox = new CustomDialogBox(NexusConstants.INFO_MESSAGE,
+                        ProviderLabelConstants.SERIAL_NUMBER_TXT_MSG);
+                dialogBox.show();
+            } else if (sdpStackManagementBean == null
+                    || (sdpStackManagementBean != null && sdpStackManagementBean.getSerialNumber().isEmpty())) {
+                stackManagementWidget.showProceedbutton(false);
+                stackManagementWidget.setUserTableVisibility(false);
+                /* Please click on find button. */
+                dialogBox = new CustomDialogBox(NexusConstants.INFO_MESSAGE,
+                        ProviderLabelConstants.SERIAL_NUMBER_SEARCH_MSG);
+                dialogBox.show();
+            } else if (stackManagementWidget.getSerialNumber() != sdpStackManagementBean.getSerialNumber()) {
+                stackManagementWidget.showProceedbutton(false);
+                stackManagementWidget.setUserTableVisibility(false);
+                /* Serial Number has been changed. Please click on find button. */
+                dialogBox = new CustomDialogBox(NexusConstants.INFO_MESSAGE,
+                        ProviderLabelConstants.SERIAL_NUMBER_CHANGE_SEARCH_MSG);
+                dialogBox.show();
+            } else if (!(stackManagementWidget.getUserListBox().getItemCount() == 1)) {
+                final String userName = stackManagementWidget.getUserId();
+                if (userName == "0") {
+                    stackManagementWidget.setAllowProceedButton(false);
+                    dialogBox = new CustomDialogBox(NexusConstants.INFO_MESSAGE,
+                            ProviderLabelConstants.INVALID_USER_SELECT_TXT_MSG);
+                    dialogBox.show();
+                }
+            }
+            stackManagementWidget.setFindButtonClicked(false);
+            stackManagementWidget.setAllowProceedButton(false);
+
+        }
+
+        if (stackManagementWidget.isAllowProceedButton()) {
+
+            if (stackManagementWidget.isUserVisiblity()) {
+
+                long userId = Long.parseLong(stackManagementWidget.getUserId());
+                StackManagementServiceAsync.Util.getInstance().fetchUserDetails(userId, sdpStackManagementBean,
+                        new AsyncCallbackWithStatus<SDPStackManagementBean>() {
+                            @Override
+                            protected void onFailureInternal(final Throwable throwable) {
+                                dialogBox = new CustomDialogBox(NexusConstants.INFO_MESSAGE,
+                                        ProviderLabelConstants.FAILED_TO_PROCESS_MSG);
+                                dialogBox.show();
+                            }
+
+                            @Override
+                            protected void onSuccessInternal(final SDPStackManagementBean sdpStackManagementBean) {
+                                getConsumableDetails(sdpStackManagementBean, stackManagementWidget);
+                                stackManagementWidget.setSdpStackManagementBean(sdpStackManagementBean);
+                            }
+                        });
+            } else {
+                getConsumableDetails(sdpStackManagementBean, stackManagementWidget);
+            }
+
+        }
+
+    }
+
+    /**
+     * @param stackManagementWidget
+     */
+    private void proceedButtonHandlerForStep2(final StackManagementWidget stackManagementWidget) {
+
+        try {
+            boolean isAllowed = stackManagementWidget.validateStacks();
+            if (!isAllowed) {
+                dialogBox = new CustomDialogBox(NexusConstants.INFO_MESSAGE, MessageConstants.CHANGES_NOT_MADE_MSG);
+                dialogBox.show();
+            } else {
+                SDPStackManagementBean updatedStackManagementBean = stackManagementWidget.getSdpStackManagementBean();
+                StackManagementServiceAsync.Util.getInstance().updateForStackManagementTool(updatedStackManagementBean,
+                        new AsyncCallbackWithStatus<Void>() {
+
+                            @Override
+                            protected void onFailureInternal(final Throwable throwable) {
+
+                                dialogBox = new CustomDialogBox(NexusConstants.FAILURE_MESSAGE,
+                                        ProviderLabelConstants.FAILED_TO_PROCESS_MSG);
+                                dialogBox.show();
+                            }
+
+                            @Override
+                            protected void onSuccessInternal(final Void object) {
+                                dialogBox = new CustomDialogBox(NexusConstants.SUCCESS_MESSAGE,
+                                        ProviderLabelConstants.STACK_MANAGEMENT_SUCCESS_MSG);
+                                dialogBox.show();
+                                stackManagementWidget.removeBGLayer();
+                            }
+
+                        });
+            }
+        } catch (SDPException sdpException) {
+            if (sdpException.getCode() == SDPException.STACK_MANAGEMENT_FEILDS_CANNOT_EMPTY) {
+                dialogBox = new CustomDialogBox(NexusConstants.INFO_MESSAGE,
+                        ProviderLabelConstants.FIELDS_EMPTY_ERROR_MSG);
+                dialogBox.show();
+            } else {
+                dialogBox = new CustomDialogBox(NexusConstants.FAILURE_MESSAGE,
+                        ProviderLabelConstants.FAILED_TO_PROCESS_MSG);
+                dialogBox.show();
+            }
+        }
+    }
+
+    /**
+     * registerListeners.
+     */
+    private void registerListeners() {
+        ToolsListUIListener listener = ToolsListUIListener.getEventListener();
+        listener.registerListeners();
+    }
+
+    /**
+     * @param element -
+     */
+    @Override
+    public void removeChild(final UIElement element) {
+        /** default */
+    }
+
+    /**
+     * removeDeviceInSuppliesAssistant.
+     */
+    private void removeCustomerDevice() {
+        removeDeviceInSuppliesAssistant = new RemoveDevicePopupWidget();
+        removeDeviceInSuppliesAssistant.setStep(1);
+        removeDeviceInSuppliesAssistant.showPopUp();
+
+        removeDeviceInSuppliesAssistant.closeButtonClickHandler(clickEvent -> {
+
+            if (removeDeviceInSuppliesAssistant.getCurrentStep() == 1) {
+                removeDeviceInSuppliesAssistant.hidePopUp();
+
+            } else if (removeDeviceInSuppliesAssistant.getCurrentStep() == 2) {
+                removeDeviceInSuppliesAssistant.hidePopUp();
+
+            } else if (removeDeviceInSuppliesAssistant.getCurrentStep() == CONST_3) {
+                removeDeviceInSuppliesAssistant.setStep(2);
+                removeDeviceInSuppliesAssistant.showPopUp();
+            }
+        });
+
+        removeDeviceInSuppliesAssistant.removeSelectedDeviceClickHandler(clickEvent -> {
+
+            long userId = removeDeviceInSuppliesAssistant.getUserId();
+            List<Long> selectedeviceIds = removeDeviceInSuppliesAssistant.getSelectedCheckBoxId();
+            boolean isFcpUser = removeDeviceInSuppliesAssistant.isFcpUser();
+
+            ProviderToolsServiceAsync.Util.getInstance().removeDevice(userId, isFcpUser, selectedeviceIds,
+                    new AsyncCallbackWithStatus<RemovedDeviceDetailsFromTool>() {
+
+                        @Override
+                        protected void onFailureInternal(final Throwable throwable) {
+                            dialogBox = new CustomDialogBox(NexusConstants.FAILURE_MESSAGE,
+                                    ProviderLabelConstants.FAILED_TO_FETCH_MSG);
+                            dialogBox.show();
+
+                        }
+
+                        @Override
+                        protected void onSuccessInternal(final RemovedDeviceDetailsFromTool removeDeviceDetails) {
+
+                            if (!removeDeviceDetails.getSerialNumberList().isEmpty()) {
+
+                                String message = ProviderLabelConstants.DEVICE_WITH_SERIAL
+                                        + ProviderLabelConstants.OPEN_BRKT_LABEL_1;
+
+                                if (removeDeviceDetails.isFCPUser()) {
+
+                                    for (String serialNo : removeDeviceDetails.getSerialNumberList()) {
+                                        message = message + serialNo + ProviderLabelConstants.COMMA_LABEL;
+                                    }
+
+                                    message = message.substring(0, message.length() - 1)
+                                            + ProviderLabelConstants.CLOSE_BRKT_LABEL_1
+                                            + ProviderLabelConstants.SPACE_LABEL
+                                            + ProviderLabelConstants.CANNOT_BE_REMOVED
+                                            + ProviderLabelConstants.SPACE_LABEL
+                                            + ProviderLabelConstants.DEVICE_REMOVE_MSG_FCP;
+
+                                    new CustomDialogBox(NexusConstants.FAILURE_MESSAGE, message).show();
+
+                                } else {
+
+                                    for (String serialNo : removeDeviceDetails.getSerialNumberList()) {
+                                        message = message + serialNo + ProviderLabelConstants.COMMA_LABEL;
+                                    }
+
+                                    message = message.substring(0, message.length() - 1)
+                                            + ProviderLabelConstants.CLOSE_BRKT_LABEL_1
+                                            + ProviderLabelConstants.SPACE_LABEL
+                                            + ProviderLabelConstants.CANNOT_BE_REMOVED
+                                            + ProviderLabelConstants.SPACE_LABEL
+                                            + ProviderLabelConstants.DEVICE_REMOVE_MSG;
+
+                                    new CustomDialogBox(NexusConstants.FAILURE_MESSAGE, message).show();
+                                }
+
+                            } else {
+                                new CustomDialogBox(NexusConstants.SUCCESS_MESSAGE,
+                                        ProviderLabelConstants.DEVICE_REMOVED_SUCCESSFULLY).show();
+                                removeDeviceInSuppliesAssistant.hidePopUp();
+                            }
+                        }
+                    });
+        });
+
+        removeDeviceInSuppliesAssistant.removeDeviceInSAButtonClickHandler(clickEvent -> {
+
+            if (removeDeviceInSuppliesAssistant.getCurrentStep() == 1) {
+
+                String customerId = removeDeviceInSuppliesAssistant.getUsrLoginNameTxtBox();
+                if (removeDeviceInSuppliesAssistant.getUsrLoginNameTxtBox().trim().equalsIgnoreCase("")) {
+                    dialogBox = new CustomDialogBox(NexusConstants.INFO_MESSAGE,
+                            ProviderLabelConstants.ENTER_CUSTOMER_ID_LBL + ProviderLabelConstants.DOT_LABEL);
+                    dialogBox.show();
+
+                } else {
+                    long providerId = Long
+                            .parseLong((String) Nexus.getNexus().getProperty(PropertyConstant.COMPANY_ID));
+
+                    ProviderToolsServiceAsync.Util.getInstance().getDeviceListForCustomer(customerId, providerId,
+                            new AsyncCallbackWithStatus<SDPDeviceModelDetails>() {
+
+                                @Override
+                                protected void onFailureInternal(final Throwable throwable) {
+
+                                    if (throwable instanceof SDPException) {
+                                        SDPException exception = (SDPException) throwable;
+
+                                        if (exception.getCode() == SDPException.USER_DOESNOT_EXIST) {
+                                            dialogBox = new CustomDialogBox(NexusConstants.FAILURE_MESSAGE,
+                                                    ProviderLabelConstants.ENTER_VALID_CISTOMER_ID_MSG);
+                                            dialogBox.show();
+
+                                        } else if (exception.getCode() == SDPException.USER_DOESNOT_EXIST_FOR_PARTNER) {
+                                            dialogBox = new CustomDialogBox(NexusConstants.FAILURE_MESSAGE,
+                                                    ProviderLabelConstants.ENTER_VALID_ID_UNDER_YOUR_PURVIEW_MSG);
+                                            dialogBox.show();
+
+                                        } else {
+                                            dialogBox = new CustomDialogBox(NexusConstants.FAILURE_MESSAGE,
+                                                    ProviderLabelConstants.FAILED_TO_FETCH_MSG);
+                                            dialogBox.show();
+                                        }
+                                    }
+                                }
+
+                                @Override
+                                protected void onSuccessInternal(final SDPDeviceModelDetails sdpDeviceDetailsModel) {
+                                    removeDeviceInSuppliesAssistant.setRemoveDeviceTable(sdpDeviceDetailsModel);
+                                    removeDeviceInSuppliesAssistant.setUserId(sdpDeviceDetailsModel.getUserId());
+                                    removeDeviceInSuppliesAssistant.setFcpUser(sdpDeviceDetailsModel.isFcpUser());
+                                    removeDeviceInSuppliesAssistant.setStep(2);
+
+                                }
+                            });
+
+                }
+            } else if (removeDeviceInSuppliesAssistant.getCurrentStep() == 2) {
+                if (removeDeviceInSuppliesAssistant.getSelectedCheckBoxId().isEmpty()) {
+                    dialogBox = new CustomDialogBox(NexusConstants.INFO_MESSAGE,
+                            ProviderLabelConstants.SELECT_DEVICE_REMOVE);
+                    dialogBox.show();
+
+                } else {
+                    removeDeviceInSuppliesAssistant.setStep(CONST_3);
+                    removeDeviceInSuppliesAssistant.showPopUp();
+                }
+            }
+        });
+    }
+
+    /**
+     * reprocessTaxInvoiceAction.
+     */
+    private void reprocessTaxInvoiceAction() {
+        reprocessTaxPopupWidget = new ReprocessTaxInvoicePopupWidget();
+        reprocessTaxPopupWidget.setStep();
+        reprocessTaxPopupWidget.showPopUp();
+
+        reprocessTaxPopupWidget.closeButtonClickHandler(clickEvent -> reprocessTaxPopupWidget.hidePopUp());
+
+        reprocessTaxPopupWidget.reprocessTaxButtonClickHandler(clickEvent -> {
+
+            final String orderNumber = reprocessTaxPopupWidget.getOrderNoTxt().trim();
+            if (reprocessTaxPopupWidget.getOrderNoTxt().trim().equalsIgnoreCase("")) {
+                dialogBox = new CustomDialogBox(NexusConstants.INFO_MESSAGE, LabelConstants.MANDATORY_FIELD_MSG);
+                dialogBox.show();
+            } else {
+                long providerId = Long.parseLong((String) Nexus.getNexus().getProperty(PropertyConstant.COMPANY_ID));
+
+                ProviderToolsServiceAsync.Util.getInstance().processOrderInvoice(orderNumber, providerId,
+                        new AsyncCallbackWithStatus<Integer>() {
+
+                            @Override
+                            protected void onFailureInternal(final Throwable throwable) {
+
+                                SDPException exception = (SDPException) throwable;
+                                if (exception.getCode() == SDPException.ORDERNUMBER_NOT_VALID) {
+                                    dialogBox = new CustomDialogBox(NexusConstants.FAILURE_MESSAGE,
+                                            ProviderLabelConstants.ORDER_NUMBER_NOTVALID);
+                                    dialogBox.show();
+                                } else if (exception.getCode() == SDPException.ENTER_ELIGIBLE_ORDER) {
+                                    dialogBox = new CustomDialogBox(NexusConstants.FAILURE_MESSAGE,
+                                            ProviderLabelConstants.ORDER_NOT_ELIGIBLE);
+                                    dialogBox.show();
+                                } else if (exception.getCode() == SDPException.ENTER_VALID_ORDER_NUMBER_MSG) {
+                                    dialogBox = new CustomDialogBox(NexusConstants.FAILURE_MESSAGE,
+                                            ProviderLabelConstants.ENTER_VALID_ORDER_NUMBER_MSG);
+                                    dialogBox.show();
+                                } else {
+                                    dialogBox = new CustomDialogBox(NexusConstants.FAILURE_MESSAGE,
+                                            "Tax invoice exist for Order " + orderNumber
+                                                    + ". Cannot reprocess tax invoice.");
+                                    dialogBox.show();
+                                }
+                            }
+
+                            @Override
+                            protected void onSuccessInternal(final Integer orderStatus) {
+                                if (orderStatus != 0) {
+                                    String status = "";
+
+                                    if (orderStatus == OrderStatusType.CANCELLED.getOrderStatusType()) {
+                                        status = I18NUtil.getString("CANCELLED");
+
+                                    } else if (orderStatus == OrderStatusType.PENDING.getOrderStatusType()) {
+                                        status = I18NUtil.getString("PENDING");
+
+                                    } else if (orderStatus == OrderStatusType.FAILED.getOrderStatusType()) {
+                                        status = I18NUtil.getString("FAILED");
+
+                                    } else if (orderStatus == OrderStatusType.PENDING_RETRY.getOrderStatusType()) {
+                                        status = I18NUtil.getString("PENDING_RETRY");
+
+                                    } else if (orderStatus == OrderStatusType.UNKNOWN.getOrderStatusType()) {
+                                        status = I18NUtil.getString("UNKNOWN");
+                                    } else if (orderStatus == OrderStatusType.NEW.getOrderStatusType()) {
+                                        status = I18NUtil.getString("PENDING");
+                                    } else if (orderStatus == OrderStatusType.PENDING_FOR_REVIEW.getOrderStatusType()) {
+                                        status = I18NUtil.getString("PENDING_REVIEW");
+                                    } else if (orderStatus == OrderStatusType.CREDIT_REVIEW.getOrderStatusType()) {
+                                        status = I18NUtil.getString("CREDIT_REVIEW");
+                                    }
+
+                                    dialogBox = new CustomDialogBox(NexusConstants.FAILURE_MESSAGE,
+                                            "Order " + orderNumber + " with status " + status
+                                                    + " cannot reprocess tax invoice.");
+                                    dialogBox.show();
+                                } else {
+                                    dialogBox = new CustomDialogBox(NexusConstants.SUCCESS_MESSAGE,
+                                            "Tax invoice reprocessed for order " + orderNumber + " successfully.");
+                                    dialogBox.show();
+                                }
+                            }
+                        });
+            }
+        });
+    }
+
+    /**
+     * resellerSwapAction.
+     */
+    private void resellerSwapAction() {
+        final SwapResellerPopUpWizard swapResellerPopUpWizard = new SwapResellerPopUpWizard();
+        swapResellerPopUpWizard.showPopUp();
+        Nexus.getNexus().setFocus(swapResellerPopUpWizard.getResellerAdminIdTxtBox());
+
+        swapResellerPopUpWizard.closeButtonClickHandler(clickEvent -> swapResellerPopUpWizard.removeBGLayer());
+
+        swapResellerPopUpWizard.proceedButtonClickHandler(clickEvent -> {
+
+            if (swapResellerPopUpWizard.getStep() == 1) {
+                final String resellerAdminUserId = swapResellerPopUpWizard.getCurrentAdminUserId();
+
+                if (resellerAdminUserId.length() > 0) {
+                    long providerId = Long
+                            .parseLong((String) Nexus.getNexus().getProperty(PropertyConstant.COMPANY_ID));
+
+                    ProviderToolsServiceAsync.Util.getInstance().validateResellerAdmin(resellerAdminUserId, providerId,
+                            new AsyncCallbackWithStatus<SDPUser>() {
+
+                                @Override
+                                protected void onFailureInternal(final Throwable throwable) {
+
+                                    if (throwable instanceof SDPException) {
+                                        SDPException exception = (SDPException) throwable;
+
+                                        if (exception.getCode() == SDPException.RESELLER_ADMIN_DOESNOT_EXIST) {
+                                            dialogBox = new CustomDialogBox(NexusConstants.FAILURE_MESSAGE,
+                                                    ProviderLabelConstants.ENTER_VALID_ADMIN_ID_MSG);
+                                            dialogBox.show();
+
+                                        } else if (exception.getCode() == SDPException.USER_DOESNOT_EXIST) {
+                                            dialogBox = new CustomDialogBox(NexusConstants.FAILURE_MESSAGE,
+                                                    ProviderLabelConstants.ENTER_VALID_USER_ID_UNDER_PURVIEW_MSG);
+                                            dialogBox.show();
+
+                                        } else {
+                                            dialogBox = new CustomDialogBox(NexusConstants.FAILURE_MESSAGE,
+                                                    ProviderLabelConstants.FAILED_TO_FETCH_MSG);
+                                            dialogBox.show();
+                                        }
+                                    }
+                                }
+
+                                @Override
+                                protected void onSuccessInternal(final SDPUser sdpUser) {
+                                    swapResellerPopUpWizard.showForStepTwo(sdpUser);
+                                }
+                            });
+                } else {
+                    dialogBox = new CustomDialogBox(NexusConstants.INFO_MESSAGE,
+                            ProviderLabelConstants.ENTER_USER_ID_MSG);
+                    dialogBox.show();
+                }
+
+            } else if (swapResellerPopUpWizard.getStep() == 2) {
+                final SDPUser sdpUser = swapResellerPopUpWizard.getSdpUser();
+                final String newAdminUserId = swapResellerPopUpWizard.getNewAdminUserId();
+
+                if (newAdminUserId.length() > 0) {
+
+                    ProviderToolsServiceAsync.Util.getInstance().validateNewResellerAdmin(sdpUser, newAdminUserId,
+                            new AsyncCallbackWithStatus<SDPUser>() {
+
+                                @Override
+                                protected void onFailureInternal(final Throwable throwable) {
+
+                                    if (throwable instanceof SDPException) {
+                                        SDPException exception = (SDPException) throwable;
+
+                                        if (exception.getCode() == SDPException.USER_DOESNOT_EXIST) {
+                                            dialogBox = new CustomDialogBox(NexusConstants.FAILURE_MESSAGE,
+                                                    ProviderLabelConstants.ENTER_VALID_USER_ID_MSG);
+                                            dialogBox.show();
+
+                                        } else {
+                                            dialogBox = new CustomDialogBox(NexusConstants.FAILURE_MESSAGE,
+                                                    ProviderLabelConstants.FAILED_TO_FETCH_MSG);
+                                            dialogBox.show();
+                                        }
+                                    }
+                                }
+
+                                @Override
+                                protected void onSuccessInternal(final SDPUser sdpUser) {
+                                    swapResellerPopUpWizard.showForStepThree(sdpUser);
+                                }
+                            });
+                } else {
+                    dialogBox = new CustomDialogBox(NexusConstants.INFO_MESSAGE,
+                            ProviderLabelConstants.ENTER_USER_ID_MSG);
+                    dialogBox.show();
+                }
+
+            } else {
+                final SDPUser sdpUser = swapResellerPopUpWizard.getSdpUser();
+                final String newAdminUserId = swapResellerPopUpWizard.getNewAdminUserId();
+
+                if (newAdminUserId.length() > 0) {
+
+                    ProviderToolsServiceAsync.Util.getInstance().swapResellerAdmin(sdpUser, newAdminUserId,
+                            new AsyncCallbackWithStatus<Boolean>() {
+
+                                @Override
+                                protected void onFailureInternal(final Throwable throwable) {
+
+                                    if (throwable instanceof SDPException) {
+                                        SDPException exception = (SDPException) throwable;
+
+                                        if (exception.getCode() == SDPException.USER_DOESNOT_EXIST) {
+                                            dialogBox = new CustomDialogBox(NexusConstants.FAILURE_MESSAGE,
+                                                    ProviderLabelConstants.ENTER_VALID_USER_ID_MSG);
+                                            dialogBox.show();
+
+                                        } else {
+                                            dialogBox = new CustomDialogBox(NexusConstants.FAILURE_MESSAGE,
+                                                    ProviderLabelConstants.FAILED_TO_FETCH_MSG);
+                                            dialogBox.show();
+                                        }
+                                    }
+                                }
+
+                                @Override
+                                protected void onSuccessInternal(final Boolean object) {
+                                    swapResellerPopUpWizard.removeBGLayer();
+                                    dialogBox = new CustomDialogBox(NexusConstants.SUCCESS_MESSAGE,
+                                            ProviderLabelConstants.KEY_CONTACT_CHANGE_MSG);
+                                    dialogBox.show();
+                                }
+                            });
+                } else {
+                    dialogBox = new CustomDialogBox(NexusConstants.INFO_MESSAGE,
+                            ProviderLabelConstants.ENTER_USER_ID_MSG);
+                    dialogBox.show();
+                }
+            }
+        });
+    }
+
+    /**
+     * resetCustomerPasswordAction.
+     */
+    private void resetCustomerPasswordAction() {
+        customerPasswordResetWizard = new CustomerPasswordResetWizard();
+        customerPasswordResetWizard.showPopUp();
+
+        customerPasswordResetWizard.closeButtonClickHandler(clickEvent -> customerPasswordResetWizard.removeBGLayer());
+
+        customerPasswordResetWizard.proceedButtonClickHandler(clickEvent -> {
+
+            if (customerPasswordResetWizard.getStep() == 1) {
+                final String customerUserId = customerPasswordResetWizard.getCustomerUserId();
+
+                if (customerUserId.length() == 0) {
+                    dialogBox = new CustomDialogBox(NexusConstants.FAILURE_MESSAGE,
+                            MessageConstants.MANDATORY_FIELD_MSG);
+                    dialogBox.show();
+
+                } else {
+                    long providerId = Long
+                            .parseLong((String) Nexus.getNexus().getProperty(PropertyConstant.COMPANY_ID));
+
+                    ProviderToolsServiceAsync.Util.getInstance().validateResellerandCustomer(providerId, customerUserId,
+                            new AsyncCallbackWithStatus<SDPUser>() {
+
+                                @Override
+                                public void onFailureInternal(final Throwable throwable) {
+
+                                    if (throwable instanceof SDPException) {
+                                        SDPException exception = (SDPException) throwable;
+
+                                        if (exception.getCode() == SDPException.USER_DOESNOT_EXIST_FOR_PARTNER) {
+                                            dialogBox = new CustomDialogBox(NexusConstants.FAILURE_MESSAGE,
+                                                    ProviderLabelConstants.ENTER_VALID_CUSTOMER_ID_UNDER_YOUR_PURVIEW_MSG);
+
+                                        } else if (exception.getCode() == SDPException.USER_DOESNOT_EXIST) {
+                                            dialogBox = new CustomDialogBox(NexusConstants.FAILURE_MESSAGE,
+                                                    ProviderLabelConstants.ENTER_VALID_USER_ID_MSG);
+
+                                        } else {
+                                            dialogBox = new CustomDialogBox(NexusConstants.FAILURE_MESSAGE,
+                                                    ProviderLabelConstants.ENTER_VALID_CUSTOMER_ID_UNDER_YOUR_PURVIEW_MSG);
+                                        }
+                                        dialogBox.show();
+                                    }
+                                }
+
+                                @Override
+                                public void onSuccessInternal(final SDPUser sdpUserParam) {
+                                    customerPasswordResetWizard.showForStepTwo(sdpUserParam);
+                                }
+                            });
+
+                }
+            } else if (customerPasswordResetWizard.getStep() == 2) {
+
+                if (customerPasswordResetWizard.getButtonAction() == 2) {
+                    final String customerUserId = customerPasswordResetWizard.getCustomerUserId();
+                    UserManagementServiceAsync.Util.getInstance().resetPasswordForUserLink(customerUserId + "", null, 
+                            new AsyncCallback<String>() {
+
+                                @Override
+                                public void onFailure(final Throwable arg0) {
+                                    dialogBox = new CustomDialogBox(NexusConstants.FAILURE_MESSAGE,
+                                            ProviderMessageConstants.RESET_PSWD_FAILURE_MSG);
+                                    dialogBox.show();
+                                }
+
+                                @Override
+                                public void onSuccess(final String arg0) {
+                                    dialogBox = new CustomDialogBox(NexusConstants.SUCCESS_MESSAGE,
+                                            ProviderMessageConstants.RESET_PASSWD_CONFIRMATION_MSG);
+                                    dialogBox.show();
+                                    dialogBox
+                                            .addClickHandler(clickEvent -> customerPasswordResetWizard.removeBGLayer());
+                                }
+                            });
+                } else {
+                    final SDPUser[] user = customerPasswordResetWizard.getSdpUser();
+                    CustomConfirmationBox confirmationBox = new CustomConfirmationBox(
+                            ProviderMessageConstants.UNLOCK_CUSTOMER_CNFM_MSG, "removeCancelButton");
+                    confirmationBox.show();
+                    confirmationBox.addConfirmationBoxListener(new ConfirmationBoxListener() {
+
+                        @Override
+                        public void cancelButtonClicked() {
+                            /**
+                             * cancel button click action.
+                             */
+                        }
+
+                        @Override
+                        public void noButtonClicked() {
+                            /**
+                             * no button click action.
+                             */
+                        }
+
+                        @Override
+                        public void yesButtonClicked() {
+
+                            AdminServiceAsync.Util.getInstance().unLockUser(user, new AsyncCallbackWithStatus<Void>() {
+
+                                @Override
+                                protected void onFailureInternal(final Throwable throwable) {
+                                    String sdpDescription = null;
+
+                                    if (throwable instanceof SDPException) {
+                                        final SDPException sdpException = (SDPException) throwable;
+                                        sdpDescription = InitExceptionMessageHelper.getInitExceptionMessageHelper()
+                                                .getExceptionDescription(sdpException.getCode());
+                                    }
+                                    if (sdpDescription == null) {
+                                        sdpDescription = ProviderLabelConstants.UNLOCK_CUSTOMER_PSWD_FAILURE_MSG;
+                                    }
+                                    dialogBox = new CustomDialogBox(NexusConstants.INFO_MESSAGE, sdpDescription);
+                                    dialogBox.show();
+                                }
+
+                                @Override
+                                protected void onSuccessInternal(final Void object) {
+                                    String message = ProviderMessageConstants.CUSTOMER_UNLOCK_SUCCESS;
+                                    dialogBox = new CustomDialogBox(NexusConstants.SUCCESS_MESSAGE, message);
+                                    dialogBox.show();
+                                    user[0].setIsNotLocked(true);
+                                    customerPasswordResetWizard.showForStepTwo(user[0]);
+                                }
+                            });
+                        }
+                    });
+                }
+            }
+        });
+    }
+
+    /**
+     * resubmitOrderAction.
+     */
+    private void resubmitOrderAction() {
+        resubmitOrderPopupWidget = new ResubmitOrderPopupWidget();
+        resubmitOrderPopupWidget.setStep();
+        resubmitOrderPopupWidget.showPopUp();
+
+        resubmitOrderPopupWidget.closeButtonClickHandler(clickEvent -> resubmitOrderPopupWidget.hidePopUp());
+
+        resubmitOrderPopupWidget.resubmitOrderButtonClickHandler(clickEvent -> {
+
+            String orderNumber = resubmitOrderPopupWidget.getOrderNoTxt();
+            long providerId = Long.parseLong((String) Nexus.getNexus().getProperty(PropertyConstant.COMPANY_ID));
+            if (resubmitOrderPopupWidget.getOrderNoTxt().trim().equalsIgnoreCase("")) {
+                dialogBox = new CustomDialogBox(NexusConstants.INFO_MESSAGE, LabelConstants.MANDATORY_FIELD_MSG);
+                dialogBox.show();
+            } else {
+                ProviderToolsServiceAsync.Util.getInstance().resubmitOrderDetails(orderNumber, providerId,
+                        new AsyncCallbackWithStatus<List<Object>>() {
+                            @Override
+                            protected void onFailureInternal(final Throwable throwable) {
+                                if (throwable instanceof SDPException) {
+                                    SDPException exception = (SDPException) throwable;
+
+                                    if (exception.getCode() == SDPException.ORDERNUMBER_NOT_VALID) {
+                                        String orderNumberMsg = ProviderLabelConstants.ORDER_NUMBER_NOTVALID;
+                                        orderNumberMsg = orderNumberMsg.replace("{0}",
+                                                resubmitOrderPopupWidget.getOrderNoTxt());
+                                        dialogBox = new CustomDialogBox(NexusConstants.FAILURE_MESSAGE, orderNumberMsg);
+                                        dialogBox.show();
+
+                                    } else if (exception.getCode() == SDPException.ENTER_VALID_ORDER_NUMBER_MSG) {
+                                        dialogBox = new CustomDialogBox(NexusConstants.FAILURE_MESSAGE,
+                                                ProviderLabelConstants.ENTER_VALID_ORDER_NUMBER_MSG);
+                                        dialogBox.show();
+                                    }
+                                }
+                            }
+
+                            @Override
+                            protected void onSuccessInternal(final List<Object> arg) {
+
+                                if (arg != null && !arg.isEmpty()) {
+                                    List<Object> resultList = arg;
+                                    int orderStatus = (Integer) resultList.get(1);
+                                    String statusString = "";
+
+                                    if (orderStatus > 0) {
+
+                                        if (orderStatus == OrderStatusType.CONFIRMED.getOrderStatusType()) {
+                                            statusString = I18NUtil.getString("CONFIRMED");
+
+                                        } else if (orderStatus == OrderStatusType.SHIPPED.getOrderStatusType()) {
+                                            statusString = I18NUtil.getString("SHIPPED");
+
+                                        } else if (orderStatus == OrderStatusType.CANCELLED.getOrderStatusType()) {
+                                            statusString = I18NUtil.getString("CANCELLED");
+
+                                        } else if (orderStatus == OrderStatusType.PARTIALLY_SHIPPED
+                                                .getOrderStatusType()) {
+                                            statusString = I18NUtil.getString("PARTIALLY_SHIPPED");
+
+                                        } else if (orderStatus == OrderStatusType.PENDING.getOrderStatusType()) {
+                                            statusString = I18NUtil.getString("PENDING");
+
+                                        } else if (orderStatus == OrderStatusType.FAILED.getOrderStatusType()) {
+                                            statusString = I18NUtil.getString("FAILED");
+
+                                        } else if (orderStatus == OrderStatusType.PENDING_RETRY.getOrderStatusType()) {
+                                            statusString = I18NUtil.getString("PENDING_RETRY");
+
+                                        } else if (orderStatus == OrderStatusType.UNKNOWN.getOrderStatusType()) {
+                                            statusString = I18NUtil.getString("UNKNOWN");
+                                        } else if (orderStatus == OrderStatusType.NEW.getOrderStatusType()) {
+                                            statusString = I18NUtil.getString("PENDING");
+                                        } else if (orderStatus == OrderStatusType.PENDING_FOR_REVIEW
+                                                .getOrderStatusType()) {
+                                            statusString = I18NUtil.getString("PENDING_REVIEW");
+                                        } else if (orderStatus == OrderStatusType.CREDIT_REVIEW.getOrderStatusType()) {
+                                            statusString = I18NUtil.getString("CREDIT_REVIEW");
+                                        }
+
+                                        String orderNumberMsg = ProviderLabelConstants.ORDER_NUMBER_CANNOT_RESUMBITED;
+                                        orderNumberMsg = orderNumberMsg.replace("{0}",
+                                                resubmitOrderPopupWidget.getOrderNoTxt());
+                                        orderNumberMsg = orderNumberMsg.replace("{1}", statusString + "");
+                                        dialogBox = new CustomDialogBox(NexusConstants.FAILURE_MESSAGE, orderNumberMsg);
+                                        dialogBox.show();
+                                    }
+
+                                    boolean isOrderSubmited = (Boolean) resultList.get(0);
+
+                                    if (isOrderSubmited) {
+                                        String orderNumberMsg = ProviderLabelConstants.ORDER_NUMBER_RESUMBITED;
+                                        orderNumberMsg = orderNumberMsg.replace("{0}",
+                                                resubmitOrderPopupWidget.getOrderNoTxt());
+                                        dialogBox = new CustomDialogBox(NexusConstants.SUCCESS_MESSAGE, orderNumberMsg);
+                                        dialogBox.show();
+                                    }
+                                }
+                            }
+                        });
+            }
+        });
+    }
+
+    /**
+     * retrievePartnerRegistrationandDownloadURLAction.
+     */
+    private void retrievePartnerRegistrationandDownloadURLAction() {
+        retrievePartnerURLWizard = new RetrievePartnerURLWizard();
+        Nexus.getNexus().setFocus(retrievePartnerURLWizard.getResellerIDTextBox());
+        retrievePartnerURLWizard.showPopUp();
+
+        retrievePartnerURLWizard.closeButtonClickHandler(clickEvent -> retrievePartnerURLWizard.removeBGLayer());
+
+        retrievePartnerURLWizard.proceedButtonClickHandler(clickEvent -> {
+
+            if (retrievePartnerURLWizard.getStep() == 1) {
+                final String resellerId = retrievePartnerURLWizard.getResellerID();
+
+                if (resellerId.length() > 0) {
+                    long providerId = Long
+                            .parseLong((String) Nexus.getNexus().getProperty(PropertyConstant.COMPANY_ID));
+
+                    ProviderToolsServiceAsync.Util.getInstance().getResellerURL(resellerId, providerId,
+                            new AsyncCallbackWithStatus<SDPUser>() {
+
+                                @Override
+                                protected void onFailureInternal(final Throwable throwable) {
+                                    String sdpDescription = null;
+                                    if (throwable instanceof SDPException) {
+                                        SDPException sdpException = (SDPException) throwable;
+                                        sdpDescription = InitExceptionMessageHelper.getInitExceptionMessageHelper()
+                                                .getExceptionDescription(sdpException.getCode());
+                                    }
+                                    if (sdpDescription == null) {
+                                        sdpDescription = ProviderLabelConstants.ENTER_VALID_RESELLER_ID_UNDER_YOUR_PURVIEW_MSG;
+                                    }
+                                    dialogBox = new CustomDialogBox(NexusConstants.FAILURE_MESSAGE, sdpDescription);
+                                    dialogBox.show();
+
+                                }
+
+                                @Override
+                                protected void onSuccessInternal(final SDPUser sdpUser) {
+                                    retrievePartnerURLWizard.showForStepTwo(sdpUser);
+                                }
+                            });
+                } else {
+                    dialogBox = new CustomDialogBox(NexusConstants.INFO_MESSAGE,
+                            ProviderLabelConstants.ENTER_RESELLER_ID_LBL + ProviderLabelConstants.DOT_LABEL);
+                    dialogBox.show();
+                }
+            }
+        });
+    }
+
+    /**
+     * service Contract Actions.
+     */
+    private void serviceContractAction() {
+        serviceContractWidget = new ServiceContractPopupWidget();
+        serviceContractWidget.setStep(1);
+        serviceContractWidget.showPopUp();
+
+        serviceContractWidget.closeButtonClickHandler(clickEvent -> {
+
+            if (serviceContractWidget.getCurrentStep() == 1) {
+                serviceContractWidget.hidePopUp();
+
+            } else if (serviceContractWidget.getCurrentStep() == 2) {
+                serviceContractWidget.setStep(1);
+                serviceContractWidget.showPopUp();
+
+            } else if (serviceContractWidget.getCurrentStep() == CONST_3) {
+                serviceContractWidget.hidePopUp();
+            }
+        });
+
+        serviceContractWidget.proceedButtonClickHandler(clickEvent -> {
+
+            if (serviceContractWidget.getCurrentStep() == 1) {
+
+                if ((serviceContractWidget.getserialNumberText().trim().equalsIgnoreCase("")
+                        && serviceContractWidget.getcustNameText().trim().equalsIgnoreCase(""))
+                        || (serviceContractWidget.getserialNumberText().trim().length() > 0
+                                && serviceContractWidget.getcustNameText().trim().length() > 0)) {
+
+                    dialogBox = new CustomDialogBox(NexusConstants.INFO_MESSAGE,
+                            ProviderLabelConstants.ENTER_ANY_ONE_TXT);
+                    dialogBox.show();
+
+                } else {
+                    boolean isCreateContract = true;
+                    boolean isSerialNo = true;
+                    String serialOrCusText;
+                    if (serviceContractWidget.getSelectedListBox() == 0) {
+                        serviceContractWidget.setIsCreateContract(true);
+
+                    } else if (serviceContractWidget.getSelectedListBox() == 1) {
+                        isCreateContract = false;
+                        serviceContractWidget.setIsCreateContract(false);
+                    }
+                    if (serviceContractWidget.getcustNameText().trim().length() > 0) {
+                        isSerialNo = false;
+                        serialOrCusText = serviceContractWidget.getcustNameText().trim();
+                    } else {
+                        serialOrCusText = serviceContractWidget.getserialNumberText().trim();
+                    }
+
+                    ServiceSystemManualActivityServiceAsync.Util.getInstance().getCustomerDeviceDetails(
+                            isCreateContract, isSerialNo, serialOrCusText,
+                            new AsyncCallback<SDPServiceSystemManualActivity>() {
+
+                                @Override
+                                public void onFailure(final Throwable throwable) {
+                                    if (throwable instanceof SDPException) {
+                                        String exceptionMsg = null;
+
+                                        if (throwable instanceof SDPException) {
+                                            final SDPException sdpException = (SDPException) throwable;
+
+                                            if (sdpException.getCode() == SERIALNUMBER_NOT_EXIST) {
+                                                exceptionMsg = ProviderLabelConstants.SERIALNUMBER_NOT_EXIST;
+
+                                            } else if (sdpException.getCode() == USER_DOESNOT_EXIST) {
+                                                exceptionMsg = ProviderLabelConstants.USER_DOESNOT_EXIST;
+
+                                            } else if (sdpException.getCode() == CONTRACT_ID_NOT_FOUND) {
+                                                exceptionMsg = ProviderLabelConstants.CONTRACT_DOESNOT_EXIST;
+
+                                            } else if (sdpException.getCode() == USER_DOESNOT_OWN_ACCOUNT) {
+                                                exceptionMsg = ProviderLabelConstants.USER_ACCOUNT_DOESNOT_EXIST;
+
+                                            } else if (sdpException.getCode() == NO_DEVICES_FOUND) {
+                                                exceptionMsg = ProviderLabelConstants.NO_DEVICE_EXIST;
+
+                                            } else if (sdpException.getCode() == NO_DEVICE_SERIAL_NUMBER) {
+                                                exceptionMsg = ProviderLabelConstants.NO_DEVICE_FOR_CONTRACT;
+
+                                            }
+                                        }
+                                        if (exceptionMsg == null) {
+                                            exceptionMsg = ProviderLabelConstants.FAILED_TO_FETCH_MSG;
+                                        }
+                                        dialogBox = new CustomDialogBox(NexusConstants.FAILURE_MESSAGE, exceptionMsg);
+                                        dialogBox.show();
+                                    }
+                                }
+
+                                @Override
+                                public void onSuccess(
+                                        final SDPServiceSystemManualActivity sdpServiceSystemManualActivity) {
+
+                                    if (sdpServiceSystemManualActivity.getSdpBeanBundle().getBeans().isEmpty()) {
+                                        dialogBox = new CustomDialogBox(NexusConstants.FAILURE_MESSAGE,
+                                                ProviderLabelConstants.NO_DEVICE_FOR_CONTRACT);
+                                        dialogBox.show();
+
+                                    } else {
+                                        serviceContractWidget.setDeviceTable(sdpServiceSystemManualActivity);
+                                        serviceContractWidget
+                                                .setCompanyName(sdpServiceSystemManualActivity.getCompanyName());
+                                        serviceContractWidget.setStep(2);
+                                        serviceContractWidget.showPopUp();
+                                    }
+                                }
+                            });
+                }
+            } else if (serviceContractWidget.getCurrentStep() == 2) {
+
+                if (serviceContractWidget.getSelectedCheckBoxId().isEmpty()) {
+                    dialogBox = new CustomDialogBox(NexusConstants.INFO_MESSAGE,
+                            ProviderLabelConstants.SELECT_DEVICE_MSG);
+                    dialogBox.show();
+
+                } else {
+                    serviceContractWidget.setStep(CONST_3);
+                    serviceContractWidget.showPopUp();
+                }
+            } else if (serviceContractWidget.getCurrentStep() == CONST_3) {
+
+                if (serviceContractWidget.getContractNote().trim().equalsIgnoreCase("")) {
+                    dialogBox = new CustomDialogBox(NexusConstants.INFO_MESSAGE, LabelConstants.MANDATORY_FIELD_MSG);
+                    dialogBox.show();
+
+                } else if (serviceContractWidget.getContractNote().length() > CONST_250) {
+                    dialogBox = new CustomDialogBox(NexusConstants.INFO_MESSAGE, ProviderLabelConstants.NOTE_FIELD_MSG);
+                    dialogBox.show();
+
+                } else {
+                    SimpleNexus.startLoading();
+
+                    if (serviceContractWidget.isCreateContract()) {
+
+                        ServiceSystemManualActivityServiceAsync.Util.getInstance().createContract(
+                                serviceContractWidget.getSelectedCheckBoxId(), serviceContractWidget.getUserId(),
+                                serviceContractWidget.getContractNote(), serviceContractWidget.getProtectUntilDate(),
+                                new AsyncCallback<List<SDPServiceSystemManualActivity>>() {
+
+                                    @Override
+                                    public void onFailure(final Throwable throwable) {
+                                        SimpleNexus.doneLoading();
+                                        final SDPException exception = (SDPException) throwable;
+                                        String errorDescription = InitExceptionMessageHelper
+                                                .getInitExceptionMessageHelper()
+                                                .getExceptionDescription(exception.getCode());
+
+                                        if (throwable instanceof SDPException) {
+                                            if (exception.getCode() == 5301 || exception.getCode() == 5302) {
+                                                dialogBox = new CustomDialogBox(NexusConstants.INFO_MESSAGE,
+                                                        errorDescription);
+                                            } else {
+                                                dialogBox = new CustomDialogBox(NexusConstants.FAILURE_MESSAGE,
+                                                        ProviderLabelConstants.SERVICE_SYSTEM_NOT_RESPONDING_MSG);
+                                            }
+                                        }
+                                        dialogBox.show();
+                                    }
+
+                                    @Override
+                                    public void onSuccess(
+                                            final List<SDPServiceSystemManualActivity> sdpServiceSystemManualActivityList) {
+                                        SimpleNexus.doneLoading();
+                                        if (!sdpServiceSystemManualActivityList.isEmpty()) {
+                                            serviceContractWidget.setSdpReport(sdpServiceSystemManualActivityList
+                                                    .get(sdpServiceSystemManualActivityList.size() - 1).getSdpReport());
+                                        }
+                                        serviceContractWidget
+                                                .setContractDeviceTable(sdpServiceSystemManualActivityList);
+                                        serviceContractWidget.setStep(CONST_4);
+                                        serviceContractWidget.showPopUp();
+                                    }
+                                });
+                    } else {
+                        ServiceSystemManualActivityServiceAsync.Util.getInstance().cancelContract(
+                                serviceContractWidget.getSelectedCheckBoxId(), serviceContractWidget.getUserId(),
+                                serviceContractWidget.getContractNote(),
+                                new AsyncCallback<List<SDPServiceSystemManualActivity>>() {
+
+                                    @Override
+                                    public void onFailure(final Throwable throwable) {
+                                        SimpleNexus.doneLoading();
+                                        if (throwable instanceof SDPException) {
+                                            dialogBox = new CustomDialogBox(NexusConstants.FAILURE_MESSAGE,
+                                                    ProviderLabelConstants.FAILED_TO_FETCH_MSG);
+                                            dialogBox.show();
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onSuccess(
+                                            final List<SDPServiceSystemManualActivity> sdpServiceSystemManualActivityList) {
+                                        SimpleNexus.doneLoading();
+                                        if (!sdpServiceSystemManualActivityList.isEmpty()) {
+                                            serviceContractWidget.setSdpReport(sdpServiceSystemManualActivityList
+                                                    .get(sdpServiceSystemManualActivityList.size() - 1).getSdpReport());
+                                        }
+                                        serviceContractWidget
+                                                .setContractDeviceTable(sdpServiceSystemManualActivityList);
+                                        serviceContractWidget.setStep(CONST_4);
+                                        serviceContractWidget.showPopUp();
+                                    }
+                                });
+                    }
+                }
+            } else if (serviceContractWidget.getCurrentStep() == CONST_4) {
+                serviceContractWidget.hidePopUp();
+            }
+        });
+    }
+
+    /**
+     * @param dialogBox
+     * @param widget
+     */
+    private void setMessageBoxAlignment(final CustomDialogBox dialogBox, final Widget widget) {
+        dialogBox.setPopupPosition(
+                widget.getAbsoluteLeft() + ((widget.getOffsetWidth() / 2) - (dialogBox.getOffsetWidth() / 2)),
+                widget.getAbsoluteTop() + ((widget.getOffsetHeight() / 2) - (dialogBox.getOffsetHeight() / 2)));
+    }
+
+    /**
+     * stackManagementAction -
+     */
+    private void stackManagementAction() {
+
+        final StackManagementWidget stackManagementWidget = new StackManagementWidget();
+        stackManagementWidget.showPopUp(1);
+        stackManagementWidget.closeButtonClickHandler(clickEvent -> stackManagementWidget.removeBGLayer());
+        stackManagementWidget.setUserTableVisibility(false);
+        stackManagementWidget.findButtonClickHandler(clickEvent -> {
+
+            if (stackManagementWidget.getStep() == 1) {
+                final String serialNumber = stackManagementWidget.getSerialNumber().trim();
+                if (serialNumber.isEmpty()) {
+                    stackManagementWidget.showProceedbutton(false);
+                    stackManagementWidget.setUserTableVisibility(false);
+                    dialogBox = new CustomDialogBox(NexusConstants.INFO_MESSAGE,
+                            ProviderLabelConstants.SERIAL_NUMBER_TXT_MSG);
+                    dialogBox.show();
+                } else if (serialNumber.length() > 0) {
+                    StackManagementServiceAsync.Util.getInstance().fetchUserModelDetails(serialNumber,
+                            new AsyncCallbackWithStatus<SDPStackManagementBean>() {
+
+                                @Override
+                                protected void onFailureInternal(final Throwable throwable) {
+
+                                    if (throwable instanceof SDPException) {
+                                        SDPException exception = (SDPException) throwable;
+                                        if (exception.getCode() == SDPException.DEVICE_NOT_EXIT) {
+                                            stackManagementWidget.showProceedbutton(false);
+                                            stackManagementWidget.setUserTableVisibility(false);
+                                            dialogBox = new CustomDialogBox(NexusConstants.INFO_MESSAGE,
+                                                    ProviderLabelConstants.INVALID_SERIAL_NUMBER_MSG);
+                                            dialogBox.show();
+                                        } else if (exception.getCode() == SDPException.DULICATE_SERIAL_NUMBER) {
+                                            stackManagementWidget.showProceedbutton(false);
+                                            stackManagementWidget.setUserTableVisibility(false);
+                                            dialogBox = new CustomDialogBox(NexusConstants.INFO_MESSAGE,
+                                                    ProviderLabelConstants.DULICATE_SERIAL_NUMBER);
+                                            dialogBox.show();
+                                        }
+                                    }
+
+                                }
+
+                                @Override
+                                protected void onSuccessInternal(final SDPStackManagementBean sdpStackManagementBean) {
+                                    stackManagementWidget.setSdpStackManagementBean(sdpStackManagementBean);
+                                    stackManagementWidget.setFindButtonClicked(true);
+                                    stackManagementWidget.setDetails(sdpStackManagementBean);
+                                    stackManagementWidget
+                                            .setUserTableVisibility(stackManagementWidget.isUserVisiblity());
+                                    if (sdpStackManagementBean.getDeviceUserMap() == null
+                                            || sdpStackManagementBean.getDeviceUserMap().isEmpty()) {
+                                        dialogBox = new CustomDialogBox(NexusConstants.WARNING_MESSAGE,
+                                                ProviderLabelConstants.NO_DEVICE_USERS_TEXT_MSG);
+                                        dialogBox.show();
+                                    }
+                                    stackManagementWidget.showProceedbutton(true);
+                                }
+                            });
+                }
+            }
+        });
+
+        stackManagementWidget.proceedButtonClickHandler(clickEvent -> {
+            if (stackManagementWidget.getStep() == 1) {
+                proceedButtonHandlerForStep1(stackManagementWidget);
+            } else {
+                proceedButtonHandlerForStep2(stackManagementWidget);
+            }
+
+        });
+
+    }
+
+    /**
+     * updateDeviceProgramAction.
+     */
+    private void updateDeviceProgram() {
+        changeProgramDevicePopupWidget = new ChangeProgramDevicePopupWidget();
+        long companyId = Long.parseLong((String) Nexus.getNexus().getProperty(PropertyConstant.COMPANY_ID));
+
+        ProgramDeviceShiftServiceAsync.Util.getInstance().fetchProgramsModelsList(companyId,
+                new AsyncCallback<ArrayList<SDPDeviceModel>>() {
+
+                    @Override
+                    public void onFailure(final Throwable throwable) {
+                        String exceptionMsg = null;
+
+                        if (throwable instanceof SDPException) {
+                            final SDPException sdpException = (SDPException) throwable;
+                            exceptionMsg = InitExceptionMessageHelper.getInitExceptionMessageHelper()
+                                    .getExceptionDescription(sdpException.getCode());
+                        }
+                        if (exceptionMsg == null) {
+                            exceptionMsg = ProviderLabelConstants.FAILED_TO_FETCH_MSG;
+                        }
+                        dialogBox = new CustomDialogBox(NexusConstants.FAILURE_MESSAGE, exceptionMsg);
+                        dialogBox.show();
+                    }
+
+                    @Override
+                    public void onSuccess(final ArrayList<SDPDeviceModel> sdpDeviceModel) {
+                        changeProgramDevicePopupWidget.setDeviceModelBean(sdpDeviceModel);
+                        changeProgramDevicePopupWidget.setStep(1);
+                        changeProgramDevicePopupWidget.showPopUp();
+                    }
+                });
+
+        changeProgramDevicePopupWidget.searchButtonClickHandler(clickEvent -> {
+
+            if (changeProgramDevicePopupWidget.getPartnerId().trim().equalsIgnoreCase("")) {
+                dialogBox = new CustomDialogBox(NexusConstants.INFO_MESSAGE, LabelConstants.MANDATORY_FIELD_MSG);
+                dialogBox.show();
+
+            } else {
+                ProgramDeviceShiftServiceAsync.Util.getInstance().searchForNewPartner(
+                        changeProgramDevicePopupWidget.getPartnerId().trim(),
+                        changeProgramDevicePopupWidget.getSelectedProgramId(), new AsyncCallback<SDPCompany>() {
+
+                            @Override
+                            public void onFailure(final Throwable throwable) {
+                                dialogBox = new CustomDialogBox(NexusConstants.FAILURE_MESSAGE,
+                                        ProviderLabelConstants.ENTER_VALID_PARTNER_ID_MSG);
+                                dialogBox.show();
+                            }
+
+                            @Override
+                            public void onSuccess(final SDPCompany sdpCompany) {
+                                changeProgramDevicePopupWidget.setSdpCompany(sdpCompany);
+                                changeProgramDevicePopupWidget.setPartnerName(sdpCompany.getName());
+                                changeProgramDevicePopupWidget.setStep(2);
+                                changeProgramDevicePopupWidget.showPopUp();
+                                UpdateDeviceProgramInitialWidget initialWidget = changeProgramDevicePopupWidget
+                                        .getUpdateDeviceProgramInitialWidget();
+                                initialWidget.disable();
+                            }
+                        });
+            }
+        });
+
+        changeProgramDevicePopupWidget
+                .closeButtonClickHandler(clickEvent -> changeProgramDevicePopupWidget.hidePopUp());
+
+        changeProgramDevicePopupWidget.proceedButtonClickHandler(arg0 -> {
+
+            if (changeProgramDevicePopupWidget.getCurrentStep() == 1) {
+
+                SDPDeviceProgramDetails sdpDeviceProgramDetails = changeProgramDevicePopupWidget
+                        .getsdpDeviceProgramDetails();
+                if (sdpDeviceProgramDetails.getSerialNumber().trim().equalsIgnoreCase("")
+                        || sdpDeviceProgramDetails.getSdpDeviceModel() == null) {
+                    dialogBox = new CustomDialogBox(NexusConstants.INFO_MESSAGE, LabelConstants.MANDATORY_FIELD_MSG);
+                    dialogBox.show();
+
+                } else {
+                    long companyId1 = Long
+                            .parseLong((String) Nexus.getNexus().getProperty(PropertyConstant.COMPANY_ID));
+
+                    ProgramDeviceShiftServiceAsync.Util.getInstance().fetchProgramDeviceDetails(sdpDeviceProgramDetails,
+                            companyId1, new AsyncCallback<SDPDeviceProgramDetails>() {
+
+                                @Override
+                                public void onFailure(final Throwable throwable) {
+                                    final SDPException sdpException = (SDPException) throwable;
+                                    String exceptionMsg = null;
+
+                                    if (throwable instanceof SDPException) {
+
+                                        if (sdpException.getCode() == SERIALNUMBER_NOT_EXIST) {
+                                            exceptionMsg = ProviderLabelConstants.SERIAL_NUMBER_NOT_EXIST_FOR_DEVICE;
+
+                                        } else if (sdpException.getCode() == NO_DEVICES_FOUND) {
+                                            exceptionMsg = ProviderLabelConstants.NO_DEVICE_COMBINATION_EXISTS_MSG;
+                                        }
+                                    }
+
+                                    if (exceptionMsg == null) {
+                                        exceptionMsg = ProviderLabelConstants.FAILED_TO_FETCH_MSG;
+                                    }
+                                    dialogBox = new CustomDialogBox(NexusConstants.FAILURE_MESSAGE, exceptionMsg);
+                                    dialogBox.show();
+                                }
+
+                                @Override
+                                public void onSuccess(final SDPDeviceProgramDetails sdpDeviceProgramDetails) {
+                                    changeProgramDevicePopupWidget.setDeviceModelBean(sdpDeviceProgramDetails);
+                                    changeProgramDevicePopupWidget.setStep(2);
+                                    changeProgramDevicePopupWidget.showPopUp();
+                                }
+                            });
+                }
+            } else if (changeProgramDevicePopupWidget.getCurrentStep() == 2) {
+                changeProgramDevicePopupWidget.setStep(CONST_3);
+                changeProgramDevicePopupWidget.showPopUp();
+
+            } else if (changeProgramDevicePopupWidget.getCurrentStep() == CONST_3) {
+                Map<Long, String> fromToUserIdMap = changeProgramDevicePopupWidget
+                        .getsdpDeviceProgramDetailsFromConfirmScreen().getFromToUserMap();
+                boolean atleastOneUserLoginEntered = false;
+                boolean isUserListEmpty = false;
+                String confirmationMsg = null;
+
+                if (!fromToUserIdMap.isEmpty()) {
+
+                    for (Map.Entry<Long, String> entry : fromToUserIdMap.entrySet()) {
+
+                        if (!entry.getValue().trim().equalsIgnoreCase("")) {
+                            atleastOneUserLoginEntered = true;
+                        }
+                    }
+                }
+                if (fromToUserIdMap == null || fromToUserIdMap.size() <= 0) {
+                    isUserListEmpty = true;
+                    confirmationMsg = ProviderLabelConstants.ARE_YOU_SURE_SERIAL_MSG;
+                } else {
+                    confirmationMsg = ProviderLabelConstants.ARE_YOU_SURE_TXT;
+                }
+
+                if ((!atleastOneUserLoginEntered) && !isUserListEmpty) {
+                    dialogBox = new CustomDialogBox(NexusConstants.INFO_MESSAGE,
+                            ProviderLabelConstants.ENTER_NEW_USER_LOGIN_MSG);
+                    dialogBox.show();
+
+                } else {
+                    confirmationBox = new CustomConfirmationBox(confirmationMsg, "", "");
+                    confirmationBox.show();
+
+                    confirmationBox.addConfirmationBoxListener(new ConfirmationBoxListener() {
+
+                        @Override
+                        public void cancelButtonClicked() {
+                            /**
+                             * cancel button click action.
+                             */
+                        }
+
+                        @Override
+                        public void noButtonClicked() {
+                            changeProgramDevicePopupWidget.hidePopUp();
+                        }
+
+                        @Override
+                        public void yesButtonClicked() {
+                            long userId = Long
+                                    .parseLong((String) Nexus.getNexus().getProperty(PropertyConstant.USER_ID));
+
+                            ProgramDeviceShiftServiceAsync.Util.getInstance().modifyDeviceProgram(
+                                    changeProgramDevicePopupWidget.getsdpDeviceProgramDetailsFromConfirmScreen(),
+                                    userId, new AsyncCallbackWithStatus<Void>() {
+
+                                        @Override
+                                        protected void onFailureInternal(final Throwable throwable) {
+                                            String exceptionMsg = null;
+
+                                            if (throwable instanceof SDPException) {
+                                                final SDPException sdpException = (SDPException) throwable;
+                                                exceptionMsg = InitExceptionMessageHelper
+                                                        .getInitExceptionMessageHelper()
+                                                        .getExceptionDescription(sdpException.getCode());
+                                            }
+                                            if (exceptionMsg == null) {
+                                                exceptionMsg = ProviderLabelConstants.FAILED_TO_PROCESS_MSG;
+                                            }
+                                            dialogBox = new CustomDialogBox(NexusConstants.FAILURE_MESSAGE,
+                                                    exceptionMsg);
+                                            dialogBox.show();
+                                        }
+
+                                        @Override
+                                        protected void onSuccessInternal(final Void arg0) {
+                                            confirmationBox = new CustomConfirmationBox(
+                                                    ProviderLabelConstants.DEVICE_PGM_UPDATED_TXT, false, false, true);
+                                            confirmationBox.show();
+
+                                            confirmationBox.addConfirmationBoxListener(new ConfirmationBoxListener() {
+
+                                                @Override
+                                                public void cancelButtonClicked() {
+                                                    /**
+                                                     * cancel button click action.
+                                                     */
+                                                }
+
+                                                @Override
+                                                public void noButtonClicked() {
+                                                    /**
+                                                     * no button click action.
+                                                     */
+                                                }
+
+                                                @Override
+                                                public void yesButtonClicked() {
+                                                    changeProgramDevicePopupWidget.hidePopUp();
+                                                }
+                                            });
+                                        }
+                                    });
+                        }
+                    });
+                }
+            }
+        });
+    }
+
+    /**
+     * updateOrReplaceDevice.
+     *
+     * @param isReplaceDevice -
+     */
+    public void updateOrReplaceDevice(final boolean isReplaceDevice) {
+
+        ProviderToolsServiceAsync.Util.getInstance().updateIPOrReplaceDevice(isReplaceDevice, sdpDevice,
+                new AsyncCallbackWithStatus<Boolean>() {
+
+                    @Override
+                    protected void onFailureInternal(final Throwable throwable) {
+                        dialogBox = new CustomDialogBox(NexusConstants.FAILURE_MESSAGE,
+                                ProviderLabelConstants.FAILED_TO_PROCESS_MSG);
+                        dialogBox.show();
+                    }
+
+                    @Override
+                    protected void onSuccessInternal(final Boolean object) {
+
+                        if (isReplaceDevice) {
+                            dialogBox = new CustomDialogBox(NexusConstants.SUCCESS_MESSAGE,
+                                    ProviderLabelConstants.DEVICE_REPLACE_SUCCESS_MSG);
+
+                        } else {
+                            dialogBox = new CustomDialogBox(NexusConstants.SUCCESS_MESSAGE,
+                                    ProviderLabelConstants.DEVICE_UPDATE_SUCCESS_MSG);
+                        }
+                        dialogBox.show();
+                        updateIPAddressWidget.hidePopUp();
+                    }
+                });
+    }
+
+    /**
+     * updatePrinterIPAction.
+     */
+    private void updatePrinterIPAction() {
+        updateIPAddressWidget = new UpdateIPAddressWidget();
+        updateIPAddressWidget.showPopUp();
+
+        updateIPAddressWidget.closeButtonClickHandler(clickEvent -> updateIPAddressWidget.hidePopUp());
+
+        updateIPAddressWidget.proceedButtonClickHandler(clickEvent -> {
+
+            if (updateIPAddressWidget.getStep() == 0) {
+                final String customerId = updateIPAddressWidget.getCustomerID();
+
+                if (customerId.length() > 0) {
+                    fetchDeviceModelConfigDetails(customerId);
+
+                } else {
+                    dialogBox = new CustomDialogBox(NexusConstants.INFO_MESSAGE,
+                            ProviderLabelConstants.ENTER_CUSTOMER_ID_MSG);
+                    dialogBox.show();
+                }
+            } else if (updateIPAddressWidget.getStep() == 1) {
+                UpdateIPAddressToolModel updateIPAddressToolModel = updateIPAddressWidget.getModel();
+                final UpdateIPAddressToolModel ipAddressToolModel = getUpdateIPAddressToolModel(
+                        updateIPAddressToolModel);
+
+                if (ipAddressToolModel != null) {
+
+                    ProviderToolsServiceAsync.Util.getInstance().fetchDevice(updateIPAddressToolModel,
+                            new AsyncCallbackWithStatus<SDPDevice>() {
+
+                                @Override
+                                protected void onFailureInternal(final Throwable throwable) {
+
+                                    if (throwable instanceof SDPException) {
+                                        SDPException exception = (SDPException) throwable;
+
+                                        if (exception.getCode() == SDPException.DEVICE_NOT_EXIST) {
+                                            dialogBox = new CustomDialogBox(NexusConstants.FAILURE_MESSAGE,
+                                                    ProviderLabelConstants.DEVICE_NOT_FOUND_MSG);
+                                            dialogBox.show();
+                                        }
+                                    }
+                                }
+
+                                @Override
+                                protected void onSuccessInternal(final SDPDevice sdpDeviceParam) {
+                                    sdpDevice = sdpDeviceParam;
+                                    updateIPAddressWidget.proceedAction();
+                                }
+                            });
+                } else {
+                    final Map<String, String> errorMap = updateIPAddressToolModel.getInValidErrMap();
+                    final int count = errorMap.size();
+                    String msg;
+
+                    if (count > 1) {
+                        msg = MessageConstants.VALIDATION_FAILURE_MSG;
+
+                        for (int i = 1; i <= count; i++) {
+                            msg = msg + "<br>" + i + LabelConstants.DOT_SPACE_LABEL + errorMap.get(String.valueOf(i));
+                        }
+                    } else {
+                        msg = MessageConstants.VALIDATE_DATA_MSG + LabelConstants.SPACE_LABEL
+                                + errorMap.get(String.valueOf(count));
+                    }
+                    dialogBox = new CustomDialogBox(NexusConstants.INFO_MESSAGE, msg);
+                    dialogBox.show();
+                }
+            } else {
+                final boolean isReplaceDevice = updateIPAddressWidget.isReplaceDevice();
+
+                if (isReplaceDevice) {
+                    SDPDevice newSdpDevice = updateIPAddressWidget.getReplaceDeviceReqData(sdpDevice);
+                    List<String> replaceDeviceInvalidDataList = updateIPAddressWidget.getReplaceDeviceInvalidDataList();
+
+                    if (!replaceDeviceInvalidDataList.isEmpty()) {
+                        final int count = replaceDeviceInvalidDataList.size();
+                        String msg;
+
+                        if (count > 1) {
+                            msg = MessageConstants.VALIDATION_FAILURE_MSG;
+
+                            for (int i = 0; i < count; i++) {
+                                msg = msg + "<br>" + (i + 1) + LabelConstants.DOT_SPACE_LABEL
+                                        + replaceDeviceInvalidDataList.get(i);
+                            }
+                        } else {
+                            msg = MessageConstants.VALIDATE_DATA_MSG + LabelConstants.SPACE_LABEL
+                                    + replaceDeviceInvalidDataList.get(count);
+                        }
+                        dialogBox = new CustomDialogBox(NexusConstants.INFO_MESSAGE, msg);
+                        dialogBox.show();
+                    } else {
+                        sdpDevice = newSdpDevice;
+                        updateOrReplaceDevice(isReplaceDevice);
+                    }
+                } else {
+                    final String newIpAddress = updateIPAddressWidget.getNewIpTextBox().getText();
+                    List<SDPDevice> sdpDeviceList = updateIPAddressWidget.getSdpDeviceList();
+                    boolean dupIPFlap = false;
+
+                    if (sdpDeviceList != null && !sdpDeviceList.isEmpty()) {
+
+                        for (SDPDevice device : sdpDeviceList) {
+
+                            if (!newIpAddress.equalsIgnoreCase("")
+                                    && newIpAddress.equalsIgnoreCase(device.getHostAddress())) {
+                                dupIPFlap = true;
+                            }
+                        }
+                    }
+                    if (newIpAddress.equalsIgnoreCase("")) {
+                        dialogBox = new CustomDialogBox(NexusConstants.INFO_MESSAGE,
+                                ProviderLabelConstants.ENTER_NEW_IP_ADDRESS);
+                        dialogBox.show();
+
+                    } else if (sdpDevice.getHostAddress().equalsIgnoreCase(newIpAddress) || dupIPFlap) {
+                        dialogBox = new CustomDialogBox(NexusConstants.INFO_MESSAGE,
+                                ProviderLabelConstants.ENTER_DIFFERENT_IP_ADDRESS);
+                        dialogBox.show();
+
+                    } else if (!validateForValidIP(newIpAddress)) {
+                        dialogBox = new CustomDialogBox(NexusConstants.INFO_MESSAGE,
+                                ProviderLabelConstants.ENTER_VALID_IP_ADDRESS);
+                        dialogBox.show();
+
+                    } else {
+                        sdpDevice.setHostAddress(newIpAddress);
+                        updateOrReplaceDevice(isReplaceDevice);
+                    }
+                }
+            }
+        });
+
+        updateIPAddressWidget.updateIPAddressClickHandler(clickEvent -> {
+
+            updateIPAddressWidget.getUpdateIPAddressButton().setValue(true);
+            updateIPAddressWidget.getReplaceDeviceButton().setValue(false);
+        });
+
+        updateIPAddressWidget.replaceDeviceAddressClickHandler(clickEvent -> {
+
+            updateIPAddressWidget.getUpdateIPAddressButton().setValue(false);
+            updateIPAddressWidget.getReplaceDeviceButton().setValue(true);
+        });
+
+        updateIPAddressWidget.modelListBoxChangeHandler(changeEvent -> {
+
+            ListBox list = updateIPAddressWidget.getModelListBox();
+            long modelId = 0L;
+            modelId = Long.valueOf(list.getValue(list.getSelectedIndex()));
+            updateIPAddressWidget.populateConfigListBox(modelId);
+        });
+    }
+
+    /**
+     * validate if valid ip
+     */
+    private boolean validateForValidIP(final String newIpAddr) {
+        return newIpAddr.matches("^(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})$");
+    }
+
+    /**
+     * Method to validate the UpdateIPAddressToolModel.
+     *
+     * @param src - UpdateIPAddressToolModel.
+     * @return the flag.
+     */
+    private boolean validateUpdateIPAddressToolModel(final UpdateIPAddressToolModel src) {
+        final Boolean statusCheck = Boolean.valueOf(false);
+        final Map<String, Boolean> modelMap = src.validateMandatoryField();
+
+        if (errorList != null) {
+            errorList.clear();
+        }
+        final Set<Entry<String, Boolean>> modelEntrySet = modelMap.entrySet();
+        final Iterator<Entry<String, Boolean>> iterator = modelEntrySet.iterator();
+
+        while (iterator.hasNext()) {
+            final Entry<String, Boolean> entry = iterator.next();
+            final Boolean status = entry.getValue();
+
+            if (status.equals(statusCheck)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+}

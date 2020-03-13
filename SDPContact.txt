@@ -1,0 +1,893 @@
+package com.hcl.sdp.shared.bean;
+
+import java.util.Date;
+import java.util.List;
+
+import com.hcl.sdp.shared.exception.SDPException;
+import com.hcl.sdp.shared.exception.ValidationException;
+import com.hcl.sdp.shared.management.validation.Validator;
+
+/**
+ * Domain model that represents Contact of a user.
+ * 
+ * <br>
+ * <br>
+ * Copyright (c) 2008, HCL Technologies.<br>
+ * Mar 15, 2008 7:16:30 PM<br>
+ * 
+ * @author aanandn
+ * @version $Id$
+ */
+public class SDPContact extends SDPBean {
+
+    /**
+     * serialVersionUID.
+     */
+    private static final long serialVersionUID = -5858921578450949856L;
+
+    /**
+     * address type - billing address.
+     */
+    public static final int PRIMARY_ADDRESS = 1;
+
+    /**
+     * address type - ahipping address.
+     */
+    public static final int BILLING_ADDRESS = 2;
+    /**
+     * address type - device location address.
+     */
+    public static final int DEVICE_ADDRESS = 3;
+    /**
+     * address type - shipping address.
+     */
+    public static final int SHIPPING_ADDRESS = 4;
+    /**
+     * address type - printer ship to address.
+     */
+    public static final int PRINTER_SHIP_TO_ADDRESS = 5;
+    /**
+     * address type - printer supplies ship to address.
+     */
+    public static final int PRINTER_SUPPLIES_SHIP_TO_ADDRESS = 6;
+    /**
+     * zip code length.
+     */
+    private static final int POSTAL_CODE_LENGTH = 10;
+
+    /**
+     * phone number length.
+     */
+    private static final int PHONE_LENGTH = 10;
+
+    /**
+     * address type - secondary address.
+     */
+    public static final int SECONDARY_ADDRESS = 4;
+    /**
+     * CITY LENGTH CONSTANT.
+     */
+    public static final int CITY_LENGTH = 100;
+
+    /**
+     * address of the contact.
+     */
+    private String address1;
+
+    /**
+     * address of the contact.
+     */
+    private String address2;
+
+    /**
+     * city of the contact.
+     */
+    private String city;
+    /**
+     * id of the sattae.
+     */
+    private String stateName = null;
+    /**
+     * id of the country.
+     */
+    private String countryName = null;
+    /**
+     * Code of the Country.
+     */
+    private String countryCode;
+
+    /**
+     * country of the user.
+     */
+    private long country;
+
+    /**
+     * email of the contact.
+     */
+    private String email;
+
+    /**
+     * mobile of the contact.
+     */
+    private String mobile;
+
+    /**
+     * official phone number of the contact.
+     */
+    private String officePhone;
+
+    /**
+     * state of the contact.
+     */
+    private long state;
+
+    /**
+     * zip code of the contact.
+     */
+    private String zip;
+
+    /**
+     * zipPlus code of the contact.
+     */
+    private String zipPlus;
+
+    /**
+     * date of modification of the entity.
+     */
+    private Date modifiedDate;
+
+    /**
+     * identifier of the contact entity.
+     */
+    private long id;
+
+    /**
+     * adsress type.
+     */
+    private int type;
+
+    /**
+     * Day Time Phone number of the Contact.
+     */
+    private long dayPhone;
+
+    /**
+     * Office Phone Number of Contact.
+     */
+    private long homePhone;
+    /**
+     * extension number of user.
+     */
+    private String extensionNumber = null;
+    /**
+     * Shipping Contact Information.
+     */
+    private SDPShippContact sdpShippContact;
+    /**
+     * tax area code for this contact.
+     */
+    private String taxAreaCode;
+    /**
+     * Class Code for tax.
+     */
+    private String classCode;
+    /**
+     * company for the contact details.
+     */
+    private String company;
+    /**
+     * isShippingAddressModified.
+     */
+    private boolean isShippingAddressModified;
+    /**
+     * State code.
+     */
+    private String stateCode;
+    /**
+     * sdpShipContactList.
+     */
+    private List<SDPShippContact> shipContactList;
+    /**
+     * devIds.
+     */
+    private List<Long> devIds;
+    /**
+     * int deviceCount.
+     */
+    private int deviceCount;
+    /**
+     * TRUE if at least one OBM eligible model exist.
+     */
+    private boolean isOBMEligibleModelExist;
+    /**
+     * Whether the device for the contact has alerts or not.
+     */
+    private boolean hasAlerts;
+    /**
+     * Device Serial Number.
+     */
+    private String serialNumber;
+    /**
+     * nickName.
+     */
+    private String nickName;
+    /**
+     * Model.
+     */
+    private String model;
+    /**
+     * smallImage.
+     */
+    private String smallImage;
+    /**
+     * userId.
+     */
+    private long userId;
+    /**
+     * modelId.
+     */
+    private long modelId;
+    /**
+     * manufacturer.
+     */
+    private String manufacturer;
+    /**
+     * Whether the Quick Buy exists for that contact exists or not.
+     */
+    private boolean hasQuickBuyAlerts;
+    
+    /**
+     * Partner Company Name
+     */
+    private String partnerCompanyName;
+
+    /**
+     * @return the hasQuickBuyAlerts
+     */
+    public boolean getHasQuickBuyAlerts() {
+        return hasQuickBuyAlerts;
+    }
+
+    /**
+     * @param hasQuickBuyAlertsParam the hasQuickBuyAlerts to set
+     */
+    public void setHasQuickBuyAlerts(final boolean hasQuickBuyAlertsParam) {
+        this.hasQuickBuyAlerts = hasQuickBuyAlertsParam;
+    }
+
+    /**
+     * @return the hasAlerts
+     */
+    public boolean getHasAlerts() {
+        return hasAlerts;
+    }
+
+    /**
+     * @param hasAlertsParam the hasAlerts to set
+     */
+    public void setHasAlerts(final boolean hasAlertsParam) {
+        this.hasAlerts = hasAlertsParam;
+    }
+
+    /**
+     * Default constructor.
+     */
+    public SDPContact() {
+        /**
+         * Empty Default constructor
+         */
+    }
+
+    /**
+     * @return the stateCode
+     */
+    public String getStateCode() {
+        return stateCode;
+    }
+
+    /**
+     * @param stateCodeParam the stateCode to set
+     */
+    public void setStateCode(final String stateCodeParam) {
+        this.stateCode = stateCodeParam;
+    }
+
+    /**
+     * @return the company
+     */
+    public String getCompany() {
+        return company;
+    }
+
+    /**
+     * @param companyParam the company to set
+     */
+    public void setCompany(final String companyParam) {
+        this.company = companyParam;
+    }
+
+    /**
+     * Returns the address.
+     * 
+     * @return the address1
+     */
+    public String getAddress1() {
+        return this.address1;
+    }
+
+    /**
+     * sets the address.
+     * 
+     * @param paramAddress1 the address1 to set
+     */
+    public void setAddress1(final String paramAddress1) {
+        this.address1 = paramAddress1;
+    }
+
+    /**
+     * Returns the address.
+     * 
+     * @return the address2
+     */
+    public String getAddress2() {
+        return this.address2;
+    }
+
+    /**
+     * sets the address.
+     * 
+     * @param paramAddress2 the address2 to set
+     */
+    public void setAddress2(final String paramAddress2) {
+        this.address2 = paramAddress2;
+    }
+
+    /**
+     * Returns the city.
+     * 
+     * @return the city
+     */
+    public String getCity() {
+        return this.city;
+    }
+
+    /**
+     * sets the city.
+     * 
+     * @param paramCity the city to set
+     */
+    public void setCity(final String paramCity) {
+        this.city = paramCity;
+    }
+
+    /**
+     * Returns the country.
+     * 
+     * @return the country
+     */
+    public long getCountry() {
+        return this.country;
+    }
+
+    /**
+     * sets the country.
+     * 
+     * @param paramCountry the country to set
+     */
+    public void setCountry(final long paramCountry) {
+        this.country = paramCountry;
+    }
+
+    /**
+     * Returns the email.
+     * 
+     * @return the email
+     */
+    public String getEmail() {
+        return this.email;
+    }
+
+    /**
+     * sets the email.
+     * 
+     * @param paramEmail the email to set
+     */
+    public void setEmail(final String paramEmail) {
+        this.email = paramEmail;
+    }
+
+    /**
+     * Returns the mobile number.
+     * 
+     * @return the mobile
+     */
+    public String getMobile() {
+        return this.mobile;
+    }
+
+    /**
+     * sets the mobile number.
+     * 
+     * @param paramMobile the mobile to set
+     */
+    public void setMobile(final String paramMobile) {
+        this.mobile = paramMobile;
+    }
+
+    /**
+     * Returns the official phone number.
+     * 
+     * @return the officePhone
+     */
+    public String getOfficePhone() {
+        return this.officePhone;
+    }
+
+    /**
+     * Sets the official phone number.
+     * 
+     * @param paramOfficePhone the officePhone to set
+     */
+    public void setOfficePhone(final String paramOfficePhone) {
+        this.officePhone = paramOfficePhone;
+    }
+
+    /**
+     * Returns the state.
+     * 
+     * @return the state
+     */
+    public long getState() {
+        return this.state;
+    }
+
+    /**
+     * sets the state.
+     * 
+     * @param paramState the state to set
+     */
+    public void setState(final long paramState) {
+        this.state = paramState;
+    }
+
+    /**
+     * Returns the zip.
+     * 
+     * @return the zip
+     */
+    public String getZip() {
+        return this.zip;
+    }
+
+    /**
+     * sets the zip.
+     * 
+     * @param paramZip the zip to set
+     */
+    public void setZip(final String paramZip) {
+        this.zip = paramZip;
+    }
+
+    /**
+     * Returns the date modified.
+     * 
+     * @return the modifiedDate
+     */
+    public Date getModifiedDate() {
+        return this.modifiedDate;
+    }
+
+    /**
+     * Sets the date modified.
+     * 
+     * @param paramModifiedDate the modifiedDate to set
+     */
+    public void setModifiedDate(final Date paramModifiedDate) {
+        this.modifiedDate = paramModifiedDate;
+    }
+
+    /**
+     * Returns the id.
+     * 
+     * @return the id
+     */
+    public long getId() {
+        return this.id;
+    }
+
+    /**
+     * Sets the id.
+     * 
+     * @param paramId the id to set
+     */
+    public void setId(final long paramId) {
+        this.id = paramId;
+    }
+
+    /**
+     * @return the addressTypeCode
+     */
+    public int getType() {
+        return type;
+    }
+
+    /**
+     * @param addressTypeCodeParam the addressTypeCode to set
+     */
+    public void setType(final int addressTypeCodeParam) {
+        this.type = addressTypeCodeParam;
+    }
+
+    /**
+     * @return the stateName
+     */
+    public final String getStateName() {
+        return stateName;
+    }
+
+    /**
+     * @param stateNameParam the stateName to set
+     */
+    public final void setStateName(final String stateNameParam) {
+        this.stateName = stateNameParam;
+    }
+
+    /**
+     * @return the countryName
+     */
+    public final String getCountryName() {
+        return countryName;
+    }
+
+    /**
+     * @param countryNameParam the countryName to set
+     */
+    public final void setCountryName(final String countryNameParam) {
+        this.countryName = countryNameParam;
+    }
+
+    /**
+     * @return thConte dayPhone
+     */
+    public long getDayPhone() {
+        return this.dayPhone;
+    }
+
+    /**
+     * @param paramDayPhone the dayPhone to set
+     */
+    public void setDayPhone(final long paramDayPhone) {
+        this.dayPhone = paramDayPhone;
+    }
+
+    /**
+     * @return the homePhone
+     */
+    public long getHomePhone() {
+        return this.homePhone;
+    }
+
+    /**
+     * @param paramHomePhone the homePhone to set
+     */
+    public void setHomePhone(final long paramHomePhone) {
+        this.homePhone = paramHomePhone;
+    }
+
+    /**
+     * @return the extensionNumber
+     */
+    public String getExtensionNumber() {
+        return extensionNumber;
+    }
+
+    /**
+     * @param extensionNumberParam the extensionNumber to set
+     */
+    public void setExtensionNumber(final String extensionNumberParam) {
+        this.extensionNumber = extensionNumberParam;
+    }
+
+    /**
+     * @return the sdpShippToContact
+     */
+    public SDPShippContact getSdpShippContact() {
+        return sdpShippContact;
+    }
+
+    /**
+     * @param sdpShippToContactParam the sdpShippToContact to set
+     */
+    public void setSdpShippContact(final SDPShippContact sdpShippToContactParam) {
+        this.sdpShippContact = sdpShippToContactParam;
+    }
+
+    /**
+     * @return the taxAreaCode
+     */
+    public String getTaxAreaCode() {
+        return taxAreaCode;
+    }
+
+    /**
+     * @param taxAreaCodeParam the taxAreaCode to set
+     */
+    public void setTaxAreaCode(final String taxAreaCodeParam) {
+        this.taxAreaCode = taxAreaCodeParam;
+    }
+
+    /**
+     * @return the classCode
+     */
+    public String getClassCode() {
+        return classCode;
+    }
+
+    /**
+     * @param classCodeParam the classCode to set
+     */
+    public void setClassCode(final String classCodeParam) {
+        this.classCode = classCodeParam;
+    }
+
+    /**
+     * @return the countryCode
+     */
+    public String getCountryCode() {
+        return countryCode;
+    }
+
+    /**
+     * @param countryCodePram the countryCode to set
+     */
+    public void setCountryCode(final String countryCodePram) {
+        this.countryCode = countryCodePram;
+    }
+
+    /**
+     * @return the isShippingAddressModified
+     */
+    public boolean getIsShippingAddressModified() {
+        return isShippingAddressModified;
+    }
+
+    /**
+     * @param isShippingAddressModifiedParam the isShippingAddressModified to set
+     */
+    public void setIsShippingAddressModified(final boolean isShippingAddressModifiedParam) {
+        this.isShippingAddressModified = isShippingAddressModifiedParam;
+    }
+
+    /**
+     * This method validate the bean fields.
+     * 
+     * @param isShipping -
+     * @return boolean
+     * @throws SDPException - SDPException
+     */
+    public boolean validate(final boolean isShipping) throws SDPException {
+        if (this.address1 == null) {
+            throw new ValidationException(ValidationException.ADDRESS1_NOT_NULL, "Address1 should not be null");
+        }
+        if (this.address1.length() > SDPBean.MAX_STRING_LENGTH) {
+            throw new ValidationException(ValidationException.INVALID_ADDRESS1,
+                    "Address1 field length should not exceed 255 characters");
+        }
+        if (this.address2 != null && this.address2.length() > SDPBean.MAX_STRING_LENGTH) {
+            throw new ValidationException(ValidationException.INVALID_ADDRESS2,
+                    "Address2 field length should not exceed 255 characters");
+        }
+        if (this.city == null) {
+            throw new ValidationException(ValidationException.CITY_NOT_NULL, "City should not be null");
+        }
+        if (this.city.length() > CITY_LENGTH) {
+            throw new ValidationException(ValidationException.INVALID_CITY,
+                    "City field length should not exceed 100 characters");
+        }
+        if (this.mobile != null && this.mobile.length() > PHONE_LENGTH) {
+            throw new ValidationException(ValidationException.MOBILE_NUM_INVALID,
+                    "Mobile field length should not exceed 10 characters");
+        }
+        if (this.officePhone != null && this.officePhone.length() > PHONE_LENGTH) {
+            throw new ValidationException(ValidationException.OFF_PHONE_NUM_INVALID,
+                    "OfficePhone field length should not exceed 10 characters");
+        }
+        final String zipField = this.zip;
+        if (zipField.length() > POSTAL_CODE_LENGTH) {
+            throw new ValidationException(ValidationException.ZIP_INVALID,
+                    "Zip field length should not exceed 6 characters");
+        }
+        if (!isShipping) {
+            if (this.email == null) {
+                throw new ValidationException(ValidationException.EMAIL_NOT_NULL, "Email should not be null");
+            }
+            if (!Validator.isEmail(this.email)) {
+                throw new ValidationException(ValidationException.EMAIL_INVALID, "Invalid email address");
+            }
+        }
+
+        return true;
+    }
+
+    /**
+     * @return shipContactList
+     */
+    public List<SDPShippContact> getShipContactList() {
+        return shipContactList;
+    }
+
+    /**
+     * @param shipContactListParam -
+     */
+    public void setShipContactList(final List<SDPShippContact> shipContactListParam) {
+        this.shipContactList = shipContactListParam;
+    }
+
+    /**
+     * @return deviceCount
+     */
+    public int getDeviceCount() {
+        return deviceCount;
+    }
+
+    /**
+     * @param deviceCountParam -
+     */
+    public void setDeviceCount(final int deviceCountParam) {
+        this.deviceCount = deviceCountParam;
+    }
+
+    /**
+     * @return devIds
+     */
+    public List<Long> getDevIds() {
+        return devIds;
+    }
+
+    /**
+     * @param devIdsParam -
+     */
+    public void setDevIds(final List<Long> devIdsParam) {
+        this.devIds = devIdsParam;
+    }
+
+    /**
+     * @return the isOBMEligibleModelExist
+     */
+    public boolean getIsOBMEligibleModelExist() {
+        return isOBMEligibleModelExist;
+    }
+
+    /**
+     * @param isOBMEligibleModelExistParam the isOBMEligibleModelExist to set
+     */
+    public void setIsOBMEligibleModelExist(final boolean isOBMEligibleModelExistParam) {
+        this.isOBMEligibleModelExist = isOBMEligibleModelExistParam;
+    }
+
+    /**
+     * @return the serialNumber
+     */
+    public String getSerialNumber() {
+        return serialNumber;
+    }
+
+    /**
+     * @param serialNumberParam the serialNumber to set
+     */
+    public void setSerialNumber(final String serialNumberParam) {
+        this.serialNumber = serialNumberParam;
+    }
+
+    /**
+     * @return the nickName
+     */
+    public String getNickName() {
+        return nickName;
+    }
+
+    /**
+     * @param nickNameParam the nickName to set
+     */
+    public void setNickName(final String nickNameParam) {
+        this.nickName = nickNameParam;
+    }
+
+    /**
+     * @return the model
+     */
+    public String getModel() {
+        return model;
+    }
+
+    /**
+     * @param modelParam the model to set
+     */
+    public void setModel(final String modelParam) {
+        this.model = modelParam;
+    }
+
+    /**
+     * @return the smallImage
+     */
+    public String getSmallImage() {
+        return smallImage;
+    }
+
+    /**
+     * @param smallImageParam the smallImage to set
+     */
+    public void setSmallImage(final String smallImageParam) {
+        this.smallImage = smallImageParam;
+    }
+
+    /**
+     * @return the userId
+     */
+    public long getUserId() {
+        return userId;
+    }
+
+    /**
+     * @param userIdParam the userId to set
+     */
+    public void setUserId(final long userIdParam) {
+        this.userId = userIdParam;
+    }
+
+    /**
+     * @return the modelId
+     */
+    public long getModelId() {
+        return modelId;
+    }
+
+    /**
+     * @param modelIdParam the modelId to set
+     */
+    public void setModelId(final long modelIdParam) {
+        this.modelId = modelIdParam;
+    }
+
+    /**
+     * @return the manufacturer
+     */
+    public String getManufacturer() {
+        return manufacturer;
+    }
+
+    /**
+     * @param manufacturerParam the manufacturer to set
+     */
+    public void setManufacturer(final String manufacturerParam) {
+        this.manufacturer = manufacturerParam;
+    }
+
+    /**
+     * @return the zipPlus
+     */
+    public String getZipPlus() {
+        return zipPlus;
+    }
+
+    /**
+     * @param zipPlus the zipPlus to set
+     */
+    public void setZipPlus(String zipPlus) {
+        this.zipPlus = zipPlus;
+    }
+
+	/**
+	 * @return the partnerCompanyName
+	 */
+	public String getPartnerCompanyName() {
+		return partnerCompanyName;
+	}
+
+	/**
+	 * @param partnerCompanyName the partnerCompanyName to set
+	 */
+	public void setPartnerCompanyName(String partnerCompanyName) {
+		this.partnerCompanyName = partnerCompanyName;
+	}
+}

@@ -1,0 +1,1207 @@
+/**
+ * 
+ */
+package com.hcl.sdp.shared.framework.constants;
+
+/**
+ * @author sezhiyann
+ * 
+ */
+public final class ProviderLabelConstants extends LabelConstants {
+
+	/** PROVIDER_LABEL_CONSTANTS. */
+	public static final ProviderI18NLabelConstants PROVIDER_LABEL_CONSTANTS = new ProviderI18NLabelConstantsImpl();
+
+	/** label constant for reseller Id. */
+	public static final String RESELLER_INFO_LABEL_TXT = PROVIDER_LABEL_CONSTANTS.resellerInfoLabel();
+	/** label constant for SHIPPING_ADDR_CHKBOX_LBL. */
+	public static final String SHIPPING_ADDR_CHKBOX_LBL = PROVIDER_LABEL_CONSTANTS.shippingAddrChkBoxLabel();
+	/** label constant for SHIPPING_ADDR_CHKBOX_LBL. */
+	public static final String SHIPPING_ADDR_LBL = PROVIDER_LABEL_CONSTANTS.shippingAddrLabel();
+	/** label constant for active. */
+	public static final String ACTIVE_LABEL_TXT = PROVIDER_LABEL_CONSTANTS.activeLabel();
+	/** label constant for progress. */
+	public static final String PROGRESS_LABEL_TXT = PROVIDER_LABEL_CONSTANTS.progressLabel();
+	/** label constant for DETAILS_LBL. */
+	public static final String DETAILS_LBL = PROVIDER_LABEL_CONSTANTS.detailsLbl();
+	/** label constant for subscription Attribute Range. */
+	public static final String SUBSCR_ATTRIBUTE_RANGE_LABEL = PROVIDER_LABEL_CONSTANTS.subscrAttributeRange();
+	/** label constant for days. */
+	public static final String DAYS_LABEL = PROVIDER_LABEL_CONSTANTS.daysLabel();
+	/** label constant for IMAGE. */
+	public static final String IMAGE = PROVIDER_LABEL_CONSTANTS.image();
+	/** label constant for Price_TXT. */
+	public static final String PRICE_TXT = PROVIDER_LABEL_CONSTANTS.priceLblTxt();
+	/** label constant for CREATE_DATE_LABEL. */
+	public static final String CREATE_DATE_LABEL = PROVIDER_LABEL_CONSTANTS.createDateLabel();
+	/** label constant for NUMBERS_INFO_TXT. */
+	public static final String NUMBERS_INFO_TXT = PROVIDER_LABEL_CONSTANTS.numbersInfoTxt();
+	/** label constant for EMAIL_INFO_SAMPLE_TXT. */
+	public static final String EMAIL_INFO_SAMPLE_TXT = PROVIDER_LABEL_CONSTANTS.emailInfoTxt();
+	/** label constant for PROMO_EMAIL_CHK_LBL. */
+	public static final String PROMO_EMAIL_CHK_LBL = PROVIDER_LABEL_CONSTANTS.promotionalEmailTxt();
+	/** label constant for PREFERENCE_LBL. */
+	public static final String PREFERENCE_LBL = PROVIDER_LABEL_CONSTANTS.prefLbl();
+	/** DEVICE_SERIAL_NO. */
+	public static final String DEVICE_SERIAL_NO = PROVIDER_LABEL_CONSTANTS.deviceSerialNumber();
+	/** label constant for Partner Program Name. */
+	public static final String PARTNER_PROGRAM_NAME = PROVIDER_LABEL_CONSTANTS.partnerProgramName();
+	/** label constant for rate type. */
+	public static final String RATE_TYPE_LBL = PROVIDER_LABEL_CONSTANTS.rateTypeLbl();
+	/** label constant for Add Accounts. */
+	public static final String ADD_ACCOUNTS = PROVIDER_LABEL_CONSTANTS.addAccounts();
+	/** label constant for If. */
+	public static final String IF_TEXT = PROVIDER_LABEL_CONSTANTS.ifText();
+	/** label constant for Partner Category Name. */
+	public static final String PARTNER_CATEGORY_NAME_LBL = PROVIDER_LABEL_CONSTANTS.partnerCategoryNameLbl();
+	/** label constant for PRICE_ERP. */
+	public static final String PRICE_ERP = PROVIDER_LABEL_CONSTANTS.priceERP();
+	/** label constant for PRICE_COST. */
+	public static final String PRICE_COST = PROVIDER_LABEL_CONSTANTS.priceCost();
+	/** label constant for REVENUE_DEFINITION. */
+	public static final String REVENUE_DEFINITION = PROVIDER_LABEL_CONSTANTS.revenueDefinition();
+	/** label constant for REQD_NO_OF_CREDIT_CARDS. */
+	public static final String REQD_NO_OF_CREDIT_CARDS = PROVIDER_LABEL_CONSTANTS.reqdNoOfCreditCards();
+	/** label constant for ALLOW_PTNR_PROMOTION_ELIGIBILITY. */
+	public static final String ALLOW_PTNR_PROMOTION_ELIGIBILITY = PROVIDER_LABEL_CONSTANTS
+			.allowPtnrPromotionEligibility();
+	/** label constant for ALLOW_PTNR_PROMOTION_ELIGIBILITY. */
+	public static final String PARTNER_PRICING_MODEL = PROVIDER_LABEL_CONSTANTS.partnerPricingModel();
+	/** label constant for DEFAULT_SHIP_HANDLING_CARRIER. */
+	public static final String DEFAULT_SHIP_HANDLING_CARRIER = PROVIDER_LABEL_CONSTANTS.defaultShipHandlingCarrier();
+	/** label constant for DEFAULT_SHIP_HANDLING_METHOD. */
+	public static final String DEFAULT_SHIP_HANDLING_METHOD = PROVIDER_LABEL_CONSTANTS.defaultShipHandlingMethod();
+	/** label constant for DEFAULT_SHIP_HANDLING_FEE_TYPE. */
+	public static final String DEFAULT_SHIP_HANDLING_FEE_TYPE = PROVIDER_LABEL_CONSTANTS.defaultShipHandlingFeeType();
+	/** label constant for ALLOW_PTNR_CHANGE_SHIP_CARRIER. */
+	public static final String ALLOW_PTNR_CHANGE_SHIP_CARRIER = PROVIDER_LABEL_CONSTANTS.allowPtnrToChangeShipCarrier();
+	/** label constant for ALLOW_PTNR_CHANGE_SHIP_METHOD. */
+	public static final String ALLOW_PTNR_CHANGE_SHIP_METHOD = PROVIDER_LABEL_CONSTANTS.allowPtnrToChangeShipMethod();
+	/** label constant for ALLOW_PTNR_CHANGE_SHIP_FEE_SHDLE. */
+	public static final String ALLOW_PTNR_CHANGE_SHIP_FEE_SHDLE = PROVIDER_LABEL_CONSTANTS
+			.allowPtnrToChangeShipFeeShdle();
+	/** label constant for ALLOW_CUST_SELECT_SHIP_CARRIER. */
+	public static final String ALLOW_CUST_SELECT_SHIP_CARRIER = PROVIDER_LABEL_CONSTANTS.allowPtnrToSelectShipCarrier();
+	/** label constant for ALLOW_CUST_SELECT_SHIP_METHOD. */
+	public static final String ALLOW_CUST_SELECT_SHIP_METHOD = PROVIDER_LABEL_CONSTANTS.allowPtnrToSelectShipMethod();
+	/** SELECT_MDLS_FOR_ECON. */
+	public static final String SELECT_MDLS_FOR_ECON = PROVIDER_LABEL_CONSTANTS.selectModelsForEcon();
+	/** SELECT_CONSUMABLES_THRESHOLDS. */
+	public static final String SELECT_CONSUMABLES_THRESHOLDS = PROVIDER_LABEL_CONSTANTS.selectConsumableThresholds();
+	/** PROGRAM_CATEGORY_LBL. */
+	public static final String PROGRAM_CATEGORY_LBL = PROVIDER_LABEL_CONSTANTS.programCategoryLbl();
+	/** label constant for FUTURE_PRICE_LIST_UPLOAD. */
+	public static final String FUTURE_PRICE_LIST_UPLOAD = PROVIDER_LABEL_CONSTANTS.futurePriceUploadTxt();
+	/** label constant for ADD_ED_FU_Price. */
+	public static final String ADD_ED_FU_PRICE = PROVIDER_LABEL_CONSTANTS.addEdReFuPrice();
+	/** label constant for US_DOLLAR. */
+	public static final String US_DOLLAR = PROVIDER_LABEL_CONSTANTS.usdollar();
+	/** label constant for NAME_LABEl. */
+	public static final String NAME_PRICE_LABEL = PROVIDER_LABEL_CONSTANTS.namePriceLabel();
+	/** label constant for STATUS_LABEl. */
+	public static final String STATUS_PRICE_LABEL = PROVIDER_LABEL_CONSTANTS.statusPriceLabel();
+	/** label constant for STARTDATE_LABEl. */
+	public static final String STARTDATE_PRICE_LABEL = PROVIDER_LABEL_CONSTANTS.startDatePriceLabel();
+	/** label constant for ENDDATE_LABEl. */
+	public static final String ENDDATE_PRICE_LABEL = PROVIDER_LABEL_CONSTANTS.endDatePriceLabel();
+	/** label constant for PARTNERURL. **/
+	public static final String PARTNERURL = PROVIDER_LABEL_CONSTANTS.partnerURL();
+	/** label constant for ALLOWREBRAND. **/
+	public static final String ALLOWREBRAND = PROVIDER_LABEL_CONSTANTS.allowRebrand();
+	/** label constant for ALLOWCHANGEPARTNER. **/
+	public static final String ALLOWCHANGEPARTNER = PROVIDER_LABEL_CONSTANTS.allowPartnertoChangeportal();
+	/** label constant for ALLOWREPRICE. **/
+	public static final String ALLOWREPRICE = PROVIDER_LABEL_CONSTANTS.allowReprice();
+	/** label constant for PAYMENTINTERFACE. **/
+	public static final String PAYMENTINTERFACE = PROVIDER_LABEL_CONSTANTS.paymentInterface();
+	/** label constant for ALL_PROGRRAMS. **/
+	public static final String ALL_PROGRRAMS = PROVIDER_LABEL_CONSTANTS.allPrograms();
+	/** label constant for SELECTED_PROGRAMS. **/
+	public static final String SELECTED_PROGRAMS = PROVIDER_LABEL_CONSTANTS.selectedPrograms();
+	/** label constant for APPLY_SETTINGPGM. **/
+	public static final String APPLY_SETTINGPGM = PROVIDER_LABEL_CONSTANTS.applySettingsPrograms();
+	/** label constant for ALLOW_PARTNER_PROMOTION. **/
+	public static final String ALLOW_PARTNER_PROMOTION = PROVIDER_LABEL_CONSTANTS.allowPartnerPromotions();
+	/** label constant for DEFAULT_SRC_LOCATION. **/
+	public static final String DEFAULT_SRC_LOCATION = PROVIDER_LABEL_CONSTANTS.defaultSourcingLocation();
+	/** label constant for DEFAULT_SRCLOC_DATE. **/
+	public static final String DEFAULT_SRCLOC_DATE = PROVIDER_LABEL_CONSTANTS.defaultSourcingLocationDate();
+	/** label constant for CURRENT_ONEPARTNER. **/
+	public static final String CURRENT_ONEPARTNER = PROVIDER_LABEL_CONSTANTS.currentOnePartrner();
+	/** label constant for CURRENT_TWOPARTNER. **/
+	public static final String CURRENT_TWOPARTNER = PROVIDER_LABEL_CONSTANTS.currentTwoPartrner();
+	/** label constant for CURRENT_THREEPARTNER. **/
+	public static final String CURRENT_THREEPARTNER = PROVIDER_LABEL_CONSTANTS.currentThreePartrner();
+	/** label constant for CURRENT_FOURPARTNER. **/
+	public static final String CURRENT_FOURPARTNER = PROVIDER_LABEL_CONSTANTS.currentFourPartrner();
+	/** Label Constants for Configure. **/
+	public static final String CONFIGURE_LBL = PROVIDER_LABEL_CONSTANTS.configureLabel();
+	/** Label constant for - keyCntctPerson. */
+	public static final String KEY_CNTCT_PERSON = PROVIDER_LABEL_CONSTANTS.keyCntctPerson();
+	/** Label constant for - reseller trend. */
+	public static final String RESELLER_TREND_LBL = PROVIDER_LABEL_CONSTANTS.resellerTrendLbl();
+	/** Label constant for - update partners. */
+	public static final String UPDATE_PARTNERS_LBL = PROVIDER_LABEL_CONSTANTS.updatePartnersLbl();
+	/** Label constant for - update consumable part. */
+	public static final String UPDATE_CONSUMABLE_PART_LBL = PROVIDER_LABEL_CONSTANTS.updateConsumablePartLbl();
+	/** Label constant for - Program Overview. */
+	public static final String PROGRAM_OVERVIEW_LBL = PROVIDER_LABEL_CONSTANTS.programOverviewLbl();
+	/** Label constant for - Orders. */
+	public static final String ORDERS_LBL = PROVIDER_LABEL_CONSTANTS.ordersLbl();
+	/** Label constant for - Renewals. */
+	public static final String RENEWALS_LBL = PROVIDER_LABEL_CONSTANTS.renewalsLbl();
+	/** Label constant for - Program-to-Date. */
+	public static final String PROGRAM_TO_DATE_LBL = PROVIDER_LABEL_CONSTANTS.programToDateLbl();
+	/** Label constant for - Total. */
+	public static final String TOTAL_LABEL = PROVIDER_LABEL_CONSTANTS.totalLbl();
+	/** Label constant for - stepOneServiceLoyaltyLbl. */
+	public static final String STEP_ONE_SERVICELOYALTY_LBL = PROVIDER_LABEL_CONSTANTS.stepOneServiceLoyaltyLbl();
+	/** Label constant for - stepTwoServiceLoyaltyLbl. */
+	public static final String STEP_TWO_SERVICELOYALTY_LBL = PROVIDER_LABEL_CONSTANTS.stepTwoServiceLoyaltyLbl();
+	/** Label constant for - selectionCriteriaLbl. */
+	public static final String SELECTION_CRITERIA_LBL = PROVIDER_LABEL_CONSTANTS.selectionCriteriaLbl();
+	/** Label constant for - suppliesPurchsedLbl. */
+	public static final String SUPPLIES_PURCHASED_LBL = PROVIDER_LABEL_CONSTANTS.suppliesPurchsedLbl();
+	/** Label constant for - riskCriteriaLbl. */
+	public static final String RISK_CRITERIA_LBL = PROVIDER_LABEL_CONSTANTS.riskCriteriaLbl();
+	/** Label constant for - nonProgramReplacementLbl. */
+	public static final String NON_PROGRAMREPLACEMENT_LBL = PROVIDER_LABEL_CONSTANTS.nonProgramReplacementLbl();
+	/** Label constant for - gracePeriodDaysLbl. */
+	public static final String GRACE_PERIODDAYS_LBL = PROVIDER_LABEL_CONSTANTS.gracePeriodDaysLbl();
+	/** Label constant for - gracePeriodDaysLbl. */
+	public static final String SUPPORT_CODE_LBL = PROVIDER_LABEL_CONSTANTS.supportCodeLbl();
+	/** Label constant for - daysinPgmLbl. */
+	public static final String DAYSIN_PGM_LBL = PROVIDER_LABEL_CONSTANTS.daysinPgmLbl();
+	/** Label constant for - noSmllImg. */
+	public static final String NO_SML_IMG = PROVIDER_LABEL_CONSTANTS.noSmllImg();
+	/** Label constant for - noBigImg. */
+	public static final String NO_BIG_IMG = PROVIDER_LABEL_CONSTANTS.noBigImg();
+	/** Label constant for - dollarSymbolLbl. */
+	public static final String DOLLAR_SYM = PROVIDER_LABEL_CONSTANTS.dollarSymbolLbl();
+	/** Label constant for - distiPref. */
+	public static final String DISTI_PREF = PROVIDER_LABEL_CONSTANTS.distiPref();
+	/** Label constant for - supportTypeLbl. */
+	public static final String SUPPORT_TYPE_LBL = PROVIDER_LABEL_CONSTANTS.supportTypeLbl();
+	/** Label constant for - messageTypeLbl. */
+	public static final String MESSAGETYPE_LBL = PROVIDER_LABEL_CONSTANTS.messageTypeLbl();
+	/** Label constant for - messageTargetLbl. */
+	public static final String MESSAGE_TARGET_LBL = PROVIDER_LABEL_CONSTANTS.messageTargetLbl();
+	/** Label constant for - order by device messageWithWrntyLbl. */
+	public static final String OBD_MESSAGE_WITHWRNTY_LBL = PROVIDER_LABEL_CONSTANTS.obdMessageWithWrntyLbl();
+	/** Label constant for - order buy device messageWithoutWrntyLbl. */
+	public static final String OBD_MESSAGE_WITHOUTWRNTY_LBL = PROVIDER_LABEL_CONSTANTS.obdMessageWithoutWrntyLbl();
+	/** Label constant for - order by model messageWithWrntyLbl. */
+	public static final String OBM_MESSAGE_WITHWRNTY_LBL = PROVIDER_LABEL_CONSTANTS.obmMessageWithWrntyLbl();
+	/** Label constant for - order buy model messageWithoutWrntyLbl. */
+	public static final String OBM_MESSAGE_WITHOUTWRNTY_LBL = PROVIDER_LABEL_CONSTANTS.obmMessageWithoutWrntyLbl();
+	/** Label constant for - noteLbl. */
+	public static final String NOTE_LABEL = PROVIDER_LABEL_CONSTANTS.noteLbl();
+	/** Label constant for - inActiveLbl. */
+	public static final String INACTIVE_LBL = PROVIDER_LABEL_CONSTANTS.inActiveLbl();
+	/** Label constant for - hoverLbl. */
+	public static final String HOVER_LBL = PROVIDER_LABEL_CONSTANTS.hoverLbl();
+	/** Label constant for - popupLbl. */
+	public static final String POPUP_LBL = PROVIDER_LABEL_CONSTANTS.popupLbl();
+	/** Label constant for - warrantyListlbl. */
+	public static final String WARRANTY_LIST_LBL = PROVIDER_LABEL_CONSTANTS.warrantyListlbl();
+	/** Label constant for - Published Date. */
+	public static final String PUBLISHED_DATE_LBL = PROVIDER_LABEL_CONSTANTS.publishedDatelbl();
+
+	/** Label constant for - xerox revenue. */
+	public static final String XEROX_REVENUE_LBL = PROVIDER_LABEL_CONSTANTS.xeroxRevenueLbl();
+	/** Label constant for - partners revenue. */
+	public static final String PARTNER_REVENUE_LBL = PROVIDER_LABEL_CONSTANTS.partnerRevenueLbl();
+	/** Label Constant for Selected Models. **/
+	public static final String SELECTED_MODELS_LBL = PROVIDER_LABEL_CONSTANTS.selectedModelsHeader();
+	/** Label Constant for device Lbl. **/
+	public static final String DEVICE_LBL = PROVIDER_LABEL_CONSTANTS.device();
+	/** Label Constant for agent Type Lbl. **/
+	public static final String AGENT_TYPE_LBL = PROVIDER_LABEL_CONSTANTS.agentTypeLbl();
+	/** Label Constant for DEFAULT_SHPNG_MTHD_LBL. **/
+	public static final String DEFAULT_SHPNG_MTHD_LBL = PROVIDER_LABEL_CONSTANTS.defaultShpngMthdLbl();
+	/** Label Constant for FULL_SUPPORT_STATUS_LBL. **/
+	public static final String FULL_SUPPORT_STATUS_LBL = PROVIDER_LABEL_CONSTANTS.fullSupportStatusLbl();
+	/** Label Constant for AVAILABLE_STACK_LBL. **/
+	public static final String AVAILABLE_STACK_LBL = PROVIDER_LABEL_CONSTANTS.availableStackLbl();
+	/** Label Constant for CURRENT_LBL. **/
+	public static final String CURRENT_LBL = PROVIDER_LABEL_CONSTANTS.currentLbl();
+	/** Label Constant for ADJUSTED_LBL. **/
+	public static final String ADJUSTED_LBL = PROVIDER_LABEL_CONSTANTS.adjustedLbl();
+	/** Label Constant for program Type Label. **/
+	public static final String PROGRAM_TYPE_LBL = PROVIDER_LABEL_CONSTANTS.programTypeLbl();
+	/** Label Constant for minCreditLimt Label. **/
+	public static final String MIN_CREDIT_LBL = PROVIDER_LABEL_CONSTANTS.minCreditLimt();
+	/** LOYALTY_ADJUSTMENT_SUCCESS_MSG. **/
+	public static final String LOYALTY_ADJUSTMENT_SUCCESS_MSG = PROVIDER_LABEL_CONSTANTS
+			.loyaltyAdjustmentSuccessMessage();
+	/** PRG_PUBLISH_MULTIPLE_FAILURE_MSG. **/
+	public static final String PRG_PUBLISH_MULTIPLE_FAILURE_MSG = PROVIDER_LABEL_CONSTANTS
+			.programPublishFailureMultipleMsg();
+	/** PRG_PUBLISH_FAILURE_MSG. **/
+	public static final String PRG_PUBLISH_FAILURE_MSG = PROVIDER_LABEL_CONSTANTS.programPublishFailMsg();
+	/** Label Constant for PUBLISHED_DATE Label. **/
+	public static final String PUBLISHED_DATE = PROVIDER_LABEL_CONSTANTS.publishedDate();
+	/** Label Constant for PUBLISH_LBL. **/
+	public static final String PUBLISH_LBL = PROVIDER_LABEL_CONSTANTS.publishTxt();
+	/** Label Constant for PART_NUM_TXT. **/
+	public static final String PART_NUM_TXT = PROVIDER_LABEL_CONSTANTS.partNumTxt();
+	/** Label Constant for REVOKE_LBL. **/
+	public static final String REVOKE_LBL = PROVIDER_LABEL_CONSTANTS.revokeLabel();
+	/** Label Constant for GRACE_PERIOD_DATE_LBL. **/
+	public static final String GRACE_PERIOD_DATE_LBL = PROVIDER_LABEL_CONSTANTS.gracePeriodDateLbl();
+
+	/** Label Constant for NOTE_LOYALTY_ADJUSTMENT. **/
+	public static final String NOTE_LOYALTY_ADJUSTMENT = PROVIDER_LABEL_CONSTANTS.noteServiceLoyaltyAdjustment();
+	/** Label Constant for ACTION_LBL. **/
+	public static final String ACTION_LABLE = PROVIDER_LABEL_CONSTANTS.actionLbl();
+	/** Label Constant for LOYALTY_REVOKED_SUCCESSFULY_MSG. **/
+	public static final String LOYALTY_REVOKED_SUCCESSFULY_MSG = PROVIDER_LABEL_CONSTANTS
+			.loyaltyRevokedSuccessfullyMsg();
+	/** Label Constant for IS_OVERRIDE_PART. **/
+	public static final String IS_OVERRIDE_PART = PROVIDER_LABEL_CONSTANTS.isOverridePart();
+	/** Label Constant for OVERRIDE_DEFAULT_PART. **/
+	public static final String OVERRIDE_DEFAULT_PART = PROVIDER_LABEL_CONSTANTS.overrideDefaultPart();
+	/** Label Constant for MODEL_NAME. **/
+	public static final String MODEL_NAME = PROVIDER_LABEL_CONSTANTS.modelName();
+	/** Label Constant for ORDER_BY_MODEL. **/
+	public static final String ORDER_BY_MODEL = PROVIDER_LABEL_CONSTANTS.orderByModel();
+	/** Label Constant for DELETE_CUSTOMER_LBL. **/
+	public static final String DELETE_CUSTOMER_LBL = PROVIDER_LABEL_CONSTANTS.deleteCustomerLbl();
+	/** Label Constant for CANCEL_ORDER_LBL. **/
+	public static final String CANCEL_ORDER_LBL = PROVIDER_LABEL_CONSTANTS.cancelOrderLbl();
+	/** Label Constant for KEY_CONTACT_LBL. **/
+	public static final String KEY_CONTACT_LBL = PROVIDER_LABEL_CONSTANTS.keyContactLbl();
+	/** Label Constant for UPDATE_PRINTER_IP_LBL. **/
+	public static final String UPDATE_PRINTER_IP_LBL = PROVIDER_LABEL_CONSTANTS.updatePrinterIpLbl();
+	/** Label Constant for DELETE_CUSTOMER_DESC_LBL. **/
+	public static final String DELETE_CUSTOMER_DESC_LBL = PROVIDER_LABEL_CONSTANTS.deleteCustomerDescLbl();
+	/** Label Constant for CANCEL_ORDER_DESC_LBL. **/
+	public static final String CANCEL_ORDER_DESC_LBL = PROVIDER_LABEL_CONSTANTS.cancelOrderDescLbl();
+	/** Label Constant for KEY_CONTACT_DESC_LBL. **/
+	public static final String KEY_CONTACT_DESC_LBL = PROVIDER_LABEL_CONSTANTS.keyContactDescLbl();
+	/** Label Constant for UPDATE_PRINTER_IP_DESC_LBL. **/
+	public static final String UPDATE_PRINTER_IP_DESC_LBL = PROVIDER_LABEL_CONSTANTS.updatePrinterIpDescLbl();
+	/** Label Constant for ENTER_CUSTOMER_ID_LBL. **/
+	public static final String ENTER_CUSTOMER_ID_LBL = PROVIDER_LABEL_CONSTANTS.enterCustomerUserIdLbl();
+	/** Label Constant for REVIEW_DETAILS_LBL. **/
+	public static final String REVIEW_DETAILS_LBL = PROVIDER_LABEL_CONSTANTS.reviewDetailsLbl();
+	/** Label Constant for CUSTOMER_LBL. **/
+	public static final String CUSTOMER_LBL = PROVIDER_LABEL_CONSTANTS.customerLbl();
+	/** Label Constant for CANCEL_ORDER_CONFIRM_LBL. **/
+	public static final String CANCEL_ORDER_CONFIRM_LBL = PROVIDER_LABEL_CONSTANTS.cancelOrderConfirmationLbl();
+	/** Label Constant for CURRENT_STATUS_LBL. **/
+	public static final String CURRENT_STATUS_LBL = PROVIDER_LABEL_CONSTANTS.currentStatusLbl();
+	/** Label Constant for UPDATE_PARTNER_KEY_CONTACT_LBL. **/
+	public static final String UPDATE_PARTNER_KEY_CONTACT_LBL = PROVIDER_LABEL_CONSTANTS.updatePartnerKeyContactLbl();
+	/** Label Constant for ENTER_KEY_CONTACT_LBL. **/
+	public static final String ENTER_KEY_CONTACT_LBL = PROVIDER_LABEL_CONSTANTS.enterKeyContactLbl();
+	/** Label Constant for CURRENT_KEY_CONTACT_LBL. **/
+	public static final String CURRENT_KEY_CONTACT_LBL = PROVIDER_LABEL_CONSTANTS.currentKeyContactLbl();
+	/** Label Constant for ENTER_NEW_KEY_CONTACT_LBL. **/
+	public static final String ENTER_NEW_KEY_CONTACT_LBL = PROVIDER_LABEL_CONSTANTS.enterNewKeyContactLbl();
+	/** Label Constant for LOGIN_NAME_LBL. **/
+	public static final String LOGIN_NAME_LBL = PROVIDER_LABEL_CONSTANTS.loginNameLbl();
+	/** Label Constant for TOOL_NAME_LBL. **/
+	public static final String TOOL_NAME_LBL = PROVIDER_LABEL_CONSTANTS.toolNameLbl();
+	/** Label Constant for EXECUTE_LBL. **/
+	public static final String EXECUTE_LBL = PROVIDER_LABEL_CONSTANTS.executeLbl();
+	/** Label Constant for ORDER_NUMBER_LBL. **/
+	public static final String ORDER_NUMBER_LBL = PROVIDER_LABEL_CONSTANTS.orderNumberLbl();
+	/** Label Constant for CREATE_SHIPMENT_LBL. **/
+	public static final String CREATE_SHIPMENT_LBL = PROVIDER_LABEL_CONSTANTS.createShipmentLbl();
+	/** Label Constant for TRACKING_NUMBER_LBL. **/
+	public static final String TRACKING_NUMBER_LBL = PROVIDER_LABEL_CONSTANTS.trackingNumberLbl();
+	/** Label Constant for ADJUST_LOYALTY. **/
+	public static final String ADJUST_LOYALTY = PROVIDER_LABEL_CONSTANTS.adjustLoyalty();
+	/** Label Constant for REVOKE_LOYALTY. **/
+	public static final String REVOKE_LOYALTY = PROVIDER_LABEL_CONSTANTS.revokeLoyalty();
+	/** Label Constant for DELETE_CUSTOMER_FAILURE_MSG. **/
+	public static final String DELETE_CUSTOMER_FAILURE_MSG = PROVIDER_LABEL_CONSTANTS.deleteCustomerFailureMsg();
+	/** Label Constant for ORDER_OR_DEVICE_ASSOCIATED_MSG. **/
+	public static final String ORDER_OR_DEVICE_ASSOCIATED_MSG = PROVIDER_LABEL_CONSTANTS.orderOrDeviceAssoMsg();
+	/** Label Constant for DELETE_CUSTOMER_SUCCESS_MSG. **/
+	public static final String DELETE_CUSTOMER_SUCCESS_MSG = PROVIDER_LABEL_CONSTANTS.deleteCustomerSuccessMsg();
+	/** Label Constant for FAILED_TO_FETCH_MSG. **/
+	public static final String FAILED_TO_FETCH_MSG = PROVIDER_LABEL_CONSTANTS.failedToFetchDetailsMsg();
+	/** Label Constant for ENTER_VALID_CISTOMER_ID_MSG. **/
+	public static final String ENTER_VALID_CISTOMER_ID_MSG = PROVIDER_LABEL_CONSTANTS.enterValidCustomerIdMsg();
+	/** Label Constant for ENTER_CUSTOMER_ID_MSG. **/
+	public static final String ENTER_CUSTOMER_ID_MSG = PROVIDER_LABEL_CONSTANTS.enterCustomerIdMsg();
+	/** Label Constant for ENTER_VALID_ADMIN_ID_MSG. **/
+	public static final String ENTER_VALID_ADMIN_ID_MSG = PROVIDER_LABEL_CONSTANTS.enterValidAdminId();
+	/** Label Constant for ENTER_VALID_USER_ID_MSG. **/
+	public static final String ENTER_VALID_USER_ID_MSG = PROVIDER_LABEL_CONSTANTS.enterValidUserIdMsg();
+	/** Label Constant for KEY_CONTACT_CHANGE_MSG. **/
+	public static final String KEY_CONTACT_CHANGE_MSG = PROVIDER_LABEL_CONSTANTS.keyContactChangeSuccessMsg();
+	/** Label Constant for ENTER_VALID_ORDER_NUMBER_MSG. **/
+	public static final String ENTER_VALID_ORDER_NUMBER_MSG = PROVIDER_LABEL_CONSTANTS.enterValidOrderNumberMsg();
+	/** Label Constant for ENTER_ORDER_NUMBER_MSG. **/
+	public static final String ENTER_ORDER_NUMBER_MSG = PROVIDER_LABEL_CONSTANTS.enterOrderNumberMsg();
+	/** Label Constant for ORDER_CANCEL_FAILURE_MSG. **/
+	public static final String ORDER_CANCEL_FAILURE_MSG = PROVIDER_LABEL_CONSTANTS.orderCancelFailureMsg();
+	/** Label Constant for ORDER_CANCEL_FAILURE_MSG. **/
+	public static final String ORDER_ALREADY_CANCELED_MSG = PROVIDER_LABEL_CONSTANTS.orderAlreadyCanceledMsg();
+	/** Label Constant for ORDER_CANCEL_SUCCESS_MSG. **/
+	public static final String ORDER_CANCEL_SUCCESS_MSG = PROVIDER_LABEL_CONSTANTS.orderCancelSuccessMsg();
+	/** Label Constant for ENTER_USER_ID_MSG. **/
+	public static final String ENTER_USER_ID_MSG = PROVIDER_LABEL_CONSTANTS.enterUserIdMsg();
+	/** Label Constant for ENTER_VALID_ID_UNDER_YOUR_PURVIEW_MSG. **/
+	public static final String ENTER_VALID_ID_UNDER_YOUR_PURVIEW_MSG = PROVIDER_LABEL_CONSTANTS
+			.enterValidIdUnderPurviewMsg();
+	/** Label Constant for UPDATE_IP_ADDRESS. **/
+	public static final String UPDATE_IP_ADDRESS = PROVIDER_LABEL_CONSTANTS.updateIpAddress();
+	/** Label Constant for REPLACE_DEVICE. **/
+	public static final String REPLACE_DEVICE = PROVIDER_LABEL_CONSTANTS.replaceDevice();
+	/** Label Constant for SELECT_MANU_EXISTING_DEVICE. **/
+	public static final String SELECT_MANU_EXISTING_DEVICE = PROVIDER_LABEL_CONSTANTS.selectManuExistingDevice();
+	/** Label Constant for SELECT_MODEL_EXISTING_DEVICE. **/
+	public static final String SELECT_MODEL_EXISTING_DEVICE = PROVIDER_LABEL_CONSTANTS.selectModelExistingDevice();
+	/** Label Constant for ENTER_SERIAL_NO_EXISTING_DEVICE. **/
+	public static final String ENTER_SERIAL_NO_EXISTING_DEVICE = PROVIDER_LABEL_CONSTANTS.enterSerialNoExistingDevice();
+	/** Label Constant for ENTER_IP_ADDRESS_EXISTING_DEVICE. **/
+	public static final String ENTER_IP_ADDRESS_EXISTING_DEVICE = PROVIDER_LABEL_CONSTANTS
+			.enterIpAddressExistingDevice();
+	/** Label Constant for ENTER_MAC_ADDRESS_EXISTING_DEVICE. **/
+	public static final String ENTER_MAC_ADDRESS_EXISTING_DEVICE = PROVIDER_LABEL_CONSTANTS
+			.enterMacAddressExistingDevice();
+	/** Label Constant for ENTER_HOST_NAME_EXISTING_DEVICE. **/
+	public static final String ENTER_HOST_NAME_EXISTING_DEVICE = PROVIDER_LABEL_CONSTANTS.enterHostNameExistingDevice();
+	/** Label Constant for CURRENT_IP_ADDRESS. **/
+	public static final String CURRENT_IP_ADDRESS = PROVIDER_LABEL_CONSTANTS.currentIpAddress();
+	/** Label Constant for ENTER_NEW_IP_ADDRESS. **/
+	public static final String ENTER_NEW_IP_ADDRESS = PROVIDER_LABEL_CONSTANTS.enterNewIpAddress();
+	/** Label Constant for ENTER_VALID_ADDRESS. **/
+	public static final String ENTER_VALID_IP_ADDRESS = PROVIDER_LABEL_CONSTANTS.enterValidIpAddress();
+	/** Label Constant for ENTER_DIFFERENT_IP_ADDRESS. **/
+	public static final String ENTER_DIFFERENT_IP_ADDRESS = PROVIDER_LABEL_CONSTANTS.enterDifferentIpAddress();
+	/** Label Constant for REPLACE_LABEL. **/
+	public static final String REPLACE_LABEL = PROVIDER_LABEL_CONSTANTS.replaceLabel();
+	/** Label Constant for ENTER_SERIAL_NO_NEW_DEVICE. **/
+	public static final String ENTER_SERIAL_NO_NEW_DEVICE = PROVIDER_LABEL_CONSTANTS.enterSerialNoNewDevice();
+	/** Label Constant for ENTER_IP_ADDRESS_NEW_DEVICE. **/
+	public static final String ENTER_IP_ADDRESS_NEW_DEVICE = PROVIDER_LABEL_CONSTANTS.enterIpAddressNewDevice();
+	/** Label Constant for ENTER_MAC_ADDRESS_NEW_DEVICE. **/
+	public static final String ENTER_MAC_ADDRESS_NEW_DEVICE = PROVIDER_LABEL_CONSTANTS.enterMacAddressNewDevice();
+	/** Label Constant for ENTER_HOST_NAME_NEW_DEVICE. **/
+	public static final String ENTER_HOST_NAME_NEW_DEVICE = PROVIDER_LABEL_CONSTANTS.enterHostNameNewDevice();
+	/** Label Constant for UPDATE_IP_REPLACE_DEVICE_HEADER. **/
+	public static final String UPDATE_IP_REPLACE_DEVICE_HEADER = PROVIDER_LABEL_CONSTANTS.updateIpReplaceDeviceHeader();
+	/** Label Constant for SELECT_MODEL_CONFIG_ID. **/
+	public static final String SELECT_MODEL_CONFIG_ID = PROVIDER_LABEL_CONSTANTS.selectModelConfig();
+	/** Label Constant for DEVICE_NOT_FOUND_MSG. **/
+	public static final String DEVICE_NOT_FOUND_MSG = PROVIDER_LABEL_CONSTANTS.deviceNotFoundMsg();
+	/** Label Constant for MANAGE_LOC_MODEL_STACK_TXT. **/
+	public static final String MANAGE_LOC_MODEL_STACK_TXT = PROVIDER_LABEL_CONSTANTS.manageLocModelStackTxt();
+	/** Label Constant for MANAGE_LOC_MODEL_STACK_DESC_TXT. **/
+	public static final String MANAGE_LOC_MODEL_STACK_DESC_TXT = PROVIDER_LABEL_CONSTANTS.manageLocModelStackDescTxt();
+	/** Label Constant for SELECT_SHIP_LOC_LBL. **/
+	public static final String SELECT_SHIP_LOC_LBL = PROVIDER_LABEL_CONSTANTS.selectShippingLocLbl();
+	/** Label Constant for SELECT_MODEL_LBL. **/
+	public static final String SELECT_MODEL_LBL = PROVIDER_LABEL_CONSTANTS.selectModelLbl();
+	/** Label Constant for ADJUSTED_STACK_LBL. **/
+	public static final String ADJUSTED_STACK_LBL = PROVIDER_LABEL_CONSTANTS.adjustedStackLbl();
+	/** Label Constant for STACK_ADJUST_SUCCESS_MSG. **/
+	public static final String STACK_ADJUST_SUCCESS_MSG = PROVIDER_LABEL_CONSTANTS.adjustedStackSuccessLbl();
+	/** Label Constant for SELECT_LOCATION_MSG. **/
+	public static final String SELECT_LOCATION_MSG = PROVIDER_LABEL_CONSTANTS.selectLocationMsg();
+	/** Label Constant for FETCH_LOCATION_STACK_FAILURE_MSG. **/
+	public static final String FETCH_LOCATION_STACK_FAILURE_MSG = PROVIDER_LABEL_CONSTANTS
+			.fetchLocationStackFailureMsg();
+	/** Label Constant for ADJUST_LOC_STACK_FAILURE_MSG. **/
+	public static final String ADJUST_LOC_STACK_FAILURE_MSG = PROVIDER_LABEL_CONSTANTS.fetchLocationStackFailureMsg();
+	/** Label Constant for DEVICE_REPLACE_SUCCESS_MSG. **/
+	public static final String DEVICE_REPLACE_SUCCESS_MSG = PROVIDER_LABEL_CONSTANTS.deviceReplaceSuccessMsg();
+	/** Label Constant for DEVICE_UPDATE_SUCCESS_MSG. **/
+	public static final String DEVICE_UPDATE_SUCCESS_MSG = PROVIDER_LABEL_CONSTANTS.deviceUpdateSuccessMsg();
+	/** Label Constant for FAILED_TO_PROCESS_MSG. **/
+	public static final String FAILED_TO_PROCESS_MSG = PROVIDER_LABEL_CONSTANTS.failedToProcessMsg();
+	/** Label Constant for ENTER_VALID_USER_ID_UNDER_PURVIEW_MSG. **/
+	public static final String ENTER_VALID_USER_ID_UNDER_PURVIEW_MSG = PROVIDER_LABEL_CONSTANTS
+			.enterValidUserIdUnderPurviewMsg();
+	/** Label Constant for PROPOSED_KEY_CONTACT_LBL. **/
+	public static final String PROPOSED_KEY_CONTACT_LBL = PROVIDER_LABEL_CONSTANTS.proposedKeyContactLbl();
+	/** Label Constant for ORDER_BEAN_LIFEPERIOD. **/
+	public static final String ORDER_BEAN_LIFEPERIOD = PROVIDER_LABEL_CONSTANTS.orderBeanLifePeriod();
+	/** Label Constant for DEVICE_IDLE_THRESHOLD. **/
+	public static final String DEVICE_IDLE_THRESHOLD = PROVIDER_LABEL_CONSTANTS.deviceIdleThreshold();
+	/** Label Constant for METER_TONER_ENABLED. **/
+	public static final String METER_TONER_ENABLED = PROVIDER_LABEL_CONSTANTS.meterTonerEnable();
+	/** Label Constant for METER_TONER_ENABLED. **/
+	public static final String DEVICE_IDLE_TIME = PROVIDER_LABEL_CONSTANTS.deviceIdleTime();
+	/** Label Constant for HELP_DOCS_SUPP_FILE_MSG. **/
+	public static final String HELP_DOCS_SUPP_FILE_MSG = PROVIDER_LABEL_CONSTANTS.helpDocsSupporedFileMsg();
+	/** Label Constant for ENABLE_BACK_ORDER_LBL. **/
+	public static final String ENABLE_BACK_ORDER_LBL = PROVIDER_LABEL_CONSTANTS.enableBackOrderLbl();
+	/** Label Constant for VALID_ORDER_BEAN_PERIOD_MSG. **/
+	public static final String VALID_ORDER_BEAN_PERIOD_MSG = PROVIDER_LABEL_CONSTANTS.validOrderBeanPeriodMsg();
+	/** Label Constant for OFFER_REPLACEMENT_PARTS_LBL. **/
+	public static final String OFFER_REPLACEMENT_PARTS_LBL = PROVIDER_LABEL_CONSTANTS.offerReplacementPartsLbl();
+
+	/** Label constant for STACK_MANAGEMENT_TXT. **/
+	public static final String STACK_MANAGEMENT_TXT = PROVIDER_LABEL_CONSTANTS.stackManagementTxt();
+	/** Label Constant for STACK_MANAGEMENT_DESC_TXT. **/
+	public static final String STACK_MANAGEMENT_DESC_TXT = PROVIDER_LABEL_CONSTANTS.stackManagementDescTxt();
+	/** Label constant for SERIAL_NUMBER_TXT_MSG. **/
+	public static final String SERIAL_NUMBER_TXT_MSG = PROVIDER_LABEL_CONSTANTS.serialNumberTxtMsg();
+	/** Label constant for INVALID_USER_SELECT_TXT_MSG. **/
+	public static final String INVALID_USER_SELECT_TXT_MSG = PROVIDER_LABEL_CONSTANTS.invalidUserSelectTextMsg();
+	/** Label constant for NO_DEVICE_USERS_TEXT_MSG. **/
+	public static final String NO_DEVICE_USERS_TEXT_MSG = PROVIDER_LABEL_CONSTANTS.noDeviceUsersMsg();
+	/** Label constant for INVALID_SERIAL_NUMBER_MSG. **/
+	public static final String INVALID_SERIAL_NUMBER_MSG = PROVIDER_LABEL_CONSTANTS.invalidSerialNumberTextMsg();
+	/** Label constant for DULICATE_SERIAL_NUMBER. */
+	public static final String DULICATE_SERIAL_NUMBER = PROVIDER_LABEL_CONSTANTS.duplicateSerialNumberTextMsg();
+	/** Label constant for STACK_MANAGEMENT_SUCCESS_MSG. */
+	public static final String STACK_MANAGEMENT_SUCCESS_MSG = PROVIDER_LABEL_CONSTANTS
+			.stackManagementToolSuccessMessage();
+	/** Label constant for FIELDS_EMPTY_ERROR_MSG. */
+	public static final String FIELDS_EMPTY_ERROR_MSG = PROVIDER_LABEL_CONSTANTS.fieldsEmptyErrorMsg();
+	/** Label constant for SERIAL_NUMBER_SEARCH_MSG. */
+	public static final String SERIAL_NUMBER_SEARCH_MSG = PROVIDER_LABEL_CONSTANTS.serialNumberSearchMsg();
+	/** Label constant for SERIAL_NUMBER_CHANGE_SEARCH_MSG. */
+	public static final String SERIAL_NUMBER_CHANGE_SEARCH_MSG = PROVIDER_LABEL_CONSTANTS.serialNumberChangeSearchMsg();
+	/** Label constant for CONSOLIDATION_STACKS_LABEL. **/
+	public static final String CONSOLIDATION_STACKS_LABEL = PROVIDER_LABEL_CONSTANTS.consolidationStacksLbl();
+	/** Label constant for AS_OF_LABEL. **/
+	public static final String AS_OF_LABEL = PROVIDER_LABEL_CONSTANTS.asOfLbl();
+	/** label constant for monitorType. */
+	public static final String MONITOR_TYPE_LABEL = PROVIDER_LABEL_CONSTANTS.monitorTypeLbl();
+	/** label constant for deviceStatus. */
+	public static final String DEVICE_STATUS_LABEL = PROVIDER_LABEL_CONSTANTS.deviceStatusLbl();
+	/** label constant for ordered. */
+	public static final String ORDERED_LABEL = PROVIDER_LABEL_CONSTANTS.orderedLbl();
+	/** label constant for shipped. */
+	public static final String SHIPPED_LABEL = PROVIDER_LABEL_CONSTANTS.shippedLbl();
+	/** label constant for connected. */
+	public static final String CONNECTED_LABEL = PROVIDER_LABEL_CONSTANTS.connectedLbl();
+	/** label constant for lastMonitored. */
+	public static final String LAST_MONITORED_LABEL = PROVIDER_LABEL_CONSTANTS.lastMonitoredLbl();
+	/** label constant for monitored by. */
+	public static final String MONITORED_BY_LABEL = PROVIDER_LABEL_CONSTANTS.monitoredbyLbl();
+	/** label constant for currentDeviceUsers. */
+	public static final String CURRENT_DEVICE_USERS_LABEL = PROVIDER_LABEL_CONSTANTS.currentDeviceUsersLbl();
+	/** label constant for currentDeviceLocations. */
+	public static final String CURRENT_DEVICE_LOCATIONS_LABEL = PROVIDER_LABEL_CONSTANTS.currentDeviceLocationsLbl();
+	/** label constant for deviceFirstAdded. */
+	public static final String DEVICE_FRIST_ADDED_LABEL = PROVIDER_LABEL_CONSTANTS.deviceFirstAddedLbl();
+	/** label constant for nprThreshold. */
+	public static final String NPR_THRESHOLD_LABEL = PROVIDER_LABEL_CONSTANTS.nprThresholdLbl();
+	/** label constant for serviceLoyaltyStatus. */
+	public static final String SERVICE_LOYALTY_STATUS_LABEL = PROVIDER_LABEL_CONSTANTS.serviceLoyaltyStatusLbl();
+	/** label constant for protectUntil. */
+	public static final String PROTECT_UNTIL_LABEL = PROVIDER_LABEL_CONSTANTS.protectUntilLbl();
+	/** label constant for serviceContractEnd. */
+	public static final String SERVICE_CONTRACT_END_LABEL = PROVIDER_LABEL_CONSTANTS.serviceContractEndLbl();
+	/** label constant for lastOutSync. */
+	public static final String LAST_OUT_SYNC_LABEL = PROVIDER_LABEL_CONSTANTS.lastOutSyncLbl();
+	/** label constant for optedOut. */
+	public static final String OPTED_OUT_LABEL = PROVIDER_LABEL_CONSTANTS.optedOutLbl();
+	/** label constant for syncResponse. */
+	public static final String SYNC_RESPONSE_LABEL = PROVIDER_LABEL_CONSTANTS.syncResponseLbl();
+	/** Label Constant for CONSUMABLE_LBL. */
+	public static final String CONSUMABLE_LBL = PROVIDER_LABEL_CONSTANTS.consumableLbl();
+	/** Label Constant for CONSOLIDATION_LBL. */
+	public static final String CONSOLIDATION_LBL = PROVIDER_LABEL_CONSTANTS.consolidationLbl();
+	/** Label Constant for LOW_LEVEL_LBL. */
+	public static final String LOW_LEVEL_LBL = PROVIDER_LABEL_CONSTANTS.lowLevelLbl();
+	/** Label Constant for NEARLY_LOW_LEVEL_LBL. */
+	public static final String NEARLY_LOW_LEVEL_LBL = PROVIDER_LABEL_CONSTANTS.nearlyLowLevelLbl();
+	/** Label Constant for PERCENT_REMAINING_LBL. */
+	public static final String PERCENT_REMAINING_LBL = PROVIDER_LABEL_CONSTANTS.percentRemainingLbl();
+	/** Label Constant for STATUS_DATE_LBL. */
+	public static final String STATUS_DATE_LBL = PROVIDER_LABEL_CONSTANTS.statusDateLbl();
+	/** Label Constant for DEVICE_STACK_LBL. */
+	public static final String DEVICE_STACK_LBL = PROVIDER_LABEL_CONSTANTS.deviceStackLbl();
+	/** Label Constant for MODEL_STACK_LBL. */
+	public static final String MODEL_STACK_LBL = PROVIDER_LABEL_CONSTANTS.modelStackLbl();
+	/** Label Constant for SD_STACK_LBL. */
+	public static final String SD_STACK_LBL = PROVIDER_LABEL_CONSTANTS.sDStackLbl();
+	/** Label Constant for SM_STACK_LBL. */
+	public static final String SM_STACK_LBL = PROVIDER_LABEL_CONSTANTS.sMStackLbl();
+	/** Label Constant for MD_STACK_LBL. */
+	public static final String MD_STACK_LBL = PROVIDER_LABEL_CONSTANTS.mDStackLbl();
+	/** Label Constant for MM_STACK_LBL. */
+	public static final String MM_STACK_LBL = PROVIDER_LABEL_CONSTANTS.mMStackLbl();
+	/** Label Constant for SA_VERSION_LBL. */
+	public static final String SA_VERSION_LBL = PROVIDER_LABEL_CONSTANTS.saVersionLbl();
+    /** Label Constant for SA_INSTALL_DATE_LBL. */
+    public static final String SA_INSTALL_DATE_LBL = PROVIDER_LABEL_CONSTANTS.saInstallDateLbl();
+    /** Label Constant for OS_VERSION_LBL. */
+    public static final String OS_VERSION_LBL = PROVIDER_LABEL_CONSTANTS.osVersionLbl();
+
+	/** Label Constant for SEND_DEVICE_NOT_REPORTING. **/
+	public static final String SEND_DEVICE_NOT_REPORTING = PROVIDER_LABEL_CONSTANTS.sendDeviceIdleEmail();
+	/** Label Constant for DEVICE_NOT_REPORTING_FREQ. **/
+	public static final String DEVICE_NOT_REPORTING_FREQ = PROVIDER_LABEL_CONSTANTS.deviceIdleFreq();
+	/** Label Constant for DEVICE_NOT_REPORTING_INVL. **/
+	public static final String DEVICE_NOT_REPORTING_INVL = PROVIDER_LABEL_CONSTANTS.deviceIdleInterval();
+	/** Label Constant for SEND_AGENT_NOT_INSTALLED. **/
+	public static final String SEND_AGENT_NOT_INSTALLED = PROVIDER_LABEL_CONSTANTS.sendAgentNotInstalledEmail();
+	/** Label Constant for AGENT_NOT_INSTALLED_DAYS. **/
+	public static final String AGENT_NOT_INSTALLED_DAYS = PROVIDER_LABEL_CONSTANTS.agentNotInstalledFor();
+	/** Label Constant for AGENT_NOT_INSTALLED_FREQ. **/
+	public static final String AGENT_NOT_INSTALLED_FREQ = PROVIDER_LABEL_CONSTANTS.agentNotInstalledRepeat();
+	/** Label Constant for AGENT_NOT_INSTALLED_INVL. **/
+	public static final String AGENT_NOT_INSTALLED_INVL = PROVIDER_LABEL_CONSTANTS.agentNotInstalledInterval();
+	/** Label Constant for SEND_DEVICE_NOT_ADDED. **/
+	public static final String SEND_DEVICE_NOT_ADDED = PROVIDER_LABEL_CONSTANTS.sendDeviceNotAddedEmail();
+	/** Label Constant for DEVICE_NOT_ADDED_DAYS. **/
+	public static final String DEVICE_NOT_ADDED_DAYS = PROVIDER_LABEL_CONSTANTS.deviceNotAddedFor();
+	/** Label Constant for DEVICE_NOT_ADDED_FREQ. **/
+	public static final String DEVICE_NOT_ADDED_FREQ = PROVIDER_LABEL_CONSTANTS.deviceNotAddedRepeat();
+	/** Label Constant for DEVICE_NOT_ADDED_INVL. **/
+	public static final String DEVICE_NOT_ADDED_INVL = PROVIDER_LABEL_CONSTANTS.deviceNotAddedInterval();
+	/** Label Constant for STOCK_CHECK_RETRY. **/
+	public static final String STOCK_CHECK_RETRY = PROVIDER_LABEL_CONSTANTS.stockCheckRetry();
+	/** Label Constant for CUSTOMER_SUPPORT_NUMBER. **/
+	public static final String CUSTOMER_SUPPORT_NUMBER = PROVIDER_LABEL_CONSTANTS.customerSupportNumber();
+	/** Label Constant for TIMES_LBL. **/
+	public static final String TIMES_LBL = PROVIDER_LABEL_CONSTANTS.timesLabel();
+	/** Label Constant for RETRIEVE_REGN_AND_DOWNLOAD_URL_TXT. **/
+	public static final String RETRIEVE_REGN_AND_DOWNLOAD_URL_TXT = PROVIDER_LABEL_CONSTANTS.retrieveURLTxt();
+	/** Label Constant for RETRIEVE_REGN_AND_DOWNLOAD_URL_DESC_TXT. **/
+	public static final String RETRIEVE_REGN_AND_DOWNLOAD_URL_DESC_TXT = PROVIDER_LABEL_CONSTANTS.retrieveURLDescTxt();
+	/** Label Constant for RETRIEVE_PARTNER_REGN_URL_TXT. **/
+	public static final String RETRIEVE_PARTNER_REGN_URL_TXT = PROVIDER_LABEL_CONSTANTS.retrieveRegandURLTxt();
+	/** Label Constant for ENTER_RESELLER_ID_LBL. **/
+	public static final String ENTER_RESELLER_ID_LBL = PROVIDER_LABEL_CONSTANTS.enterResellerUserIdLbl();
+	/** Label Constant for RESELLER_URL_TXT. **/
+	public static final String RESELLER_URL_TXT = PROVIDER_LABEL_CONSTANTS.retrieveURLTxt();
+	/** Label Constant for RESET_CUST_PASSWORD_TXT. **/
+	public static final String RESET_CUST_PASSWORD_TXT = PROVIDER_LABEL_CONSTANTS.resetCustPasswordTxt();
+	/** Label Constant for RESET_CUST_PASSWORD_DESC_TXT. **/
+	public static final String RESET_CUST_PASSWORD_DESC_TXT = PROVIDER_LABEL_CONSTANTS.resetCustPasswordDescTxt();
+	/** Label for CUSTOMER_DETAILS. */
+	public static final String CUSTOMER_DETAILS_LBL = PROVIDER_LABEL_CONSTANTS.customerDetails();
+	/** Label for PARTNER_ID_LBL. */
+	public static final String RESELLER_ID_LBL = PROVIDER_LABEL_CONSTANTS.resellerIdLbl();
+	/** Label for CUSTOMER_ID_LBL. */
+	public static final String CUSTOMER_NAME_LBL = PROVIDER_LABEL_CONSTANTS.customerNameLbl();
+	/** Label for ENTER_VALID_PARTNER_ID_UNDER_YOUR_PURVIEW_MSG. */
+	public static final String ENTER_VALID_RESELLER_ID_UNDER_YOUR_PURVIEW_MSG = PROVIDER_LABEL_CONSTANTS
+			.enterValidResellerIdUnderPurview();
+	/** Label for ENTER_VALID_CUSTOMER_ID_UNDER_YOUR_PURVIEW_MSG. */
+	public static final String ENTER_VALID_CUSTOMER_ID_UNDER_YOUR_PURVIEW_MSG = PROVIDER_LABEL_CONSTANTS
+			.enterValidCustomerIdUnderPurview();
+	/** Label for CUSTOMER_COMPANY_LBL. */
+	public static final String CUSTOMER_COMPANY_LBL = PROVIDER_LABEL_CONSTANTS.customerCompanyLbl();
+	/** Label for CUSTOMER_EMAIL_LBL. */
+	public static final String CUSTOMER_EMAIL_LBL = PROVIDER_LABEL_CONSTANTS.customerEmailLbl();
+	/** Label for CUSTOMER_PHONE_LBL. */
+	public static final String CUSTOMER_PHONE_LBL = PROVIDER_LABEL_CONSTANTS.customerPhoneLbl();
+	/** Label for STACKCUSTOMER_NAME_LBL. */
+	public static final String STACK_CUSTOMER_NAME_LBL = PROVIDER_LABEL_CONSTANTS.stackCustomerNameLbl();
+	/** Label for CUSTOMER_ADDRESS_LBL. */
+	public static final String CUSTOMER_ADDRESS_LBL = PROVIDER_LABEL_CONSTANTS.customerAddressLbl();
+	
+	public static final String ADDRESS_LBL = PROVIDER_LABEL_CONSTANTS.addressLbl();
+	/** Label Constant for DEVICE_DATA_WAITING_TIME. **/
+	public static final String DEVICE_DATA_WAITING_TIME = PROVIDER_LABEL_CONSTANTS.deviceDataWaitingTime();
+	/** label constant for hours. */
+	public static final String HOURS_LABEL = PROVIDER_LABEL_CONSTANTS.hoursLabel();
+	/** label constant for MONITOR_UNCERTIFIED_MODELS. */
+	public static final String MONITOR_UNCERTIFIED_MODELS = PROVIDER_LABEL_CONSTANTS.monitorUncertifiedModels();
+	/** label for UNLOCK_ACCOUNT_LBL. */
+	public static final String UNLOCK_ACCOUNT_LBL = PROVIDER_LABEL_CONSTANTS.unlockAccountLbl();
+	/** label for UNLOCK_CUSTOMER_PSWD_FAILURE_MSG. */
+	public static final String UNLOCK_CUSTOMER_PSWD_FAILURE_MSG = PROVIDER_LABEL_CONSTANTS.failedToUnlockLbl();
+	/** Label Constant for NP_PLUS_LBL. **/
+	public static final String NP_PLUS_LBL = PROVIDER_LABEL_CONSTANTS.npPlusLbl();
+	/** Label Constant for ORDER_BY_DEVICE_LBL. **/
+	public static final String ORDER_BY_DEVICE_LBL = PROVIDER_LABEL_CONSTANTS.orderByDeviceLbl();
+	/** Label Constant for ORDER_BY_MODEL_LBL. **/
+	public static final String ORDER_BY_MODEL_LBL = PROVIDER_LABEL_CONSTANTS.orderByModelLbl();
+	/** Label constant for - SUPPLIES_INSTALLED. */
+	public static final String SUPPLIES_INSTALLED_LBL = PROVIDER_LABEL_CONSTANTS.suppliesInstalledLbl();
+	/** Label Constant for SERVICE_CONTRACT_TXT. **/
+	public static final String SERVICE_CONTRACT_TXT = PROVIDER_LABEL_CONSTANTS.serviceContractTxt();
+	/** Label Constant for SERVICE_CONTRACTT_DESC_TXT. **/
+	public static final String SERVICE_CONTRACT_DESC_TXT = PROVIDER_LABEL_CONSTANTS.serviceContractDescTxt();
+	/** Label Constant for MANUAL_CONTRACT_HEADING_TXT. **/
+	public static final String MANUAL_CONTRACT_HEADING_TXT = PROVIDER_LABEL_CONSTANTS.manualContractHeadingTxt();
+	/** Label Constant for WOULD_YOU_LIKE_TXT. **/
+	public static final String WOULD_YOU_LIKE_TXT = PROVIDER_LABEL_CONSTANTS.wouldYouLikeTxt();
+	/** Label Constant for TASK_TXT. **/
+	public static final String TASK_TXT = PROVIDER_LABEL_CONSTANTS.taskTxt();
+	/** Label Constant for CREATE_CONTACT_TXT. **/
+	public static final String CREATE_CONTACT_TXT = PROVIDER_LABEL_CONSTANTS.createContactTxt();
+	/** Label Constant for END_DATE_CONTRACT_TXT. **/
+	public static final String END_DATE_CONTRACT_TXT = PROVIDER_LABEL_CONSTANTS.endDateContractTxt();
+	/** Label Constant for ENTER_THE_FOLLOWING_TXT. **/
+	public static final String ENTER_THE_FOLLOWING_TXT = PROVIDER_LABEL_CONSTANTS.enterTheFollowingTxt();
+	/** Label Constant for OR_TXT. **/
+	public static final String OR_TXT = PROVIDER_LABEL_CONSTANTS.orTxt();
+	/** Label Constant for CUSTOMER_LOGIN_TXT. **/
+	public static final String CUSTOMER_LOGIN_TXT = PROVIDER_LABEL_CONSTANTS.customerLoginTxt();
+	/** Label Constant for CREATE_CONTRACT_SELECTED_DEVICES_TXT. **/
+	public static final String CREATE_CONTRACT_SELECTED_DEVICES_TXT = PROVIDER_LABEL_CONSTANTS
+			.createContractSelectedDevicesTxt();
+	/** Label Constant for CUSTOMER_LOGON_TXT. **/
+	public static final String CUSTOMER_LOGON_TXT = PROVIDER_LABEL_CONSTANTS.customerLogonTxt();
+	/** Label Constant for CUSTOMER_NAME_TXT. **/
+	public static final String CUSTOMER_NAME_TXT = PROVIDER_LABEL_CONSTANTS.customerNameTxt();
+	/** Label Constant for COMPANY_NAME_TXT. **/
+	public static final String COMPANY_NAME_TEXT = PROVIDER_LABEL_CONSTANTS.companyNameTxt();
+	/** Label Constant for RESELLER_NAME_TXT. **/
+	public static final String RESELLER_NAME_TXT = PROVIDER_LABEL_CONSTANTS.resellerNameTxt();
+	/** Label Constant for RESELLER_ID_TXT. **/
+	public static final String RESELLER_ID_TXT = PROVIDER_LABEL_CONSTANTS.resellerIdTxt();
+	/** Label Constant for MODEL_LBL. **/
+	public static final String MODEL_LBL = PROVIDER_LABEL_CONSTANTS.modelLbl();
+	/** Label Constant for MANUFACTURER_LBL. **/
+	public static final String MANUFACTURER_LBL = PROVIDER_LABEL_CONSTANTS.manufacturerLbl();
+	/** Label Constant for SELECT_DEVICE_MSG. **/
+	public static final String SELECT_DEVICE_MSG = PROVIDER_LABEL_CONSTANTS.selectDeviceMsg();
+	/** Label Constant for CREATE_CONTRACT_DETAIL_TXT. **/
+	public static final String CREATE_CONTRACT_DETAIL_TXT = PROVIDER_LABEL_CONSTANTS.createContractDetailTxt();
+	/** Label Constant for CONTRACT_TYPE_TXT. **/
+	public static final String CONTRACT_TYPE_TXT = PROVIDER_LABEL_CONSTANTS.contractTypeTxt();
+	/** Label Constant for CONTRACT_NOTE_TXT. **/
+	public static final String CONTRACT_NOTE_TXT = PROVIDER_LABEL_CONSTANTS.contractNoteTxt();
+	/** Label Constant for ONSITE_CONTRACT_TXT. **/
+	public static final String ONSITE_CONTRACT_TXT = PROVIDER_LABEL_CONSTANTS.onsiteContractTxt();
+	/** Label Constant for MFG_TXT. **/
+	public static final String MFG_TXT = PROVIDER_LABEL_CONSTANTS.mfgTxt();
+	/** Label Constant for RESPONSE_MSG_TXT. **/
+	public static final String RESPONSE_MSG_TXT = PROVIDER_LABEL_CONSTANTS.responseMsgTxt();
+	/** Label Constant for CONTRACT_REQ_REPLY_TXT. **/
+	public static final String CONTRACT_REQ_REPLY_TXT = PROVIDER_LABEL_CONSTANTS.contractReqReplyTxt();
+	/** Label Constant for CONTRACT_CANCEL_REPLY_TXT. **/
+	public static final String CONTRACT_CANCEL_REPLY_TXT = PROVIDER_LABEL_CONSTANTS.contractCancelReplyTxt();
+	/** Label Constant for CANCEL_CONTRACT_DETAIL_TXT. **/
+	public static final String CANCEL_CONTRACT_DETAIL_TXT = PROVIDER_LABEL_CONSTANTS.cancelContractDetailTxt();
+	/** Label Constant for CANCEL_CONTRACT_SELECTED_DEVICES_TXT. **/
+	public static final String CANCEL_CONTRACT_SELECTED_DEVICES_TXT = PROVIDER_LABEL_CONSTANTS
+			.cancelContractSelectedDevicesTxt();
+	/** Label Constant for ENTER_ANY_ONE_TXT. **/
+	public static final String ENTER_ANY_ONE_TXT = PROVIDER_LABEL_CONSTANTS.enterAnyOneMsg();
+	/** Label Constant for DOWNLOAD_CSV_MSG. **/
+	public static final String DOWNLOAD_CSV_MSG = PROVIDER_LABEL_CONSTANTS.downloadCsvMsg();
+	/** Label Constant for NOTE_FIELD_MSG. **/
+	public static final String NOTE_FIELD_MSG = PROVIDER_LABEL_CONSTANTS.noteFieldMsg();
+	/** Label Constant for SERIALNUMBER_NOT_EXIST. **/
+	public static final String SERIALNUMBER_NOT_EXIST = PROVIDER_LABEL_CONSTANTS.serialNotExistMsg();
+	/** Label Constant for USER_DOESNOT_EXIST. **/
+	public static final String USER_DOESNOT_EXIST = PROVIDER_LABEL_CONSTANTS.userNotExistMsg();
+	/** Label Constant for SELECT_DEVICE_LOC_LBL. **/
+	public static final String SELECT_DEVICE_LOC_LBL = PROVIDER_LABEL_CONSTANTS.selectDeviceLocLbl();
+	/** Label Constant for CONTRACT_DOESNOT_EXIST. **/
+	public static final String CONTRACT_DOESNOT_EXIST = PROVIDER_LABEL_CONSTANTS.contractNotExistMsg();
+	/** Label Constant for USER_ACCOUNT_DOESNOT_EXIST. **/
+	public static final String USER_ACCOUNT_DOESNOT_EXIST = PROVIDER_LABEL_CONSTANTS.userAccNotExistMsg();
+	/** Label Constant for NO_DEVICE_EXIST. **/
+	public static final String NO_DEVICE_EXIST = PROVIDER_LABEL_CONSTANTS.deviceNotExistMsg();
+	/** Label Constant for NO_DEVICE_FOR_CONTRACT. **/
+	public static final String NO_DEVICE_FOR_CONTRACT = PROVIDER_LABEL_CONSTANTS.noDeviceForContractMsg();
+	/** Label Constant for MANUAL_SHIP_TXT. **/
+	public static final String MANUAL_SHIP_TXT = PROVIDER_LABEL_CONSTANTS.manualShipTxt();
+	/** Label Constant for MANUAL_SHIP_DESC_TXT. **/
+	public static final String MANUAL_SHIP_DESC_TXT = PROVIDER_LABEL_CONSTANTS.manualShipDescTxt();
+	/** Label Constant for TRACKING_NUMBER_TXT. **/
+	public static final String TRACKING_NUMBER_TXT = PROVIDER_LABEL_CONSTANTS.trackingNumberTxt();
+	/** Label Constant for PART_DESC_TXT. **/
+	public static final String PART_DESC_TXT = PROVIDER_LABEL_CONSTANTS.partDescriptionTxt();
+	/** Label Constant for MFG_PART_NUMBER_TXT. **/
+	public static final String MFG_PART_NUMBER_TXT = PROVIDER_LABEL_CONSTANTS.mfgPartNumberTxt();
+	/** Label Constant for SKU_NUMBER_TXT. **/
+	public static final String SKU_NUMBER_TXT = PROVIDER_LABEL_CONSTANTS.skuNumberTxt();
+	/** Label Constant for ORDER_QTY_TXT. **/
+	public static final String ORDER_QTY_TXT = PROVIDER_LABEL_CONSTANTS.orderQuantityTxt();
+	/** Label Constant for SHIP_QTY_TXT. **/
+	public static final String SHIP_QTY_TXT = PROVIDER_LABEL_CONSTANTS.shipQuantityTxt();
+	/** label constant for ORDER_CANNOT_SHIP_MSG. */
+	public static final String ORDER_CANNOT_SHIP_MSG = PROVIDER_LABEL_CONSTANTS.orderCannotShipMsg();
+	/** label constant for SUBMIT_BTN_TXT. */
+	public static final String SUBMIT_BTN_TXT = PROVIDER_LABEL_CONSTANTS.submitBtnTxt();
+	/** Label Constant for CONFIRMATION_NUMBER_TXT. **/
+	public static final String CONFIRMATION_NUMBER_TXT = PROVIDER_LABEL_CONSTANTS.confirmationNoTxt();
+	/** Label Constant for SHIP_FROM_TXT. **/
+	public static final String SHIP_FROM_TXT = PROVIDER_LABEL_CONSTANTS.shipFromTxt();
+	/** Label Constant for ORDER_STATUS_SUCCESS_MSG. **/
+	public static final String ORDER_STATUS_SUCCESS_MSG = PROVIDER_LABEL_CONSTANTS.orderStatusSuccessMsg();
+	/** label constant for ORDER_SHIP_FAIL_MSG. */
+	public static final String ORDER_SHIP_FAIL_MSG = PROVIDER_LABEL_CONSTANTS.orderShipFailMsg();
+	/** label constant for ORDER_SHIPFAIL_DUPLICATE_SN_MSG. */
+	public static final String ORDER_SHIPFAIL_DUPLICATE_SN_MSG = PROVIDER_LABEL_CONSTANTS
+			.orderShipFailDuplicateSerialNumberMsg();
+	/** Label Constant for UPDATE_DEVICE_PGM_TXT. **/
+	public static final String UPDATE_DEVICE_PGM_TXT = PROVIDER_LABEL_CONSTANTS.updateDevicePgmTxt();
+	/** Label Constant for UPDATE_DEVICE_PGM_DESC_TXT. **/
+	public static final String UPDATE_DEVICE_PGM_DESC_TXT = PROVIDER_LABEL_CONSTANTS.updateDevicePgmDescTxt();
+	/** Label Constant for SERVICE_SYSTEM_NOT_RESPONDING_MSG. **/
+	public static final String SERVICE_SYSTEM_NOT_RESPONDING_MSG = PROVIDER_LABEL_CONSTANTS
+			.serviceSystemNotRespondingMsg();
+	/** Label Constant for DEVICE_PGM_TXT. **/
+	public static final String DEVICE_PGM_TXT = PROVIDER_LABEL_CONSTANTS.devicePgmTxt();
+	/** Label Constant for CURRENT_PGM_TXT. **/
+	public static final String CURRENT_PGM_TXT = PROVIDER_LABEL_CONSTANTS.currentPgmTxt();
+	/** Label Constant for CURRENT_PARTNER_TXT. **/
+	public static final String CURRENT_PARTNER_TXT = PROVIDER_LABEL_CONSTANTS.currentPartnerTxt();
+	/** Label Constant for CHANGE_PGM_TO_TXT. **/
+	public static final String CHANGE_PGM_TO_TXT = PROVIDER_LABEL_CONSTANTS.changePgmTo();
+	/** Label Constant for CHANGE_PARTNER_TO_TXT. **/
+	public static final String CHANGE_PARTNER_TO_TXT = PROVIDER_LABEL_CONSTANTS.changePartnerTo();
+	/** Label Constant for ENTER_PARTNER_ID_TXT. **/
+	public static final String ENTER_PARTNER_ID_TXT = PROVIDER_LABEL_CONSTANTS.enterPartnerIdTxt();
+	/** Label Constant for ENTER_USERS_LOGON_TXT. **/
+	public static final String ENTER_USERS_LOGON_TXT = PROVIDER_LABEL_CONSTANTS.enterUsersLogonTxt();
+	/** Label Constant for NEW_USER_LOGIN_TXT. **/
+	public static final String NEW_USER_LOGIN_TXT = PROVIDER_LABEL_CONSTANTS.newUserLogin();
+	/** Label Constant for THERE_ARE_NO_USER_TXT. **/
+	public static final String THERE_ARE_NO_USER_TXT = PROVIDER_LABEL_CONSTANTS.thereAreNoUserTxt();
+	/** Label Constant for AFTER_COMPLETING_THE_PGM_TXT. **/
+	public static final String AFTER_COMPLETING_THE_PGM_TXT = PROVIDER_LABEL_CONSTANTS.afterCompletingThePgmTxt();
+	/** Label Constant for ARE_YOU_SURE_TXT. **/
+	public static final String ARE_YOU_SURE_TXT = PROVIDER_LABEL_CONSTANTS.areYouSureTxt();
+	/** Label Constant for DEVICE_PGM_UPDATED_TXT. **/
+	public static final String DEVICE_PGM_UPDATED_TXT = PROVIDER_LABEL_CONSTANTS.devicePgmUpdatedTxt();
+	/** label constant for ENTER_SHIP_QUANTITY_MSG. */
+	public static final String ENTER_SHIP_QUANTITY_MSG = PROVIDER_LABEL_CONSTANTS.enterShipQuantityMsg();
+	/** Label Constant for CURRENT_USER_LOGIN_TXT. **/
+	public static final String CURRENT_USER_LOGIN_TXT = PROVIDER_LABEL_CONSTANTS.currentUserLogin();
+	/** Label Constant for ENTER_NEW_USER_LOGIN_MSG. **/
+	public static final String ENTER_NEW_USER_LOGIN_MSG = PROVIDER_LABEL_CONSTANTS.enterNewUserLoginMsg();
+	/** Label Constant for ARE_YOU_SURE_SERIAL_MSG. **/
+	public static final String ARE_YOU_SURE_SERIAL_MSG = PROVIDER_LABEL_CONSTANTS.areYouSureSerialMsg();
+	/** Label Constant for NO_DEVICE_COMBINATION_EXISTS_MSG. **/
+	public static final String NO_DEVICE_COMBINATION_EXISTS_MSG = PROVIDER_LABEL_CONSTANTS
+			.noDeviceCombinationExistsMsg();
+	/** Label for ENTER_VALID_PARTNER_ID_MSG. */
+	public static final String ENTER_VALID_PARTNER_ID_MSG = PROVIDER_LABEL_CONSTANTS.enterValidPartnerIdMsg();
+	/** Label Constant for SERIAL_NUMBER_NOT_EXIST_FOR_DEVICE. **/
+	public static final String SERIAL_NUMBER_NOT_EXIST_FOR_DEVICE = PROVIDER_LABEL_CONSTANTS
+			.serialNotExistForDeviceMsg();
+	/** Label Constant for SHIPPED_QTY_TXT. **/
+	public static final String SHIPPED_QTY_TXT = PROVIDER_LABEL_CONSTANTS.shippedQuantityTxt();
+	/** label constant for SHIP_QUANTITY_GREATER_MSG. */
+	public static final String SHIP_QUANTITY_GREATER_MSG = PROVIDER_LABEL_CONSTANTS.shipQtyGreaterMsg();
+	/** label constant for ORDER_STATUS_PARTIAL_SUCCESS_MSG. */
+	public static final String ORDER_STATUS_PARTIAL_SUCCESS_MSG = PROVIDER_LABEL_CONSTANTS
+			.orderStatusPartialSuccessMsg();
+	/** label constant for CHECK_DUPLICATE_ORDER. */
+	public static final String CHECK_DUPLICATE_ORDER = PROVIDER_LABEL_CONSTANTS.checkDuplicateOrder();
+	/** label constant for CHECK_SAME_DEVICE. */
+	public static final String CHECK_SAME_DEVICE = PROVIDER_LABEL_CONSTANTS.checkSameDevice();
+	/** label constant for ORDER_TIME_DIFFERENCE. */
+	public static final String ORDER_TIME_DIFFERENCE = PROVIDER_LABEL_CONSTANTS.orderTimeDifference();
+	/** label constant for seconds. */
+	public static final String SECONDS_LABEL = PROVIDER_LABEL_CONSTANTS.secondsLabel();
+	/** label constant for PAYMENT_METHODS_INFO_LBL. */
+	public static final String PAYMENT_METHODS_INFO_LBL = PROVIDER_LABEL_CONSTANTS.paymentMethodsInfoLbl();
+	/** Label Constant for NO_DEVICE_COMBINATION_EXISTS_MSG. **/
+	public static final String CANNOT_CHANGE_FROM_MONLY_MSG = PROVIDER_LABEL_CONSTANTS.cannotChangeFromMonly();
+	/** Label Constant for NO_DEVICE_COMBINATION_EXISTS_MSG. **/
+	public static final String CANNOT_CHANGE_TO_MONLY_MSG = PROVIDER_LABEL_CONSTANTS.cannotChangeToMonly();
+	/** label constant for CDW Plus display. */
+	public static final String MONLY_LBL = PROVIDER_LABEL_CONSTANTS.monlyLbl();
+	/** label constant for ALLOW_PTNR_TO_PLACE_ORDER. */
+	public static final String ALLOW_PTNR_TO_PLACE_ORDER = PROVIDER_LABEL_CONSTANTS.allowPtnrToPlaceOrder();
+	/** label constant for PROTECT UNTI DATE. */
+	public static final String PROTECT_UNTIL_DATE = PROVIDER_LABEL_CONSTANTS.protectUntilDateLbl();
+	/** Label Constant for RESUBMIT_TXT. **/
+	public static final String RESUBMIT_TXT = PROVIDER_LABEL_CONSTANTS.resubmitTxt();
+	/** Label Constant for RESUBMIT_DESC_TXT. **/
+	public static final String RESUBMIT_DESC_TXT = PROVIDER_LABEL_CONSTANTS.resubmitDescTxt();
+	/** Label Constant for ORDERNUMBER_RESUMBITED. **/
+	public static final String ORDER_NUMBER_RESUMBITED = PROVIDER_LABEL_CONSTANTS.orderNumberResubmit();
+	/** Label Constant for ORDERNUMBER_CANNOT_RESUMBITED. **/
+	public static final String ORDER_NUMBER_CANNOT_RESUMBITED = PROVIDER_LABEL_CONSTANTS.orderNumberCannotResubmit();
+	/** Label Constant for ORDERNUMBER_CANNOT_RESUMBITED. **/
+	public static final String ORDER_NUMBER_NOTVALID = PROVIDER_LABEL_CONSTANTS.orderNumberNotValid();
+	/** Label Constant for REMOVEDEVICE_TXT. **/
+	public static final String REMOVEDEVICE_TXT = PROVIDER_LABEL_CONSTANTS.removeDeviceTxt();
+	/** Label Constant for REMOVEDEVICE_DESC_TXT. **/
+	public static final String REMOVEDEVICE_DESC_TXT = PROVIDER_LABEL_CONSTANTS.removeDecviceDescTxt();
+	/** label constant for ALLOW_TURNON_SURVEY. */
+	public static final String ALLOW_TURNON_SURVEY = PROVIDER_LABEL_CONSTANTS.allowToSelectturnOnSurvey();
+	/** label constant for SURVEY_URL. */
+	public static final String SURVEY_URL = PROVIDER_LABEL_CONSTANTS.surveyUrl();
+	/** Label Constant for DEVICE_REMOVED_SUCCESSFULLY */
+	public static final String DEVICE_REMOVED_SUCCESSFULLY = PROVIDER_LABEL_CONSTANTS.deviceRemovedTxt();
+	/** Label Constant for DEVICE_WITH_SERIAL */
+	public static final String DEVICE_WITH_SERIAL = PROVIDER_LABEL_CONSTANTS.deviceWithSerial();
+	/** Label Constant for CANNOT_BE_REMOVED */
+	public static final String CANNOT_BE_REMOVED = PROVIDER_LABEL_CONSTANTS.cannotBeRemoved();
+	/** Label Constant for DEVICE_REMOVE_MSG_FCP */
+	public static final String DEVICE_REMOVE_MSG_FCP = PROVIDER_LABEL_CONSTANTS.deviceRemoveMsgForFcp();
+	/** Label Constant for DEVICE_REMOVE_MSG */
+	public static final String DEVICE_REMOVE_MSG = PROVIDER_LABEL_CONSTANTS.deviceRemoveForOtherProg();
+	/** Label Constant for SELECT_DEVICE_REMOVE */
+	public static final String SELECT_DEVICE_REMOVE = PROVIDER_LABEL_CONSTANTS.selectDeviceRemove();
+	/** Label Constant for ORDER_NOT_ELIGIBLE */
+	public static final String ORDER_NOT_ELIGIBLE = PROVIDER_LABEL_CONSTANTS.orderNotEligible();
+	/** Label Constant for ALLOW_PROMOTIONS */
+	public static final String ALLOW_PROMOTIONS = PROVIDER_LABEL_CONSTANTS.allowPromotions();
+	// Promotion
+	/** label constant for CAMPAIGN_NAME_LBL. */
+	public static final String CAMPAIGN_NAME_LBL = PROVIDER_LABEL_CONSTANTS.campaignNameLbl();
+	/** label constant for DISCOUNT_TYPE_LBL. */
+	public static final String DISCOUNT_TYPE_LBL = PROVIDER_LABEL_CONSTANTS.discountTypeLbl();
+	/** label constant for OFFER_TO_LBL. */
+	public static final String OFFER_TO_LBL = PROVIDER_LABEL_CONSTANTS.offerToLbl();
+	/** label constant for startDate. */
+	public static final String START_DATE_LABEL_TEXT = PROVIDER_LABEL_CONSTANTS.startDateLabel();
+	/** label constant for LIST_PROMO_COUPONS. */
+	public static final String LIST_PROMO_COUPONS = PROVIDER_LABEL_CONSTANTS.listPromoCoupons();
+	/** label constant for SHOW_LBL. */
+	public static final String SHOW_LBL = PROVIDER_LABEL_CONSTANTS.showLbl();
+	/** label constant for SHOW_FILTER_ALL. */
+	public static final String SHOW_FILTER_ALL = PROVIDER_LABEL_CONSTANTS.showFilterAll();
+	/** label constant for SHOW_FILTER_ACTIVE. */
+	public static final String SHOW_FILTER_ACTIVE = PROVIDER_LABEL_CONSTANTS.showFilterActive();
+	/** label constant for SHOW_FILTER_ACTIVEFUTURE. */
+	public static final String SHOW_FILTER_ACTIVEFUTURE = PROVIDER_LABEL_CONSTANTS.showFilterActiveFuture();
+	/** label constant for SHOW_FILTER_EXPRIED. */
+	public static final String SHOW_FILTER_EXPRIED = PROVIDER_LABEL_CONSTANTS.showFilterExpired();
+	/** label constant for SHOW_FILTER_FUTURE. */
+	public static final String SHOW_FILTER_FUTURE = PROVIDER_LABEL_CONSTANTS.showFilterFuture();
+	/** label constant for PROMO_CODE_LBL. */
+	public static final String PROMO_CODE_LBL = PROVIDER_LABEL_CONSTANTS.promoCodeLbl();
+	/** label constant for PROMO_TYPE_LBL. */
+	public static final String PROMO_TYPE_LBL = PROVIDER_LABEL_CONSTANTS.promoTypeLbl();
+	/** label constant for PARTS_TYPE_LBL. */
+	public static final String PARTS_TYPE_LBL = PROVIDER_LABEL_CONSTANTS.partsTypeLbl();
+	/** label constant for DISCOUNT_AMOUNT_LBL. */
+	public static final String DISCOUNT_AMOUNT_LBL = PROVIDER_LABEL_CONSTANTS.discountAmountLbl();
+	/** label constant for DOWNLOAD_TEMPLATE_LINK_LBL. */
+	public static final String DOWNLOAD_TEMPLATE_LINK_LBL = PROVIDER_LABEL_CONSTANTS.downloadTemplateLink();
+	/** label constant for SELECT_LIST_LBL. */
+	public static final String SELECT_LIST_LBL = PROVIDER_LABEL_CONSTANTS.selectListTextLbl();
+	/** label constant for USAGE_ONETIME. */
+	public static final String USAGE_ONETIME = PROVIDER_LABEL_CONSTANTS.usageListOneTime();
+	/** label constant for USAGE_MULIPLE. */
+	public static final String USAGE_MULIPLE = PROVIDER_LABEL_CONSTANTS.usageListMultiple();
+	/** label constant for OFFERTO_ALL. */
+	public static final String OFFERTO_ALL = PROVIDER_LABEL_CONSTANTS.offerToListAll();
+	/** label constant for OFFERTO_CUSTOMER. */
+	public static final String OFFERTO_CUSTOMER = PROVIDER_LABEL_CONSTANTS.offerToListCustomer();
+	/** label constant for PROMO_TYPE_SUPPLY. */
+	public static final String PROMO_TYPE_SUPPLY = PROVIDER_LABEL_CONSTANTS.promoTypeListSupply();
+	/** label constant for PROMO_TYPE_DEVICE. */
+	public static final String PROMO_TYPE_DEVICE = PROVIDER_LABEL_CONSTANTS.promoTypeListDevice();
+	/** label constant for DISCOUNT_TYPE_CURRENCY. */
+	public static final String DISCOUNT_TYPE_CURRENCY = PROVIDER_LABEL_CONSTANTS.discountTypeListCurrency();
+	/** label constant for DISCOUNT_TYPE_PERCENT. */
+	public static final String DISCOUNT_TYPE_PERCENT = PROVIDER_LABEL_CONSTANTS.discountTypeListPercent();
+	/** label constant for MIN_ORDER_AMOUNT_LBL. */
+	public static final String MIN_ORDER_AMOUNT_LBL = PROVIDER_LABEL_CONSTANTS.minOrderAmountLbl();
+	/** label constant for ORDER_DISCOUNT_AMOUNT_LBL. */
+	public static final String ORDER_DISCOUNT_AMOUNT_LBL = PROVIDER_LABEL_CONSTANTS.orderDiscountAmountLbl();
+	/** label constant for ORDER_DISCOUNT_PERCENT_LBL. */
+	public static final String ORDER_DISCOUNT_PERCENT_LBL = PROVIDER_LABEL_CONSTANTS.orderDiscountPercentLbl();
+	/** label constant for MAX_DISCOUNT_AMOUNT_LBL. */
+	public static final String MAX_DISCOUNT_AMOUNT_LBL = PROVIDER_LABEL_CONSTANTS.maxDiscountAmountLbl();
+	/** label constant for PROGRAM_LBL. */
+	public static final String PROGRAM_LBL = PROVIDER_LABEL_CONSTANTS.programLbl();
+	/** label constant for OEM_PART_LBL. */
+	public static final String OEM_PART_LBL = PROVIDER_LABEL_CONSTANTS.oemPartLbl();
+	/** label constant for REPLACEMENT_PART_LBL. */
+	public static final String REPLACEMENT_PART_LBL = PROVIDER_LABEL_CONSTANTS.replacementPartLbl();
+	/** label constant for PARTS_LBL. */
+	public static final String PARTS_LBL = PROVIDER_LABEL_CONSTANTS.partsTypeLbl();
+	/** label for DISCOUNT_ERROR_LABEL */
+	public static final String DISCOUNT_ERROR_LABEL = PROVIDER_LABEL_CONSTANTS.discountGreaterMsg();
+	/** Label Constant for DELETE_FCPCUSTOMER_EXIST_MSG. **/
+	public static final String DELETE_FCPCUSTOMER_EXIST_MSG = PROVIDER_LABEL_CONSTANTS.deleteFCPCustomerExistMsg();
+	/** label constant for UPLOAD_PROMO_COUPONS_LABEL. */
+	public static final String UPLOAD_PROMO_COUPONS_LABEL = PROVIDER_LABEL_CONSTANTS.providerUploadPromoLabel();
+	/** label constant for PROVIDER_ORDER_LBL. */
+	public static final String PROVIDER_ORDER_LBL = PROVIDER_LABEL_CONSTANTS.providerOrderLbl();
+	public static final String ORDER_DISCOUNT_ERROR_LABEL = PROVIDER_LABEL_CONSTANTS.orderDiscountErrorMsg();
+	/** label constant for CLOSED_STATUS. */
+	public static final String CLOSED_STATUS = PROVIDER_LABEL_CONSTANTS.closedStatus();
+	/** label constant for MAX_NO_OF_BANNERS_ELEMENTS. */
+	public static final String MAX_NO_OF_BANNERS_ELEMENTS = PROVIDER_LABEL_CONSTANTS.maxNoBannerElements();
+	/** label constant for BANNER_TIMING. */
+	public static final String BANNER_TIMING = PROVIDER_LABEL_CONSTANTS.bannerTiming();
+	/** label constant for Partner Portal. */
+	public static final String PARTNER_PORTAL = PROVIDER_LABEL_CONSTANTS.partnerPortal();
+	/** label constant for Customer Portal. */
+	public static final String CUSTOMER_PORTAL = PROVIDER_LABEL_CONSTANTS.customerPortal();
+	/** label constant for Customer Portal Banners. */
+	public static final String CUSTOMER_PORTAL_BANNERS = PROVIDER_LABEL_CONSTANTS.customerPortalBanners();
+	/** label for Upload banner. */
+	public static final String UPLOAD_BANNER = PROVIDER_LABEL_CONSTANTS.uploadBanner();
+	/** label for Download banner. */
+	public static final String DOWNLOAD_BANNER = PROVIDER_LABEL_CONSTANTS.downloadBanner();
+	/** label constant for Partner Portal Banners. */
+	public static final String PARTNER_PORTAL_BANNERS = PROVIDER_LABEL_CONSTANTS.partnerPortalBanners();
+	/** label constant for BANNER_NAME. */
+	public static final String BANNER_NAME = PROVIDER_LABEL_CONSTANTS.bannerName();
+	/** Message constant for Enabled. */
+	public static final String ENABLED_BANNER = PROVIDER_LABEL_CONSTANTS.enabledBanner();
+	/** Message constant for DispalyForAll. */
+	public static final String DISPLAY_FOR = PROVIDER_LABEL_CONSTANTS.displayFor();
+	/** Message constant for REMOVE. */
+	public static final String REMOVE = PROVIDER_LABEL_CONSTANTS.remove();
+	/** Message constant for BANNERNAME_COLON. */
+	public static final String BANNERNAME_COLON = PROVIDER_LABEL_CONSTANTS.bannerNameColon();
+	/** Message constant for BANNERIMAGE_COLON. */
+	public static final String BANNERIMAGE_COLON = PROVIDER_LABEL_CONSTANTS.bannerImageColon();
+	/** Message constant for ALT TEXT. */
+	public static final String ALT_TEXT = PROVIDER_LABEL_CONSTANTS.altText();
+	/** Message constant for MODALTYPE. */
+	public static final String MODAL_TYPE = PROVIDER_LABEL_CONSTANTS.modalType();
+	/** Message constant for TITLE_TEXT. */
+	public static final String TITLE_TEXT = PROVIDER_LABEL_CONSTANTS.titleText();
+	/** Message constant for HEADING_TEXT. */
+	public static final String HEADING_TEXT = PROVIDER_LABEL_CONSTANTS.headingText();
+	/** Message constant for BODYDETAILS. */
+	public static final String BODYDETAILS = PROVIDER_LABEL_CONSTANTS.bodyDetails();
+	/** Message constant for MAXOF_50_CHARACTERS. */
+	public static final String MAXOF_50_CHARACTERS = PROVIDER_LABEL_CONSTANTS.maxOf50Characters();
+	/** Message constant for MAXOF_255_CHARACTERS. */
+	public static final String MAXOF_255_CHARACTERS = PROVIDER_LABEL_CONSTANTS.maxOf255Characters();
+	/** Message constant for MAXOF_460_CHARACTERS. */
+	public static final String MAXOF_460_CHARACTERS = PROVIDER_LABEL_CONSTANTS.maxOf460Characters();
+	/** Message constant for PIXEL_130_MSG. */
+	public static final String PIXEL_130_MSG = PROVIDER_LABEL_CONSTANTS.pixel130Msg();
+	/** Message constant for INFORMATION_MODAL. */
+	public static final String INFORMATION_MODAL = PROVIDER_LABEL_CONSTANTS.informationModal();
+	/** Message constant for NO_MODAL. */
+	public static final String NO_MODAL = PROVIDER_LABEL_CONSTANTS.noModal();
+	/** Message constant for DOWNLOAD_MODAL. */
+	public static final String DOWNLOAD_MODAL = PROVIDER_LABEL_CONSTANTS.downloadModal();
+	/** Message constant for BANNER_NAME_ALREADY_EXIST. */
+	public static final String BANNER_NAME_ALREADY_EXIST = PROVIDER_LABEL_CONSTANTS.bannerAlreadyExist();
+	/** Message constant for BODY_DETAILS_ERR_MSG. */
+	public static final String BODY_DETAILS_ERR_MSG = PROVIDER_LABEL_CONSTANTS.bodyDetailsErrMsg();
+	/** Message constant for PLEASE_SELECT_BANNER. */
+	public static final String PLEASE_SELECT_BANNER = PROVIDER_LABEL_CONSTANTS.plsSelectBanner();
+	/** Message constant for PORTAL_BANNER_BANNERNAME_DISABLED. */
+	public static final String PORTAL_BANNER_BANNERNAME_DISABLED = PROVIDER_LABEL_CONSTANTS.portalBannerDisable();
+	/** Message constant for DO_DISABLE_PORTAL_BANNER. */
+	public static final String DO_DISABLE_PORTAL_BANNER = PROVIDER_LABEL_CONSTANTS.disablePortalBanner();
+	/** Message constant for DO_ENABLE_PORTAL_BANNER. */
+	public static final String DO_ENABLE_PORTAL_BANNER = PROVIDER_LABEL_CONSTANTS.enablePortalBanner();
+	/** Message constant for PORTAL_BANNER_ENABLED. */
+	public static final String PORTAL_BANNER_ENABLED = PROVIDER_LABEL_CONSTANTS.portalBannerenable();
+	/** Message constant for FAIL_TO_ENABLE_PORTAL. */
+	public static final String FAIL_TO_ENABLE_PORTAL = PROVIDER_LABEL_CONSTANTS.failtoEnablePortal();
+	/** Message constant for DO_REMOVE_PORTAL_BANNER. */
+	public static final String DO_REMOVE_PORTAL_BANNER = PROVIDER_LABEL_CONSTANTS.removePortalBanner();
+	/** Message constant for SUCCESSFULLY_REMOVED. */
+	public static final String SUCCESSFULLY_REMOVED = PROVIDER_LABEL_CONSTANTS.successfullyRemoved();
+	/** Message constant for PREVIEW_PARTNERBANNER. */
+	public static final String PREVIEW_PARTNERBANNER = PROVIDER_LABEL_CONSTANTS.previewPartnerBanner();
+	/** Message constant for PREVIEW_CUSTOMERBANNER. */
+	public static final String PREVIEW_CUSTOMERBANNER = PROVIDER_LABEL_CONSTANTS.previewCustomerBanner();
+	/** Message constant for EDIT_PARTNER_BANNER. */
+	public static final String EDIT_PARTNER_BANNER = PROVIDER_LABEL_CONSTANTS.editPartnerHeaderLabel();
+	/** Message constant for EDIT_CUSTOMER_BANNER. */
+	public static final String EDIT_CUSTOMER_BANNER = PROVIDER_LABEL_CONSTANTS.editCustomerHeaderLabel();
+	/** Message constant for CUSTOMER_TEXT. */
+	public static final String CUSTOMER_TEXT = PROVIDER_LABEL_CONSTANTS.customerText();
+	/** Message constant for PARTNER_TEXT. */
+	public static final String PARTNER_TEXT = PROVIDER_LABEL_CONSTANTS.partnerText();
+	/** Message constant for ENABLE_NEW_CUSTOMER_PROMOTION. */
+	public static final String ENABLE_NEW_CUSTOMER_PROMOTION = PROVIDER_LABEL_CONSTANTS.enableNewCustPromoLabel();
+	/** Message constant for ENABLE_NEW_CUSTOMER_PROMOTION. */
+	public static final String CUSTOMER_PROMO_CODE = PROVIDER_LABEL_CONSTANTS.customerPromoCodeLabel();
+	/** Message constant Display for ALL. */
+	public static final String DISPLAY_FOR_ALL = PROVIDER_LABEL_CONSTANTS.displayForAllMsg();
+	/** Message constant DisplayFor Partner. */
+	public static final String DISPLAY_FOR_PARTNER = PROVIDER_LABEL_CONSTANTS.displayForPartnerMsg();
+	/** Message constant DisplayFor Customer. */
+	public static final String DISPLAY_FOR_CUSTOMER = PROVIDER_LABEL_CONSTANTS.displayForCustomerMsg();
+	/** Message constant Customer_Support_Email. */
+	public static final String CUSTOMER_SUPPORT_EMAIL = PROVIDER_LABEL_CONSTANTS.customerSupportEmail();
+	/** Message constant UPLOAD_PART_NUMBER */
+	public static final String UPLOAD_PART_NUMBER = PROVIDER_LABEL_CONSTANTS.uploadPartNumber();
+	/** Message constant DOWNLOAD_PART_NUMBER */
+	public static final String DOWNLOAD_PART_NUMBER = PROVIDER_LABEL_CONSTANTS.downloadPartNumber();
+	/** Message constant DOWNLOAD_PART_NUMBER_TEMPLATE */
+	public static final String DOWNLOAD_PART_NUMBER_TEMPLATE = PROVIDER_LABEL_CONSTANTS.downloadPartNumberTemplate();
+	/** Message constant UPLOAD_CONSUMERS */
+	public static final String UPLOAD_CONSUMERS = PROVIDER_LABEL_CONSTANTS.uploadCustomers();
+	/** Message constant DOWNLOAD_CONSUMERS */
+	public static final String DOWNLOAD_CONSUMERS = PROVIDER_LABEL_CONSTANTS.downloadCustomers();
+	/** Message constant DOWNLOAD_CONSUMERS_TEMPLATE */
+	public static final String DOWNLOAD_CONSUMERS_TEMPLATE = PROVIDER_LABEL_CONSTANTS.downloadCustomersTemplate();
+	/** Message Constant DEVICE_BUNDLE */
+	public static final String PROMO_TYPE_DEVICEBUNDLE = PROVIDER_LABEL_CONSTANTS.deviceBundle();
+	/** Message Constant ADDITIONAL_DETAILS */
+	public static final String ADDITIONAL_DETAILS = PROVIDER_LABEL_CONSTANTS.additionalDetails();
+	/** Message Constant CAPACITY_TYPE_NOTE */
+	public static final String CAPACITY_TYPE_NOTE = PROVIDER_LABEL_CONSTANTS.capacityTypeAllowedNote();
+	/** Message Constant CAPACITY_TYPE_ALLOWED */
+	public static final String CAPACITY_TYPE_ALLOWED = PROVIDER_LABEL_CONSTANTS.capacityTypeAllowed();
+	/**Message Constant NON_MONITORED_DEVICE_ENABLED**/
+	public static final String NON_MONITORED_DEVICE_ENABLED = PROVIDER_LABEL_CONSTANTS.nonMonitoredDeviceEnabledMsg();
+	/**Message Constant SA_WARNING_MSG_AT_TIMEOF_LOGIN_ENABLED**/
+    public static final String SA_WARNING_MSG_AT_TIMEOF_LOGIN_ENABLED = PROVIDER_LABEL_CONSTANTS
+            .saWarningMsgAtTimeOfLoginEnabledMsg();
+	/**Message Constant PREVENT_LOGIN_IF_SA_NOT_LATEST_VERSION**/
+    public static final String PREVENT_LOGIN_IF_SA_NOT_LATEST_VERSION = PROVIDER_LABEL_CONSTANTS
+            .preventLoginIfSaNotLatestVersionMsg();
+	/** Label constant for ORDER_CREATION_TXT. **/
+	public static final String ORDER_CREATION_TXT = PROVIDER_LABEL_CONSTANTS.orderCreationTxt();
+	/** Label Constant for ORDER_CREATION_DESC_TXT. **/
+	public static final String ORDER_CREATION_DESC_TXT = PROVIDER_LABEL_CONSTANTS.orderCreationDescTxt();
+	/** Label Constant for CUSTOMER_LOGIN_ID_TXT. **/
+	public static final String CUSTOMER_LOGIN_ID_LBL = PROVIDER_LABEL_CONSTANTS.customerLoginIdLbl();
+	/** Label constant for INVALID_CUSTOMER_ID_MSG. **/
+	public static final String INVALID_CUSTOMER_ID_MSG = PROVIDER_LABEL_CONSTANTS.invalidCustometIdTextMsg();
+	/** Label constant for SELECT_SHIP_TO_LOCATION_MSG. **/
+	public static final String SELECT_SHIP_TO_LOCATION_MSG = PROVIDER_LABEL_CONSTANTS.selectShipToLocationMsg();
+	/** Label Constant for SHIP_TO_LOCATION_LBL. **/
+	public static final String SHIP_TO_LOCATION_LBL = PROVIDER_LABEL_CONSTANTS.shipToLocationLbl();
+	/** Label Constant for PARTNER_NAME_LBL. **/
+	public static final String PARTNER_NAME_LBL = PROVIDER_LABEL_CONSTANTS.partnerNameLbl();
+	/** Label Constant for CREATE_BUTTON_TEXT. **/
+	public static final String CREATE_BUTTON_TXT = PROVIDER_LABEL_CONSTANTS.createButtonTxt();
+	/** Label Constant for NP_AND_NPPLUSE_TEXT. **/
+	public static final String NP_AND_NPPLUSE_TEXT = PROVIDER_LABEL_CONSTANTS.npAndNpPlusTxt();
+	/** Label Constant for NP_TEXT. **/
+	public static final String NP_TEXT = PROVIDER_LABEL_CONSTANTS.npTxt();
+	/** Label Constant for NPPLUSE_TEXT. **/
+	public static final String NPPLUSE_TEXT = PROVIDER_LABEL_CONSTANTS.npPlusTxt();
+	
+	/** Label Constant for SHIPMENT_ID_LBL. **/
+	public static final String SHIPMENT_ID_LBL = PROVIDER_LABEL_CONSTANTS.shipmentIdLbl();
+	/** Label Constant for CS_TEAM_TICKET_LBL. **/
+	public static final String CS_TEAM_TICKET_LBL = PROVIDER_LABEL_CONSTANTS.csTeamTicketLbl();
+	/** Label Constant for CS_TEAM_TICKET_LBL. **/
+	public static final String CUSTOMER_USER_LBL = PROVIDER_LABEL_CONSTANTS.customerUserLbl();
+	/** Label Constant for ORDER_TYPE_LBL. **/
+	public static final String ORDER_TYPE_LBL = PROVIDER_LABEL_CONSTANTS.orderTypeLbl();
+	/** Label Constant for QUANTITY_LBL. **/
+	public static final String QUANTITY_LBL = PROVIDER_LABEL_CONSTANTS.quantityLbl();
+	/** Label for Start Date for the Banners.*/
+	public static final String START_DATE_FOR_BANNER = PROVIDER_LABEL_CONSTANTS.startDateLabel();
+	/** Label for Start Date for the Banners.*/
+	public static final String END_DATE_FOR_BANNER = PROVIDER_LABEL_CONSTANTS.endDateLabel();
+	/** Label for ADD_LINE_ITEM_ERROR_MSG. */
+	public static final String ADD_LINE_ITEM_ERROR_MSG = PROVIDER_LABEL_CONSTANTS.addLineItemErrorMsg();
+	/** Label constant for ORDER_AND_AUDITLOGS_TXT. **/
+	public static final String ORDER_AND_AUDITLOGS_TXT = PROVIDER_LABEL_CONSTANTS.ordersAndAuditlogsTxt();
+	/** Label Constant for ORDER_AND_AUDITLOGS_DESC_TXT. **/
+	public static final String ORDER_AND_AUDITLOGS_DESC_TXT = PROVIDER_LABEL_CONSTANTS.ordersAndAuditlogsDescTxt();
+	/** Label Constant for CUSTOMER_LOGIN_LBL. **/
+	public static final String  CUSTOMER_LOGIN_LBL = PROVIDER_LABEL_CONSTANTS.customerLoginLbl();
+	/** Label Constant for CLASS_CODE_LABEL. **/
+	public static final String CLASS_CODE_LABEL = PROVIDER_LABEL_CONSTANTS.classCodeLabel();
+	/** Label Constant for CERTIFICATE_LBL. **/
+	public static final String CERTIFICATE_LBL= PROVIDER_LABEL_CONSTANTS.certificateLbl();
+	/** Label Constant for EXPIRATION_LBL. **/
+	public static final String EXPIRATION_LBL = PROVIDER_LABEL_CONSTANTS.expirationLbl();
+	/** Label Constant for CURRENT_ENABLEMENT_FLAGS_LBL. **/
+	public static final String CURRENT_ENABLEMENT_FLAGS_LBL = PROVIDER_LABEL_CONSTANTS.currentEnablementFlagsLbl();
+	/** Label Constant for CURRENT_TAX_STATUS_LBL. **/
+	public static final String CURRENT_TAX_STATUS_LBL = PROVIDER_LABEL_CONSTANTS.currentTaxStatusLbl();
+    /** Label for ORDER_HEADER_INFORMATION_LBL. */
+    public static final String ORDER_HEADER_INFORMATION_LBL = PROVIDER_LABEL_CONSTANTS.orderHeaderInformationLbl();
+    /** Label for ORDER_LINE_INFORMATION_LBL. */
+    public static final String ORDER_LINE_INFORMATION_LBL= PROVIDER_LABEL_CONSTANTS.orderLineInformationLbl();
+    /** Label for SHIPMENT_INFORMATION_LBL. */
+    public static final String SHIPMENT_INFORMATION_LBL = PROVIDER_LABEL_CONSTANTS.shipmentInformationLbl();
+    /** Label for AUDIT_LOGS_LBL. */
+    public static final String AUDIT_LOGS_LBL = PROVIDER_LABEL_CONSTANTS.auditLogsLbl();
+    /** Label for MESSAGE_DATE_LBL. */
+    public static final String MESSAGE_DATE_LBL = PROVIDER_LABEL_CONSTANTS.messageDateLbl();
+    /** Label for SKU_LBL. */
+    public static final String SKU_LBL = PROVIDER_LABEL_CONSTANTS.skuLbl();
+    /** Label for QUANTITY_SHIPPED_LBL. */
+    public static final String QUANTITY_SHIPPED_LBL = PROVIDER_LABEL_CONSTANTS.quantityShippedLbl();
+    /** Label for SHIPPED_DATE_LBL. */
+    public static final String SHIPPED_DATE_LBL = PROVIDER_LABEL_CONSTANTS.shippedDateLbl();
+    /** Label for UNIT_PRICE_LBL. */
+    public static final String UNIT_PRICE_LBL = PROVIDER_LABEL_CONSTANTS.unitPriceLbl();
+    /** Label for ORDERED_QTY_LBL. */
+    public static final String ORDERED_QTY_LBL = PROVIDER_LABEL_CONSTANTS.orderedQtyLbl();
+    /** Label for PKG_QTY_LBL. */
+    public static final String PKG_QTY_LBL = PROVIDER_LABEL_CONSTANTS.pkgQtyLbl();
+    /** Label for FOR_MODEL_LBL. */
+    public static final String FOR_MODEL_LBL = PROVIDER_LABEL_CONSTANTS.forModelLbl();
+    /** Label for FOR_SERIAL_NUMBER_LBL. */
+    public static final String FOR_SERIAL_NUMBER_LBL = PROVIDER_LABEL_CONSTANTS.forSerialNumberLbl();
+    /** Label for ORDER_INFORMATION_LBL. */
+    public static final String ORDER_INFORMATION_LBL = PROVIDER_LABEL_CONSTANTS.orderInformationLbl();
+    /** Label for ORDER_AMOUNTS_LBL. */
+    public static final String ORDER_AMOUNTS_LBL = PROVIDER_LABEL_CONSTANTS.orderAmountsLbl();
+    /** Label for ORDER_TAX_INFORMATION_LBL. */
+    public static final String ORDER_TAX_INFORMATION_LBL = PROVIDER_LABEL_CONSTANTS.orderTaxInformationLbl();
+    /** Label for ORDER_FULFILLMENT_INFORMATION_LBL. */
+    public static final String ORDER_FULFILLMENT_INFORMATION_LBL = PROVIDER_LABEL_CONSTANTS
+            .orderFulfillmentInformationLbl();
+    /** Label for PAYMENT_INFORMATION_LBL. */
+    public static final String PAYMENT_INFORMATION_LBL = PROVIDER_LABEL_CONSTANTS.paymentInformationLbl();
+    /** Label for TAX_CLASS_CODE_LBL. */
+    public static final String TAX_CLASS_CODE_LBL = PROVIDER_LABEL_CONSTANTS.taxClassCodeLbl();
+    /** Label for TAX_CERTIFICATE_LBL. */
+    public static final String TAX_CERTIFICATE_LBL = PROVIDER_LABEL_CONSTANTS.taxCertificateLbl();
+    /** Label for SHIP_TO_ADDRESS1_LBL. */
+    public static final String SHIP_TO_ADDRESS1_LBL = PROVIDER_LABEL_CONSTANTS.shipToAddress1Lbl();
+    /** Label for SHIP_TO_ADDRESS2_LBL. */
+    public static final String SHIP_TO_ADDRESS2_LBL = PROVIDER_LABEL_CONSTANTS.shipToAddress2Lbl();
+    /** Label for SHIP_TO_CITY_LBL. */
+    public static final String SHIP_TO_CITY_LBL = PROVIDER_LABEL_CONSTANTS.shipToCityLbl();
+    /** Label for SHIP_TO_STATE_LBL. */
+    public static final String SHIP_TO_STATE_LBL = PROVIDER_LABEL_CONSTANTS.shipToStateLbl();
+    /** Label for SHIP_TO_ZIP_LBL. */
+    public static final String SHIP_TO_ZIP_LBL = PROVIDER_LABEL_CONSTANTS.shipToZipLbl();
+    /** Label for PO_NUMBER_LBL. */
+    public static final String PO_NUMBER_LBL = PROVIDER_LABEL_CONSTANTS.poNumberLbl();
+    /** Label for GATEWAY_TRX_ID_LBL. */
+    public static final String GATEWAY_TRX_ID_LBL = PROVIDER_LABEL_CONSTANTS.gatewayTrxIdLbl();
+    /** Label for RESPONSE_CODE_LBL. */
+    public static final String RESPONSE_CODE_LBL = PROVIDER_LABEL_CONSTANTS.responseCodeLbl();
+    /** Label for RESPONSE_MSG_LBL. */
+    public static final String RESPONSE_MSG_LBL = PROVIDER_LABEL_CONSTANTS.responseMsgLbl();
+    /** Label for REJECTED_ORDER_LBL. */
+    public static final String REJECTED_ORDER_LBL = PROVIDER_LABEL_CONSTANTS.rejectedOrderLbl();
+    /** Label for REJECTED_DATE_LBL. */
+    public static final String REJECTED_DATE_LBL = PROVIDER_LABEL_CONSTANTS.rejectedDateLbl();
+    /** Label for ORDERED_DATE_LBL. */
+    public static final String ORDERED_DATE_LBL = PROVIDER_LABEL_CONSTANTS.orderedDateLbl();
+    /** Label for PART_SUBTOTAL_LBL. */
+    public static final String PART_SUBTOTAL_LBL = PROVIDER_LABEL_CONSTANTS.partSubtotalLbl();
+    /** Label for PARTNER_ORDERING_LBL. */
+    public static final String PARTNER_ORDERING_LBL = PROVIDER_LABEL_CONSTANTS.partnerOrderingLbl();
+    /** Message for SELECT_ORDER_LBL. */
+    public static final String SELECT_ORDER_LBL = PROVIDER_LABEL_CONSTANTS.selectOrderLbl();
+    /** Message for PAYMENT_TERMS_LBL. */
+    public static final String PAYMENT_TERMS_LBL = PROVIDER_LABEL_CONSTANTS.paymentTermsLbl();
+    /** Message for PAYMENT_TERMS_LBL. */
+    public static final String PRICELIST_NAME_LBL = PROVIDER_LABEL_CONSTANTS.priceListNameLbl();
+    /** Message for PAYMENT_TERMS_LBL. */
+    public static final String PARTS_OFFERINGN_LBL = PROVIDER_LABEL_CONSTANTS.partsOfferingnLbl();
+    /** Message for ORDER_EXIST_MSG. */
+    public static final String ORDER_EXIST_MSG = PROVIDER_LABEL_CONSTANTS.orderExistMsg();
+    /** Message for QUANTITY_NOT_EXIST_MSG. */
+    public static final String QUANTITY_NOT_EXIST_MSG = PROVIDER_LABEL_CONSTANTS.quantityNotExistMsg();
+    /** label constant for amazon drs label. */
+    public static final String AMAZON_DRS = PROVIDER_LABEL_CONSTANTS.amazonDrsLbl();
+    /** Message for SEND_CUSTOMER_WITH_NO_DEVICES_EMAIL_MSG. */
+    public static final String SEND_CUSTOMER_WITH_NO_DEVICES_EMAIL_LBL = PROVIDER_LABEL_CONSTANTS
+            .sendCustomerWithNoDevicesEmailLbl();
+    /** Message for SEND_DEVICE_NOT_SETUP_EMAIL. */
+    public static final String SEND_DEVICE_NOT_SETUP_EMAIL_LBL = PROVIDER_LABEL_CONSTANTS.sendDeviceNotSetupEmailLbl();
+    /** Label Constant for CUSTOMER_LOGIN_ID_TXT FOR VIEW ORDERS AND AUDIT LOGS. **/
+    public static final String CUSTOMER_LGN_ID_LBL = PROVIDER_LABEL_CONSTANTS.customerLgnIdLbl();
+    /** Message for CUSTOMER_ORDER_LGN_LBL. */
+    public static final String CUSTOMER_ORDER_LGN_LBL = PROVIDER_LABEL_CONSTANTS.customerOrderLgnLbl();
+    /** Label Constant for Invalid Order Under Customer. **/
+    public static final String INVALID_ORDER_UNDER_CUSTOMER = PROVIDER_LABEL_CONSTANTS.invalidOrderUnderCustomer();
+    /** Label Constant for Invalid Customer. **/
+    public static final String INVALID_CUSTOMER_LOGIN = PROVIDER_LABEL_CONSTANTS.invalidCustomerLogin();
+    /** Label Constant for Invalid Order. **/
+    public static final String INVALID_ORDER_NUMBERR = PROVIDER_LABEL_CONSTANTS.invalidOrderNumber();
+    /** Label Constant for Tax Calculation Location. **/
+    public static final String TAX_CALCULATION_LOCATION = PROVIDER_LABEL_CONSTANTS.taxCalculationLocLbl();
+    /** Label Constant for Tax Calculation Location. **/
+    public static final String CUST_SHIPPING_ADDRESS = PROVIDER_LABEL_CONSTANTS.custShippingAddress();
+    /** Label Constant for Tax Calculation Location. **/
+    public static final String PARTNER_STORE_LCTN = PROVIDER_LABEL_CONSTANTS.partnerStoreLctn();
+    /** Label Constant for Customer Name **/
+	public static String CUSTOMER_NAME;
+	/** Label Constant for Type **/
+	public static String TYPE;	
+
+    /**
+     * default constractor.
+     */
+    private ProviderLabelConstants() {
+
+    }
+}

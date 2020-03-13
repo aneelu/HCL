@@ -1,0 +1,2639 @@
+  # I18N Constants for Labels, Buttons, Links ,Headers, Messages for Xerox
+  # <br><br>Copyright (c) 2008, HCL Technologies.<br>
+  #  @author 	brindha.c
+  #  Dec 13, 2007 10:47:58 AM<br>
+  
+  # Footer URL
+  xeroxHomeURL = Xerox Home
+  aboutXeroxURL = About Xerox
+  privacyURL = Privacy
+  legalURL = Legal
+  siteMapURL = Sitemap
+  suppliesRecyclingURL = Supplies Recycling
+  suppliesPoliciesURL = Policies
+  faqURL = Frequently Asked Questions
+  shippingReturnsURL = Shipping & Returns
+  programSoftwareAgreementURL = Program & Software Agreement
+  fcpTermsOfSale = Terms of Sale
+  helpURL = Help
+  # MENU
+  dashboardLabel = Home
+  dashboardTxt = Dashboard
+  managePartnersTxt = Partners
+  parterManagementText = Partners
+  userManagementHeader = User Management 
+  notificationTxt = Messaging
+  configurationTxt = Settings
+  administrationTxt = Setup
+  accountsTxt = Accounts
+  baseDataTxt = Base Data
+  certInterfaceTxt = Certified Interfaces
+  sourceLocTxt = Sourcing Locations     
+  customizationTxt = Branding
+  partMasterDownload = Part Master Download
+  interfaceDataMapTxt = Interface Data Mapping
+  platformTemplateTxt = Templates
+  platformTCTxt = T & C
+  platformNotificationsTxt = Notifications
+  usersTxt = Users
+  pendingShipment = Pending Shipment
+  modelImageTxt = Model Images
+  reportsTxt = Reports
+  homeLabel = Trailblazer Home
+  customerLabel = Customers
+  customersLblForPartner = Customers 
+  messaginggroup = Templates
+  identifyPartnerReportsTxt = Identify Partner Reports
+  bannersTxt = Banners
+  listOfPartnerPartsTxt = Consumable Part #
+  passwordPolicyTabLabel = Password Policy
+  baseDataLbl = Base Data
+  creditLimt = Credit Limit
+  configurationSettings = Configuration Settings
+  noLabel = No
+  yesLabel = Yes
+  mandatoryLabel = *
+  serialNoLabel	= S.No
+  serailNumber = Serial Number
+  searchLabel = Search
+  providersLabel = Providers
+  partnerLabel = Partner
+  addLabel = Add
+  nameLabel	= Name
+  loginLabel = Login
+  providerLabel	= Provider
+  backToDashBoard = Go to Dashboard
+  moreLink = More
+  isPendingFrReview = Pending Review
+  isCreditReview = Credit Review
+  oops = Oops,&nbsp;
+  viewTCHeader = View T & C
+  mfgsModelsLabel = Manufacturers & Models
+  prefDistiTxt = Preferred Distributors
+  messagesHeader = Messages
+  sysSettingsHeader = System Settings
+  customerTabHandlingTxt = Customer & Revenue Overview
+  planListLabel = Plan List
+  pricingListLabel = Price List
+  pricingHeader = Pricing
+  shippingRatesTxt = Shipping Rates
+  taxRegistration = Tax Registration
+  shippingSurchargeTxt = Shipping Surcharges
+ # Reporting Labels
+  reportName = Report Name
+  execuetReport = Execute
+  furnishReportAttributesValuesText = Furnish Report Input(s)
+  fetchAllReportsFailureMessage = Failed to fetch the reports.
+  fetchAllReportsAttributesFailureMessage = Failed to fetch the report attributes.
+  reportsExecutionFailureMessage = Failed to execute the report.
+  provideSegmentDetailsTxt = Provide Segment Details
+  applySegmentFilterTxt = Apply Segment Filter
+  deviceSerialNum = Device Serial Number
+  addPartnerReportsHeaderTxt = Add Partner Reports
+  editPartnerReportsHeaderTxt = Edit Partner Reports
+  listOfPartnerReportsHeaderTxt = List of Partner Reports
+  identifyReportsHeaderTxt = Identify Reports
+  selectedReportsHeaderTxt = Selected Reports
+ # Program Parts Label Constants
+  addPartnerPartsHeaderTxt = Add Program Consumable Part #
+  editPartnerPartsHeaderTxt = Edit Program Consumable Part #
+  listOfPartnerPartsHeaderTxt = List of Program Consumable Part #
+  availablePartsHeaderTxt = Available Parts
+  selectedPartsHeaderTxt = Selected Parts
+ # Password Label Constants 
+  userNameLabel	= User ID
+  econciergeUserNameLabel = eConcierge User ID
+  oldPasswordLabel = Old Password
+  tempPasswordLabel = Temporary Password
+  newPasswordLabel = New Password
+  retypePasswordLabel = Re-type Password
+  securityAnswerLabel = Security Answer
+  securityQuestionLabel = Security Question
+  
+ # User and Contact Details Label Constants 
+  firstNameLabel = First Name
+  resellerIdLabel = Partner ID
+  lastNameLabel	= Last Name
+  addressLabel = Address
+  address1Label	= Address Line 1
+  address2Label	= Address Line 2
+  cityLabel	= City
+  stateLabel = State
+  countryLabel = Country
+  zipLabel = ZIP Code
+  emailLabel = Email
+  officePhoneLabel = Office Phone
+  mobileLabel = Mobile
+  primaryContactLabel = Primary Contact
+  categoryNameLabel	= Category Name
+  descriptionLabel = Description
+  selectText = Select
+  removeLabel = Remove
+  categoryLabel = Category
+  smeCodeLbl	= SME Code
+	 
+ # Role Label Constants 
+  roleNameLabel = Role Name
+  privilegeNameLabel = Privilege Name
+  roleLabel = Role
+  removeRoleNoteLabel = Select a Role to Remove
+  urlLabel = URL
+  startDateLabel = Start Date
+  endDateLabel = End Date
+  
+  # No record Label Constant 	
+  noRecordFoundLabel = No Record Found
+	 
+ # Account Details Label Constants
+  customerDetailsLabel = Customer Details  
+  passwordLabel = Password
+  organizationLabel = Organization
+  domainName = Domain Name
+  typeLabel = Type
+  preferredEmailLabel = Preferred Email
+  errorNotificationLabel = Error Notification Required
+  organizationDetailsLabel = Organization Details
+  preferenceLabel = Preferences
+  organizationDataLabel = Name of the organization
+  descriptionDataLabel = Service Provider of Backup Service
+  typeDataLabel = Service Provider
+	
+ # Task Label Constants
+  task = Task
+  statusLabel = Status
+  customerNameLabel = Customer Name
+  customerUserIdLabel = Customer User ID
+  flag = Flag
+	 
+ # Agora Details Label Constants 
+  agoraText	= Agora
+  versionLabel = Supplies Assistant Version
+  epVersionLabel = Staples Never Out Toner Savings Plan Version
+  buildIdValueText = 1.18
+  versionIdValueText = 1.2
+  
+ # Tab constants 
+  accountDetailTabLabel = My Account
+  preferenceTabLabel = Preferences
+
+ # Button Constants 
+  addButtonLabel = Add
+  cancelButtonLabel	= Cancel
+  saveButtonLabel = Save
+  okButtonLabel	= Ok
+  closeButtonLabel = Close
+  updateButtonLabel = Update
+  removeButtonLabel = Remove
+  clearButtonLabel = Clear
+  backButtonLabel = Back
+  loginButtonLabel = Login
+  nextButtonLabel = Next
+  previousButtonLabel = Previous
+  modifyButtonLabel = Modify
+  requestButtonLabel = Request Reset
+  helpButtonLabel = Help
+  confirmLabl = Confirm
+  submitTxt = Submit
+  
+  linkedAccounts = Linked Accounts
+  prevYear = Previous Year
+  nxtYear = Next Year
+  prevMnth = Previous Month
+  nxtMnth = Next Month
+  prevPage = Previous Page
+  nxtPage = Next Page
+  
+  forgotUserIdLabel = Forgot Your User ID 
+  forgotYourUserIdLabel = Forgot Your User ID?
+  forgotYoureConUserIdLabel = Forgot Your eConcierge User ID?
+  forgotYourPasswordLabel = Forgot Your Password?
+ # Password Link Constants 
+  forgotPasswordLabel = Forgot Password
+  changePasswordLabel = Change Password
+ # List Box Constants  
+  tenantAdminListText = Tenant
+  superAdminListText = Super Admin
+  serviceProviderListText = Service Provider
+  selectListText = - Select - 
+  
+  # Message constants 
+  getExceptionMessage = Exception
+  informationMessage = Unable to fetch data from server.
+  nppSCartOrderMsg = The CDW Shopping Cart has opened in a new window or tab based on your browser settings.  Complete your order in the CDW Shopping Cart.<br><br>Please close this screen to return to the eCommerce Partner Portal.
+  
+ # Role Message Constants 
+  fetchRoleFailureMessage = Fetch Roles failed.
+  insertNumericDataMSG = Insert only numeric data. \t
+
+ # Service Provider System Parameters
+  SystemParameters = System Parameters
+  modifySystemParamTxt = Modify System Parameters
+  viewSystemParamTxt = View System Parameters
+  
+ # User , Contact Details  Message Constants 
+  createUserFailureMessage = Failed to create the User.
+  createUserSuccessMessage = User created successfully.
+  selectRoleErrMessage = Please select a role.
+  removeUserSuccessMessage = User removed successfully.
+  removeUserFailureMessage = Failed to remove the User.
+  modifyUserDetailFailureMessage = Failed to modify the User.
+  modifyUserDetailSuccessMessage = User modified successfully.
+  modifyContactDetailFailureMessage	= Modify User contact details failed.
+  fetchUserDetailFailureMessage	= Get User details failed.
+  fetchAllUserDetailFailureMessage = Get all User details failed.
+  
+  modifyPasswordFailureMessage = Modify password failed.\t\t\t
+  modifyPasswordSuccessMessage = Password modified successfully.
+  passwordMisMatchMessage = The new passwords you entered do not match. Please enter the same password in both fields and try again.
+  fetchPasswordPolicyFailureMessage	= Get your Password Policy failed.
+  customerTermsAndConditionsAlertMsg = You must agree with the terms and conditions to use Supplies Assistant.
+  
+ # Account Details Message Constants 
+  fetchCompanyDetailsFailureMessage = Get Company details failed.
+  createAccountFailureMessage = Create an account failed.
+  createAccountSuccessMessage = Thank you for registering.\n Your registration details will be sent to your email.
+  
+  
+ # Dialog Messages
+  dialogInfoMessage = Info
+  dialogSuccessMessage = Success
+  dialogFailureMessage = Failure
+  dialogWarningMessage = Warning
+  dialogResetPasswdSuccMessage = Reset Your Password - Success!
+  copyrightMessage = Copyright &copy; HCL Technologies Limited 2013. All Rights Reserved.
+ # Password Header Constants 
+  changePasswordHeader = Change Password
+  forgotPasswordHeader = Forgot Password
+  createPasswordPolicyHeader = Create Password Policy
+  modifyPasswordPolicyHeader = Modify Password Policy
+  
+ # Role Header Constants 
+  removeRoleHeader = Remove Role
+  
+ # User Header Constants  
+  editUserPopupHeader = Edit User Details
+  viewUserHeader = View User Details
+  viewUserPopupHeader =	de User Details
+ # UserManagement Constants
+  lockUserMessage = The selected user is locked successfully.
+  unLockUserMessage = The selected user is unlocked successfully.
+  selectOneUserMsg = Please select a User.
+  userAlreadyLocked = The user is already locked.
+  userAlreadyUnlocked = The user is already unlocked.
+  companyLabel = Company
+  lockLabel = Lock
+  unLockLabel = UnLock
+  lockedLabel = Locked
+  unLockedLabel = UnLocked
+  selectUserLockLabel = Select User To
+  companyNameLabel = Company Name
+  saveButton = Save
+  updateButton = Update
+  cancelButton = Cancel
+  customerPhoneNumberLabel = Customer Phone Number
+  customerEmailAddressLabel = Customer Email Address
+  
+  # Scheduler Cron Job Constants
+  secondsLabel = Seconds
+  # Delete a Job Constants
+  deleteLabel = Delete
+  editLabel = Edit
+  
+ # Reset password
+  resetPasswordLabel = Reset Password
+  
+ # Template Label Constants 
+  mergeTagLabel = Merge Tags
+  templateLabel = Template
+  recipientsLabel = Recipients
+  
+ # Template Header Constants 
+  viewTemplateHeader = View Template Details
+  modifyTemplateHeader = Modify Template Details
+  
+ # Menu Constants
+  createUser = Create New User
+  usersLabel = Users
+  addUserButtonLabel = Add New User
+  viewUserTxt = View User Details
+  createPermissionsTxt = Create Permissions
+  lookAndFeelTxt = Customer Portal & Agent Branding
+  newPaletteTxt = Create Custom Palette
+  emailComposeTxt = Email Compose
+  newRegistration = New Registration
+  
+
+   
+ # Mail server Header Constants
+  modifyDetailsLabel = Modify Details
+  
+  configureMailServer = Configure Mail Server
+    
+ # Role Popup Header Constants
+  rolesLabel = Roles
+  addRoleLabel = Add Role
+  viewRoleDetailsTxt = View Role Details
+   
+ # Service Popup Header Constants
+  accountDetailsLabel = Account Details
+  modifyAccountTxt = Modify Account Details
+    
+ # Report Headers
+  insertValidDataMSG = Enter valid data for
+  executeReport = View Reports
+  enterValidEndDate = End Date should be greater than or equal to Start Date
+    
+ # Task Popup Header Constants
+  userMgmtTxt = Users
+    
+  # Server Instance Popup Header Constants
+  eventsTxt = Events
+    
+ # Template Popup Header Constants
+  templateTxt = Template
+  templateList = List of All Templates 
+  partnerTemplateTxt = Partner Template
+  partnerSegmentTxt = Partner Segment
+  partnerComposeTxt = Partner Compose
+  
+  segmentTxt = Segment
+  composeTxt = Compose
+  scheduleTxt = Schedule
+  messageTxt = Message
+  promotionTxt = Promotions
+  typeTxt = Type
+  contentTypeTxt = Content Type
+  fromTxt = From
+  replyToTxt = Reply To
+  sendNowTxt = Send now
+  sendLaterTxt = Schedule your message
+  deviceCountTxt = Number of Devices
+  addNewTemplateLabel = Add New Template
+  htmlLabel = HTML
+  textLabel = TEXT
+  emailTempLabel = Email
+  fetchAllUserFailureMsg = Get all Users failed.
+  fetchAllCompanyFailureMsg = Get all Company failed.
+  fetchUserFailureMsg = Fetch Users failed.
+  fetchAllUserRoleFailureMsg = Get all User role failed.
+  enterValidMsg = Please enter valid
+    
+ # Service Category Message Constants
+
+  removeConfirmationMsg = Do you want to remove
+	        
+ # Validation Message Constants
+  mandatoryFieldMsg = Please provide data in mandatory fields
+  mandatoryMsg = Please provide data in
+  validationMsg = Please enter valid data in the following fields\n
+  validatePasswordMsg = Password should not contain space
+  validateServiceAttributesMsg = Please add attributes to the Service.
+  validatePswdFailureMsg = Password should not contain User ID.
+  validateSecAnsMsg = Please enter Security Answer.
+  validateMergeTagMsg = Select a Merge Tag.
+  validateDataMsg = Please enter valid
+  descriptionFieldMsg = Description field length should not exceed 255 characters.
+    
+ # Customization Message Constants
+  customizationFailureMsg = Customization failed.
+  customizationSuccessMsg = Customization saved successfully.
+  themeSuccessMsg = Palette saved successfully.
+  themeFailureMsg = Palette creation failed.
+  incompletePaletteMsg = Complete the palette colors and proceed.
+    
+  uploadFileSuccessMsg = Successfully uploaded file.
+  attachFileSuccessMsg = File attached successfully.
+  postMsgSuccessMsg = Message posted successfully.
+  schdMsgSuccessMsg = Message scheduled successfully.
+  schdDateErrorMsg = Schedule date must be greater than the current date.
+  postMsgFailureMsg = Post your message failed.
+ # Lock ,Unlock Message Constants
+  fetchUnlockUserFailureMsg = Get UnLocked Users failed.
+  fetchLockUserFailureMsg = Get Locked Users failed.
+  unlockUserFailureMsg = UnLock Users failed.
+  lockUserFailureMsg = Lock Users failed.
+  resetPswdFailureMsg = Reset the password failed.
+  resetPswdConfirmMsg = Do you want to reset password for the user 
+  lockPswdConfirmMsg = Do you want to Lock the user 
+  unlockPswdConfirmMsg = Do you want to UnLock the user 
+  resetPswdSuccessMsg = An email has been sent to the address associated with the User ID you entered.
+  resetPasswordConfirmationMsg = An email has been sent to the email address associated with the entered User ID.
+  resetCompPswdConfirmMsg = Do you want to reset the password for 
+    
+  fetchEventsFailureMsg = Fetch enable events failed.
+    
+ # Template Message Constants
+  createTemplateFailureMsg = Create template failed.
+  createTemplateSuccessMsg = Template created successfully.
+  fetchTemplateFailureMsg = Fetch templates failed.
+  fetchAllTemplateFailureMsg = Get all templates failed.
+  fetchAllNotifTemplateFailureMsg = Fetch all Notification templates failed.
+  fetchNotifTemplateFailureMsg = Fetch Notification template details failed.
+  selectTemplateMsg = Select template.
+    
+  defaultPolicy = DefaultPolicy
+  logoutLabel = Logout 
+  helpLabel = help\t
+  trueLabel = true
+  localeLabel = Language
+  dateSeparator = /
+  customerSampleFilterNote = Sample Filtered Customer Data Satisfying Segment criteria
+  resellerSampleFilterNote = Sample Filtered Partner Data Satisfying Segment criteria
+  fetchUserTypeMsg = Failed to Fetch TC Status. 
+ 	
+ # Header Customization Constants
+  uploadLabel = Upload
+  fileUploaderLabel = File
+  imageInfoLabel = (The size of the uploaded image should be 200 X 100 pixels.)
+ 	
+  # Rebrand Label Constants
+  logoLabel = Logo
+  titleLabel = Title
+  custSupportLabel = Customer Support URL
+  custSupportPhoneLabel = Customer Support Phone
+  mailToLabel = Reply to Email
+  colorSelectionLabel = Color Palette Selection
+  colorPickerLabel = Color Picker
+  clickCellOne = Click cell to change Color 1
+  clickCellTwo = Click cell to change Color 2
+  clickCellThree = Click cell to change Color 3
+  defaultConformationMsg = By default, this will remove all existing branded styles. Do you want to continue
+  ignorePaletteSaveMsg = Do you want to ignore the changes made for new palette
+  
+ # Email Compose Constants
+  sendButtonLabel = Send
+  browseButtonLabel = Browse
+  priorityLabel = Priority
+  toAddressLabel = To
+  ccAddressLabel = Cc
+  bccAddressLabel = Bcc
+  subjectLabel = Subject
+  attachmentLabel = Attachments
+  lowLabel = Low
+  mediumLabel = Medium
+  highLabel = High
+  selectTemplateLabel = Select Template
+  noTemplateAvailedLabel = No Template Availed
+  deselectAllLabel = Deselect All
+  selectAllLabel = Select All
+  emailListLabel = Email List
+  blankContentMsg = Content should not be blank.
+  showSymbol = [Show]
+  editSymbol = [Edit]
+  deleteSymbol = [X]
+ # Confirm Dialog Constants
+  confirmationLabel = Confirmation
+  questionLabel = ?
+  yesButtonLabel = Yes
+  noButtonLabel = No
+  confirmationMsg = Do you want to save the changes 
+  cancelConfirmationMsg = You have modified the content. Do you want to save the changes 
+  saveConfirmationMsg = You have modified the content. Are you sure you want to cancel
+	
+ # Modify Account Message Constants
+  modifyAccountFailureMsg = Update User account details failed.
+  modifyAccountSuccessMsg = User account details updated successfully.
+	
+  # PartnerManagement
+  partneredServicesTxt = Partner Services
+  
+  addPartner = Add Partner
+  viewPartner = View Partner Details
+  editPartner = Edit Partner Details
+  partnerFailureMessage = Create Partner failed.
+  fetchPartneresFailureMsg = Fetch Partner account details failed.
+  partnerNoCusPlanMessage = Customer Plans are not available.
+  partnerCategory = Partner Category
+  selectCertifiedInterfaces = Select Certified Interfaces
+  partnerBOS = Partner BOS
+  companyId = Company ID
+  srcLocation = Sourcing Location
+  partnerMerchtID = (Partner merchant ID)
+ 	
+ # Validation Alert Messages
+  changesNotMadeMsg = You have not made any changes to update.
+ 	
+ # Password Policy Validation Alert Messages
+  
+  unSubscribed = Un Subscribed
+  customers = Customers
+  partners = Partners
+  andLabel = And
+  andLblTxt = and
+  orLabel = Or
+  paramLabel = ParamName
+  addFilterLabel = Add Filter
+  paramValidationMessage = Select a Parameter.
+  finishButton = Finish
+  allLabel = All
+  createSegmentSuccessMessage = Segment created successfully.
+  createSegmentFailureMessage = Create segment failed.
+  deleteSegmentFailureMessage = Remove segment failed.
+  deleteSegmentSuccessMessage = Segment removed successfully.
+  modifySegmentFailureMessage = Modify segment failed.
+  modifySegmentSuccessMessage = Segment modified successfully.
+  entrSegVals = Please enter filter Values.
+  startDate = Start Date
+  endDate = End Date
+  dateLabel = Date
+  greaterThanLabel = Greater Than
+  createSegmentTxt = Create Segment
+  importUserTxt = Import User
+  segmentationTxt = List of All Segments
+  executeReportTxt = Reports
+  previewButton = Preview
+	
+ # Import user constants
+  completedMsg = completed
+  htmlCompletedMsg = <PRE>completed</PRE>
+  importUserSuccessMsg = Users added successfully.
+  importUserFailureMsg = Import user details failed.
+  specifyFilenameMsg = Please specify a valid file name.
+  fileNameLengthExceedMsg = Filename length should not exceed 100 characters.
+  fileSizeExceedMsg = Uploaded File size exceeded the maximium limit.
+  importuserValidationMsg = Please specify an Excel file.
+	
+  fetchFiltersFailureMsg = Fetch Filters failed.
+  fetchSegmentFailureMsg = Fetch all Segments failed.
+	
+  # Template constants
+  deleteTemplateFailureMsg = Delete template failed.
+  deleteTemplateSuccessMsg = Template removed successfully.
+  modifyTemplateFailureMsg = Modify template failed.
+  modifyTemplateSuccessMsg = Template modified successfully.
+  modifyNotifTemplateFailureMsg = Modify Notification template failed.
+  modifyNotifTemplateSuccessMsg = Notification template modified successfully.
+  htmlContentLabel = HTML Content
+  textContentLabel = Text Content
+	
+ # Segment Constants
+  viewSegmentDetailsTxt = View Segment Details
+  filterLabel = Filter
+  parameterLabel = Parameter
+  operatorLabel = Operator
+  segmentationCriteriaTxt = Criteria
+  fetchSegmentDetailsFaiureMsg = Failed to fetch segment details.
+  proceedToCriteria = Proceed to Add Criteria
+  proceedToFilters = Proceed to Add Filters
+  proceedToConfirm = Proceed to Confirm
+  criteriaDetails = Criteria Details
+  filtersDetails = Filters Details
+  confirmation = Confirmation
+  removeFilter = Remove Filter
+  addServicesServicePlans = Proceed to Add Services / ServicePlans
+  userSegments = User Segments
+  tenantSegments = Tenant Segments
+ # Partner Management Constants
+  fetchCountries = Failed to get all countries
+  fetchStatesFailureMsg = Get all States failed.
+  defaultLabel = Default
+  offersLabel = Offers
+  viewActiveUsageTxt = Usage
+  promoCodeLabelTxt = Promo Code
+  rateLabelTxt = Rate
+  offerLabel = Offer
+    
+ # Labels for tips
+  recordLabel = Records
+  userEditTxt = Edit User
+  userDeleteTxt = Delete User
+  segmentDeleteTxt = Delete Segment
+  templateViewTxt = View Template 
+  showingLabelTxt = Showing
+  actionTxt = Action
+  currentStep = Step
+  imageExtensionValidationMsg = File type should be gif, jpg, or png.
+  imageSizeValidationMsg = Image size should not exceed 
+  resellerListTxt = Partner List
+
+  currencyTxt = Currency
+  ofLabelTxt = of
+  fetchCurrencyFailureMessage = Fetch Currencies failed.
+
+  creditCardTxt = Credit Card
+  noCountriesAvailableMsg = No countries are available
+  selectColorTxt = Please select a color
+  modifyPartnerFailureMsg = Failed to modify Partner.
+  componentCreationSuccessImage = Component created successfully.
+  addCustomerLabelTxt = Add Customers
+  viewCustomerDetails = View Customer Details
+  percentageSymbol = %
+  publish = publish
+ 
+  trueTxt = TRUE
+  equalsLabelTxt = Equal to
+  greaterLabelTxt = Greater than
+  greaterTxt = greater than
+  lesserTxt = lesser than
+  lessLabelTxt = Less than
+  #  Printer Management 
+  managePrintersTxt = Manage Printers
+  printersTxt = All Devices & Revenue
+  serialNumberTxt = Model Number
+  revMonthToDateLbl = Revenue Month to Date
+  revYrToDateLbl = Revenue Year to Date
+  mnthToDate = Month to Date
+  yrToDate = Year to Date
+  lastUpdatedLbl = Last Updated Date
+  lastUpdatedDateLbl = Last Updated Date
+  modelNameTxt = Model
+  printerImageTxt = Small Image
+  printerModelTxt = Printer Model
+  printerFetchFailureMessage = Failed to fetch the models.
+  thresholdValuesTxt = Threshold Values
+  thresholdValuesHighTxt = Threshold value for high
+  thresholdValuesMediumTxt = Threshold value for medium
+  thresholdValuesLowTxt = Threshold value for low
+  modifyPrinterModelDetails = Modify Printer Model Details
+  selectOpcoMsg = Please select an opco.
+  createOpcoSuccessMsg = Opco created successfully.
+  createOpcoFailMsg = Failed to create opco.
+  modifyOpcoSuccessMsg = Opco modified successfully.
+  modifyOpcoFailMsg = Failed to modify opco.
+  removeOpcoSuccessMsg = Opco removed successfully.
+  removeOpcoFailMsg = Failed to remove opco.
+  selectCountryToAssociateMsg =  Select country
+  modifyDiscountGroupHeader = Edit Discount Group
+  viewDiscountGroupHeader = View Discount Group Details
+  spclCustRatePlansHeader = Special Customer Rate Plans
+  addSpclCustRatePlansHeader = Add Special Customer Rate Plan
+  viewSpclCustRatePlansHeader = View Special Customer Rate Plan Details
+  editSpclCustRatePlansHeader = Edit Special Customer Rate Plan
+  clickHere = Click here
+  createDiscountGroupFromRatePlan = to create a new Discount Group    
+  ratePlans = Rate Plans
+  ratePlanName = Rate Plan Name
+  selectOneResellerMsg = Please select a partner.
+  dollorSymbol = $
+  deviceModelTxt = Device Model
+  monochromeTxt =  Monochrome
+  highColorTxt =  High Color
+  customerTxt = Customer
+  resellerTxt = Partner
+  creditAmtTxt = Credit Amount 
+  colorTxt = Color
+  rateTxt = Rate
+  expiredTxt = Expired
+  notStartedTxt = Not Started
+  failedToFetchRatePlanDetailsMsg = Failed to fetch rate plan details.
+  ratePlanExpiredMsg = Rate Plan expired and cannot be modified.
+  specifyValidFilenameMsg = File not found. Please enter a valid file path.
+  specifyUnsupportedImageType= Invalid or unsupported logo image format.  
+  captchaLabelTxt = Enter letters shown in image below
+  phoneExtnsionLabel = Extn
+  addressLine1Txt = Address Line 1
+  addressLine2Txt = Address Line 2
+  emailAlertsTxt = Email Alerts or Notification to be sent
+  tomerLowLbl = Toner low
+  estimPrintsLowLbl = Estimated Prints low
+  hardwareErrorsLbl = When Hardware encounters an error
+  promotionalEmailLbl = I would like to receive promotional email from Xerox about its products, services and special offers.
+  devicesHeader = Device List
+  devices = Devices
+  discountGroupLbl = Discount Group
+  baseLbl = Base
+  postPayLbl = Post Pay
+  prepayLbl = Prepay
+  discountLbl = Discount
+  specialRateLbl = Special Rate
+  volumeRateLbl = Volume Rate
+  baseDiscLbl = Base Rate Discount
+  postPayDiscLbl = Post Pay Rate Discount
+  volumeRateDiscLbl = Volume Rate Discount
+  
+  # Consumable items screen constants
+  consumableItemsListHeader = List of All Consumable Items 
+  consumableItemsStatusListHeader = List of All Consumable Items Status
+  addEditconsumableItemsHeader = Add / Edit Consumable Items
+  viewConsumableItemsHeader = Consumable Item Details
+  consumableItemsLabel = Consumable Items
+  consumableItemsStatusLabel = Consumable Items Status
+  itemNameLabel = Item Name
+  packageQunatityLabel = Package Quantity
+  orderSourceLabel = Order Source
+  consumableNameLabel = Consumable Name
+  fulfillmentProcessLabel = Fulfillment Process
+  packageQtyMsg = Package Quantity should not be zero
+  
+  # Customer registration screen constants
+  refreshCaptcha = try another
+  accountInfo = Account Information
+  contactInfo = Contact Information
+  shippingInfo = Shipping Information
+  iAgreeLbl = I Agree With the
+  termsAndCondition = Terms and Conditions
+  updatedTermsAndCondition = Updated Terms and Conditions
+  setEmailForNotification = Please Set Your Email Alerts or Notifications
+  confirmFollowing = Please Confirm if the Following Information is Correct
+  cautionGoingBack = You may change a particular information by going to the Previous screens where you had provided the same.
+  additionalSuppTxt = If you require further assistance, please see if it is already available in our <a href="#">Help</a> or <a href="#">Frequently Asked Questions</a> Sections. We may have a page that answers your question.
+  congratsTxt = Congratulations.
+  startUsingPayGoLbl = You can start using the Trailblazer Service by downloading and installing the following Trailblazer Agent in your Computer.
+  winPayGoAgentLbl = Windows Trailblazer Agent 
+  macPayGoAgentLbl = Apple OSX Trailblazer Agent
+  linuxAgentLbl = Linux Trailblazer Agent
+  installAgentLbl = Installing Agent 
+  configureAgentLbl = Configuring Agent
+  errorHandlingLbl = Error Handling
+  relatedHelpLbl = Related Help
+  additionalSupportLbl = Additional Support
+  fileNotExistMsg = File does not exist.
+  captchaValidationMsg = Please type the displayed letters correctly.
+  prefEntryMsg = Please add at least one First Name and Email ID.
+  doneTxt = Done
+  confirmLbl = Confirmation
+  downAgntLbl = Download Agent
+  fetchCaptchaFailureMsg = Failed to fetch captcha.
+  acceptTermsLbl = I accept the Terms and Conditions
+  confirmTermsLbl = You are required to confirm if you agree with the terms and conditions.
+  oneTimeReqLbl = This is a one time requirement and the system will not ask you to provide this information again.
+  provideInfoLbl = Please Provide the following Information
+  changePasswdLabel = Change Password
+  changeBtnTxt = Change
+  fetchSecQuesFailureMsg = Failed to bring Security Questions.
+  confirmButtonLbl = Confirm and Proceed 
+  forLbl = For
+  toLbl = To
+  addContactLbl = Add New Contact
+  promoEmailTxt = Promotional Email
+  maxLimitMsg = Max Limit is 4
+  rowLbl = Row
+  inLbl = in
+  validationFailMsg = Please enter valid data in the following fields:
+  selectOneMsg = Please select one at a time.
+  listAllRatePlans = Rate Plans
+  addNewRatePlanLbl = Add Rate Plan
+  lastDateLbl = Last Date
+  ongoingLabel = Ongoing
+
+  alreadyConfiguredMsg = Already configured.
+  devModelHeader = Trailblazer Devices of this Model
+  customerNameLbl = Customers Name
+  activDateLbl = Activation Date
+  colorPerceLbl = Color %
+  estimPgsLbl = Estimated Pages
+  mandtryInfoLbl = Indicates required field
+    
+  largeImageLbl = Large Image
+  shouldBeGreater = should be greater than
+  printedPagesLbl = Printed Pages
+  revenueTodayLbl = Revenue Today
+  addNewDeviceModel = Add New Device Model
+  tierLbl = Tier
+  tier1Lbl = Tier 1
+  tier2Lbl = Tier 2
+  totalRvnLbl = Total Revenue
+  
+  opcoLink = Opco
+  opcoHeader = Opco
+  addOpcoHeader = Add Opco
+  modifyOpcoHeader = Edit Opco
+  viewOpcoHeader = View Opco Details
+  
+  managePrinters = Manage Printers
+  ratePlan = Rate Plan
+  partnerPrograms = Partner Programs
+  partnerProgramHeader = Partner Programs
+  addPartnerProgramHeader = Add Partner Program
+  modifyPartnerProgramHeader = Edit Partner Program
+  viewPartnerProgramHeader = View Partner Program Details
+  
+  configurationFiles = Configuration Files
+  platformConfigHeader = Platform Configuration
+  modifyConfigSettings = Modify Configuration Settings
+  enterSysObjMsg = Please enter data in Sys Object ID for
+  enterConfigDataMsg = Please enter data in configuration for
+  enterConfigMsg = Please enter data at least for one configuration.
+  denominationTxt = Denomination
+  tonerMediumLbl = Toner medium
+  tonerHighLbl = Toner high
+  defaultColorPrcntLbl = Default color percentage (for Calculator)
+  shouldBeLesser = should be less than 100
+  addOneOrMoreTierLabel = (Add one or more supported pricing tiers)
+  forCalculator = (for calculator)
+  fetchConfigSettingsFailMsg = Failed to fetch the platform configurations.
+  selectCurrencyMsg = Select the currency.
+  enterDenominationMsg = Enter the denomination.
+  denomAlreadyAddedMsg = Same denomination already exists for this currency.Please enter another denomination.
+  selectDenomRemoveMsg = Select the denomination to be removed.
+  productCodeLabel = Product Code
+  resellerNameLabel = Partner Name
+  resellerNameInRegLabel = Reseller Name
+  resellerUserIdInRegLabel = Reseller User ID
+  customersLabel = 	Customers
+  listAllResellers = List of All Partners
+  enterValidDenom = Enter valid denomination.
+  
+  passCode = API Access Passcode
+  
+  # labels used before login
+  supplyStoreTitle = Supplies Store
+  rememberPasswordLbl = Remember me 
+  forgotPasswordLbl = Forgot your password?
+  copyRightXerox = © 2020 XEROX CORPORATION. All rights reserved.
+  copyRightPaymentGateway = By submitting this order I agree to the eConcierge powered by Xerox terms and conditions.
+  trailblazerLogoName = Xerox eCommerce Services
+  trailblazerTabName = Xerox eCommerce Services
+  tbPlatformName = Xerox eCommerce Platform Portal
+  tbProviderName = Xerox eCommerce Provider Portal
+  tbPartnerName = Xerox eCommerce Partner Portal
+  loginResellersLbl = Login - Partners
+  aboutUsLnkLbl = About Us   
+  supportDriversLnkLbl = Support & Drivers
+  faqLnkLbl = Frequently Asked Questions
+  contactUsLnkLbl = Contact Us
+  legalLnkLbl = Legal
+  siteMapLnkLbl = Sitemap 
+  privacyLbl = Privacy
+  
+  joinDateLbl = Joining Date
+  creditBalLbl = Credit Balance
+  creditLimitLbl = Credit Limit
+  hyphenLabel = -
+  colonLbl = :
+  listOfCustAndRevLbl = List of All Customers & Revenue
+  selectCustDetailsLbl = Details of Selected Customer
+  selctCustMsg = Please select a customer.
+  custFetchFailMsg = Failed to fetch all customers.
+  emailNotifPrefLbl = Email Notification preference
+  duplicateCCdetails = Duplicate credit card details.
+  allTxt = All
+  unsentTxt = Unsent
+  sentTxt = Sent
+  extnLbl = Extn
+  legalLbl = legal
+  faqLbl = Frequently Asked Questions
+  registerNowLbl = register now
+  overviewLbl = overview
+  helpfulResourcesLbl = Helpful Resources
+  greaterSymbol = >
+  fillAccountDetailsTxt = Please fill in your Account Information
+  visuallyImpairedTxt = visually impaired
+  custRegConfirmStep = Step 2 of 3
+  custRegConfirmStepTxt = Please confirm if the following information is correct. If you need to make an edit, please click the "Previous" button.
+  operatingSysLbl = Operating System
+  windowsLbl = Windows
+  linuxLbl = Linux
+  appleLbl = Apple
+  agentDownloadLbl = Agent Download
+  installationLbl = installation
+  troubleShootingLbl = troubleshooting
+  dwnldAgentErrMsg = Cannot download agent for the following reason:
+  allListMsg = List of All Messages
+  sentListMsg = List of All Sent / Scheduled Messages
+  unSentListMsg = List of All Unsent / Scheduled Messages
+  fetchAllMsgsFailureMsg = Failed to fetch scheduled messages.
+  messagesLabel = Messages
+  editPlanCategoryHeader = Edit Plan Category
+  viewPlanCategoryHeader = View Plan Category Details
+  scheduledDateLabel = Scheduled Date
+  sentDateLabel = Sent Date
+  toNoLabel = To#
+  selectSegmentMsg = Select the Segment
+  emptyContentTxt = ---
+  modifySegmentTxt = Modify segment
+  saveSegmentButtonLabel = Save Segment
+  lastModifiedLabel = Last Modified
+  viewMessageDetails = View Message Details
+  planCategoryLbl = Plan Category
+  postPayRateLbl = Post Pay Rate
+  partnerMarginRateLbl = Partner Margin Rate
+  openBraceLbl = (
+  closeBraceLbl = )
+  baseRateLbl = Base Rate
+  upliftLbl = Up Lift
+  programNamesLbl = Program Names
+  programNameLbl = Program Name
+  marginLbl = Margin
+  price1Lbl = Price 1
+  price2Lbl = Price 2
+  price3Lbl = Price 3
+  price4Lbl = Price 4
+  
+  custRegMessageHeader = Whoops, there are a few problems with this form:
+  custRegMessageFooter = Please enter the missing information.
+  custRegMessageDefault = Please re enter the passwords and letters shown in image.
+  isARequiredField = is a required field.
+  captchaMsg = Letters shown in image below
+  dataEnteredFor = Data entered for
+  isNotValid = is not valid.
+  caseSensitive = case sensitive
+  
+  chooseCaseSensitivePwd1 = Choose a case-sensitive password of
+  chooseCaseSensitivePwd2 = letters, numbers and/or special characters.
+  prohibitedChars =  Do not use spaces.
+  mandatoryCategories = Must contain all 4 of these categories:
+  upperCaseInfo = Upper alpha (A,B,C,...Z)
+  lowerCaseInfo = Lower alpha (a,b,c,...z)
+  numericInfo = Numeric (0,1,2,...9)
+  nonAlphaNumericInfo = Non-alphanumeric punctuation marks (@,#,...)
+  passwordPolicyCheckErrMsg = Password does not satisfy the displayed secure password selection criteria.
+  promocodesTxt = Promo Codes
+  mustContainAllLbl = Must contain all 
+  fromCategoriesLbl = of these categories:
+  
+  promotionName = Promo Name
+  usageFrequency = Usage Frequency
+  offerAmount = Amount
+  recharge = Recharge
+  usage = Usage
+  activationDate = Activation Date
+  times = Number of times this promo can be apply to an account and serial number combo
+  promoCondition = Apply Promotion on / Promotion is for
+  
+  allPromotions = All Promotions
+  addPromotion = Add Promotion
+  viewPromotion = Promotion Details
+  editPromotion = Modify Promotion
+  allPromoCodes = List of All Promo Codes
+  
+  fetchAllPromotionsFailureMsg = Failed to fetch promotions
+  removePromotionFailureMsg = Failed to remove promotion
+  
+  selectMail = Is this promotion a follow up to previously sent email message?
+  launchedDate = Send Date
+  emailType = Email Type
+  folowUpInfo = This promotion can be send to same segment of selected Email Message
+  segmentName = Segment Name
+  validCombinationLbl = Please select valid combination of template and segment.
+  
+  createKeyFailMsg = Failed to create Key.
+  fetchKeyFailMsg = Failed to fetch the keys.
+  keyListHeader = Device Keys
+  addKeyHeader = Generate Key
+  customerEmail = Customer Email
+  advancedSearchLbl = Advanced Search
+  modifyCustAccountSuccess = Customer details modified successfully
+  checkDefaultCheckBox = Check the Default check box for the following.
+  planCategoryNameLbl = Plan Category Name
+  lessThanEqulsLbl = Less than or equal to
+  mediumColorLbl = Medium Color
+  lowColorLbl = Low Color
+  sumDefaultColorPercentMsg = The sum of all the Color percent's should be 100.
+  aboveLbl = Above
+  validThresholdPxlsValue = Please enter valid Threshold Pixels (Million) values.
+  selectSrcLocMsg = Please select a Sourcing Location.
+ listSrcLocation =List of Sourcing Locations
+ fulfilmentInterface = Fulfillment Interface
+ chngeSrcLocPref = Please select different sourcing location for preference.
+ page1Of1 = Page 1 0f 1.
+ zeroOfZero = 0 - 0 of 0
+ taxSysNtAvailMsg = Requested system not available now. Please try later
+ distiNotRespondingMsg = Distributor system is not available now. Please try again later.
+ invalidCredentials = Invalid Credentials.
+ validCredentials = Valid Credentials.
+ test = Test
+ #T&C and Email messages related labels and messages
+ tcTempaltesLbl = T & C
+ versionNumberLbl = Version Number
+ partnerEditableLbl =  Partner Editable
+ #emailMessagesLbl = Email Messages
+ onOffLabel = ON/OFF
+ onLabel = ON
+ offLabel = OFF
+ notificationsLbl = Notifications
+ editTcTemplateLbl = Edit Terms & Conditions
+ viewTcTemplateLbl = View Terms & Conditions
+ selectTcTemplateMsg = Please select a T & C Template.
+ modifyTcTemplateSuccessMsg = T & C template modified successfully.
+ modifyTcTemplateFailureMsg = Failed to modify the T & C template.
+ fetchTcTemplatesFailureMsg = Failed to fetch the T & C templates.
+ viewNotificationTemplateLbl = Notification Template
+ editNotificationTemplateLbl = Edit Notification Template
+ modifyNotificationTemplateSuccessMsg = Notification Template modified successfully.
+ modifyNotificationTemplateFailureMsg = Failed to modify the notification template.
+ fetchNotificationTemplatesFailureMsg = Failed to fetch the notification templates.
+ selectNotificationTemplateMsg = Please select a Notification Template.
+ selectOneSrcLocMsg = Select at least one sourcing location.
+ removeAttachment = Do you want to remove this attachment
+ partnerSetupStatFailureMsg = Failed to fetch the partner setup status.
+ fetchVersionNumFailure = Failure To Fetch VerionNumber.
+ failedToRemove = Failed to remove.
+ imgSizeExceedMsg = Image size exceeded the maximum limit.
+ fileTypeMsg = File Type Should be gif, jpg or png
+ fileSizeExceededMaxLmt = File size exceeded the maximum limit.
+ fileSizeShouldNotExceed10Mb = File size should not exceed more than 10 MB.
+ fetchSecQuesFailMsg = Failed to bring Security Question list.
+ entrOnlyNumbers = Enter only numbers.
+ entrProperZip = Enter 5 or 9 digit ZIP code.
+ entrCanadaPostalCode = Enter Postal Code of format (A1A 2B2).
+ systemNotificationsLabel = System Notifications
+ #Base data related labels and messages
+  countiresLbl = Countries
+  paymentTypeLbl = Payment Type
+  customerBillingMethodLbl = Customer Billing Method
+  creditCardTypesLbl = Credit Card Types
+  serviceEntitlementLbl = Service Entitlements
+  productClassCode = Product ClassCode
+  fetchCreditCardTypesFailureMsg = Failed to get all credit card types.
+  certInterSelLbl = Select Certified Interfaces
+  eligPayOptSelLbl = Select Eligible Payment Options
+  payOptSelLbl = Select one or More Payment Options
+  prePayLbl = Pre-Pay
+  prePayDescLbl = Requires certified devices for Pre-paid pages
+  payPostLbl = Post-Pay
+  postPayDescLbl = Requires certified devices for Post-paid pages
+  buyNowLbl = Buy Now
+  buyNowDescLbl = Requires certified devices for Supplies
+  fetchcreditCardsFailureMsg = Failed to fetch all credit card types.
+  viewProviderLbl = View Provider Details
+  listProviderLbl = List of All Providers
+  addEditProvLbl = Add / Edit Provider
+  addProvLbl = Add Provider
+  editProvLbl = Edit Provider
+  cardTypeLbl = Card Type
+  merchantIdLbl = Merchant ID
+  payOptLbl = Payment Options
+  fillBasicDtlsHdrLbl =  Please fill in basic details
+  fillUserDtlsHdrLbl = Please fill in administrator user details for
+  basicDtlsHdrLbl = Basic details
+  userDtlsHdrLbl = Administration user details for
+
+  catalogTxt = Catalog
+  manufacturerTxt = Manufacturers
+  listofManufacturers = List of Manufacturers
+  addManufacturerTxt = Add Manufacturer
+  editManufacturerTxt = Edit Manufacturer
+  viewManufacturerTxt = View Manufacturer Details
+  selectManufacturerMsg = Please select a Manufacturer.
+  selectInterfaceNameMsg = Please select an Interface Name.
+
+  fetchManufacturerFailureMsg = Failed to fetch manufacturer
+
+ # Offerings menu constants
+  offeringsTxt = Programs 
+  programsTxt = Program Definition
+  basicDetailTxt =  Basic Details
+  defBrandingTxt = Default Branding
+  programCategoryTxt = Program Categories
+  providerCatalogTxt = Catalog
+  consumablesTxt = Consumables
+  pricingTxt = Base Prices
+  skuMappingTxt = SKU Mapping
+  partNumberTxt = Consumable Part #
+  modelsTxt = Models 
+  eligibleModelsTxt = Eligible Models 
+  consuamblesTxt = Consumables & Thresholds
+  helpDocsTxt = Help Docs
+  storeLocTxt= Store Locations
+  # Pricing sub menu constants
+  pagePriceTxt = Page Price
+  consumablePriceTxt = Consumable Parts
+  consumablePriceListTxt = Consumable Price List
+  priceListDetailsTxt = Consumable Price List Details 
+  custSpecialRatePlans = Customer Special Rate plans
+  partnerCategories = Partner Categories
+  planCategories = Plan Categories
+  discountGroups = Discount Groups
+  upldConsPriceLst = Upload Consumable Part Price List
+  upldPromoCouponLst = Upload Promo Coupon
+  programCategoryHeader = Program Categories
+  addProgramCategoryHeader = Add Program Category
+  editProgramCategoryHeader = Edit Program Category
+  viewProgramCategoryHeader = View Program Category Details
+  modelsAndParts = Models and Parts
+  
+  #Plan Category screen constants.
+  planCategoryHeader = Plan Categories
+  addPlanCategoryHeader = Add Plan Category
+  planCategoryName = Category Name
+  
+  
+  partnerCategoryHeader = Partner Categories
+  addPartnerCategoryHeader = Add Partner Category
+  editPartnerCategoryHeader = Edit Partner Category
+  viewPartnerCategoryHeader = View Partner Category
+  
+  discountGroupHeader = Discount Groups
+  addDiscountGroupHeader = Add Discount Group
+  discountGroupName = Discount Group Name
+  #Program Consumables screen constants.
+  manufacturer = Manufacturer
+  consumableCategoryLbl = Consumable Category
+  comparatorLbl = Comparator
+  consumablePartTemplate = Consumable Part Template
+  distiSKUTemplate = Disti SKU Template
+  distiSKU = Disti SKU
+  
+    
+  deleteProgramConsumableSuccessMsg = Consumable Part Number removed successfully
+  deleteProgramConsumableFailureMsg = Failed to remove the Consumable Part Number
+  fetchProgramConsumableFailureMsg = Failed to fetch Consumable Part Number
+  uploadPgmConsumableFailureMsg = Failed to upload Consumable Part Numbers
+  importValidationMsg = Please specify an Excel file
+  invalidDataInCSVMsg = Invalid data in uploaded CSV File
+  consumableCategoryWithPart = Consumable category associated with part. Cannot remove
+  modelAssWithPart = Model is associated with Part #. Cannot remove.
+  
+  consumablesHeader = Consumables Part #
+  addEditConsumablesHeader = Add / Edit Consumable
+  addConsumablesHeader = Add Consumable Part #
+  editConsumablesHeader = Edit Consumable Part #
+  viewProgramConsumableHeader = View Consumable Part # Details
+  uploadProgramConsumableHeader = Upload Consumables
+  
+  #Consumables SKU Mapping labels and Messages
+  editConsumableSKUMappingHeader = Edit Consumable SKU Mapping 
+  listConsumablesSKUMappingHeader =Consumables SKU Mapping
+  srcLoc = Sourcing Location
+  uploadConsumablesSKUMappingHeader = Upload Consumables SKU Mapping
+  uploadConsumablesSKUMappingMsg = Consumables SKU mapping uploaded successfully.
+  
+  # Consumable price screen constants.
+  consumablePriceListHeader = Consumable Part Price
+  addEditconsumablePriceHeader = Add Consumable Part Price
+  editconsumablePriceHeader =  Edit Consumable Part Price
+  viewconsumablePriceHeader = View Consumable Part Price Details
+  uploadConsumablePriceHeader = Upload Price List
+  noCurrenciesAvailableMsg = No currencies are available
+  noModelsAvailableMsg = No models are available
+  noConsumableCategoriesAvailableMsg = No consumable Categories are available
+  noProgramsAvailableMsg = No Programs are available
+  uploadConsumablePriceSuccessMsg = Consumable price uploaded successfully
+  uploadConsumablePriceFailureMsg = Failed to upload consumable price
+  createConsumablePriceHeaderTxt = Create New Price List
+  modifyConsumablePriceHeaderTxt = Modify Existing Price List
+  
+  downloadLbl = Download
+  eRP = ERP
+  costToPartner = Cost to Partner
+  priceListNameLabel = Price List Name
+  priceListLabel = Price List
+  partDescLabel = Part Description
+  transactionFeeLabel = Transaction Fee
+  distiCostLabel = Disti Cost
+  avgDistiCostLabel = Average Disti Price
+  consumablePriceTemplateLabel = Consumable Part Price Template
+  consumablePriceTemplateDownloadLabel = Download Consumable Part Price Template
+
+  partNbrLabel = Part #
+  descriptionsLabel = Description
+  
+   
+  # Programs screen constants.
+  selectedModelsHeader = Selected Models
+  eligibleModelsHeader = Eligible Models
+  addEditProgramsHeader = Add / Edit Program
+  addProgramsHeader = Add Basic Details
+  editProgramsHeader = Edit Basic Details
+  viewProgramsHeader = View Basic Details
+  
+  sourcingLocationsLbl = Sourcing Locations
+  custBillingMethod = Customer Billing Method
+  defaultShipHandlingFeeShdle = Default Shipping and Handling Fee Schedule
+  devicename = Device name
+  models = Models
+  noneLabel = None
+  consumableCategoryNameLbl = Consumable Category Name
+  additionalInfo = Additional Information
+  dataTxt = data
+  
+  fectchModelsFailureMsg = Failed to fetch models
+  fectchSrcLocsFailureMsg = Failed to fetch Sourcing Locations
+  
+  
+#Consumables labels and messages
+typesTxt = Types
+thresholdsTxt = Thresholds
+categoriesTxt = Categories
+
+listofConsumables = List of All Consumables
+listofConsumableTypes = List of All Consumable Types
+listofConsumableCategories = List of All Consumable Categories
+listofConsumableThresholds = List of All Consumable Thresholds
+selectConsumableCategoryProgram = Please select a Consumable Category for the program.
+addConsumableTypeTxt = Add Consumable Type
+editConsumableTypeTxt = Edit Consumable Type
+viewConsumableTypeTxt = View Consumable Type Details
+addConsumableCategoryTxt = Add Consumable Category
+editConsumableCategoryTxt = Edit Consumable Category
+viewConsumableCategoryTxt = View Consumable Category Details
+addConsumableThresholdTxt = Add Consumable Threshold
+editConsumableThresholdTxt = Edit Consumable Threshold
+viewConsumableThresholdTxt = View Consumables & Thresholds
+consumableTypeName = Consumable Type
+
+fetchConsumablesFailureMsg = Failed to fetch Consumables
+
+fetchConsumableCategoryFailureMsg = Failed to fetch Consumable Category
+
+searchTextValue = Please enter a keyword to Search.
+value = value
+shldb = should be
+
+#Model related Labels
+phoneSupportLbl = Phone Support
+fullSupport = Full Support
+onsiteSupport = On-site Support
+confReqFrModel = Atleast one configuration is required for the model.
+#Shipping Method related Labels
+shippingHandlingTxt = Shipping & Handling
+shippingMethodsTxt = Shipping Methods
+listofShippingMethods = List of Shipping Methods
+addShippingMethodTxt = Add Shipping Method
+editShippingMethodTxt = Edit Shipping Method
+viewShippingMethodTxt = View Shipping Method Details
+
+fetchShipClassCodeFailureMsg = Failed to fetch Shipping Class Code.
+drepMsg = File type Should be drep.
+commMsg = File type Should be comm.
+validFileMsg = Please upload valid file.
+
+#Fee Schedules Related Labels
+FeeschedulesHandlingTxt = Fee Schedule
+feeSchedulesTxt = Fee Schedules
+listofFeeschedulesMethods = List of Fee Schedules
+addFeeschedulesTxt = Add Fee Schedule
+editFeeschedulesTxt = Edit Fee Schedule
+viewFeeschedulesTxt = View Fee Schedule Details
+
+selectFeeschedulesMsg =  Please select a Fee Schedule.
+removeFeeschedulesFailureMsg = Failed to remove Fee Schedule
+removeFeeschedulesSuccessMsg = Fee Schedule removed successfully.
+fetchFeeschedulesFailureMsg = Failed to fetch Fee Schedule
+createFeeschedulesFailureMsg = Failed to create Fee Schedule
+modifyFeeschedulesFailureMsg = Failed to modify Fee Schedule
+createFeeschedulesSuccessMsg = Fee Schedule created successfully.
+FeescheduleRange =  Please Add a Fee Schedule Range.
+
+FeeTypeLblTxt = Fee Type
+PriceLblTxt = Price
+CarrierNameLblTxt = Carrier Name
+ShippingMethodLblTxt = Shipping Method
+
+logoUploadInfo = Use a file of 100 Kb size limit or 300 pixels by 60 pixels.Use RGB file types of (jpg, gif, png)
+previewThemeLbl = Preview of Selected Theme
+maxTitleLength = Maximum characters allowed is 50.
+previewLink = View Preview
+closePreviewLbl = Close Preview [x]
+
+#Model Images
+editModelImagesTxt = Edit Model Images
+viewModelImagesTxt = View Model Images Details
+#Messaging
+MessagingTxt = Messaging
+MessagingTabHandlingTxt = Messaging
+MessegesStatusTxt = Message Status
+TemplateTxt = Templates
+SegmentTxt = Segments
+programsLbl = Programs
+revenueModelLbl = Revenue Model
+#Report
+clickPdfHelp = Click on PDF icon <img src='img/pdf.gif'> for report in .pdf format.
+clickCsvHelp = Click on CSV icon <img src='img/csv.gif'> for report in .csv format.
+
+#Service Loyality Threshold
+serviceLoyalityThresholdTxt = Loyalty Thresholds
+upldLoyaltyThreshold = Upload Loyalty Threshold
+downLoadServiceLoyaltyThresholdFailureMsg = Failed to download Loyalty Threshold
+
+#Customer Registration Related Labels
+createCustAccountSuccess = Customer created successfully.
+createFailedCustomer = Failed to create Customer.
+platformLabel = Platform
+installationHelpLabel = Installation Help
+phoneLbl = Phone
+mobilePhoneLbl = Mobile Phone
+windowOSXP = Windows XP
+windowOS7 = Windows 7
+windowOS8 = Windows 8
+macOS8 = Mac 10.8
+macOS6 = Mac 10.6
+windowOS = Windows 8, Windows 7, Vista, XP
+macOs = Mac
+linuxOS = Linux
+
+#Distributor Preferences Constants
+ftpLabel = FTP
+accNumberLabel = Account Number
+distributorConfigDetailHeader =	Configure Distributor Credentials
+distiPreferenceHeader = Distributor Preference
+distributorLabel = Distributor
+hideDetailsBtLbl = Hide Details
+showDetailsBtLbl = Show Details
+errorDescription = Error Description
+rowNo = Row #
+defaultPartLbl = Is Default Part#
+
+certifiedUsageMonitoringChangeAlert = Certified Usage Monitoring value should not be changed.
+printLabel = Print
+accept = Accept
+accountInfoStepTxt = Step 1 of 2
+pleaseChgnPwd =  Please change your password.
+plsRegLbl = Account Registration
+staplesCustomerActivationLbl = Account Activation
+agentDownloadStepLbl = Step 2 of 2
+agentDownloadStepTxt = Download and Install Supplies Assistant
+agentDownloadStaplesStepTxt = Download and Install eConcierge.
+
+# invalid file error messages.
+csvExtensionValidationMsg = File type should be csv.
+pdfExtInvalidMsg =  File type should be pdf. 
+
+#Dashboard related contants.
+updateConsumablePricingLbl = Update Consumable Pricing
+updateUsersLbl = Update Users
+alertsLbl = Alerts
+quickLinksLbl = Quick Links
+topProductsLbl = Top Products
+topAccountsLastMonthLbl = Top Resellers - Last Month
+topAccountsProgramToDateLbl = Top Resellers - Program to Date
+topAccountsRevenuePerDeviceLbl = Top Resellers - Revenue per Device
+storeOverviewLbl = Store Overview
+youHaveLbl = You have
+totalSalesLbl = Total Sales
+totalDevicesManagedLbl = Total Devices Managed
+revenueLbl = Revenue
+customerTrendLbl = Customer Trend
+deviceTrendLbl = Device Trend
+fetchDashboardDetailsFailureMsg = Failed to fetch the dashboard details.
+fetchQuickAlertsFailureMsg = Failed to fetch the quick alerts.
+fetchOrderDetls = Failed to fetch the order details.
+companyNameLbl = Company Name
+orderDateLabel = Order Date
+orderIdLabel = Order ID
+salesPersonId = Salesperson ID
+carrier = Carrier
+method = Method
+qty = Qty
+mfg = Mfg
+serialNum = Serial #
+orderNum = Order#
+gotLabel = got
+isLabel = is
+gotRejectedByLabel = got rejected by
+orderSubTot = Order Sub-Total
+orderTotalLabel = Order Total
+shipToAddr = Ship to Address
+shipDateLabel = Ship Date
+tracking = Tracking #
+revenueTrendToolTip = Total Revenue per month
+deviceTrendToolTip = Total number of Devices Managed per month
+resellerTrendToolTip = Total number of Resellers added per month
+customerTrendToolTip = Total number of Customers added per month
+topProductsToolTip = Ratio of Devices Managed by models
+snapShotInfo = Snapshot of data as on
+dashboardLbl = Dashboard
+
+partNumberStepTwoLbl = Please add consumable categories for the selected models
+validateSpaceInPasswordMsg = Password should not contain space
+#ServiceLoyalty
+loyaltyBenefitTxt =  Loyalty Benefit Configuration
+listofServiceLoyalityThresholdMethods = List of Loyalty Thresholds
+addServiceLoyalityThresholdTxt = Add Loyalty Threshold
+editServiceLoyalityThresholdTxt = Edit Loyalty Threshold
+viewServiceLoyalityThresholdTxt = View Loyalty Threshold Details
+fetchServiceLoyalityThresholdFailureMsg = Failed to fetch Loyalty Threshold.
+
+#Loyalty Threshold Messages
+serviceLoyalityMessagesTxt = Loyalty Messages
+listofServiceLoyalityMessages = List of Loyalty Messages
+addServiceLoyalityMessagesTxt = Add Loyalty Messages
+editServiceLoyalityMessagesTxt = Edit Loyalty Messages
+secureCheckout = Secure Checkout
+
+#Loyalty Warranty
+serviceLoyalityWarrantyTxt = Loyalty Warranty
+listServiceLoyaltyWarrantyUpload = Loyalty Warranty Upload
+
+#Loyalty Warranty
+serviceLoyalityAdjustmentTxt = Device Consumable Adjustments
+
+resellerLbl = Reseller
+
+invalidUserInfoLbl = User ID or security answer is incorrect. Please check your information and try again.
+
+
+#Configuration Files
+modifiedDateLbl = Modified Date
+configurationFilesTxt = Configuration Files
+configurationFilesUploadTxt = Configuration File Upload
+oldPasswordFailureMessage = The Old Password you have entered is incorrect. Please try again.
+
+#Auth.Net page related labels
+authNetURLLabel = eConcierge powered by Xerox terms and conditions.
+authNetURLTxt = By submitting this order I agree to the
+
+ # Other Alert messages
+ erpModified = A change has been made to the Part $part#$ ($part description$) ERP from $oldprice$ to $newprice$ with effect from $startdate$ make sure any custom price lists are updated
+ priceListCreated =  A change has been made to the ERP price list with effect from $startdate$  make sure any custom price lists are updated
+ nonReportedDevice = $noOfDevices$ device(s) have not responded for $noOfDays$ or more days; please use the 'Non-reporting devices' report to identify specific devices.
+ 
+ # label constants for order details
+ suppliesSubTotal = Extended Price
+ suppliesTotal = Subtotal
+ tax = Tax
+ shpngAndHndlng = Shipping and Handling
+ upLbl = up
+ oldAndNewPwdDiff = Old Password and New Password must be different.
+ totalLbl = Total
+ extendedPrice = Extended Price
+ orderSubTotal = Subtotal
+ 
+ #Eligible Model
+ listEligibleModelLbl = List of Eligible Models
+ addEligibleModelLbl = Add Eligible Model
+ editEligibleModelLbl = Edit Eligible Model
+
+ #consumable Threshold
+ listConsumableThreshodLbl = List of Consumables & Thresholds
+ configureConsumableThresholdLbl = Configure Consumables & Thresholds
+ defaultBranding = Default Branding
+ basicDetails = Basic Details
+ selectCategory = Select Category
+ fetchProgramFailureMsg = Failed to fetch programs
+ removeModelMsg = Do you want to remove the Model
+ modelHasDefaultPartMsg = Model has default part. Cannot be removed
+ sourceoverridelocInfoLbl = Provide if Part not available with Sourcing Locations
+ isDefaultpartLabel = Mark as default part for category
+ sourceoverridelocLbl = Sourcing Override Location
+ partNumberLabel = Part Number
+ programTypeLbl = Program Type
+ reviewOrdersLbl = Review Orders
+ availableCreditLbl = Available Credit
+ approveLbl = Approve
+ rejectLbl = Reject
+ 
+ typePercentage = %
+ typePages = pages
+ typeSticks = Sticks
+ typeStatus = Status
+ typeStatusPerce = Status %
+ statusOk = Ok
+ statusEmpty = Empty
+ statusLow = Low
+ statusMissing = Missing
+ 
+ #report attributes
+ showAllResellers = Show all Resellers
+ showResellersWithActivity = Show Resellers with activity
+ showResellersNotPublished = Show Resellers not published
+ publishedWithNoActivity = Published with no activity
+ selectResellers = Select Resellers
+ openAccount = Open Account
+ orderedPartsOnly = Ordered Parts Only?
+ includeActivatedPlans = Include Activated Plans?
+  
+ # Invalid Login Error Msg
+ loginfailedCntctServiceProMsg = Login failed due to invalid credentials. Please contact your Service Provider if problem persists.
+ provideValidCredentials = Provide valid credentials. 
+ pleaseEnterUserId = Please enter User ID.
+ failedToFetchSequrityQuestion = Failed to fetch the Security Questions.
+ 
+ selectValidCombination = Please select valid combination of template and segment
+ fetchResellerTypeFailure = Failed to Fetch the reseller Types
+ 
+ #locale specific data
+ #Price list status
+ CURRENT = Current
+ EXPIRED = Expired
+ FUTURE = Future
+ 
+ #Order Status
+ PENDING = Pending
+ CONFIRMED = Confirmed
+ SHIPPED = Shipped
+ CANCELLED = Cancelled
+ PARTIALLY_SHIPPED = Partially Shipped
+ PENDING_REVIEW = Pending Review
+ CREDIT_REVIEW = Credit Review
+ PENDING_RETRY = Pending Retry
+ FAILED = Failed
+ UNKNOWN = Unknown
+ 
+ #Country
+ COUNTRY_US = United States
+ COUNTRY_CA = Canada
+ 
+ #CountryCode
+ CODE_CA = CA
+ CODE_US = US
+ #States
+ #United States
+ STATE_AL = Alabama
+ STATE_AK = Alaska
+ STATE_AZ = Arizona
+ STATE_AR = Arkansas
+ STATE_CA = California
+ STATE_CO = Colorado
+ STATE_CT = Connecticut
+ STATE_DE = Delaware
+ STATE_DC = District of Columbia
+ STATE_FL = Florida
+ STATE_GA = Georgia
+ STATE_HI = Hawaii
+ STATE_ID = Idaho
+ STATE_IL = Illinois
+ STATE_IN = Indiana
+ STATE_IA = Iowa
+ STATE_KS = Kansas
+ STATE_KY = Kentucky
+ STATE_LA = Louisiana
+ STATE_ME = Maine
+ STATE_MD = Maryland
+ STATE_MA = Massachusetts
+ STATE_MI = Michigan
+ STATE_MN = Minnesota
+ STATE_MS = Mississippi
+ STATE_MO = Missouri
+ STATE_MT = Montana
+ STATE_NE = Nebraska
+ STATE_NV = Nevada
+ STATE_NH = New Hampshire
+ STATE_NJ = New Jersey
+ STATE_NM = New Mexico
+ STATE_NY = New York
+ STATE_NC = North Carolina
+ STATE_ND = North Dakota
+ STATE_OH = Ohio
+ STATE_OK = Oklahoma
+ STATE_OR = Oregon
+ STATE_PA = Pennsylvania
+ STATE_RI = Rhode Island
+ STATE_SC = South Carolina
+ STATE_SD = South Dakota
+ STATE_TN = Tennessee
+ STATE_TX = Texas
+ STATE_UT = Utah
+ STATE_VA = Virginia
+ STATE_WA = Washington
+ STATE_WV = West Virginia
+ STATE_WI = Wisconsin
+ STATE_WY = Wyoming
+ STATE_VT = Vermont
+ STATE_PR = Puerto Rico
+ 
+ #Canada
+
+ STATE_QC = Quebec
+ STATE_AB = Alberta
+ STATE_ON = Ontario
+ STATE_MB = Manitoba
+ STATE_NS = Nova Scotia
+ STATE_SK = Saskatchewan
+ STATE_NL = Newfoundland and Labrador
+ STATE_NB = New Brunswick
+ STATE_BC = British Columbia
+ STATE_PE = Prince Edward Island
+ STATE_NT = Northwest Territories
+ STATE_YT = Yukon
+ STATE_NU = Nunavut
+ 
+ #Report Names
+ NON_PROG_REPLACE = Non Program Replacement
+ DEVICE_HISTORY = Device History
+ RECEIPTS_RESELLER = Receipts By Reseller
+ DISTI_COST_PART = Disti Cost By Part
+ ORDER_STATUS = Order Status
+ SERVICE_LOYALTY_STATUS = Service Loyalty Status
+ ACCOUNT_ACTIVITY = Account Activity
+ CERT_GAP_REPORT = Certification Gap Report
+ DISTI_CREDEN_REPORT = Disti Credential Report
+ ORDER_REJECTED = Order Rejected
+ SERVICE_LOYALTY = Service Loyalty
+ CREDIT_CARD_PAYMENT = Credit Card Payment
+ DEVICE_ACTIVITY = Device Activity
+ RECEIPTS_CUSTOMER = Customer Order Summary
+ ORDER_DETAIL = Order Detail
+ TERMS_AND_CONDT = Terms And Condition
+ PARTNER_SOURC_SELECT = Partner Sourcing Selection
+ PART_RUN_RATE = Part Run Rate
+ ECON_TAX_SUMMARY = eConcierge Tax Summary
+ ECON_TAX_ORDER = eConcierge Tax By Order
+ FIRST_USAGE = First Usage
+ DISTI_FEES = Distribution Fees
+ DEVICE_REPORT_STATUS = Device Reporting Status
+ SUPPL_ASSIST_SUMMARY = Supplies Assistant Usage Summary
+ PARTNER_ACTIVITY_DASHBOARD = Partner Activity Dashboard
+ CUSTOMER_ORDER_DETAILS = Customer Order Details
+ DISTI_FEES_ORDER = Distribution Fees by Order
+ QUICK_BUY_NOTIF_BEHAVIORS = Quick Buy Notification Behaviors
+ STOCK_NON_AVAIL_REPORT = Stock Non Availability Report
+ PARTNER_ACTIVITY_SOURCE = Partner Activity By Source
+ ORDERS_DISTI_SUMMARY = Orders By Distributor - Summary
+ ORDERS_DISTI_MTH_SUMMARY = Orders By Distributor - Monthly Summary
+ CREDIT_REVIEW_ORDERS = Credit Review Orders
+ NEW_PARTNERS = New Partners
+ PARTNERS_WITH_NO_SALES = Partners With No Sales
+ SERVICE_LOYALTY_ELIGIBILITY = Service Loyalty Eligibility
+ DEVICE_CONSUMABLE_STATUS_PAGES = Staples - Device Consumable Status - Toner
+ PARTNER_DEVICE_HISTORY_PAGES = Staples - Device History
+ PAGES_CREDITCARD_DECLINED = Staples - Credit Card Declined
+ PAGES_ORDER_STATUS = Staples - Order Status
+ PAGES_TAX_BY_INVOICE = Staples - Tax By Invoice
+ PAGES_TAX_SUMMARY = Staples - Tax Summary
+ PAGES_PLAN_REVENUE = Staples - Plan Revenue
+ PAGES_PLAN_ACTIVATION_STATUS = Staples - Plan Activation Status
+ PAGES_PLAN_CANCELLATIONS = Staples - Plan Cancellations
+ PAGES_DEVICE_CONSUMABLE_USAGE = Staples - Device Consumable Usage
+ PAGES_ORDER_PENDING_SHIPTO_CONFIRMATION  = Staples - Orders Pending Ship-to Confirmation
+ PAGES_NON_REPORTING_DEVICES = Staples - Non-reporting Devices
+ PAGES_PLAN_PURCHASE_HISTORY = Staples - Plan Purchase History
+ usageThreshold = Usage Threshold
+ DAYS_SINCE_LAST_REPORTED = Days since last reported
+ PAGES_DEVICE_CONSUMABLE_MONTHLY_USAGE = Staples - Device Consumable Monthly Usage
+ HIGH_USAGE_THRESHOLD = High Usage Threshold
+ ORDER_THRESHOLD = Order Threshold
+ START_MONTH = Start Month
+ END_MONTH = End Month
+ STAPLES_PLAN_FEE_DETAILS = Staples Never Out Toner Savings Plan Fee Details
+ STAPLES_PLAN_FEE_SUMMARY = Staples Never Out Toner Savings Plan Fee Summary
+ PAYMENT_TERMS = Payment Terms
+ PROVIDER_PARTNER_BACKEND_REBATES = Provider - Partner Backend Rebates 
+ CUSTOMER_ORDER_DETAILS_PROMOCODES = Customer Order Details with Promo Codes
+ PROMO_ORDER_DETAILS = Promo Order Details
+ 
+ 
+ #Region
+ NA = North America
+ 
+ #Locale
+ EN_US = English
+ FR_FR = Français
+ 
+ #Branding theme names 
+ DARK_BLUE = Dark Blue
+ BLUE = Blue
+ SLATE = Slate
+ CHARCOAL = Charcoal
+ GRAY = Gray
+ WHITE = White
+ BURGUNDY = Burgundy
+ BROWN = Brown
+ NAVY = Navy
+ ROYAL = Royal
+ GRAPHITE = Graphite
+ SAND = Sand
+ 
+ #Security Question
+ MOTHER_MAIDEN_NAME = What is your mother's maiden name?
+ FIRST_PET = What was the name of your first pet?
+ FAV_SCHOOL_TEACHER = Who was your favorite elementary school teacher?
+ CHILDHOOD_NICK_NAME = What was your childhood nickname?
+ TOWN_FIRST_JOB = In what town was your first job?
+ 
+ #DashboardAlertData
+ PART_NUMBER = PartNumber
+ PART_DESCRIPTION = PartDescription
+ START_DATE = StartDate
+ OLD_PRICE = OldPrice
+ NEW_PRICE = NewPrice
+ 
+ #DashboardAlertType
+ ERP_MODIFIED = ERP MODIFIED
+ PRICE_LIST_CREATED = PRICE LIST CREATED
+ 
+ #Feetype
+ FLAT_RATE = Flat Rate
+ BY_ORDER_AMOUNT = By Order Amount
+ BY_ORDER_QUANTITY = By Order Quantity
+
+ #Operator
+ LESS_THAN = Less Than
+ GREATER_THAN = Greater Than
+ EQUALS_TO = Equals To
+ 
+ selectLanguageTxt = Select your language from the links below.
+ loginPageInfo = Please log in to access your Xerox eCommerce account. To log in, your browser must be set to accept cookies.
+ 
+ authenticationquestionLbl = Please enter your User ID and response to your authentication question.
+ ascendingLbl = Ascending
+ decendingLbl = Descending
+ 
+ #Calendar 
+ sundayLbl = Sunday
+ mondayLbl = Monday
+ tuesdayLbl = Tuesday
+ wednesdayLbl = Wednesday
+ thursdayLbl = Thursday
+ fridayLbl = Friday
+ saturdayLbl = Saturday 
+ janLbl = Jan
+ febLbl = Feb
+ marLbl = Mar
+ aprLbl = Apr
+ mayLbl = May
+ junLbl = Jun
+ julLbl = Jul
+ augLbl = Aug
+ sepLbl = Sep
+ octLbl = Oct
+ novLbl = Nov
+ decLbl = Dec
+ 
+ kbLbl = kb.
+ orderLbl = Order
+ orderDetailLbl = Order Detail
+ pendingLbl = Pending
+ 
+
+ showContentsLbl = Show contents in
+
+ replacementLevel1Label = Replacement Level 1
+ replacementLevel2Label = Replacement Level 2
+ 
+ USD = $
+ CAD = $
+ 
+ endUserLbl = End User
+ categoryNameUniqueMsg = Category Names cannot be same.
+ shipmentDetailLbl = Shipment Detail
+ 
+ 
+ storeNum = Store Number
+ planName = Plan Name
+ addAnotherPlan = Add Another Plan
+ orderNumber = Order Number / Transaction ID
+ selectWeb = If purchased online, select "Web"
+ calculateBuyOut = Calculate Buy-out
+ removeThisPlan = Remove This Plan
+ skuPlanName = SKU (Plan Name)
+ columnHeaderLbl = Column header name(s)
+ duplicateEntryHeaderLbl = Duplicate found in the row(s)#
+ # Plan Status
+ 
+ OK = OK
+ LOW = Low
+ RENEW = Renew
+ 
+ entrMailId = Enter email address
+ reEntrMailId = Re-enter email address
+ forgotUserIdMsg = Please provide your email address. We will send your User ID information to you.
+ wrongEmailMsg = Account not found for {email}.\nThe account may not exist, or may not be registered.
+ forgotUserIdSuccessMsg = Your User ID has been sent to the following email address: {email}.
+ planRegLbls = Plan Registration 
+ orderNumberInfoTxt = Please use Transaction ID or Order Number 
+ userIdDesc = Please enter 10-digit Staples Rewards Number
+ userIdExistLbl = User account exists, please enter password to continue 
+ deviceModel = Model
+ planPrice = Plan Price
+ reason = Reason
+ companyLbl = Company
+ addressLbl = Address
+ serialHashLabel = Serial #
+ planLbl = Plan
+ planInvoiceDetail = Plan Invoice Detail
+ orderStatusLabel = Order Status
+ invoiceStatus = Invoice Status
+ invoiceId = Invoice ID
+ invoiceDate = Invoice Date
+ invoiceTotal = Invoice Total
+ continueLbl = Continue
+ rejectReasonLbl = Reject Reason
+ supplyValue = Supply Value
+ orderValue = Order Value
+ shipmentTotalValue = Shipment Total Value
+ shipmentDate = Shipment Date
+ invalidHeadersTxt = Invalid Headers :
+ correctHeadersTxt = Correct Headers :
+ missingHeadersTxt = Missing Headers :
+ ratedImpression = Rated Capacity
+ duplicateTransactionidTxt = Transaction ID :
+ duplicateTransactionMsgTxt = This Trx ID has already been posted.  Are you sure you want to upload again?
+ 
+#------------ constants used for agent --------------
+TONER_LOW_ORDER_READY=Toner Low/Order Ready
+PROBELM_WITH_ORDER=Problem with Order
+SHIPMENT_SENT=Shipment Sent
+REWARD_EARNED=Reward Earned
+REWARD_AT_RISK=Reward at Risk of Cancellation
+REWARD_CANCELLED=Reward Cancelled
+RESELLER_PROMOTIONS=Reseller Promotions
+GENERAL_STATUS_NOTIFICATIONS=General Status and Notifications
+SHIPMENT_CONFIRMATION=Shipment Confirmation
+PLAN_RENEW_PENDING=Plan Renew Pending
+PLAN_EXPIRATION_WARNING=Plan Expiration Warning
+PLAN_CHANGED=Plan Changed
+PLAN_RENEWED=Plan Renewed
+CREDIT_CARD_CHANGED=Credit Card Changed 
+
+REVENUE_TREND_USD = Revenue Trend in USD
+REVENUE_TREND_CAD = Revenue Trend in CAD
+ 
+
+ overrideDefaultPartHash = Override Default Part#
+ gotCancelledLbl = got Cancelled
+ 
+#customer creation label w.r.t canada country
+ 
+ provinceLbl = Province
+ postcdeLbl = Postal Code
+ uploadOverrideDefaultPart = Upload Override Default Part#
+ platformDefault = Platform Default
+ programDefault = Program Default
+ orderByModel = Order By Model
+ proceedLbl = Proceed
+ confirmPassWrdLbl = Confirm Password
+ 
+ STAPLES_TAX_UPLOAD = Staples - Tax Upload
+ 
+ processingLbl = Processing... Please Wait
+ deviceManufacturer = Device Manufacturer
+ partManufacturer = Part Manufacturer
+ blackListSerialNumber = Blacklist Serial #
+ prevPassAlertMsg = Password should not be one of the previous {0} passwords.
+ PAGES_CUSTOMER_ORDER_DETAILS = Staples - Customer Order Details
+ languageLbl = Language
+ 
+ plewaitRedirect = Please wait... Redirecting to checkout page...
+ reportErrorMsg = This report can only be run by selecting a date range that does not exceed {0} months.
+ dateRangeMsg = Please select an appropriate date range and run the report.
+ 
+ toolsTxt = Tools
+ orderProcessingLb = Order in process... Please Wait
+
+ 
+ #Role Names
+ADD_CONSUMABLE_CATEGORY = Add Consumable Category
+ADD_CONSUMABLE_PRICES = Add Consumable Prices
+ADD_CONSUMABLE_THRESHOLD = Add Consumable Threshold
+ADD_CONSUMABLE_TYPE = Add Consumable Type
+ADD_CUSTOMER_BY_PARTNER = Add Customer By Partner
+ADD_DISCOUNTGROUP = Add DiscountGroup
+ADD_ELIGIBLE_MODELS = Add Eligible Models
+ADD_EXTENSION = Add Extension
+ADD_KEY = Add Key
+ADD_MANUFACTURER = Add Manufacturer
+ADD_MODEL = Add Model
+ADD_MODEL_IMAGES = Add Model Images
+ADD_PARTNER_CATEGORY = Add Partner Category
+ADD_PARTNER_CONSUMABLE_PARTS = Add Partner Consumable Parts
+ADD_PARTNER_REPORTS = Add Partner Reports
+ADD_PARTNERPROGRAM = Add PartnerProgram
+ADD_PARTNERS = Add Partners
+ADD_PLANCATEGORY = Add PlanCategory
+ADD_PLANS = Add Plans
+ADD_PROGRAM_CATEGORY = Add Program Category
+ADD_PROGRAMS = Add Programs
+ADD_PROMOTION = Add Promotion
+ADD_PROVIDER = Add Provider
+ADD_RESELLER_DISCOUNTGROUP = Add Reseller DiscountGroup
+ADD_RESELLER_RATEPLAN = Add Reseller RatePlan
+ADD_ROLE = Add Role
+ADD_SEGMENTS = Add Segments
+ADD_SERVICE_LOYALTY_THRESHOLD = Add Service Loyalty Threshold
+ADD_SERVICE_LOYALTY_THRESHOLD_MESAAGES = Add Service Loyalty Threshold Messages
+ADD_SHIPPING_METHODS = Add Shipping Methods
+ADD_SOURCING_LOCATION = Add Sourcing Location
+ADD_TEMPLATES = Add Templates
+ADD_USER = Add User
+ALLOW_REBRANDING = Allow_Rebranding
+ALL_FUNCTIONS = All_Functions
+AUTHOR_REPORT = Author Report
+BLACKLIST_SERIALNUMBER = BlackList SerialNumber
+CHANGE_PASSWORD = Change Password
+COMPOSE = Compose
+CONFIG_MAILSERVER = Config Mailserver
+CONFIGURATION_FILES = Configuration Files
+CONFIGURE_DISTI_CREDENTIALS = Configure Disti Credentials
+CONSUMABLES_SKU_MAPPING = Consumables SKU Mapping
+CREATE_PASSWORD_POLICY = Create Password Policy
+CREATE_PERMISSION = Create Permission
+CUSTOMER_PARTNER_MANAGEMENT = Customer Partner Management
+DEFAULT_PERMISSION = Default_Permission
+DEVICE_CONSUMABLE_ADJUSTMENT = Device Consumable Adjustment
+EDIT_CONSUMABLE_CATEGORY = Edit Consumable Category
+EDIT_CONSUMABLE_PRICES = Edit Consumable Prices
+EDIT_CONSUMABLE_THRESHOLD = Edit Consumable Threshold
+EDIT_CONSUMABLE_THRESHOLDS = Edit Consumable Thresholds
+EDIT_CONSUMABLE_TYPE = Edit Consumable Type
+EDIT_DISCOUNTGROUP = Edit DiscountGroup
+EDIT_ELIGIBLE_MODELS = Edit Eligible Models
+EDIT_MANUFACTURER = Edit Manufacturer
+EDIT_MODEL = Edit Model
+EDIT_MODEL_IMAGES = Edit Model Images
+EDIT_NOTIFICATION_TEMPLATE = Edit Notification Template
+EDIT_PARTNER_CATEGORY = Edit Partner Category
+EDIT_PARTNER_CONSUMABLE_PARTS = Edit Partner Consumable Parts
+EDIT_PARTNER_REPORTS = Edit Partner Reports
+EDIT_PARTNERPROGRAM = Edit PartnerProgram
+EDIT_PARTNERS = Edit Partners
+EDIT_PLANCATEGORY = Edit PlanCategory
+EDIT_PLANS = Edit Plans
+EDIT_PROGRAM_CATEGORY = Edit Program Category
+EDIT_PROGRAMS = Edit Programs
+EDIT_PROMOTION = Edit Promotion
+EDIT_PROVIDER = Edit Provider
+EDIT_RESELLER_DISCOUNTGROUP = Edit Reseller DiscountGroup
+EDIT_RESELLER_RATEPLAN = Edit Reseller RatePlan
+EDIT_ROLE = Edit Role
+EDIT_SEGMENTS = Edit Segments
+EDIT_SERVICE_LOYALTY_THRESHOLD = Edit Service Loyalty Threshold
+EDIT_SERVICE_LOYALTY_THRESHOLD_MESAAGES = Edit Service Loyalty Threshold Mesaages
+EDIT_SHIPPING_METHODS = Edit Shipping Methods
+EDIT_SOURCING_LOCATION = Edit Sourcing Location
+EDIT_TC_TEMPLATE = Edit TC Template
+EDIT_TEMPLATES = Edit Templates
+EDIT_USER = Edit User
+EVENT_MANAGEMENT = Event Management
+EXECUTE_REPORT = Execute Report
+LOCKUNLOCKUSER = LockUnLockUser
+MODIFY_ACCOUNT = Modify Account
+MODIFY_MAIL_SERVERCONFIG = Modify Mail Serverconfig
+MODIFY_PASSWORD_POLICY = Modify Password Policy
+OVERRIDE_DEFAULT_PART = Override Default Part
+PLATFORM_CONFIGURATION = Platform Configuration
+PUBLISH_PROGRAMS = Publish Programs
+RATE_PLAN = Rate Plan
+REGISTER_PRINTER = Register Printer
+REMOVE_CONSUMABLE_CATEGORY = Remove Consumable Category
+REMOVE_CONSUMABLE_PRICES = Remove Consumable Prices
+REMOVE_CONSUMABLE_THRESHOLD = Remove Consumable Threshold
+REMOVE_CONSUMABLE_TYPE = Remove Consumable Type
+REMOVE_DISCOUNTGROUP = Remove DiscountGroup
+REMOVE_ELIGIBLE_MODELS = Remove Eligible Models
+REMOVE_EXTENSION = Remove Extension
+REMOVE_MANUFACTURER = Remove Manufacturer
+REMOVE_MODEL = Remove Model
+REMOVE_MODEL_IMAGES = Remove Model Images
+REMOVE_PARTNER_CATEGORY = Remove Partner Category
+REMOVE_PARTNER_CONSUMABLE_PARTS = Remove Partner Consumable Parts
+REMOVE_PARTNER_REPORTS = Remove Partner Reports
+REMOVE_PARTNERPROGRAM = Remove PartnerProgram
+REMOVE_PLANCATEGORY = Remove PlanCategory
+REMOVE_PROGRAM_CATEGORY = Remove Program Category
+REMOVE_PROGRAMS = Remove Programs
+REMOVE_PROMOTION = Remove Promotion
+REMOVE_RESELLER_DISCOUNTGROUP = Remove Reseller DiscountGroup
+REMOVE_RESELLER_RATEPLAN = Remove Reseller RatePlan
+REMOVE_ROLE = Remove Role
+REMOVE_SEGMENTS = Remove Segments
+REMOVE_SERVICE_LOYALTY_THRESHOLD = Remove Service Loyalty Threshold
+REMOVE_SERVICE_LOYALTY_THRESHOLD_MESAAGES = Remove Service Loyalty Threshold Mesaages
+REMOVE_SHIPPING_METHODS = Remove Shipping Methods
+REMOVE_SOURCING_LOCATION = Remove Sourcing Location
+REMOVE_TEMPLATES = Remove Templates
+REMOVE_USER = Remove User
+RESET_PASSWORD = Reset Password
+SHOW_ALL_CUSTOMERS = Show All Customers
+SHOW_BASE_DATA = Show Base Data
+SHOW_CERTIFIED_INTERFACES = Show Certified Interfaces
+SHOW_CONSUMABLES = Show Consumables
+SHOW_DISTRIBUTOR_PREFERENCES_OF_PARTNER = Show Distributor Preferences of Partner
+SHOW_INITIAL_SETUP = Show Initial Setup
+SHOW_MANUFACTURERS_AND_MODELS = Show Manufacturers and Models
+SHOW_NOTIFICATION = Show Notification
+SHOW_PARTNER_BRANDING = Show Partner Branding
+SHOW_PARTNER_CATEGORY = Show Partner Category
+SHOW_PARTNER_FEE_SCHEDULES = Show Partner Fee Schedules
+SHOW_PARTNER_SHIPPING_SURCHARGES = Show Partner Shipping Surcharges
+SHOW_PARTNER_MESSAGES = Show Partner Messages
+SHOW_PARTNER_PREFERENCES = Show Partner Preferences
+SHOW_PARTNER_PRICELISTS = Show Partner Pricelists
+SHOW_CUSTOMER_ORDERS = Show Customer Orders
+SHOW_PARTNER_TC_FOR_CUSTOMERS = Show Partner TC for Customers
+SHOW_WELCOME_SCREEN = Show Welcome Screen
+SHOWCUSTOMER = ShowCustomer
+SYSTEMPARAMETERS = SystemParameters
+UPDATE_CREDIT_LIMIT = Update Credit Limit
+UPLOAD_SERVICE_LOYALTY_WARRANTY = Upload Service Loyalty Warranty
+VIEW_ACCOUNT = View Account
+VIEW_CONSUMABLE_CATEGORY = View Consumable Category
+VIEW_CONSUMABLE_PRICES = View Consumable Prices
+VIEW_CONSUMABLE_THRESHOLD = View Consumable Threshold
+VIEW_CONSUMABLE_THRESHOLDS = View Consumable Thresholds
+VIEW_CONSUMABLE_TYPE = View Consumable Type
+VIEW_CREDIT_LIMIT = View Credit Limit
+VIEW_DEVICE_CONSUMABLE_DETAILS = View Device Consumable Details
+VIEW_DISCOUNTGROUP = View DiscountGroup
+VIEW_DISTI_PREFERENCE = View Disti Preference
+VIEW_ELIGIBLE_MODELS = View Eligible Models
+VIEW_EXTENSION = View Extension
+VIEW_MAIL_SERVERCONFIG = View Mail Serverconfig
+VIEW_MANUFACTURER = View Manufacturer
+VIEW_MODEL = View Model
+VIEW_MODEL_IMAGES = View Model Images
+VIEW_NOTIFICATION_TEMPLATE = View Notification Template
+VIEW_PARTNER_CONSUMABLE_PARTS = View Partner Consumable Parts
+VIEW_PARTNER_REPORTS = View Partner Reports
+VIEW_PARTNERPROGRAM = View PartnerProgram
+VIEW_PARTNERS = View Partners
+VIEW_PASSWORD_POLICY = View Password Policy
+VIEW_PLANCATEGORY = View PlanCategory
+VIEW_PLANS = View Plans
+VIEW_PROGRAM_CATEGORY = View Program Category
+VIEW_PROGRAM_CONSUMABLES = View Program Consumables
+VIEW_PROGRAMS = View Programs
+VIEW_PROMOTION = View Promotion
+VIEW_PROMOTION_CODE = View Promotion Code
+VIEW_PROVIDER = View Provider
+VIEW_RESELLER_DISCOUNTGROUP = View Reseller DiscountGroup
+VIEW_RESELLER_RATEPLAN = View Reseller RatePlan
+VIEW_ROLE = View Role
+VIEW_SEGMENTS = View Segments
+VIEW_SERVICE_LOYALTY_THRESHOLD = View Service Loyalty Threshold
+VIEW_SERVICE_LOYALTY_THRESHOLD_MESAAGES = View Service Loyalty Threshold Mesaages
+VIEW_SERVICE_LOYALTY_WARRANTY = View Service Loyalty Warranty
+VIEW_SHIPPING_METHODS = View Shipping Methods
+VIEW_SOURCING_LOCATION = View Sourcing Location
+VIEW_TC_TEMPLATE = View TC Template
+VIEW_TEMPLATES = View Templates
+VIEW_TENANT = View Tenant
+VIEW_USER = View User
+WEBSERVICE_ACCESS_FOR_PROVIDER = Webservice access for provider
+WEBSERVICE_ACCESS_FOR_TENANT = Webservice access for tenant
+ADMIN(RESELLER) = ADMIN(RESELLER)
+SALESMANAGER = SALESMANAGER
+SUPER_ADMIN = SUPER ADMIN
+ADMIN = ADMIN
+SUPPORT = SUPPORT
+PROVIDER_VIEW = PROVIDER VIEW
+ADMIN(CUSTOMER) = ADMIN(CUSTOMER)
+
+replacementValueMsg = Please enter a value less than 100 in
+supportPhoneNumber = Support Phone Number
+hardwareServiceCompanyName = Hardware Service Company Name
+hardwareServiceCompanyPhoneNumber = Hardware Service Company Phone Number
+addHelpDocsTxt = Add Help Document
+providerReportsTxt = Provider Reports
+selectOneProgramTypeMsg = Please select a Provider.
+problemFetchingDetails = Problem in fetching Details.
+removeReportProgramTypeFailed = Failed to remove the reports under Provider.
+removeReportProgramTypeSuccess = Reports under provider removed successfully.
+failedToEdit = Failed to Edit
+failedToModifyReports = Failed to modify reports
+reportModifiedSuccessfully = Report modified successfully
+failedToAddReports= Failed to add reports
+reportAddedSuccessfully= Reports added successfully
+reportProgramTypeAssociation = Please associate report for the Provider.
+listOfProviderReportsHeaderTxt = List of Provider Reports
+addProviderReportsHeaderTxt = Add Provider Reports
+editProviderReportsHeaderTxt = Edit Provider Reports
+successmessage = Help Document Uploaded Successfully.
+docExtensionValidationMsg = File type should be .doc or .pdf
+replacementLbl = Replacement
+starterReplacementLbl = Starter Replacement
+levelOneLbl = Level 1
+levelTwoLbl = Level 2
+purchaseOrder = Purchase Order
+removeProviderReportsConfirmationMsg = Do you want to remove reports for this provider
+stockLevelAdjTxt= Stock Level Adjustment
+refreshCachetxt= Refresh DB Cache
+enableLabel= Enable
+textLbl= Click the button to Enable/Disable test:
+disableLabel= Disable
+inc= Increase
+dec= Decrease
+stockLevelAdjustmentSuccess= Stock Level Adjusted Successfully
+ testingTxt= Testing 
+adminTxt=Admin
+ 
+confirmLanguageLabel = Confirm Language
+DEVICE_USAGE = Device Usage
+serialNumber = Device Serial Number
+noThanksLbl = No Thanks
+clickLbl = Click
+hereLbl = here
+notificationTextLbl = if you wish to be notified when out of stock items are available.
+outOfStockNotificationConfirmationMessage = You will be notified by email when the currently out of stock items are available. Click "OK" to confirm.
+
+ADMIN_(EDITOR) = ADMIN (EDITOR)
+resetLbl= Click the button to remove all test data:
+resetLblTxt = Clear Test Data
+resetTestData = Do you want to clear all test data in use
+failedToCreateBackOrder = Failed to create Back Order. 
+gstRegistrationIdLbl = GST/HST Registration ID
+qstRegistrationIdLbl = QST Registration ID
+partnerInfoLbl = Partner Information
+gstHstLbl = GST/HST No
+qstNoLbl = QST No
+hashKeyLabel = Hash Key
+paymentGatewayLbl = Payment Gateway
+apiLoginLbl = API Login ID
+transactionKeyLbl = Transaction Key
+notificationFilterLbl = Notification Filter
+stockCheckLbl = Checking stock availability... Please Wait
+processOrderRequestLbl = Processing your order request. Please wait......
+
+UNSUBSCRIBE_MSG1 =Supplies Assistant installation help reminders unsubscribed successfully.
+UNSUBSCRIBE_MSG2 =Device not added reminders unsubscribed successfully.
+UNSUBSCRIBE_MSG3 =Device monitoring alerts unsubscribed successfully.
+
+# Tax types
+localSalesAndUseTax = Local Sales and Use Tax
+salesAndUseTax = Sales and Use Tax
+noSalesOrUseTaxImposed = No Sales or Use Tax Imposed
+retailSalesAndUseTax = Retail Sales and Use Tax
+retailSalesTax = Retail Sales Tax (RST)
+quebecSalesTax = Quebec Sales Tax (VAT)
+revenueTax = Revenue Tax (PST)
+gstOrHst = GST/HST
+pstTax = Provincial Sales Tax (PST)
+
+ #Distributor Carrier Code
+DISTI_INGRAMA1 = Airborne Overnight AM
+DISTI_INGRAMA2 = Airborne Two Day
+DISTI_INGRAMF1 = FedEx Priority Overnight
+DISTI_INGRAMF2 = FedEx Two Day
+DISTI_INGRAMUO = UPS Overnight
+DISTI_INGRAMU3 = UPS Three Day
+DISTI_INGRAMRG = FedEx Ground
+DISTI_INGRAMUG = UPS Ground
+DISTI_TECH_DATA06 = FedEx 1Day Air
+DISTI_TECH_DATA23 = FedEx Ground
+DISTI_TECH_DATA01 = UPS Ground
+DISTI_TECH_DATA03 = UPS 1Day Air
+DISTI_TECH_DATA123 = AIT Second Day
+DISTI_TECH_DATA122 = AIT Next Day PM
+DISTI_SYNNEXAB = Airborne Next Afternoon
+DISTI_SYNNEXABG = Airborne Ground
+DISTI_SYNNEXFG = FedEx Ground
+DISTI_SYNNEXFP = FedEx Priority Over
+DISTI_SYNNEXDH = DHL
+DISTI_SYNNEXDHLP = DHL Overnight
+DISTI_SYNNEXUP = UPS Ground
+DISTI_SYNNEXUR = UPS Next Day Air
+DISTI_SYNNEX_CANADAPUG = Purolator Ground
+DISTI_SYNNEX_CANADAPUA = Purolator Air Express
+DISTI_SUPPLIES_NETWORK490 = UPS Ground
+DISTI_SUPPLIES_NETWORK500 = UPS Next Day AM
+DISTI_SUPPLIES_NETWORK491 = UPS Next Day Saver
+DISTI_SUPPLIES_NETWORK494 = UPS 2 Day Air
+DISTI_SUPPLIES_NETWORK3045 = FedEx Ground
+DISTI_SUPPLIES_NETWORK3046 = FedEx Express Saver
+DISTI_SUPPLIES_NETWORK3047 = FedEx Priority Overnight
+DISTI_SUPPLIES_NETWORK3048 = FedEx Standard Overnight
+DISTI_SUPPLIES_NETWORK3049 = FedEx 2Day
+DISTI_SYNNEX_CANADAFDXH = FedEx Express
+DISTI_SYNNEX_CANADAPUX = Purolator Ground Express
+DISTI_SYNNEX_CANADAUPG = UPS Ground
+DISTI_SYNNEX_CANADAUPX = UPS Express
+DISTI_SYNNEXF2 = FedEx Two Day
+DISTI_SYNNEXFS = FedEx Saturday Del
+DISTI_SYNNEXUB = UPS 2 Day Air 
+DISTI_SYNNEXUS = UPS Saturday Del
+
+declinedBy = Declined by
+orderPendingForReview = Order is pending for review with
+helpDocNotConfigured=Oops! Help document not configured
+
+# Credit card types
+  CCVI=Visa
+  CCMC=MasterCard
+  CCAM=American Express
+  CCNN=Discover
+  CCDI=Diners
+  CCJB=JCB
+  CCIO=INTERAC Online
+  CCET=Direct Debit/Direct Payments/ACH
+  
+  selectLocaleEmailLbl = Select the language for display and email content
+  requesterIsaOrSenderId = Requester ISA/ Sender ID 
+  receiverId = Receiver ID
+  contactId = Contact ID
+  noDataAvailable = No data available
+  taxExemptCertificateNo = Tax Exempt Certificate No.
+  exempt = Exempt
+  resellerRegistrationURL = Registration URL
+  resellerDownloadURL = Download URL
+ 
+ # Report Names for 3.1
+ NEW_ACCOUNT_REGISTRATION = New Account Registration
+ CUSTOMER_CONTACT_LIST=Customer Contact List
+ DEVICE_ORDER_HISTORY = Device Order History
+ SALES_PERSON = Sales Person
+ DEVICE_STATUS = Device Status
+ DEVICE_MODEL = Device Model
+ DEVICE_TYPE = Device Type
+ ORDER_TYPE = Order Type
+ FCP_REP = FCP Rep
+ AS_OF_TIMESTAMP = As Of Date
+ AS_OF_DATE = As Of Date
+ EXPIRE_DATE = Expire Date
+ ACCOUNT_STATUS = Account Status 
+ SHIPPED_ORDER_DETAILS = Shipped Order Detail
+
+#FCP Report Names for 3.1
+FCP_BOOKED_PRINTERS = FCP Booked Printers 
+FCP_EXPIRED_PROMO_COUPON = FCP Expired Promo Coupon
+FCP_NEWSLETTER_LIST = FCP Newsletter List
+FCP_FROZEN_TICKLERS = FCP Frozen Ticklers
+FCP_TICKLERS = FCP Ticklers
+FCP_CUSTOMER_MORE_THAN_SIX_MONTHS_WITHOUT_PURCHASE = FCP Customer More Than Six Months Without Purchase
+FCP_LOW_COST_PER_PAGE = FCP Low Cost Per Page
+FCP_AVERAGE_MONTHLY_SPEND = FCP Average Monthly Spend
+FCP_SIX_PLUS_MONTHS_WITH_NO_COMMUNICATION_EVENTS = FCP Six Plus Months With No Communication Events
+FCP_NON_REPORTING_DEVICES_BY_CUSTOMER = FCP Non Reporting Devices By Customer
+FCP_ANNIVERSARY = FCP Anniversary
+FCP_CURRENT_MIF = FCP Current MIF
+FCP_GRADUATING_PRINTERS = FCP Graduating Printers
+FCP_PROMO_USAGE_REPORT = FCP Promo Usage Report
+
+FCP_ADJUSTMENTS = FCP Adjustments
+FCP_AGED_TRIAL_BALANCE = FCP Aged Trial Balance
+FCP_CASH = FCP Cash
+FCP_CUSTOMER_CONTACT_LIST = FCP Customer Contact List
+FCP_CUSTOMER_ORDER_DETAILS = FCP Customer Order Details
+FCP_CUSTOMER_OVERVIEW = FCP Customer Overview
+FCP_CUSTOMERS_IN_FOURTH_YEAR_EXTENDED_PROGRAM = FCP Customers In Fourth Year Extended Program 
+FCP_DAILY_STATS = FCP Daily Stats
+FCP_DELIVERY_CALL_DOWN = FCP Delivery Call Down
+FCP_DEVICE_REPORTING_STATUS = FCP Device Reporting Status
+FCP_DEVICE_USAGE = FCP Device Usage
+FCP_FAILED_BILLINGS = FCP Failed Billings
+FCP_FIXED_ASSETS_ADDS = FCP Fixed Assets - Adds
+FCP_FIXED_ASSETS_ADJUSTMENTS = FCP Fixed Assets - Adjustments/Removals
+FCP_FIXED_ASSETS_GRADUATIONS = FCP Fixed Assets - Graduations
+FCP_FIXED_ASSETS_LISTS = FCP Fixed Assets - Active List
+FCP_FIXED_ASSET_RETURNS = FCP Fixed Assets - Returns
+FCP_FROZEN_ACCOUNTS = FCP Frozen Accounts
+FCP_FROZEN_ACCOUNTS_OPEN_COMMUNICATIONS = FCP Frozen Accounts with Open Communications
+FCP_MONTHLY_PL = FCP Monthly PL
+FCP_NEW_AGREEMENT = FCP New Agreement
+FCP_NEW_AGREEMENT_NO_SHIPPING = FCP New Agreement No Shipping Details
+FCP_OCF_BOOKING = FCP - OCF Booking
+FCP_OPEN_COMMUNICATIONS_ALL_ACCOUNTS = FCP Open Communications All Accounts
+FCP_PRINTER_SHIPMENTS = FCP Printer Shipments
+FCP_RESELLER_ORDER_REJECTED = FCP Reseller Order Rejected
+FCP_RESELLER_ORDER_STATUS = FCP Reseller Order Status
+FCP_RESELLER_TAX_BY_ORDER = FCP - Tax by Shipped Order
+FCP_RESELLER_TAX_SUMMARY = FCP Reseller Tax Summary
+FCP_RMA_ORIGINAL_PRINTER = FCP RMA Original Printer
+FCP_SALES = FCP Sales
+FCP_SHIPPED_ORDER_DETAIL = FCP Shipped Order Detail
+FCP_SHIPPED_ORDER_HEADER = FCP Shipped Order Header
+PARTNER_TAX_EXEMPT_EXPIRATION = FCP Partner - Tax Exempt Expiration
+FCP_OPT_OUT_REPORT = FCP Opt-Out Report
+
+
+# FCP Menu Names
+
+fcpCustomerLabel = Customers
+fcpFeesTxt = FCP Fees
+fcpRMABoxFeeTxt = RMA & Box Fees
+fcpPromoCouponsTxt = Promo Coupons
+fcpCustomerDetailsTxt = Details
+fcpCustomerDevicesTxt = Devices
+fcpCustomerNotesTxt = Communications
+fcpCustomerOrdersTxt = Orders
+fcpCustomerPromosTxt = Promo Coupons
+fcpCustomerFrozenHistoryTxt = Frozen History
+addPromoCouponTxt = Add Promo Coupons
+editPromoCouponTxt = Edit Promo Coupons
+viewPromoCouponTxt = View Promo Coupon Details
+deviceLocationLbl = Device Location 
+shipToLbl = Supplies Ship-to 
+addDeviceTxt = Add Device
+
+memeberLogin = Member Login
+fcpEnterEmail = Please enter your  email address
+fcpLoginHelpTxt = Please sign in with your User ID and Password
+lastPurchaseDate = Last Purchase Date
+lastPurchaseAmount = Last Purchase Amount
+fcpAgentDownloadStepTxt = Download and Install FCP Reporting Assistant
+freeColorPrintersURL = FreeColorPrinters
+fcpSelectOs=Please select the OS
+tempPasswordFailureMessage = The Temporary Password you have entered is incorrect. Please try again.
+tempAndNewPwdDiff = Temporary Password and New Password must be different.
+fcpToolsTxt = Tools
+onBoardToolTxt = Onboard Selection
+billingFeesToolTxt = Release Billing Fees
+cashUploadToolTxt = Cash Upload
+promoCouponUploadToolTxt = Promo Coupon Upload
+accountAdjustmentToolTxt = Account Adjustment
+fetchUidPwd=Retrieve User ID and Password for first time login?
+fcpUsageReportTxt = Usage Report
+# FCP order Details
+accountHashLbl = Account #
+orderDetailsLbl = Order Details
+orderHashLbl = Order #
+orderedOnLbl = Ordered on
+onLbl = on
+reasonLbl = Reason:
+originalOrderLbl = Original Order #:
+paymentTransLbl = Payment Transaction Details
+adjustmentDetailsLbl = Adjustment Details
+refundDetailsLbl = Refund Details
+partHashLabel = Part #:
+itemLabel = Item :
+priceLbl = Price:
+remainingQuantLbl = Remaining Quantity:
+quantityLbl = Quantity:
+subTotalLbl = Subtotal
+shippingLbl = Shipping
+billingDetailsLbl = Billing Details
+createdByLabel = Created By
+createdDateLbl = Created date\: 
+shippingAddLbl = Shipping Address
+deviceLocAddLbl = Device Location Address
+shippedOnLbl = Shipped on
+trackingHashLbl = Tracking #
+pendingShipmentLbl = Pending Shipment
+shoppingCartLbl = Shopping Cart
+underUsageFeeLbl = Under Usage Fee
+nonReportingFeeLbl = Non Reporting Fee
+optoutFeeLbl = Opt Out Fee
+adjustmentLbl = Adjustment
+optOutOnLbl = Opted out on
+reportDueOnLbl = Report Due on
+boxFeeLbl = Box Fee
+mfdLbl = MFP
+printerLbl = Printer
+rmaFeeLbl = RMA Fee
+feePaidLbl = Fee Paid
+mnthlyAgreementLbl = Monthly Agreement Pages
+lastMnthUsageLbl = Last Month Used Pages
+pagesLbl = Pages
+manageAccountHashLbl = Manage Account #
+shopNowLbl = Shop Now
+logoutLbl = Logout
+processingMsgLbl = If this section does not load please try to use your browser in compatibility mode.
+cardLbl = Card
+transactionLbl = Transaction 
+idLbl = ID
+numberLbl = Number
+responseLbl = Response
+authOnlyLbl = Authorization Only
+authCaptureLbl = Authorization and Capture
+priorAuthCaptureLbl = Prior Authorization and Capture
+refundLbl = Refund
+voidLbl = Void
+approvedLbl = Approved
+declinedLbl = Declined
+notApplicableLbl = N/A
+welcomeBackLbl = Welcome back
+reportDueLbl = Report Due :
+lastReportLbl = Last Report :
+deviceAgrmtLabl = Device Agreement
+acceptAgrmtMsgLbl = Please accept the agreement.
+agrmtAcceptedMsgLbl = Thank you for accepting the device agreement.
+sameAddressLabel = Same as Device Location Address
+addressTwoOptionalLabel = Address Line 2(Optional)
+changeLoginInfoLbl = Change Login Information
+jobTitleLbl = Job Title
+processingErrorLbl = Processing Error
+reviewLbl = Held for review
+fcpshoppingcartLbl = fcpshoppingcart
+gatewayTransactionLbl = Gateway Transaction ID
+subTotalAfterDiscount = Subtotal (After Discount)
+billedOnLbl = Billed on
+npPlusLbl = NP Plus
+failedToFetchPasswordPolicy = Failed to fetch password policy.
+passwordResetLbl = Reset Password
+partMasterDownloadHeader=Part Master Download
+accountInvalidLabl = Account ID is invalid.
+duplicateRecordLbl = Record is a duplicate.
+unusedCouponLbl = Discount Type already exists for this Account.
+dateInPastLbl = Start Date or End Date are in the past
+campaignNameInvalidLbl = Campaign Name does not exist
+discountTypeInvalidLbl = Discount Type is invalid
+usageInvalidLbl = Usage is invalid
+discountMisalignLbl = Discount does not align with Discount Type
+usedYetNoLbl = Used Yet must be No
+missingColoumnLbl = Coloumn is missing
+discountInvalidLbl = Discount value should not be greater than maximum discount.
+durationInvalidLbl = Start Date and End Date should be within duration.
+# CDW PLUS New Reports
+XRX_ECONCIERGE_MONTHLY_METRICS_PARTNER = Xerox eConcierge Monthly Metrics
+XRX_ECONCIERGE_MONTHLY_METRICS_PROVIDER = Xerox eConcierge Monthly Metrics
+
+MANUAL_CONTRACT_ACTIVITY = Manual Contract Activity
+CONTRACT_TYPE = Contract Type
+SERIAL_NUMBER = Serial Number
+MODEL = Model
+consolidatedStackCategoryLbl = Consolidated Stack Category
+PROGRAM_CHANGE_ACTIVITY = Program Change Activity
+FCP_FINANCE_ADMIN = FINANCE ADMIN
+FCP_VIEW_ONLY = VIEW ONLY
+paymentMethodsLbl = Payment Methods
+
+interfaceDataMapHeader = Interface Data Mapping
+addInterfaceDataMapHeader = Add Interface Data Mapping 
+editInterfaceDataMapHeader = Edit Interface Data Mapping 
+duplicateInterfaceMappingMsg = This source field value mapping is already available with the interface.
+requiredMappingMsg = Please add at least one mapping value.
+fetchSrcFieldValuesFailuregMsg = Fail to fetch Source Field Values.
+addAtleastOneInterfaceDataMsg = Please add at least one Interface Data Mapping.
+shopByModelLbl = Shop By Model
+shopByDeviceLbl = Shop By Device
+manageAccountLbl = Manage Account
+
+# Ecommerce Customer Portal Constants
+deviceDetailsHeader = Device Details 
+levelHeader = Level
+partHeader = Part#
+itemHeader = Item
+orderHeader = Order
+occuredHeader = Occurred
+learnAboutRewardsBtn = Learn About Rewards...
+editBtnLbl = Edit...
+shopDeviceBtnLbl = Shop for this Device
+shopModelBtnLbl = Shop for this Model
+deviceAlertsLbl = Device Alerts
+statusNearlyLow = Nearly Low
+freePhoneSupportLbl = Free Phone Support
+serviceEntitlement = Service Entitlement
+activeOrdersTabTxt = Active Orders
+orderHistoryTabTxt = Order History
+purchasesTabTxt = Purchases
+ordersTabTxt = Orders
+failedCustomerDashboard = Failed to fetch customer dashboard details.
+failedFetchDeviceDetails = Failed to fetch device details.
+accountTxtCustomer = Account
+allTabTxt = ALL
+lowStatusTabTxt = Low Status
+recentlyAddedTxt = Recently Added
+rewardEligibleTxt = Reward Eligible
+cpDeviceLbl = Device
+cpModelLbl = Model
+cpAlertsLbl = Alerts
+cpLocationLbl = Location
+cpOrderLbl = Order
+cpRemoveDevice = Remove Device
+cpSuppAssInfo = Supplies Assistant Information
+cpHelpDoc = Help Document
+cpDownSuppAss = Download and Install Supplies Assistant
+cpVersion = Version:
+cpViewHelpDoc = View/Download Help Document
+cpSuppEmail = Support Email
+cpWeb = Web
+cpThreeDot = ...
+addNewLoc = Add New Location
+addLoc = Add Location
+sameContactInfo = Same as Contact Information
+addressLineTwoOpt = Address Line 2 (Optional)
+extentsionLbl = Ext
+editLocation = Edit Location
+addAddressLbl = Add Address
+econciergeProviderLbl = eConcierge Provider
+expirationDateLbl = Expiration Date
+taxStatusLbl = Tax Status 
+shippedOn = Shipped On
+orderNoLbl = Order #
+orderedOn = Ordered On
+createdBy = Created By
+forModel = For Model(s)
+forDevice = For Device(s)
+purchaseHistory = Purchase History
+secondaryContactLbl = Secondary Contact
+editContactInfo = Edit Contact Information 
+deviceSavedMsg = Device details are saved successfully.
+deviceNickNameExist = Device nickname already exist.
+deviceNickNameMsg = Please provide data in Nick Name.
+selectOneAddress = Select atleast one address
+dateLesserMsg = Date cannot occur in the past.
+deviceLocationsLbl = Device Locations
+failedToFetchAccountDetails = Failed to fetch customer Account details.
+failedToFetchDeviceLocation = Failed to fetch device location details.
+failedToFetchShippingDetails = Failed to fetch Customer Shipping Details.
+failedToUpdateAuthorizationDetails = Failed to Update Authorization details.
+authorizationDetailsSuccessMsg = Authorization details has been updated successfully.
+failedToRemoveDevice = Failed to remove device.
+failedToFetchStateCode = Failed to fetch State Code Details.
+CannotDeleteAddress = Cannot delete this address as it is tied to one or more of your device(S).
+shippingDetailsRemovedMsg = Shipping details removed successfully
+addedDeviceLocationMsg = Device Location added successfully.
+notAddedDeviceLocationMsg = Device location not added properly.
+removeDeviceLocationConfirmationMsg = Are you sure you want to remove the selected location
+failedToRemoveDeviceLocation = Failed to remove device location details.
+cannotDeleteDeviceLocation = Cannot delete this location as it is tied to one or more of your device(s).
+removedDevicelocationSuccessMsg = Device location removed sucessfully.
+failedToAddSecContactInf = Failed to Add Secondary Contact Information.
+secContactSuccessMsg = Secondary Contact Information has been added successfully.
+failedToUpdateCustomerContactInfo = Failed to update Customer Contact Information
+failedToUpdateSecContactInfo = Failed to update Secondary Contact Information
+contactInfoSuccessMsg = Contact Information has been modified successfully.
+secContactModifySuccessMsg = Secondary Contact Information has been modified successfully.
+failedToModifyAddress = Failed to modify address details.
+modifyAddressSuccessMsg = Address has been modified successfully.
+failedToRemoveShippingContact = Failed to Remove Shipping Contact Details.
+shippingInfoAlreadyExist = Shipping information already exists.
+userIdPwdModifySuccessMsg = User ID and Password has been modified successfully.
+pwdModifySuccessMsg = Password has been modified successfully.
+shippedTo = Shipped To
+mobileOptionalLbl = Mobile (Optional)
+paymentcp = Payment
+devicesLbl = Device(s):
+cporderSumLbl = Order Summary
+DIGITEK_SYSTEMGround = Best Way Ground
+DIGITEK_SYSTEMSecondDay = Best Way Second Day
+DIGITEK_SYSTEMNextDay = Best Way Next Day
+tbCustomerName = Xerox eCommerce Services
+DEVICE_ACTIVITY_SUMMARY = Device Activity Summary
+shipStartDate = Ship Start Date
+shipEndDate = Ship End Date
+validShipEndDate = Ship End Date should be greater than or equal to Ship Start Date.
+resubmitBtnLbl = Resubmit
+mfgDot = Mfg.
+REMOVED_DEVICES_REPORT = Device Removal Tool Activity
+DEVICES_DISCOVERED_BUT_NOT_ADDED = Devices Discovered but not Added
+
+#Promotion
+promotionsHeaderTxt = Promotions
+eConPromoCouponsTxt = Promo Coupons
+selectCompaignNameMsg = Please select a Campaign Name
+selectOneAtMsg = Please select one at a time
+failureMsgForRemovePromoCoupon = Failed to Remove Promo coupon
+successMsgForRemovePromoCoupon = Promo Coupon removed successfully.
+failureMsgForAddPromoCoupon = Failed to Add Promo Coupon Details.
+successMsgForAddPromoCoupon = Promo Coupon added successfully.
+removePromoCouponAlertMsg = Only Future promos are allowed to remove.
+modifyProviderPromMsg = Promo Coupon edited successfully.
+expiredEditPromoCouponMsg = You cannot modify an expired promo coupon.
+providerPromoUploadSelectMsg = Please select one Promo Coupon.
+providerPromoUploadOnlyActiveFutureMsg = Customer Name upload is allowed only for Active and Future promo coupons.
+providerPromoUploadOnlyCustomerMsg = Customer Name upload is allowed only for Customer promo coupons.
+providerPromoMissingHeaders = Missing Headers
+providerPromoEmptyCSVFile = CSV file does not have any data.
+providerPromoduplicateRecord =Duplicate entry in the CSV file.
+providerPromoUploadFailureMsg = Failed to Upload.
+providerPromoUploadSuccessMsg = File uploaded Successfully.
+providerPromoUploadMsg = Please Upload file.
+partnerPromotionsTxt = Promotions
+configTxt = Configuration Settings
+providerInvalidHeadersTxt = Invalid Headers :
+providerCorrectHeadersTxt = Correct Headers :
+providerPromoDownloadOnlyCustomerMsg = Customer Name download is allowed only for Customer promo coupons.
+startDateValidationMsg = Start date cannot be less than or equal to Current Date.
+promoStartDateValidationMsg = Start Date should be greater than {0} days from Current Date.
+promoEndDateValidationMsg =  End Date should be greater than or equal to Start Date.
+promoEndDateCurrentDateValidationMsg = End Date should be greater than or equal to Current Date.
+#Banner
+addCustomerBanner = Add Customer Banner Configuration
+addPartnerBanner = Add Partner Banner Configuration
+failToFetchBanner = Fail to fetch Banner information
+bannerConfigSuccess = Banner configuration updated successfully.
+bannerDetailSuccess = Banner details saved successfully.
+bannerImageExtensionValidationMsg = File type should be jpg, or png.
+editPartnerHeaderLabel = Edit Partner Banner Configuration
+editCustomerHeaderLabel = Edit Customer Banner Configuration
+bannerImageHeightWidthValidation = Please upload image with 130 pixels by 1024 pixels.
+CUSTOMER_PURCHASE_ACTIVITY = Customer Purchase Activity
+darkHeaderColor = Dark Header Color
+mdPreviewLink = Medium Device Preview
+smPreviewLink = Small Device Preview
+xsPreviewLink = Extra Small Device Preview
+rwdPreviewThemeHeader = Responsive Web Page Preview
+desktop = Desktop
+tablet = Tablet
+mobile = Mobile
+userId = User ID
+
+findButtonLbl = Find
+partTypeMsg = Part Type
+capacityTypeMsg = Capacity Type
+devicePurchasingEnabledLbl = Device Purchasing Enabled
+#Device Purchasing
+providerPromoDownloadOnlyPartNumberMsg = Part Number download is only allowed for promos configured for Specific Part Numbers.
+uploadPartNumberHeader = Upload Part Numbers
+partnerDevicePurchasingTxt = Device Purchasing
+shippingSurcharge = Shipping Surcharges
+updateDistFailureMsg = Failed to Update Credentials.
+createDistiSuccessMsg =	Distributor Credentials Updated Successfully.
+distributorModifiedSuccessMsg = Distributor settings modified successfully.
+
+customerInfo = Customer Information
+orderConf = Order Confirmed
+ordersNotExistMsg  = No orders exist for customer.
+
+#Provider Type
+ECONCIERGE = eConcierge
+STAPLES = Staples
+FCP = FCP
+REPLENISHMENT = Replenishment
+providerType = Provider Type
+
+#Amazon DRS
+AMAZONDRS = Amazon DRS
+DISTI_COST_BY_PART_DRS=Disti Cost By Part (DRS)
+
+# Part Offering types
+oem = OEM Parts Only
+replacement = Replacement Parts Only
+oemAndReplacement = Both OEM and Replacement Parts
+
+providerInfo = Provider Information
+exemptNo = Exempt No:
+
+#PartnerPriceShippingSurchargesService
+PP_invalidshipping=Invalid Shipping Method
+PP_notupload=NA Not allowed to upload
+PP_invalidSurcharge=Surcharge amount is not valid
+PP_notConfigured=Not Configured for the Partner
+PP_error=error occcured
+PP_wrongManufacture=Wrong Manufacturer Name
+PP_invalidPart=Invalid Part Number.
+PP_partNumNotExist=Part number does not exist
+PP_partNotConfigured=Part Number is not configured for Program
+PP_invalidPartNumManufacture=Invalid Part Number for Manufacturer
+PP_duplicateEntry=Duplicate Entry
+pp_notUpload=NA Not allowed to upload
+
+#PartnerConsumablePriceService
+PC_warningMessageabovebelow=SKU's priced 
+PC_warningMessageabove=% or more below ERP.
+PC_warningMessagebelow=% or more above ERP.
+
+#Look Up Part Type
+Supply = Supply
+Device = Device
+Upgrade/Accessory = Upgrade/Accessory
+
+surchargesAmt = Surcharge Amounts
+
+ShipDateRange = Ship Date Range
+OrderDateRange = Order Date Range
+nonMonitored = Non-Monitored
+
+selectPlatformLbl = Select your platform:
+printView = Print View

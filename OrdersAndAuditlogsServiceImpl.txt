@@ -1,0 +1,714 @@
+package com.hcl.sdp.server.service;
+
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
+import com.hcl.sdp.server.audit.beans.AuditLog;
+import com.hcl.sdp.server.db.MasterDAO;
+import com.hcl.sdp.server.shared.entity.Company;
+import com.hcl.sdp.server.shared.entity.ConsumableCategoryLocale;
+import com.hcl.sdp.server.shared.entity.ConsumablePart;
+import com.hcl.sdp.server.shared.entity.ConsumablePartCategory;
+import com.hcl.sdp.server.shared.entity.ConsumablePartLocale;
+import com.hcl.sdp.server.shared.entity.Contact;
+import com.hcl.sdp.server.shared.entity.CustomerTaxClassCode;
+import com.hcl.sdp.server.shared.entity.Device;
+import com.hcl.sdp.server.shared.entity.DeviceModel;
+import com.hcl.sdp.server.shared.entity.DistributorCarrierCode;
+import com.hcl.sdp.server.shared.entity.Lookup;
+import com.hcl.sdp.server.shared.entity.Order;
+import com.hcl.sdp.server.shared.entity.OrderExtension;
+import com.hcl.sdp.server.shared.entity.OrderLineItem;
+import com.hcl.sdp.server.shared.entity.OrderShipment;
+import com.hcl.sdp.server.shared.entity.OrderShipmentLineItem;
+import com.hcl.sdp.server.shared.entity.Partner;
+import com.hcl.sdp.server.shared.entity.Payment;
+import com.hcl.sdp.server.shared.entity.Program;
+import com.hcl.sdp.server.shared.entity.ProgramTenant;
+import com.hcl.sdp.server.shared.entity.RejectedOrder;
+import com.hcl.sdp.server.shared.entity.SourcingLocation;
+import com.hcl.sdp.server.shared.entity.State;
+import com.hcl.sdp.server.shared.entity.Tenant;
+import com.hcl.sdp.server.shared.entity.User;
+import com.hcl.sdp.server.shared.entity.UserContact;
+import com.hcl.sdp.server.shared.entity.UserPreference;
+import com.hcl.sdp.server.shared.entity.XPartner;
+import com.hcl.sdp.server.shared.util.EntityAndAttributeConstants;
+import com.hcl.sdp.server.shared.util.SDPBeanUtils;
+import com.hcl.sdp.shared.bean.Filter;
+import com.hcl.sdp.shared.bean.SDPAuditLog;
+import com.hcl.sdp.shared.bean.SDPBeanBundle;
+import com.hcl.sdp.shared.bean.SDPCompany;
+import com.hcl.sdp.shared.bean.SDPConsumableCategoryLocale;
+import com.hcl.sdp.shared.bean.SDPConsumablePart;
+import com.hcl.sdp.shared.bean.SDPConsumablePartCategory;
+import com.hcl.sdp.shared.bean.SDPConsumablePartLocale;
+import com.hcl.sdp.shared.bean.SDPContact;
+import com.hcl.sdp.shared.bean.SDPCustomerTaxClassCode;
+import com.hcl.sdp.shared.bean.SDPDevice;
+import com.hcl.sdp.shared.bean.SDPDeviceModel;
+import com.hcl.sdp.shared.bean.SDPDistributorCarrierCode;
+import com.hcl.sdp.shared.bean.SDPLookup;
+import com.hcl.sdp.shared.bean.SDPOrder;
+import com.hcl.sdp.shared.bean.SDPOrderExtension;
+import com.hcl.sdp.shared.bean.SDPOrderLineItem;
+import com.hcl.sdp.shared.bean.SDPOrderShipment;
+import com.hcl.sdp.shared.bean.SDPOrderShipmentLineItem;
+import com.hcl.sdp.shared.bean.SDPOrdersAndAuditlogsBean;
+import com.hcl.sdp.shared.bean.SDPOrdersAndAuditlogsLineItemBean;
+import com.hcl.sdp.shared.bean.SDPPayment;
+import com.hcl.sdp.shared.bean.SDPProgram;
+import com.hcl.sdp.shared.bean.SDPRejectedOrder;
+import com.hcl.sdp.shared.bean.SDPSourcingLocation;
+import com.hcl.sdp.shared.bean.SDPTenant;
+import com.hcl.sdp.shared.bean.SDPUser;
+import com.hcl.sdp.shared.bean.SDPXPartner;
+import com.hcl.sdp.shared.exception.SDPException;
+import com.hcl.sdp.shared.service.OrdersAndAuditlogsService;
+
+/**
+ * Description: This interface will have all the Service related to Support
+ * Center Orders and Auditlogs Copyright (c) 2018, HCL Technologies.
+ * 
+ * @date Sep 3, 2018 6:38:10 PM
+ * @author koteswararaoc
+ */
+
+public class OrdersAndAuditlogsServiceImpl implements OrdersAndAuditlogsService {
+
+	private static final String INVALID_LOGIN_USERID = "Enter valid customer Login ID.";
+
+	/** ENTER_VALID_ORDER_NUMBER **/
+	private static final String ENTER_VALID_ORDER_NUMBER = "Please enter a valid Order Number.";
+
+	/** ORDER_NUMBER_UNDER_CUSTOMER **/
+	private static final String ORDER_NUMBER_UNDER_CUSTOMER = "Please enter an Order Number that belongs to the entered customer.";
+
+	/**
+	 * masterDAO
+	 */
+	private MasterDAO masterDAO;
+
+	/**
+	 * @param masterDAO
+	 */
+	public void setMasterDAO(final MasterDAO masterDAO) {
+		this.masterDAO = masterDAO;
+	}
+
+	/**
+	 * @param userName
+	 * @return sdpOrdersAndAuditlogsBean -
+	 * @throws SDPException -
+	 */
+	public SDPOrdersAndAuditlogsBean fetchUserOrders(final String userName) throws SDPException {
+
+		Filter userNameFilter = new Filter(EntityAndAttributeConstants.LOGIN_NAME, userName, Filter.OP_EQ,
+				Filter.TYPE_STRING);
+		User user = masterDAO.getEntity(User.class, userNameFilter);
+		SDPOrdersAndAuditlogsBean sdpOrdersAndAuditlogsBean = new SDPOrdersAndAuditlogsBean();
+
+		if (user != null) {
+
+			Filter userIdFilter = new Filter(EntityAndAttributeConstants.USER_ID, String.valueOf(user.getId()),
+					Filter.OP_EQ, Filter.TYPE_LONG);
+
+			Filter userAdminGroupIdFilter = new Filter(EntityAndAttributeConstants.ADMIN_GROUP_ID,
+					String.valueOf(user.getAdminGroupId()), Filter.OP_EQ, Filter.TYPE_LONG);
+			List<User> userList = masterDAO.getAllEntity(User.class, userAdminGroupIdFilter).stream()
+					.sorted(Comparator.comparing(User::getType).thenComparing(User::getLoginName)).parallel()
+					.collect(Collectors.toList());
+			SDPUser sdpUser = new SDPUser();
+			SDPBeanUtils.getInstance().copyProperties(user, sdpUser);
+			sdpOrdersAndAuditlogsBean.setSdpUser(sdpUser);
+
+			List<SDPUser> sdpUserList = SDPBeanUtils.getInstance().convertList(userList, SDPUser.class);
+			sdpOrdersAndAuditlogsBean.setSdpUserList(sdpUserList);
+
+			List<UserContact> userContact = masterDAO.getAllEntity(UserContact.class, userIdFilter);
+			List<Long> contactId = userContact.stream().map(UserContact::getContactId).collect(Collectors.toList());
+			Filter contactIdFilter = new Filter(EntityAndAttributeConstants.ID, Filter.OP_IN, Filter.TYPE_LIST,
+					contactId);
+			Contact primaryContact = masterDAO.getAllEntitiesByfilter(Contact.class, contactIdFilter, true,
+					EntityAndAttributeConstants.TYPE, -1, -1).get(0);
+
+			if (primaryContact != null) {
+				SDPContact sdpContact = new SDPContact();
+
+				SDPBeanUtils.getInstance().copyProperties(primaryContact, sdpContact);
+				sdpOrdersAndAuditlogsBean.setSdpContact(sdpContact);
+			}
+
+			Company company = masterDAO.getEntity(Company.class, user.getAdminGroupId());
+			if (company != null) {
+				if (company.getType() != Company.TYPE_CUSTOMER) {
+					throw new SDPException(SDPException.INVALID_USER, INVALID_LOGIN_USERID);
+				}
+				SDPCompany sdpCompany = new SDPCompany();
+				SDPBeanUtils.getInstance().copyProperties(company, sdpCompany);
+				sdpOrdersAndAuditlogsBean.setSdpCompany(sdpCompany);
+			}
+
+			Tenant tenant = masterDAO.getEntity(Tenant.class, user.getAdminGroupId());
+			if (tenant != null) {
+				SDPTenant sdpTenant = new SDPTenant();
+				SDPBeanUtils.getInstance().copyProperties(tenant, sdpTenant);
+
+				Company partnerCompany = masterDAO.getEntity(Company.class, tenant.getProviderId());
+				sdpOrdersAndAuditlogsBean.setPartnerCompanyName(partnerCompany.getName());
+				Partner partner = masterDAO.getEntity(Partner.class, tenant.getProviderId());
+				sdpOrdersAndAuditlogsBean.setResellerId(partner.getResellerId());
+
+				/** Method to get XPartner Vaues */
+				getXpartnerValues(sdpOrdersAndAuditlogsBean, sdpTenant);
+
+				Filter tenantFilter = new Filter(EntityAndAttributeConstants.TENANT_ID,
+						String.valueOf(sdpTenant.getId()), Filter.OP_EQ, Filter.TYPE_LONG);
+				ProgramTenant programTenant = masterDAO.getEntity(ProgramTenant.class, tenantFilter);
+				if (programTenant != null) {
+					sdpOrdersAndAuditlogsBean.setOderByModelFlag(programTenant.getOrderByModel());
+					sdpOrdersAndAuditlogsBean.setPriceListName(programTenant.getPriceListName());
+				}
+
+				CustomerTaxClassCode customerTaxClassCode = masterDAO.getEntity(CustomerTaxClassCode.class,
+						sdpTenant.getClassCode());
+				if (customerTaxClassCode != null) {
+					SDPCustomerTaxClassCode sdpCustomerTaxClassCode = new SDPCustomerTaxClassCode();
+					SDPBeanUtils.getInstance().copyProperties(customerTaxClassCode, sdpCustomerTaxClassCode);
+					List<SDPCustomerTaxClassCode> sdpCustomerTaxClassCodeList = new ArrayList<>();
+					sdpCustomerTaxClassCodeList.add(sdpCustomerTaxClassCode);
+					sdpTenant.setSdpClassCodeList(sdpCustomerTaxClassCodeList);
+				}
+
+				sdpOrdersAndAuditlogsBean.setSdpTenant(sdpTenant);
+
+				/** method to get lookvalues. */
+				getLookupValues(sdpOrdersAndAuditlogsBean);
+
+			}
+			/** method to get the program information. */
+			getProgamInformation(user, sdpOrdersAndAuditlogsBean);
+
+		} else {
+			throw new SDPException(SDPException.INVALID_USER, INVALID_LOGIN_USERID);
+		}
+
+		return sdpOrdersAndAuditlogsBean;
+	}
+
+	/**
+	 * @param sdpOrdersAndAuditlogsBean
+	 * @param sdpTenant
+	 * @throws SDPException
+	 */
+	private void getXpartnerValues(final SDPOrdersAndAuditlogsBean sdpOrdersAndAuditlogsBean, final SDPTenant sdpTenant)
+			throws SDPException {
+
+		Filter xPartnerIdFilter = new Filter(EntityAndAttributeConstants.PARTNER_ID,
+				String.valueOf(sdpTenant.getProviderId()), Filter.OP_EQ, Filter.TYPE_LONG);
+		XPartner xPartner = masterDAO.getEntity(XPartner.class, xPartnerIdFilter);
+		if (xPartner != null) {
+			SDPXPartner sdpxPartner = new SDPXPartner();
+			SDPBeanUtils.getInstance().copyProperties(xPartner, sdpxPartner);
+			sdpOrdersAndAuditlogsBean.setSdpxPartner(sdpxPartner);
+		}
+	}
+
+	/**
+	 * @param sdpOrdersAndAuditlogsBean
+	 * @throws SDPException
+	 */
+	private void getLookupValues(final SDPOrdersAndAuditlogsBean sdpOrdersAndAuditlogsBean) throws SDPException {
+
+		List<Filter> lookupFilterList = new ArrayList<>();
+		lookupFilterList.add(
+				new Filter(EntityAndAttributeConstants.LOOKUP_TYPE, "ORDER_TYPE", Filter.OP_EQ, Filter.TYPE_STRING));
+		lookupFilterList.add(
+				new Filter(EntityAndAttributeConstants.LOOKUP_TYPE, "ORDER_STATUS", Filter.OP_EQ, Filter.TYPE_STRING));
+		lookupFilterList.add(
+				new Filter(EntityAndAttributeConstants.LOOKUP_TYPE, "PART_TYPE", Filter.OP_EQ, Filter.TYPE_STRING));
+
+		List<Lookup> lookupList = masterDAO.getAllEntity(Lookup.class, lookupFilterList, Filter.LOP_OR);
+
+		if (lookupList != null && !lookupList.isEmpty()) {
+			List<SDPLookup> sdpLookupList = SDPBeanUtils.getInstance().convertList(lookupList, SDPLookup.class);
+			sdpOrdersAndAuditlogsBean.setSdpLookupList(sdpLookupList);
+		}
+	}
+
+	/**
+	 * @param user
+	 * @param sdpOrdersAndAuditlogsBean
+	 * @throws SDPException -
+	 */
+	public void getProgamInformation(final User user, final SDPOrdersAndAuditlogsBean sdpOrdersAndAuditlogsBean)
+			throws SDPException {
+		try {
+			Filter programTenantFilter = new Filter(EntityAndAttributeConstants.TENANT_ID,
+					String.valueOf(user.getAdminGroupId()), Filter.OP_EQ, Filter.TYPE_LONG);
+			ProgramTenant programTenant = masterDAO.getEntity(ProgramTenant.class, programTenantFilter);
+			if (programTenant != null) {
+				Program program = masterDAO.getEntity(Program.class, programTenant.getProgramId());
+				if (program != null) {
+					SDPProgram sdpProgram = new SDPProgram();
+					SDPBeanUtils.getInstance().copyProperties(program, sdpProgram);
+					sdpOrdersAndAuditlogsBean.setSdpProgram(sdpProgram);
+				}
+			}
+		} catch (SDPException e) {
+			throw new SDPException(SDPException.INVALID_USER, INVALID_LOGIN_USERID);
+		}
+
+	}
+
+	/**
+	 * @param firstResult
+	 * @param maxResult
+	 * @param userId
+	 */
+	public SDPBeanBundle<SDPOrder> getAllOrdersByUserId(final int firstResult, final int maxResult, final long userId,
+			final SDPOrdersAndAuditlogsBean sdpOrdersAndAuditlogsBean) throws SDPException {
+		SDPBeanBundle<SDPOrder> ordersBeanBundle = new SDPBeanBundle<>();
+		String query = "FROM " + Order.class.getName() + " WHERE customerId = " + userId + " ORDER BY orderedDate DESC";
+		List<Order> orderList = masterDAO.executeQuery(query, true, maxResult, firstResult);
+
+		if (orderList != null && !orderList.isEmpty()) {
+			List<SDPOrder> sdpOrderList = SDPBeanUtils.getInstance().convertList(orderList, SDPOrder.class);
+			ordersBeanBundle.setBeans(sdpOrderList);
+
+			String orderCountQuey = "SELECT COUNT(id) FROM " + Order.class.getName() + " WHERE customerId = " + userId;
+			List<Long> orderTotalList = masterDAO.executeQuery(orderCountQuey, true);
+			ordersBeanBundle.setCount(orderTotalList.get(0).intValue());
+		}
+		return ordersBeanBundle;
+
+	}
+
+	/**
+	 * @param orderId                   -
+	 * @param sdpOrdersAndAuditlogsBean -
+	 * @throws SDPException -
+	 * @return SDPOrdersAndAuditlogsBean -
+	 */
+	public SDPOrdersAndAuditlogsBean fetchOrderInformation(final long orderId,
+			final SDPOrdersAndAuditlogsBean sdpOrdersAndAuditlogsBean) throws SDPException {
+		SDPOrdersAndAuditlogsLineItemBean sdpOrdersAndAuditlogsLineItemBean = new SDPOrdersAndAuditlogsLineItemBean();
+
+		Filter orderIdFilter = new Filter(EntityAndAttributeConstants.ORDER_ID, String.valueOf(orderId), Filter.OP_EQ,
+				Filter.TYPE_LONG);
+		Order order = masterDAO.getEntity(Order.class, orderId);
+		UserPreference userPreference = null;
+		if (order != null) {
+			SDPOrder sdpOrder = new SDPOrder();
+			SDPBeanUtils.getInstance().copyProperties(order, sdpOrder);
+
+			User createdByUser = masterDAO.getEntity(User.class, sdpOrder.getCreatedBy());
+			Company createdByCompany = masterDAO.getEntity(Company.class, createdByUser.getAdminGroupId());
+			String createdByDisplayName = createdByUser.getLoginName();
+			if (createdByCompany.getType() == Company.TYPE_RESELLER
+					|| createdByCompany.getType() == Company.TYPE_SERVICE_PROVIDER) {
+				createdByDisplayName = createdByDisplayName
+						.concat(" ".concat("(".concat(createdByCompany.getName().concat(")"))));
+			}
+			sdpOrder.setCreatedByCol(createdByDisplayName);
+
+			Filter customerIdFilter = new Filter(EntityAndAttributeConstants.USER_ID,
+					String.valueOf(order.getCustomerId()), Filter.OP_EQ, Filter.TYPE_LONG);
+			userPreference = masterDAO.getEntity(UserPreference.class, customerIdFilter);
+
+			/** method to get the contact details. */
+			getContactDetails(sdpOrdersAndAuditlogsLineItemBean, sdpOrder);
+
+			/** method to get the sourcing details. */
+			getSourcingDetails(sdpOrdersAndAuditlogsLineItemBean);
+
+			List<OrderLineItem> orderLineItemList = masterDAO.getAllEntity(OrderLineItem.class, orderIdFilter);
+
+			/** method to get the consumable information. */
+			getConsumableDetails(orderLineItemList, sdpOrdersAndAuditlogsLineItemBean, userPreference.getLocaleId());
+
+			OrderExtension orderExtension = masterDAO.getEntity(OrderExtension.class, orderIdFilter);
+			if (orderExtension != null) {
+				SDPOrderExtension sdpOrderExtension = new SDPOrderExtension();
+				SDPBeanUtils.getInstance().copyProperties(orderExtension, sdpOrderExtension);
+
+				CustomerTaxClassCode customerTaxClassCode = masterDAO.getEntity(CustomerTaxClassCode.class,
+						sdpOrderExtension.getCustomerTaxClassCode());
+				if (customerTaxClassCode != null) {
+					SDPCustomerTaxClassCode sdpCustomerTaxClassCode = new SDPCustomerTaxClassCode();
+					SDPBeanUtils.getInstance().copyProperties(customerTaxClassCode, sdpCustomerTaxClassCode);
+					sdpOrderExtension.setSdpCustomerTaxClassCode(sdpCustomerTaxClassCode);
+				}
+				sdpOrdersAndAuditlogsLineItemBean.setSdpOrderExtension(sdpOrderExtension);
+			}
+
+			List<Payment> paymentList = masterDAO.getAllEntity(Payment.class, orderIdFilter);
+			if (paymentList != null && !paymentList.isEmpty()) {
+				List<SDPPayment> sdpPaymentList = SDPBeanUtils.getInstance().convertList(paymentList, SDPPayment.class);
+				sdpOrdersAndAuditlogsLineItemBean.setSdpPaymentList(sdpPaymentList);
+			}
+			/** method to the Shipping details. */
+			getOrderShipmentDetails(sdpOrdersAndAuditlogsLineItemBean, orderIdFilter);
+
+			List<RejectedOrder> rejectedOrderList = masterDAO.getAllEntity(RejectedOrder.class, orderIdFilter);
+			if (rejectedOrderList != null && !rejectedOrderList.isEmpty()) {
+				List<SDPRejectedOrder> sdpRejectedOrderList = SDPBeanUtils.getInstance().convertList(rejectedOrderList,
+						SDPRejectedOrder.class);
+				sdpOrdersAndAuditlogsLineItemBean.setSdpRejectedOrderList(sdpRejectedOrderList);
+
+			}
+		}
+		sdpOrdersAndAuditlogsBean.setSdpOrdersAndAuditlogsLineItemBean(sdpOrdersAndAuditlogsLineItemBean);
+		return sdpOrdersAndAuditlogsBean;
+	}
+
+	/**
+	 * @param sdpOrdersAndAuditlogsLineItemBean
+	 * @param sdpOrder
+	 * @throws SDPException
+	 */
+	private void getContactDetails(final SDPOrdersAndAuditlogsLineItemBean sdpOrdersAndAuditlogsLineItemBean,
+			final SDPOrder sdpOrder) throws SDPException {
+
+		SDPContact sdpContact = new SDPContact();
+		State state = masterDAO.getEntity(State.class, sdpOrder.getStateId());
+		if (state != null) {
+			sdpContact.setStateCode(state.getCode());
+		}
+		sdpOrder.setSdpContact(sdpContact);
+		sdpOrdersAndAuditlogsLineItemBean.setSdpOrder(sdpOrder);
+	}
+
+	/**
+	 * @param sdpOrdersAndAuditlogsLineItemBean
+	 * @throws SDPException
+	 */
+	private void getSourcingDetails(final SDPOrdersAndAuditlogsLineItemBean sdpOrdersAndAuditlogsLineItemBean)
+			throws SDPException {
+		List<SourcingLocation> sourcingLocationList = masterDAO.getAllEntities(SourcingLocation.class);
+		if (sourcingLocationList != null && !sourcingLocationList.isEmpty()) {
+			List<SDPSourcingLocation> sdpSourcingLocationList = SDPBeanUtils.getInstance()
+					.convertList(sourcingLocationList, SDPSourcingLocation.class);
+
+			Map<Long, SDPSourcingLocation> sourcingLocationIdMap = sdpSourcingLocationList.stream()
+					.collect(Collectors.toMap(SDPSourcingLocation::getId, Function.identity()));
+
+			sdpOrdersAndAuditlogsLineItemBean.setSourcingLocationIdMap(sourcingLocationIdMap);
+
+			SDPSourcingLocation orderSourcingLocation = sourcingLocationIdMap
+					.get(sdpOrdersAndAuditlogsLineItemBean.getSdpOrder().getSourcingLocationId());
+
+			Filter distributorSystemIdFilter = new Filter(EntityAndAttributeConstants.CERTIFIED_INTERFACE_ID,
+					String.valueOf(orderSourcingLocation.getDistributorSystemId()), Filter.OP_EQ, Filter.TYPE_LONG);
+			Filter carrierCodeFilter = new Filter(EntityAndAttributeConstants.CARRIER_CODE,
+					String.valueOf(sdpOrdersAndAuditlogsLineItemBean.getSdpOrder().getCarrierCode()), Filter.OP_EQ,
+					Filter.TYPE_STRING);
+
+			List<Filter> distributorCarrierCodeFilterList = new ArrayList<>();
+			distributorCarrierCodeFilterList.add(distributorSystemIdFilter);
+			distributorCarrierCodeFilterList.add(carrierCodeFilter);
+
+			DistributorCarrierCode distributorCarrierCode = masterDAO.getEntity(DistributorCarrierCode.class,
+					distributorCarrierCodeFilterList, Filter.LOP_AND);
+			if (distributorCarrierCode != null) {
+				SDPDistributorCarrierCode sdpDistributorCarrierCode = new SDPDistributorCarrierCode();
+				SDPBeanUtils.getInstance().copyProperties(distributorCarrierCode, sdpDistributorCarrierCode);
+				sdpOrdersAndAuditlogsLineItemBean.setSdpDistributorCarrierCode(sdpDistributorCarrierCode);
+			} else {
+				SDPDistributorCarrierCode sdpDistributorCarrierCode = new SDPDistributorCarrierCode();
+				sdpDistributorCarrierCode.setName(sdpOrdersAndAuditlogsLineItemBean.getSdpOrder().getCarrierCode());
+				sdpOrdersAndAuditlogsLineItemBean.setSdpDistributorCarrierCode(sdpDistributorCarrierCode);
+			}
+		}
+	}
+
+	/**
+	 * @param sdpOrdersAndAuditlogsLineItemBean
+	 * @param orderIdFilter
+	 * @throws SDPException
+	 */
+	private void getOrderShipmentDetails(final SDPOrdersAndAuditlogsLineItemBean sdpOrdersAndAuditlogsLineItemBean,
+			final Filter orderIdFilter) throws SDPException {
+
+		List<OrderShipment> orderShipmentList = masterDAO.getAllEntity(OrderShipment.class, orderIdFilter);
+
+		if (orderShipmentList != null && !orderShipmentList.isEmpty()) {
+
+			List<SDPOrderShipment> sdpOrderShipmentList = SDPBeanUtils.getInstance().convertList(orderShipmentList,
+					SDPOrderShipment.class);
+
+			sdpOrdersAndAuditlogsLineItemBean.setSdpOrderShipmentList(sdpOrderShipmentList);
+
+			List<Long> orderShipmentIdList = orderShipmentList.stream().map(OrderShipment::getId)
+					.collect(Collectors.toList());
+			Filter shipmentIdFilter = new Filter(EntityAndAttributeConstants.ORDER_SHIPMENT_ID, Filter.OP_IN,
+					Filter.TYPE_LIST, orderShipmentIdList);
+
+			List<OrderShipmentLineItem> orderShipmentLineItemList = masterDAO.getAllEntity(OrderShipmentLineItem.class,
+					shipmentIdFilter);
+			if (orderShipmentLineItemList != null && !orderShipmentLineItemList.isEmpty()) {
+				List<SDPOrderShipmentLineItem> sdpOrderShipmentLineItemList = SDPBeanUtils.getInstance()
+						.convertList(orderShipmentLineItemList, SDPOrderShipmentLineItem.class);
+				sdpOrdersAndAuditlogsLineItemBean.setSdpOrderShipmentLineItemList(sdpOrderShipmentLineItemList);
+			}
+		}
+	}
+
+	/**
+	 * @param orderLineItemList
+	 * @param sdpOrdersAndAuditlogsLineItemBean
+	 * @throws SDPException
+	 */
+	public void getConsumableDetails(final List<OrderLineItem> orderLineItemList,
+			final SDPOrdersAndAuditlogsLineItemBean sdpOrdersAndAuditlogsLineItemBean, final long localeId)
+			throws SDPException {
+
+		if (orderLineItemList != null && !orderLineItemList.isEmpty()) {
+			List<SDPOrderLineItem> sdpOrderLineItemList = SDPBeanUtils.getInstance().convertList(orderLineItemList,
+					SDPOrderLineItem.class);
+			sdpOrderLineItemList.sort(Comparator.comparing(SDPOrderLineItem::getMfgPN));
+			sdpOrdersAndAuditlogsLineItemBean.setSdpOrderLineItemList(sdpOrderLineItemList);
+			List<Long> deviceIdList = sdpOrderLineItemList.stream().map(SDPOrderLineItem::getDeviceId)
+					.collect(Collectors.toList());
+			Filter deviceIdFilter = new Filter(EntityAndAttributeConstants.ID, Filter.OP_IN, Filter.TYPE_LIST,
+					deviceIdList);
+			List<Device> deviceList = masterDAO.getAllEntity(Device.class, deviceIdFilter);
+			if (deviceList != null && !deviceList.isEmpty()) {
+				List<SDPDevice> sdpDeviceList = SDPBeanUtils.getInstance().convertList(deviceList, SDPDevice.class);
+				sdpOrdersAndAuditlogsLineItemBean.setSdpDeviceList(sdpDeviceList);
+			}
+
+			List<Long> deviceModeIdList = sdpOrderLineItemList.stream().map(SDPOrderLineItem::getDeviceModelId)
+					.collect(Collectors.toList());
+			Filter deviceModelIdFilter = new Filter(EntityAndAttributeConstants.ID, Filter.OP_IN, Filter.TYPE_LIST,
+					deviceModeIdList);
+			List<DeviceModel> deviceModelList = masterDAO.getAllEntity(DeviceModel.class, deviceModelIdFilter);
+			if (deviceModelList != null && !deviceModelList.isEmpty()) {
+				List<SDPDeviceModel> sdpDeviceModelList = SDPBeanUtils.getInstance().convertList(deviceModelList,
+						SDPDeviceModel.class);
+				sdpOrdersAndAuditlogsLineItemBean.setSdpDeviceModelList(sdpDeviceModelList);
+			}
+
+			List<Long> consumablePartCategoryIdList = orderLineItemList.stream()
+					.map(OrderLineItem::getConsumablePartCategoryId).collect(Collectors.toList());
+			List<Long> deviceModelIdList = orderLineItemList.stream().map(OrderLineItem::getDeviceModelId)
+					.collect(Collectors.toList());
+
+			Filter consumablePartCategoryIdFilter = new Filter(EntityAndAttributeConstants.ID, Filter.OP_IN,
+					Filter.TYPE_LIST, consumablePartCategoryIdList);
+
+			Filter modelIdFilter = new Filter(EntityAndAttributeConstants.DEVICE_MODEL_ID, Filter.OP_IN,
+					Filter.TYPE_LIST, deviceModelIdList);
+
+			List<Filter> consumbsumablePartCategoryListFilter = new ArrayList<>();
+
+			consumbsumablePartCategoryListFilter.add(consumablePartCategoryIdFilter);
+			consumbsumablePartCategoryListFilter.add(modelIdFilter);
+
+			List<ConsumablePartCategory> consumablePartCategoryList = masterDAO
+					.getAllEntity(ConsumablePartCategory.class, consumbsumablePartCategoryListFilter, Filter.LOP_AND);
+			/** method to get all consuable values. */
+			getConsumableDetaildInformation(sdpOrdersAndAuditlogsLineItemBean, localeId, consumablePartCategoryList);
+
+		}
+
+	}
+
+	/**
+	 * @param sdpOrdersAndAuditlogsLineItemBean
+	 * @param localeId
+	 * @param consumablePartCategoryList
+	 * @throws SDPException
+	 */
+	private void getConsumableDetaildInformation(
+			final SDPOrdersAndAuditlogsLineItemBean sdpOrdersAndAuditlogsLineItemBean, final long localeId,
+			List<ConsumablePartCategory> consumablePartCategoryList) throws SDPException {
+		if (consumablePartCategoryList != null && !consumablePartCategoryList.isEmpty()) {
+			List<SDPConsumablePartCategory> sdpConsumablePartCategoryList = SDPBeanUtils.getInstance()
+					.convertList(consumablePartCategoryList, SDPConsumablePartCategory.class);
+			Map<Long, SDPConsumablePartCategory> sdpConsumablePartCategoryIdMap = sdpConsumablePartCategoryList.stream()
+					.collect(Collectors.toMap(SDPConsumablePartCategory::getId, Function.identity()));
+
+			sdpOrdersAndAuditlogsLineItemBean.setSdpConsumablePartCategoryIdMap(sdpConsumablePartCategoryIdMap);
+
+			List<Long> consumablecategoryIdList = consumablePartCategoryList.stream()
+					.map(ConsumablePartCategory::getConsumablePartCategoryId).collect(Collectors.toList());
+
+			List<Long> consuablePartIdList = consumablePartCategoryList.stream()
+					.map(ConsumablePartCategory::getConsumablePartId).collect(Collectors.toList());
+
+			Filter localeIdFilter = new Filter(EntityAndAttributeConstants.LOCALE_ID, String.valueOf(localeId),
+					Filter.OP_EQ, Filter.TYPE_LONG);
+			List<Filter> consumablePartLocaleIdFilterList = new ArrayList<>();
+
+			consumablePartLocaleIdFilterList.add(new Filter(EntityAndAttributeConstants.CONSUMABLE_PART_ID,
+					Filter.OP_IN, Filter.TYPE_LIST, consuablePartIdList));
+			consumablePartLocaleIdFilterList.add(localeIdFilter);
+
+			Filter consumablePartIdFilter = new Filter(EntityAndAttributeConstants.ID, Filter.OP_IN, Filter.TYPE_LIST,
+					consuablePartIdList);
+
+			List<Filter> consumableCategoryIdFilterList = new ArrayList<>();
+			consumableCategoryIdFilterList.add(new Filter(EntityAndAttributeConstants.CONSUMABLE_CATEGORY_ID,
+					Filter.OP_IN, Filter.TYPE_LIST, consumablecategoryIdList));
+			consumableCategoryIdFilterList.add(localeIdFilter);
+
+			List<ConsumableCategoryLocale> consumableCategoryLocaleList = masterDAO
+					.getAllEntity(ConsumableCategoryLocale.class, consumableCategoryIdFilterList, Filter.LOP_AND);
+
+			if (consumableCategoryLocaleList != null && !consumableCategoryLocaleList.isEmpty()) {
+				List<SDPConsumableCategoryLocale> sdpConsumableCategoryLocaleList = SDPBeanUtils.getInstance()
+						.convertList(consumableCategoryLocaleList, SDPConsumableCategoryLocale.class);
+				Map<Long, SDPConsumableCategoryLocale> sdpConsumableCategoryIdLocaleMap = sdpConsumableCategoryLocaleList
+						.stream().collect(Collectors.toMap(SDPConsumableCategoryLocale::getConsumableCategoryId,
+								Function.identity()));
+				sdpOrdersAndAuditlogsLineItemBean.setSdpConsumableCategoryIdLocaleMap(sdpConsumableCategoryIdLocaleMap);
+			}
+
+			List<ConsumablePart> consumablePartList = masterDAO.getAllEntity(ConsumablePart.class,
+					consumablePartIdFilter);
+
+			if (consumablePartList != null && !consumablePartList.isEmpty()) {
+				List<SDPConsumablePart> sdpConsumablePartList = SDPBeanUtils.getInstance()
+						.convertList(consumablePartList, SDPConsumablePart.class);
+				Map<Long, SDPConsumablePart> sdpConsumablePartIdMap = sdpConsumablePartList.stream()
+						.collect(Collectors.toMap(SDPConsumablePart::getId, Function.identity()));
+				sdpOrdersAndAuditlogsLineItemBean.setSdpConsumablePartIdMap(sdpConsumablePartIdMap);
+			}
+
+			List<ConsumablePartLocale> consumablePartLocaleList = masterDAO.getAllEntity(ConsumablePartLocale.class,
+					consumablePartLocaleIdFilterList, Filter.LOP_AND);
+
+			if (consumablePartLocaleList != null && !consumablePartLocaleList.isEmpty()) {
+				List<SDPConsumablePartLocale> sdpConsumablePartLocaleList = SDPBeanUtils.getInstance()
+						.convertList(consumablePartLocaleList, SDPConsumablePartLocale.class);
+
+				Map<Long, SDPConsumablePartLocale> sdpConsuamblePartIdLocaleMap = sdpConsumablePartLocaleList.stream()
+						.collect(Collectors.toMap(SDPConsumablePartLocale::getConsumablePartId, Function.identity()));
+
+				sdpOrdersAndAuditlogsLineItemBean.setSdpConsuamblePartIdLocaleMap(sdpConsuamblePartIdLocaleMap);
+			}
+		}
+	}
+
+	/**
+	 * @param sdpOrder
+	 * @param consumablePartCategoryList
+	 * @throws SDPException
+	 */
+
+	public List<SDPAuditLog> fetchAuditLogsInformation(final SDPOrder sdpOrder) throws SDPException {
+
+		List<SDPAuditLog> sdpAuditLogList = new ArrayList<>();
+		if (sdpOrder != null) {
+			List<Filter> auditLongsFilterList = new ArrayList<>();
+			auditLongsFilterList.add(new Filter(EntityAndAttributeConstants.MESSAGE,
+					"%".concat(sdpOrder.getOrderNumber().concat("%")), Filter.OP_LIKE, Filter.TYPE_STRING));
+			auditLongsFilterList.add(new Filter(EntityAndAttributeConstants.MESSAGE,
+					"%".concat(sdpOrder.getSysOrderNumber().concat("%")), Filter.OP_LIKE, Filter.TYPE_STRING));
+			List<AuditLog> auditLogList = masterDAO.getAllEntity(AuditLog.class, auditLongsFilterList, Filter.LOP_OR);
+			if (auditLogList != null && !auditLogList.isEmpty()) {
+				sdpAuditLogList = SDPBeanUtils.getInstance().convertList(auditLogList, SDPAuditLog.class);
+			}
+		}
+		return sdpAuditLogList;
+	}
+
+	/**
+	 * To check whether entered user name and order number
+	 * 
+	 * @param userNamme
+	 * @param orderNumber
+	 * @param asyncBean
+	 * @throws SDPException
+	 */
+	@Override
+	public SDPOrdersAndAuditlogsBean checkUserAndOrderNumber(String userName, String orderNumber) throws SDPException {
+
+		Filter userNameFilter = new Filter(EntityAndAttributeConstants.LOGIN_NAME, userName, Filter.OP_EQ,
+				Filter.TYPE_STRING);
+		User LoginUser = masterDAO.getEntity(User.class, userNameFilter);
+		if (null != LoginUser) {
+
+			SDPOrder sdpOrder = checkOrderNumber(orderNumber);
+			if (sdpOrder != null) {
+				Filter custFilter = new Filter(EntityAndAttributeConstants.ID, String.valueOf(sdpOrder.getCustomerId()),
+						Filter.OP_EQ, Filter.TYPE_LONG);
+				User user = masterDAO.getEntity(User.class, custFilter);
+				if (user != null) {
+					String dbUserName = user.getLoginName();
+					if (null != dbUserName && dbUserName.length() > 0 && dbUserName.equalsIgnoreCase(userName)) {
+						return fetchUserOrders(userName);
+					} else {
+						throw new SDPException(SDPException.ENTER_VALID_ORDER_NUMBER_MSG, ORDER_NUMBER_UNDER_CUSTOMER);
+					}
+				} else {
+					throw new SDPException(SDPException.ENTER_VALID_ORDER_NUMBER_MSG, ORDER_NUMBER_UNDER_CUSTOMER);
+				}
+			} else {
+				throw new SDPException(SDPException.ORDERNUMBER_NOT_VALID, ENTER_VALID_ORDER_NUMBER);
+			}
+		} else {
+			throw new SDPException(SDPException.INVALID_USER, INVALID_LOGIN_USERID);
+		}
+
+	}
+
+	/**
+	 * To entered order Number with db.
+	 * 
+	 * @param orderNumber
+	 * @return
+	 */
+
+	private SDPOrder checkOrderNumber(String orderNumber) throws SDPException {
+
+		SDPOrder sdpOrder = null;
+		if (orderNumber.length() > 0) {
+			Filter filter = new Filter(EntityAndAttributeConstants.ORDER_NUMBER, orderNumber, Filter.OP_EQ,
+					Filter.TYPE_STRING);
+			Order order = masterDAO.getEntity(Order.class, filter);
+			if (null != order) {
+				sdpOrder = new SDPOrder();
+				SDPBeanUtils.getInstance().copyProperties(order, sdpOrder);
+			}
+		}
+		return sdpOrder;
+
+	}
+
+	/**
+	 * To entered order Number with db.
+	 * 
+	 * @param orderNumber
+	 * @return
+	 */
+	@Override
+	public SDPOrdersAndAuditlogsBean fetchOrdersByOrderNumber(String orderNumber) throws SDPException {
+
+		SDPOrder sdpOrder = checkOrderNumber(orderNumber);
+
+		if (sdpOrder != null) {
+			Filter custFilter = new Filter(EntityAndAttributeConstants.ID, String.valueOf(sdpOrder.getCustomerId()),
+					Filter.OP_EQ, Filter.TYPE_LONG);
+			User user = masterDAO.getEntity(User.class, custFilter);
+			if (user != null) {
+				String dbUserName = user.getLoginName();
+				if (null != dbUserName && dbUserName.length() > 0) {
+					return fetchUserOrders(dbUserName);
+				} else {
+					throw new SDPException(SDPException.ORDERNUMBER_NOT_VALID, ENTER_VALID_ORDER_NUMBER);
+				}
+			} else {
+				throw new SDPException(SDPException.ORDERNUMBER_NOT_VALID, ENTER_VALID_ORDER_NUMBER);
+			}
+		} else {
+			throw new SDPException(SDPException.ORDERNUMBER_NOT_VALID, ENTER_VALID_ORDER_NUMBER);
+		}
+
+	}
+}

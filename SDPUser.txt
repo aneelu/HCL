@@ -1,0 +1,921 @@
+package com.hcl.sdp.shared.bean;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import com.hcl.sdp.shared.exception.SDPException;
+import com.hcl.sdp.shared.exception.ValidationException;
+
+/**
+ * Domain model that represents a user. <br>
+ * <br>
+ * Copyright (c) 2008, HCL Technologies.<br>
+ * Mar 15, 2008 7:47:17 PM<br>
+ * 
+ * @author aanandn
+ * @version $Id$
+ */
+public class SDPUser extends SDPBean {
+
+    /**
+     * serialVersionUID.
+     */
+    private static final long serialVersionUID = 1L;
+
+    /**
+     * User Types - TYPE_SUPER_USER.
+     */
+    public static final int TYPE_SUPER_USER = CompanyUserType.ROOT_ADMIN.getUserType();
+
+    /**
+     * User Types - TYPE_SERVICE_PROVIDER_ADMIN.
+     */
+    public static final int TYPE_SERVICE_PROVIDER_ADMIN = CompanyUserType.PROVIDER_ADMIN.getUserType();
+
+    /**
+     * User Types - TYPE_TENANT_ADMIN.
+     */
+    public static final int TYPE_CUSTOMER_ADMIN = CompanyUserType.CUSTOMER_ADMIN.getUserType();
+
+    /**
+     * User Types - TYPE_DEFAULT_USER.
+     */
+    public static final int TYPE_DEFAULT_USER = CompanyUserType.DEFAULT_USER.getUserType();
+    /**
+     * Company Type - Partner.
+     */
+    public static final int TYPE_RESELLER_ADMIN = CompanyUserType.RESELLER_ADMIN.getUserType();
+
+    /**
+     * User access status.
+     */
+    public static final int ACCESS_DENIED = 1;
+
+    /**
+     * User access status.
+     */
+    public static final int ACCESS_GRANTED = 2;
+
+    /**
+     * User access status.
+     */
+    public static final int ACCESS_RESET = 3;
+
+    /**
+     * first name of the user.
+     */
+    private String firstName;
+
+    /**
+     * last name of the user.
+     */
+    private String lastName;
+
+    /**
+     * login username of the user.
+     */
+    private String loginName;
+
+    /**
+     * description of the user.
+     */
+    private String description;
+
+    /**
+     * identifier of the user.
+     */
+    private long id;
+
+    /**
+     * date of modification of the user entity.
+     */
+    private Date modifiedDate;
+
+    /**
+     * adminGroupId of the User.
+     */
+    private long adminGroupId;
+
+    /**
+     * Type of the User.
+     */
+    private int type;
+
+    /**
+     * SDPEntity edited user id.
+     */
+    private long editedBy;
+
+    /**
+     * User is retired or not.
+     */
+    private boolean isRetired;
+
+    /**
+     * answer for the securityQuestion.
+     */
+    private String answer;
+
+    /**
+     * status of the User.
+     */
+    private boolean isNotLocked;
+
+    /**
+     * securityQuestionId of the User.
+     */
+    private long securityQuestionId;
+
+    /**
+     * securityQuestion of the User.
+     */
+    private String securityQuestion;
+
+    /**
+     * cookie for the SDPEntity.
+     */
+    private String cookie;
+
+    /**
+     * password of the user.
+     */
+    private String password;
+
+    /**
+     * expirationDate of the password.
+     */
+    private Date passwordExpirationDate;
+
+    /**
+     * expirationDate of the User.
+     */
+    private Date expirationDate;
+
+    /**
+     * no of failedLogin of the User.
+     */
+    private int failedLogin;
+
+    /**
+     * last failed login of the User.
+     */
+    private Date lastFailedLogin;
+    /**
+     * User access is activated or not.
+     */
+    private int accessStatus;
+    /**
+     * No of Devices.
+     */
+    private int noOfDevices;
+    /**
+     * isTCAccepted.
+     */
+    private boolean isTCAccepted;
+    /**
+     * emailId of the customer.
+     */
+    private String emailId;
+
+    /**
+     * Permissions of User.
+     */
+    private Map<String, Object> permissions = new HashMap<String, Object>();
+
+    /**
+     * Security Questions.
+     */
+    private List<SDPSecurityQuestion> secQuestions = new ArrayList<SDPSecurityQuestion>();
+
+    /**
+     * paging size.
+     */
+    private int pageSize;
+
+    /**
+     * UserPreference.
+     */
+    private SDPUserPreference preference;
+
+    /**
+     * map of availableLocales <DisplayName, Locale ID>.
+     */
+    private Map<String, Long> availableLocales = new HashMap<String, Long>();
+
+    /**
+     * map of availableLocales <Locale name, Symbol>.
+     */
+    private Map<String, String> currencySymbols = new HashMap<String, String>();
+    /**
+     * Modified Date in String.
+     */
+    private String stringModifiedDate;
+    /**
+     * Country Code of User.
+     */
+    private String countryCode;
+    /**
+     * companyName of User.
+     */
+    private String companyName;
+    /**
+     * providerName of User.
+     */
+    private String providerName;
+    /**
+     * organizationName.
+     */
+    private String organizationName;
+    /**
+     * sdpContact.
+     */
+    private SDPContact sdpContact;
+    /**
+     * Locale Id.
+     */
+    private long localeId;
+    /**
+     * User Role.
+     */
+    private String userRole;
+    /**
+     * registrationURL of User.
+     */
+    private Map<String, String> registrationURL = new HashMap<String, String>();
+    /**
+     * downloadURL of User.
+     */
+    private Map<String, String> downloadURL = new HashMap<String, String>();
+    /**
+     * Provider type
+     */
+    private int providerType;
+
+    public int getProviderType() {
+        return providerType;
+    }
+
+    public void setProviderType(int providerType) {
+        this.providerType = providerType;
+    }
+
+    /**
+     * @return the userRole
+     */
+    public String getUserRole() {
+        return userRole;
+    }
+
+    /**
+     * @param userRoleParam the userRole to set
+     */
+    public void setUserRole(final String userRoleParam) {
+        this.userRole = userRoleParam;
+    }
+
+    /**
+     * @return the localeId
+     */
+    public long getLocaleId() {
+        return localeId;
+    }
+
+    /**
+     * @param localeIdParam the localeId to set
+     */
+    public void setLocaleId(final long localeIdParam) {
+        this.localeId = localeIdParam;
+    }
+
+    /**
+     * @return the countryCode
+     */
+    public String getCountryCode() {
+        return countryCode;
+    }
+
+    /**
+     * @param countryCodeParam the countryCode to set
+     */
+    public void setCountryCode(final String countryCodeParam) {
+        this.countryCode = countryCodeParam;
+    }
+
+    /**
+     * @return the stringModifiedDate
+     */
+    public String getStringModifiedDate() {
+        return stringModifiedDate;
+    }
+
+    /**
+     * @param stringModifiedDateParam the stringModifiedDate to set
+     */
+    public void setStringModifiedDate(final String stringModifiedDateParam) {
+        this.stringModifiedDate = stringModifiedDateParam;
+    }
+
+    /**
+     * @return int -the page size
+     */
+    public int getPageSize() {
+        return pageSize;
+    }
+
+    /**
+     * @param sizeOfPage -
+     */
+    public void setPageSize(final int sizeOfPage) {
+        this.pageSize = sizeOfPage;
+    }
+
+    /**
+     * Default constructor.
+     */
+    public SDPUser() {
+    }
+
+    /**
+     * company type.
+     */
+    private boolean isProvider;
+
+    /**
+     * @return the isProvider
+     */
+    public boolean isProvider() {
+        return isProvider;
+    }
+
+    /**
+     * @param paramIsProvider the isProvider to set
+     */
+    public void setProvider(final boolean paramIsProvider) {
+        this.isProvider = paramIsProvider;
+    }
+
+    /**
+     * @return the secQuestions
+     */
+    public List<SDPSecurityQuestion> getSecQuestions() {
+        return secQuestions;
+    }
+
+    /**
+     * @param securityQuestions the secQuestions to set
+     */
+    public void setSecQuestions(final List<SDPSecurityQuestion> securityQuestions) {
+        secQuestions = securityQuestions;
+    }
+
+    /**
+     * Returns the firstName.
+     * 
+     * @return the firstName
+     */
+    public String getFirstName() {
+        return firstName;
+    }
+
+    /**
+     * Sets the firstName.
+     * 
+     * @param fName the firstName to set
+     */
+    public void setFirstName(final String fName) {
+        firstName = fName;
+    }
+
+    /**
+     * Returns the lastName.
+     * 
+     * @return the lastName
+     */
+    public String getLastName() {
+        return lastName;
+    }
+
+    /**
+     * Sets the lastName.
+     * 
+     * @param lName the lastName to set
+     */
+    public void setLastName(final String lName) {
+        lastName = lName;
+    }
+
+    /**
+     * Returns the loginName.
+     * 
+     * @return the loginName
+     */
+    public String getLoginName() {
+        return loginName;
+    }
+
+    /**
+     * Sets the loginName.
+     * 
+     * @param logName the loginName to set
+     */
+    public void setLoginName(final String logName) {
+        loginName = logName;
+    }
+
+    /**
+     * Returns the description.
+     * 
+     * @return the description
+     */
+    public String getDescription() {
+        return description;
+    }
+
+    /**
+     * Sets the description.
+     * 
+     * @param desc the description to set
+     */
+    public void setDescription(final String desc) {
+        description = desc;
+    }
+
+    /**
+     * Returns the id.
+     * 
+     * @return the id
+     */
+    public long getId() {
+        return id;
+    }
+
+    /**
+     * Sets the id.
+     * 
+     * @param paramId the id to set
+     */
+    public void setId(final long paramId) {
+        id = paramId;
+    }
+
+    /**
+     * Returns the modifiedDate.
+     * 
+     * @return the modifiedDate
+     */
+    public Date getModifiedDate() {
+        return modifiedDate;
+    }
+
+    /**
+     * Sets the modifiedDate.
+     * 
+     * @param modDate the modifiedDate to set
+     */
+    public void setModifiedDate(final Date modDate) {
+        modifiedDate = modDate;
+    }
+
+    /**
+     * @return the adminGroupId
+     */
+    public long getAdminGroupId() {
+        return adminGroupId;
+    }
+
+    /**
+     * @param adminGrpId the adminGroupId to set
+     */
+    public void setAdminGroupId(final long adminGrpId) {
+        adminGroupId = adminGrpId;
+    }
+
+    /**
+     * @return the type
+     */
+    public int getType() {
+        return type;
+    }
+
+    /**
+     * @param paramType the type to set
+     */
+    public void setType(final int paramType) {
+        type = paramType;
+    }
+
+    /**
+     * @return the editedBy
+     */
+    public long getEditedBy() {
+        return editedBy;
+    }
+
+    /**
+     * @param paramEditedBy the editedBy to set
+     */
+    public void setEditedBy(final long paramEditedBy) {
+        editedBy = paramEditedBy;
+    }
+
+    /**
+     * @return the isRetired
+     */
+    public boolean getIsRetired() {
+        return isRetired;
+    }
+
+    /**
+     * @param paramIsRetired the isRetired to set
+     */
+    public void setIsRetired(final boolean paramIsRetired) {
+        isRetired = paramIsRetired;
+    }
+
+    /**
+     * @return the answer
+     */
+    public String getAnswer() {
+        return answer;
+    }
+
+    /**
+     * @param paramAnswer the answer to set
+     */
+    public void setAnswer(final String paramAnswer) {
+        answer = paramAnswer;
+    }
+
+    /**
+     * @return the isNotLocked
+     */
+    public boolean getIsNotLocked() {
+        return isNotLocked;
+    }
+
+    /**
+     * @param paramIsNotLocked the isNotLocked to set
+     */
+    public void setIsNotLocked(final boolean paramIsNotLocked) {
+        isNotLocked = paramIsNotLocked;
+    }
+
+    /**
+     * @return the securityQuestionId
+     */
+    public long getSecurityQuestionId() {
+        return securityQuestionId;
+    }
+
+    /**
+     * @param paramSecurityQuestionId the securityQuestionId to set
+     */
+    public void setSecurityQuestionId(final long paramSecurityQuestionId) {
+        securityQuestionId = paramSecurityQuestionId;
+    }
+
+    /**
+     * @param key   - key
+     * @param value - value
+     */
+    public void put(final String key, final Object value) {
+        permissions.put(key, value);
+    }
+
+    /**
+     * @param key - key
+     * @return - value
+     */
+    public Object get(final String key) {
+        return permissions.get(key);
+    }
+
+    /**
+     * @return the permissions
+     */
+    public Map<String, Object> getPermissions() {
+        return permissions;
+    }
+
+    /**
+     * @param paramPermissions the permissions to set
+     */
+    public void setPermissions(final Map<String, Object> paramPermissions) {
+        permissions = paramPermissions;
+    }
+
+    /**
+     * @return the cookie
+     */
+    public String getCookie() {
+        return cookie;
+    }
+
+    /**
+     * @param apramCookie the cookie to set
+     */
+    public void setCookie(final String apramCookie) {
+        cookie = apramCookie;
+    }
+
+    /**
+     * @return the password
+     */
+    public String getPassword() {
+        return password;
+    }
+
+    /**
+     * @param paramPassword the password to set
+     */
+    public void setPassword(final String paramPassword) {
+        password = paramPassword;
+    }
+
+    /**
+     * @return the passwordExpirationDate
+     */
+    public Date getPasswordExpirationDate() {
+        return passwordExpirationDate;
+    }
+
+    /**
+     * @param pExpirationDate the passwordExpirationDate to set
+     */
+    public void setPasswordExpirationDate(final Date pExpirationDate) {
+        passwordExpirationDate = pExpirationDate;
+    }
+
+    /**
+     * @return the expirationDate
+     */
+    public Date getExpirationDate() {
+        return expirationDate;
+    }
+
+    /**
+     * @param expDate the expirationDate to set
+     */
+    public void setExpirationDate(final Date expDate) {
+        expirationDate = expDate;
+    }
+
+    /**
+     * @return the failedLogin
+     */
+    public int getFailedLogin() {
+        return failedLogin;
+    }
+
+    /**
+     * @param paramFailedLogin the failedLogin to set
+     */
+    public void setFailedLogin(final int paramFailedLogin) {
+        failedLogin = paramFailedLogin;
+    }
+
+    /**
+     * @return the lastFailedLogin
+     */
+    public Date getLastFailedLogin() {
+        return lastFailedLogin;
+    }
+
+    /**
+     * @param lFailedLogin the lastFailedLogin to set
+     */
+    public void setLastFailedLogin(final Date lFailedLogin) {
+        lastFailedLogin = lFailedLogin;
+    }
+
+    /**
+     * @return int - status of access
+     */
+    public int getAccessStatus() {
+        return accessStatus;
+    }
+
+    /**
+     * @param accessStatusVal - status
+     */
+    public void setAccessStatus(final int accessStatusVal) {
+        this.accessStatus = accessStatusVal;
+    }
+
+    /**
+     * @return the securityQuestion
+     */
+    public String getSecurityQuestion() {
+        return securityQuestion;
+    }
+
+    /**
+     * @param securityQuestionParam the securityQuestion to set
+     */
+    public void setSecurityQuestion(final String securityQuestionParam) {
+        this.securityQuestion = securityQuestionParam;
+    }
+
+    /**
+     * This method validate the bean fields.
+     * 
+     * @return boolean
+     * @throws SDPException - SDPException
+     */
+    public boolean validate() throws SDPException {
+        if (loginName == null) {
+            throw new ValidationException(ValidationException.LOGIN_NAME_NOT_NULL, "Username should not be null");
+        }
+        if (loginName.length() > SDPBean.MAX_STRING_LENGTH) {
+            throw new ValidationException(ValidationException.INVALID_USER_NAME,
+                    "Username field length should not exceed 255 characters");
+        }
+        if (firstName == null) {
+            throw new ValidationException(ValidationException.FIRST_NAME_NOT_NULL, "Firstname should not be null");
+        }
+        if (firstName.length() > SDPBean.MAX_STRING_LENGTH) {
+            throw new ValidationException(ValidationException.INVALID_FIRST_NAME,
+                    "Firstname field length should not exceed 255 characters");
+        }
+        if ((lastName != null) && (lastName.length() > SDPBean.MAX_STRING_LENGTH)) {
+            throw new ValidationException(ValidationException.INVALID_LAST_NAME,
+                    "Lastname field length should not exceed 255 characters");
+        }
+        if (loginName == null) {
+            throw new ValidationException(ValidationException.LOGIN_NAME_NOT_NULL, "Loginname should not be null");
+        }
+
+        return true;
+    }
+
+    /**
+     * @return the noOfDevices
+     */
+    public int getNoOfDevices() {
+        return noOfDevices;
+    }
+
+    /**
+     * @param noOfDevicesParam the noOfDevices to set
+     */
+    public void setNoOfDevices(final int noOfDevicesParam) {
+        this.noOfDevices = noOfDevicesParam;
+    }
+
+    /**
+     * @return the preference
+     */
+    public SDPUserPreference getPreference() {
+        return this.preference;
+    }
+
+    /**
+     * @param preferenceParam the preference to set
+     */
+    public void setPreference(final SDPUserPreference preferenceParam) {
+        this.preference = preferenceParam;
+    }
+
+    /**
+     * @return the availableLocales
+     */
+    public Map<String, Long> getAvailableLocales() {
+        return this.availableLocales;
+    }
+
+    /**
+     * @param availableLocalesParam the availableLocales to set
+     */
+    public void setAvailableLocales(final Map<String, Long> availableLocalesParam) {
+        this.availableLocales = availableLocalesParam;
+    }
+
+    /**
+     * @return currencySymbols - locale currency symbol map
+     */
+    public Map<String, String> getCurrencySymbols() {
+        return currencySymbols;
+    }
+
+    /**
+     * @param localeCurSymbolMap - locale currency symbol map
+     */
+    public void setCurrencySymbols(final Map<String, String> localeCurSymbolMap) {
+        this.currencySymbols = localeCurSymbolMap;
+    }
+
+    /**
+     * @return the isTCAccepted
+     */
+    public boolean getIsTCAccepted() {
+        return isTCAccepted;
+    }
+
+    /**
+     * @param isTCAcceptedParam the isTCAccepted to set
+     */
+    public void setIsTCAccepted(final boolean isTCAcceptedParam) {
+        this.isTCAccepted = isTCAcceptedParam;
+    }
+
+    /**
+     * @return the emailId
+     */
+    public String getEmailId() {
+        return emailId;
+    }
+
+    /**
+     * @param emailIdParam the emailId to set
+     */
+    public void setEmailId(final String emailIdParam) {
+        this.emailId = emailIdParam;
+    }
+
+    /**
+     * @return the companyName
+     */
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    /**
+     * @param companyNameParam the companyName to set
+     */
+    public void setCompanyName(final String companyNameParam) {
+        this.companyName = companyNameParam;
+    }
+
+    /**
+     * @return the providerName
+     */
+    public String getProviderName() {
+        return providerName;
+    }
+
+    /**
+     * @param providerNameParam the providerName to set
+     */
+    public void setProviderName(final String providerNameParam) {
+        this.providerName = providerNameParam;
+    }
+
+    /**
+     * @return sdpContact
+     */
+    public SDPContact getSdpContact() {
+        return sdpContact;
+    }
+
+    /**
+     * @param sdpContactParam -
+     */
+    public void setSdpContact(final SDPContact sdpContactParam) {
+        this.sdpContact = sdpContactParam;
+    }
+
+    /**
+     * @return the registrationURL
+     */
+    public Map<String, String> getRegistrationURL() {
+        return this.registrationURL;
+    }
+
+    /**
+     * @param registrationURLParam -
+     */
+    public void setRegistrationURL(final Map<String, String> registrationURLParam) {
+        this.registrationURL = registrationURLParam;
+    }
+
+    /**
+     * @return the downloadURL
+     */
+    public Map<String, String> getDownloadURL() {
+        return this.downloadURL;
+    }
+
+    /**
+     * @param downloadURLParam -
+     */
+    public void setDownloadURL(final Map<String, String> downloadURLParam) {
+        this.downloadURL = downloadURLParam;
+    }
+
+    /**
+     * @return organizationName.
+     */
+    public String getOrganizationName() {
+        return this.organizationName;
+    }
+
+    /**
+     * @param organizationNameParam -
+     */
+    public void setOrganizationName(final String organizationNameParam) {
+        this.organizationName = organizationNameParam;
+    }
+}

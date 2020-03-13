@@ -1,0 +1,10653 @@
+package com.hcl.sdp.shared.framework.constants;
+
+/**
+ * I18NLabelConstants.
+ */
+public interface I18NLabelConstants {
+
+    /**
+     * To get Label for UserName.
+     * 
+     * @return String
+     */
+    String homeLabel();
+
+    /**
+     * To get label for UserName.
+     * 
+     * @return String
+     */
+    String userNameLabel();
+
+    /**
+     * To get Label for Serial Number.
+     * 
+     * @return String
+     */
+    String serialNoLabel();
+
+    /**
+     * To get Label for serialNoLabel.
+     * 
+     * @return String
+     */
+    String serailNumber();
+
+    /**
+     * @return String - selectSrcLocMsg
+     */
+    String selectSrcLocMsg();
+
+    /**
+     * To get Label for add.
+     * 
+     * @return String
+     */
+    String addLabel();
+
+    /**
+     * 
+     * @return - resellerTrendToolTip.
+     */
+    String resellerTrendToolTip();
+
+    /**
+     * @return String - uploadPriceListFailureMsg.
+     */
+    String uploadPriceListFailureMsg();
+
+    /**
+     * To get label for search.
+     * 
+     * @return String
+     */
+    String searchLabel();
+
+    /**
+     * To get label for name.
+     * 
+     * @return String
+     */
+    String nameLabel();
+
+    /**
+     * To get label for Enable.
+     * 
+     * @return String
+     */
+    String enableLabel();
+
+    /**
+     * To get label for Disable.
+     * 
+     * @return String
+     */
+    String disableLabel();
+
+    /**
+     * To get label for No.
+     * 
+     * @return String
+     */
+    String noLabel();
+
+    /**
+     * To get label for Yes.
+     * 
+     * @return String
+     */
+    String yesLabel();
+
+    /**
+     * To get label for Mandatory.
+     * 
+     * @return String
+     */
+    String mandatoryLabel();
+
+    /**
+     * To get label for new password.
+     * 
+     * @return String
+     */
+    String newPasswordLabel();
+
+    /**
+     * To get label for Retype Password.
+     * 
+     * @return String
+     */
+    String retypePasswordLabel();
+
+    /**
+     * To get label for Security Answer.
+     * 
+     * @return String
+     */
+    String securityAnswerLabel();
+
+    /**
+     * To get label for Security Question.
+     * 
+     * @return String
+     */
+    String securityQuestionLabel();
+
+    /**
+     * To get label for Security Questions Txt.
+     * 
+     * @return String
+     */
+    String securityQuestionsText();
+
+    /**
+     * To get label for IP Contact.
+     * 
+     * @return String
+     */
+    String ipAddressLabel();
+
+    /**
+     * To get label for port.
+     * 
+     * @return String
+     */
+    String portLabel();
+
+    /**
+     * To get label for TimedOut.
+     * 
+     * @return String
+     */
+    String timeOutLabel();
+
+    /**
+     * To get label for TimeUnit.
+     * 
+     * @return String
+     */
+    String timeUnitLabel();
+
+    /**
+     * To get label for First Name.
+     * 
+     * @return String.
+     */
+    String firstNameLabel();
+
+    /**
+     * To get label for find Button.
+     * 
+     * @return - String.
+     */
+    String findButtonLbl();
+
+    /**
+     * To get label for cresellerIdLabel.
+     * 
+     * @return String.
+     */
+    String resellerIdLabel();
+
+    /**
+     * To get label for Last Name.
+     * 
+     * @return String.
+     */
+    String lastNameLabel();
+
+    /**
+     * To get label for Address1.
+     * 
+     * @return String
+     */
+    String address1Label();
+
+    /**
+     * To get label for Address2.
+     * 
+     * @return String
+     */
+    String address2Label();
+
+    /**
+     * To get label for City.
+     * 
+     * @return String.
+     */
+    String cityLabel();
+
+    /**
+     * To get label for State.
+     * 
+     * @return String
+     */
+    String stateLabel();
+
+    /**
+     * To get label for Preferred Site.
+     * 
+     * @return String
+     */
+    String preferredSiteLabel();
+
+    /**
+     * To get label for Country.
+     * 
+     * @return String
+     */
+    String countryLabel();
+
+    /**
+     * To get label for Zip Code.
+     * 
+     * @return String.
+     */
+    String zipLabel();
+
+    /**
+     * To get label for Office Phone.
+     * 
+     * @return String
+     */
+    String officePhoneLabel();
+
+    /**
+     * To get label for Mobile.
+     * 
+     * @return String
+     */
+    String mobileLabel();
+
+    /**
+     * To get label for Email.
+     * 
+     * @return String
+     */
+    String emailLabel();
+
+    /**
+     * To get label for Primary Contact.
+     * 
+     * @return String
+     */
+    String primaryContactLabel();
+
+    /**
+     * To get label for Category Name.
+     * 
+     * @return String
+     */
+    String categoryNameLabel();
+
+    /**
+     * To get label for Description.
+     * 
+     * @return String
+     */
+    String descriptionLabel();
+
+    /**
+     * To get label for Selecttext.
+     * 
+     * @return String
+     */
+    String selectText();
+
+    /**
+     * To get label for Remove.
+     * 
+     * @return String
+     */
+    String removeLabel();
+
+    /**
+     * To get label for category.
+     * 
+     * @return String
+     */
+    String categoryLabel();
+
+    /**
+     * To get label for System Parameters Note.
+     * 
+     * @return String
+     */
+    String systemParametersLabel();
+
+    /**
+     * To get label for PolicyName.
+     * 
+     * @return String
+     */
+    String policyNameLabel();
+
+    /**
+     * To get label for Minimum Characters.
+     * 
+     * @return String
+     */
+    String minCharLabel();
+
+    /**
+     * To get label for Maximum Characters.
+     * 
+     * @return String
+     */
+    String maxCharLabel();
+
+    /**
+     * To get label for Numeric Required.
+     * 
+     * @return String
+     */
+    String numericRequiredLabel();
+
+    /**
+     * To get label for Special Character Required.
+     * 
+     * @return String
+     */
+    String specialCharLabel();
+
+    /**
+     * To get label for Start With Alpahabet.
+     * 
+     * @return String
+     */
+    String startWithAlphabetLabel();
+
+    /**
+     * To get label for Maximum Retry field.
+     * 
+     * @return String
+     */
+    String maxRetryLabel();
+
+    /**
+     * To get label for Expiry Date.
+     * 
+     * @return String
+     */
+    String expiryDateLabel();
+
+    /**
+     * To get label for Role Name.
+     * 
+     * @return String
+     */
+    String roleNameLabel();
+
+    /**
+     * To get label for Privilege Name.
+     * 
+     * @return String
+     */
+    String privilegeNameLabel();
+
+    /**
+     * To get label for role.
+     * 
+     * @return String
+     */
+    String roleLabel();
+
+    /**
+     * To get label for removeRoleNote.
+     * 
+     * @return String
+     */
+    String removeRoleNoteLabel();
+
+    /**
+     * To get label for url.
+     * 
+     * @return String
+     */
+    String urlLabel();
+
+    /**
+     * To get label for endDate.
+     * 
+     * @return String
+     */
+    String endDateLabel();
+
+    /**
+     * To get label for startAndEndDateLabel.
+     * 
+     * @return String
+     */
+    String startAndEndDateLabel();
+
+    /**
+     * To get label for noRecordFound.
+     * 
+     * @return String
+     */
+    String noRecordFoundLabel();
+
+    /**
+     * To get label for password.
+     * 
+     * @return String
+     */
+    String passwordLabel();
+
+    /**
+     * To get label for organization.
+     * 
+     * @return String
+     */
+    String organizationLabel();
+
+    /**
+     * To get label for domainName.
+     * 
+     * @return String
+     */
+    String domainName();
+
+    /**
+     * To get label for messagesLabel.
+     * 
+     * @return String
+     */
+    String messagesLabel();
+
+    /**
+     * To get label for scheduledDateLabel.
+     * 
+     * @return String
+     */
+    String scheduledDateLabel();
+
+    /**
+     * To get label for sentDateLabel.
+     * 
+     * @return String
+     */
+    String sentDateLabel();
+
+    /**
+     * To get label for toNoLabel.
+     * 
+     * @return String
+     */
+    String toNoLabel();
+
+    /**
+     * To get label for type.
+     * 
+     * @return String
+     */
+    String typeLabel();
+
+    /**
+     * To get label for preferredEmail.
+     * 
+     * @return String
+     */
+    String preferredEmailLabel();
+
+    /**
+     * To get label for errorNotification.
+     * 
+     * @return String
+     */
+    String errorNotificationLabel();
+
+    /**
+     * To get label for organizationDetails.
+     * 
+     * @return String
+     */
+    String organizationDetailsLabel();
+
+    /**
+     * To get label for organizationData.
+     * 
+     * @return String
+     */
+    String organizationDataLabel();
+
+    /**
+     * To get label for descriptionData.
+     * 
+     * @return String
+     */
+    String descriptionDataLabel();
+
+    /**
+     * To get label for typeData.
+     * 
+     * @return String
+     */
+    String typeDataLabel();
+
+    /**
+     * To get label for status.
+     * 
+     * @return String
+     */
+    String statusLabel();
+
+    /**
+     * To get the label for Customer Name.
+     * 
+     * @return String
+     */
+    String customerNameLabel();
+
+    /**
+     * To get the label for customerUserId.
+     * 
+     * @return String
+     */
+    String customerUserIdLabel();
+
+    /**
+     * To get label for agoraText.
+     * 
+     * @return String
+     */
+    String agoraText();
+
+    /**
+     * To get label for version.
+     * 
+     * @return String
+     */
+    String versionLabel();
+
+    /**
+     * To get label for version.
+     * 
+     * @return String
+     */
+    String epVersionLabel();
+
+    /**
+     * To get label for buildId.
+     * 
+     * @return String
+     */
+    String buildIdLabel();
+
+    /**
+     * To get label for buildIdValueText.
+     * 
+     * @return String
+     */
+    String buildIdValueText();
+
+    /**
+     * To get label for versionIdValueText.
+     * 
+     * @return String
+     */
+    String versionIdValueText();
+
+    /* Tab Labels */
+    /**
+     * To get label for passwordPolicyTab.
+     * 
+     * @return String
+     */
+    String passwordPolicyTabLabel();
+
+    /**
+     * To get label for referenceTab.
+     * 
+     * @return String
+     */
+    String preferenceTabLabel();
+
+    /* Button Labels */
+    /**
+     * To get label for addButton.
+     * 
+     * @return String
+     */
+    String addButtonLabel();
+
+    /**
+     * To get label for cancelButton.
+     * 
+     * @return String
+     */
+    String cancelButtonLabel();
+
+    /**
+     * To get label for saveButton.
+     * 
+     * @return String
+     */
+    String saveButtonLabel();
+
+    /**
+     * To get label for downloadButton.
+     * 
+     * @return String
+     */
+    String downloadButtonLabel();
+
+    /**
+     * To get label for password request Button.
+     * 
+     * @return String
+     */
+    String requestButtonLabel();
+
+    /**
+     * To get label for okButton.
+     * 
+     * @return String
+     */
+    String okButtonLabel();
+
+    /**
+     * To get label for closeButton.
+     * 
+     * @return String
+     */
+    String closeButtonLabel();
+
+    /**
+     * To get label for clearButtonLabel.
+     * 
+     * @return String
+     */
+    String clearButtonLabel();
+
+    /**
+     * To get label for updateButton.
+     * 
+     * @return String
+     */
+    String updateButtonLabel();
+
+    /**
+     * To get label for removeButton.
+     * 
+     * @return String
+     */
+    String removeButtonLabel();
+
+    /**
+     * To get label for backButton.
+     * 
+     * @return String
+     */
+    String backButtonLabel();
+
+    /**
+     * To get label for nextButton.
+     * 
+     * @return String
+     */
+    String nextButtonLabel();
+
+    /**
+     * To get label for saveSegmentButtonLabel.
+     * 
+     * @return String
+     */
+    String saveSegmentButtonLabel();
+
+    /**
+     * To get label for previousButton.
+     * 
+     * @return String
+     */
+    String previousButtonLabel();
+
+    /**
+     * To get label for modifyButton.
+     * 
+     * @return String
+     */
+    String modifyButtonLabel();
+
+    /**
+     * To get label for helpButton.
+     * 
+     * @return String
+     */
+    String helpButtonLabel();
+
+    /**
+     * To get label for mergeTag.
+     * 
+     * @return String
+     */
+    String mergeTagLabel();
+
+    /**
+     * To get label for template.
+     * 
+     * @return String
+     */
+    String templateLabel();
+
+    /* List Box Constants */
+    /**
+     * To get label for tenantAdminListText.
+     * 
+     * @return String
+     */
+    String tenantAdminListText();
+
+    /**
+     * To get label for serviceProviderListText.
+     * 
+     * @return String
+     */
+    String serviceProviderListText();
+
+    /**
+     * To get label for selectListText.
+     * 
+     * @return String
+     */
+    String selectListText();
+
+    /* Message Constants */
+    /**
+     * To get label for getExceptionMessage.
+     * 
+     * @return String
+     */
+    String getExceptionMessage();
+
+    /**
+     * To get label for informationMessage.
+     * 
+     * @return String
+     */
+    String informationMessage();
+
+    /* Mail Server Configuration Message Constants */
+
+    /* Service, ServicePlan Message Constants */
+
+    /**
+     * To get label for fetchCurrencyFailureMessage.
+     * 
+     * @return String
+     */
+    String fetchCurrencyFailureMessage();
+
+    /**
+     * To get label for fetchAllReportsFailureMessage.
+     * 
+     * @return String
+     */
+    String fetchAllReportsFailureMessage();
+
+    /**
+     * To get label for fetchAllReportsAttributesFailureMessage.
+     * 
+     * @return String
+     */
+    String fetchAllReportsAttributesFailureMessage();
+
+    /**
+     * To get label for reportsExecutionFailureMessage.
+     * 
+     * @return String
+     */
+    String reportsExecutionFailureMessage();
+
+    /* User , Contact Details Message Constants */
+    /**
+     * To get label for createUserFailureMessage.
+     * 
+     * @return String
+     */
+    String createUserFailureMessage();
+
+    /**
+     * To get label for createUserSuccessMessage.
+     * 
+     * @return String
+     */
+    String createUserSuccessMessage();
+
+    /**
+     * To get label for selectRoleErrMessage.
+     * 
+     * @return String
+     */
+    String selectRoleErrMessage();
+
+    /**
+     * To get label for removeUserSuccessMessage.
+     * 
+     * @return String
+     */
+    String removeUserSuccessMessage();
+
+    /**
+     * To get label for removeUserFailureMessage.
+     * 
+     * @return String
+     */
+    String removeUserFailureMessage();
+
+    /**
+     * To get label for modifyUserDetailFailureMessage.
+     * 
+     * @return String
+     */
+    String modifyUserDetailFailureMessage();
+
+    /**
+     * To get label for modifyUserDetailSuccessMessage.
+     * 
+     * @return String
+     */
+    String modifyUserDetailSuccessMessage();
+
+    /**
+     * To get label for modifyContactDetailFailureMessage.
+     * 
+     * @return String
+     */
+    String modifyContactDetailFailureMessage();
+
+    /**
+     * To get label for fetchUserDetailFailureMessage.
+     * 
+     * @return String
+     */
+    String fetchUserDetailFailureMessage();
+
+    /**
+     * To get label for fetchAllUserDetailFailureMessage.
+     * 
+     * @return String
+     */
+    String fetchAllUserDetailFailureMessage();
+
+    /* Password Message Constants */
+
+    /**
+     * To get label for oldPasswordFailureMessage.
+     * 
+     * @return String
+     */
+    String oldPasswordFailureMessage();
+
+    /**
+     * To get label for tempPasswordFailureMessage.
+     * 
+     * @return String
+     */
+    String tempPasswordFailureMessage();
+
+    /**
+     * To get label for passwordMisMatchMessage.
+     * 
+     * @return String
+     */
+    String passwordMisMatchMessage();
+
+    /**
+     * To get label for fetchPasswordPolicyFailureMessage.
+     * 
+     * @return String
+     */
+    String fetchPasswordPolicyFailureMessage();
+
+    /* Role Message Constants */
+
+    /**
+     * To get label for fetchRoleFailureMessage.
+     * 
+     * @return String
+     */
+    String fetchRoleFailureMessage();
+
+    /* Account Details Message Constants */
+    /**
+     * To get label for fetchCompanyDetailsFailureMessage.
+     * 
+     * @return String
+     */
+    String fetchCompanyDetailsFailureMessage();
+
+    /**
+     * To get label for createAccountFailureMessage.
+     * 
+     * @return String
+     */
+    String createAccountFailureMessage();
+
+    /**
+     * To get label for copyrightMessage.
+     * 
+     * @return String
+     */
+    String copyrightMessage();
+
+    /* Header constants */
+
+    /* Notification Header Constants */
+    /**
+     * To get label for viewTemplateHeader.
+     * 
+     * @return String
+     */
+    String viewTemplateHeader();
+
+    /**
+     * To get label for modifyTemplateHeader.
+     * 
+     * @return String
+     */
+    String modifyTemplateHeader();
+
+    /* Password Header Constatnts */
+    /**
+     * To get label for changePasswordHeader.
+     * 
+     * @return String
+     */
+    String changePasswordHeader();
+
+    /**
+     * To get label for partMasterDownloadHeader.
+     * 
+     * @return String
+     */
+    String partMasterDownloadHeader();
+
+    /**
+     * To get label for .
+     * 
+     * @return String
+     */
+    String createPasswordPolicyHeader();
+
+    /**
+     * To get label for modifyPasswordPolicyHeader.
+     * 
+     * @return String
+     */
+    String modifyPasswordPolicyHeader();
+
+    /* Role Header Constants */
+
+    /**
+     * To get label for removeRoleHeader.
+     * 
+     * @return String
+     */
+    String removeRoleHeader();
+
+    /**
+     * To get label for editUserPopupHeader.
+     * 
+     * @return String
+     */
+    String editUserPopupHeader();
+
+    /**
+     * To get label for viewUserHeader.
+     * 
+     * @return String
+     */
+    String viewUserHeader();
+
+    /**
+     * To get label for viewUserPopupHeader.
+     * 
+     * @return String
+     */
+    String viewUserPopupHeader();
+
+    /* User Management */
+    /**
+     * To get label for lockUserMessage.
+     * 
+     * @return String
+     */
+    String lockUserMessage();
+
+    /**
+     * To get label for unLockUserMessage.
+     * 
+     * @return String
+     */
+    String unLockUserMessage();
+
+    /**
+     * To get label for companyLabel.
+     * 
+     * @return String
+     */
+    String companyLabel();
+    
+    /**
+     * To get label for customerPhoneNumberLabel.
+     * 
+     * @return String
+     */
+    String customerPhoneNumberLabel();
+    
+    /**
+     * To get label for customerEmailAddressLabel.
+     * 
+     * @return String
+     */
+    String customerEmailAddressLabel();    
+
+    /**
+     * To get label for dateLabel.
+     * 
+     * @return String
+     */
+    String dateLabel();
+
+    /**
+     * To get label for greaterThanLabel.
+     * 
+     * @return String
+     */
+    String greaterThanLabel();
+
+    /**
+     * To get label for lockLabel.
+     * 
+     * @return String
+     */
+    String lockLabel();
+
+    /**
+     * To get label for unLockLabel.
+     * 
+     * @return String
+     */
+    String unLockLabel();
+
+    /**
+     * To get Label for lockedLabel.
+     * 
+     * @return String
+     */
+    String lockedLabel();
+
+    /**
+     * To get Label for unLockedLabel.
+     * 
+     * @return String
+     */
+    String unLockedLabel();
+
+    /**
+     * To get label for SelectUserLockLabel.
+     * 
+     * @return String
+     */
+    String selectUserLockLabel();
+
+    /**
+     * To get label for companyName.
+     * 
+     * @return String
+     */
+    String companyNameLabel();
+
+    /**
+     * To get label for saveButton.
+     * 
+     * @return String
+     */
+    String saveButton();
+
+    /**
+     * To get label for updateButton.
+     * 
+     * @return String
+     */
+    String updateButton();
+
+    /**
+     * To get label for cancelButton.
+     * 
+     * @return String
+     */
+    String cancelButton();
+
+    /* Schedular Cron Job */
+    /**
+     * To get label for seconds.
+     * 
+     * @return String
+     */
+    String secondsLabel();
+
+    /**
+     * To get label for minutes.
+     * 
+     * @return String
+     */
+    String minutesLabel();
+
+    /**
+     * To get label for hours.
+     * 
+     * @return String
+     */
+    String hourLabel();
+
+    /**
+     * To get label for deviceQryIntvlLabel.
+     * 
+     * @return String
+     */
+    String deviceQryIntvlLabel();
+
+    /**
+     * To get label for notifMailSendIntvlLabel.
+     * 
+     * @return String
+     */
+    String notifMailSendIntvlLabel();
+
+    /**
+     * To get label for delete.
+     * 
+     * @return String
+     */
+    String deleteLabel();
+
+    /**
+     * To get label for edit.
+     * 
+     * @return String
+     */
+    String editLabel();
+
+    /* Reset Password */
+    /**
+     * To get label for resetPasswordLabel.
+     * 
+     * @return String
+     */
+    String resetPasswordLabel();
+
+    /**
+     * To get label for newRegistration.
+     * 
+     * @return String
+     */
+    String newRegistration();
+
+    /**
+     * To get label for createUser.
+     * 
+     * @return String
+     */
+    String createUser();
+
+    /**
+     * To get label for createPermissionsTxt.
+     * 
+     * @return String
+     */
+    String createPermissionsTxt();
+
+    /**
+     * To get label for lookAndFeelTxt.
+     * 
+     * @return String
+     */
+    String lookAndFeelTxt();
+
+    /**
+     * To get label for lookAndFeelTxt.
+     * 
+     * @return String
+     */
+    String newPaletteTxt();
+
+    /**
+     * To get label for emailComposeTxt.
+     * 
+     * @return String
+     */
+    String emailComposeTxt();
+
+    /**
+     * To get label for users.
+     * 
+     * @return String
+     */
+    String usersLabel();
+
+    /**
+     * To get label for addUserButton.
+     * 
+     * @return String
+     */
+    String addUserButtonLabel();
+
+    /**
+     * To get label for mailServer.
+     * 
+     * @return String
+     */
+    String mailServerLabel();
+
+    /**
+     * To get label for modifyDetails.
+     * 
+     * @return String
+     */
+    String modifyDetailsLabel();
+
+    /**
+     * To get label for configureMailServer.
+     * 
+     * @return String
+     */
+    String configureMailServer();
+
+    /**
+     * To get label for roles.
+     * 
+     * @return String
+     */
+    String rolesLabel();
+
+    /**
+     * To get label for addRole.
+     * 
+     * @return String
+     */
+    String addRoleLabel();
+
+    /**
+     * To get label for viewRoleDetailsTxt.
+     * 
+     * @return String
+     */
+    String viewRoleDetailsTxt();
+
+    /**
+     * To get label for accountDetails.
+     * 
+     * @return String
+     */
+    String accountDetailsLabel();
+
+    /**
+     * To get label for modifyAccountTxt.
+     * 
+     * @return String
+     */
+    String modifyAccountTxt();
+
+    /**
+     * To get label for userMgmtTxt.
+     * 
+     * @return String
+     */
+    String userMgmtTxt();
+
+    /**
+     * To get label for eventsTxt.
+     * 
+     * @return String
+     */
+    String eventsTxt();
+
+    /**
+     * To get label for templateTxt.
+     * 
+     * @return String
+     */
+    String templateTxt();
+
+    /**
+     * To get label for templateList.
+     * 
+     * @return String
+     */
+    String templateList();
+
+    /**
+     * To get label for segmentTxt.
+     * 
+     * @return String
+     */
+    String segmentTxt();
+
+    /**
+     * To get label for composeTxt.
+     * 
+     * @return String
+     */
+    String composeTxt();
+
+    /**
+     * To get label for scheduleTxt.
+     * 
+     * @return String
+     */
+    String scheduleTxt();
+
+    /**
+     * To get label for messageTxt.
+     * 
+     * @return String
+     */
+    String messageTxt();
+
+    /**
+     * To get label for promotionTxt.
+     * 
+     * @return String
+     */
+    String promotionTxt();
+
+    /**
+     * To get label for typeTxt.
+     * 
+     * @return String
+     */
+    String typeTxt();
+
+    /**
+     * To get label for contentTypeTxt.
+     * 
+     * @return String
+     */
+    String contentTypeTxt();
+
+    /**
+     * To get label for fromTxt.
+     * 
+     * @return String
+     */
+    String fromTxt();
+
+    /**
+     * To get label for replyToTxt.
+     * 
+     * @return String
+     */
+    String replyToTxt();
+
+    /**
+     * To get label for sendNowTxt.
+     * 
+     * @return String
+     */
+    String sendNowTxt();
+
+    /**
+     * To get label for replyToTxt.
+     * 
+     * @return String
+     */
+    String sendLaterTxt();
+
+    /**
+     * To get label for recipientsLabel.
+     * 
+     * @return String
+     */
+    String recipientsLabel();
+
+    /**
+     * To get label for lastModifiedLabel.
+     * 
+     * @return String
+     */
+    String lastModifiedLabel();
+
+    /**
+     * To get label for partnerTemplateTxt.
+     * 
+     * @return String
+     */
+    String partnerTemplateTxt();
+
+    /**
+     * To get label for partnerSegmentTxt.
+     * 
+     * @return String
+     */
+    String partnerSegmentTxt();
+
+    /**
+     * To get label for partnerComposeTxt.
+     * 
+     * @return String
+     */
+    String partnerComposeTxt();
+
+    /**
+     * To get label for addNewTemplate.
+     * 
+     * @return String
+     */
+    String addNewTemplateLabel();
+
+    /**
+     * To get label for htmlLabel.
+     * 
+     * @return String
+     */
+    String htmlLabel();
+
+    /**
+     * To get label for htmlLabel.
+     * 
+     * @return String
+     */
+    String textLabel();
+
+    /**
+     * To get label for emailTempLabel.
+     * 
+     * @return String
+     */
+    String emailTempLabel();
+
+    /**
+     * To get label for delinServiceTempLabel.
+     * 
+     * @return String
+     */
+    String delinServiceTempLabel();
+
+    /**
+     * To get label for modifySystemParam.
+     * 
+     * @return String
+     */
+    String modifySystemParamLabel();
+
+    /**
+     * To get label for fetchEventsFailureMsg.
+     * 
+     * @return String
+     */
+    String fetchEventsFailureMsg();
+
+    /**
+     * To get label for fetchAllUserFailureMsg.
+     * 
+     * @return String
+     */
+    String fetchAllUserFailureMsg();
+
+    /**
+     * To get label for fetchAllCompanyFailureMsg.
+     * 
+     * @return String
+     */
+    String fetchAllCompanyFailureMsg();
+
+    /**
+     * To get label for fetchUserFailureMsg.
+     * 
+     * @return String
+     */
+    String fetchUserFailureMsg();
+
+    /**
+     * To get label for fetchTemplateFailureMsg.
+     * 
+     * @return String
+     */
+    String fetchTemplateFailureMsg();
+
+    /**
+     * To get label for fetchAllTemplateFailureMsg.
+     * 
+     * @return String
+     */
+    String fetchAllTemplateFailureMsg();
+
+    /**
+     * To get label for fetchAllUserRoleFailureMsg.
+     * 
+     * @return String
+     */
+    String fetchAllUserRoleFailureMsg();
+
+    /**
+     * To get label for defaultPolicy.
+     * 
+     * @return String
+     */
+    String defaultPolicy();
+
+    /**
+     * To get label for sampleFilterNote.
+     * 
+     * @return String
+     */
+    String customerSampleFilterNote();
+
+    /**
+     * To get label for sampleFilterNote.
+     * 
+     * @return String
+     */
+    String resellerSampleFilterNote();
+
+    /**
+     * To get label for enterValidMsg.
+     * 
+     * @return String
+     */
+    String enterValidMsg();
+
+    /**
+     * To get label for true.
+     * 
+     * @return String
+     */
+    String trueLabel();
+
+    /**
+     * To get label for locale.
+     * 
+     * @return String
+     */
+    String localeLabel();
+
+    /**
+     * To get label for descriptionFieldMsg.
+     * 
+     * @return String
+     */
+    String descriptionFieldMsg();
+
+    /**
+     * To get label for partDescriptionFieldMsg.
+     * 
+     * @return String
+     */
+    String partDescriptionFieldMsg();
+
+    /**
+     * To get label for titleFieldMsg.
+     * 
+     * @return String
+     */
+    String titleFieldMsg();
+
+    /**
+     * To get label for validationMsg.
+     * 
+     * @return String
+     */
+    String validationMsg();
+
+    /**
+     * To get label for validateServiceAttributesMsg.
+     * 
+     * @return String
+     */
+    String validateServiceAttributesMsg();
+
+    /**
+     * To get label for validatePswdFailureMsg.
+     * 
+     * @return String
+     */
+    String validatePswdFailureMsg();
+
+    /**
+     * To get label for customizationFailureMsg.
+     * 
+     * @return String
+     */
+    String customizationFailureMsg();
+
+    /**
+     * To get label for customizationSuccessMsg.
+     * 
+     * @return String
+     */
+    String customizationSuccessMsg();
+
+    /**
+     * To get label for uploadFileSuccessMsg.
+     * 
+     * @return String
+     */
+    String uploadFileSuccessMsg();
+
+    /**
+     * To get label for postMsgSuccessMsg.
+     * 
+     * @return String
+     */
+    String postMsgSuccessMsg();
+
+    /**
+     * To get label for schdMsgSuccessMsg.
+     * 
+     * @return String
+     */
+    String schdMsgSuccessMsg();
+
+    /**
+     * To get label for schdDateErrorMsg.
+     * 
+     * @return String
+     */
+    String schdDateErrorMsg();
+
+    /**
+     * To get label for attachFileSuccessMsg.
+     * 
+     * @return String
+     */
+    String attachFileSuccessMsg();
+
+    /**
+     * To get label for selectTemplateMsg.
+     * 
+     * @return String
+     */
+    String selectTemplateMsg();
+
+    /**
+     * To get label for postMsgFailureMsg.
+     * 
+     * @return String
+     */
+    String postMsgFailureMsg();
+
+    /**
+     * To get label for dateSeparator.
+     * 
+     * @return String
+     */
+    String dateSeparator();
+
+    /**
+     * To get label for fetchAllMsgsFailureMsg.
+     * 
+     * @return String
+     */
+    String fetchAllMsgsFailureMsg();
+
+    /**
+     * To get label for fetchUnlockUserFailureMsg.
+     * 
+     * @return String
+     */
+    String fetchUnlockUserFailureMsg();
+
+    /**
+     * To get label for fetchLockUserFailureMsg.
+     * 
+     * @return String
+     */
+    String fetchLockUserFailureMsg();
+
+    /**
+     * To get label for unlockUserFailureMsg.
+     * 
+     * @return String
+     */
+    String unlockUserFailureMsg();
+
+    /**
+     * To get label for lockUserFailureMsg.
+     * 
+     * @return String
+     */
+    String lockUserFailureMsg();
+
+    /**
+     * To get label for resetPswdFailureMsg.
+     * 
+     * @return String
+     */
+    String resetPswdFailureMsg();
+
+    /**
+     * To get label for createTemplateFailureMsg.
+     * 
+     * @return String
+     */
+    String createTemplateFailureMsg();
+
+    /**
+     * To get label for createTemplateSuccessMsg.
+     * 
+     * @return String
+     */
+    String createTemplateSuccessMsg();
+
+    /**
+     * To get label for hrs.
+     * 
+     * @return String
+     */
+    String hrsLabel();
+
+    /**
+     * To get label for hr.
+     * 
+     * @return String
+     */
+    String hrLabel();
+
+    /**
+     * To get label for maxFailedLogin.
+     * 
+     * @return String
+     */
+    String maxFailedLoginLabel();
+
+    /**
+     * To get label for pswdRestriction.
+     * 
+     * @return String
+     */
+    String pswdRestrictionLabel();
+
+    /**
+     * To get label for validateMergeTagMsg.
+     * 
+     * @return String
+     */
+    String validateMergeTagMsg();
+
+    /**
+     * image information label.
+     * 
+     * @return String
+     */
+    String imageInfoLabel();
+
+    /**
+     * To get label for providerId.
+     * 
+     * @return String
+     */
+    String providerIdLabel();
+
+    /**
+     * To get label for upload.
+     * 
+     * @return String
+     */
+    String uploadLabel();
+
+    /**
+     * To get label for fileUploader.
+     * 
+     * @return String
+     */
+    String fileUploaderLabel();
+
+    /**
+     * To get label for sendButton.
+     * 
+     * @return String
+     */
+    String sendButtonLabel();
+
+    /**
+     * To get label for browseButton.
+     * 
+     * @return String
+     */
+    String browseButtonLabel();
+
+    /**
+     * To get label for priority.
+     * 
+     * @return String
+     */
+    String priorityLabel();
+
+    /**
+     * To get label for toAddress.
+     * 
+     * @return String
+     */
+    String toAddressLabel();
+
+    /**
+     * To get label for cc Contact.
+     * 
+     * @return String
+     */
+    String ccAddressLabel();
+
+    /**
+     * To get label for bcc Contact.
+     * 
+     * @return String
+     */
+    String bccAddressLabel();
+
+    /**
+     * To get label for subject.
+     * 
+     * @return String
+     */
+    String subjectLabel();
+
+    /**
+     * To get label for attachment.
+     * 
+     * @return String
+     */
+    String attachmentLabel();
+
+    /**
+     * To get label for low.
+     * 
+     * @return String
+     */
+    String lowLabel();
+
+    /**
+     * To get label for medium.
+     * 
+     * @return String
+     */
+    String mediumLabel();
+
+    /**
+     * To get label for high.
+     * 
+     * @return String
+     */
+    String highLabel();
+
+    /**
+     * To get label for selectTemplate.
+     * 
+     * @return String
+     */
+    String selectTemplateLabel();
+
+    /**
+     * To get label for noTemplateAvailed.
+     * 
+     * @return String
+     */
+    String noTemplateAvailedLabel();
+
+    /**
+     * To get label for deselectAll.
+     * 
+     * @return String
+     */
+    String deselectAllLabel();
+
+    /**
+     * To get label for selectAll.
+     * 
+     * @return String
+     */
+    String selectAllLabel();
+
+    /**
+     * To get label for emailList.
+     * 
+     * @return String
+     */
+    String emailListLabel();
+
+    /**
+     * To get label for confirmation.
+     * 
+     * @return String
+     */
+    String confirmationLabel();
+
+    /**
+     * To get label for question.
+     * 
+     * @return String
+     */
+    String questionLabel();
+
+    /**
+     * To get label for yesButton.
+     * 
+     * @return String
+     */
+    String yesButtonLabel();
+
+    /**
+     * To get label for noButton.
+     * 
+     * @return String
+     */
+    String noButtonLabel();
+
+    /**
+     * To get label provideSegmentDetailsTxt.
+     * 
+     * @return String
+     */
+    String provideSegmentDetailsTxt();
+
+    /**
+     * To get label applySegmentFilterTxt.
+     * 
+     * @return String
+     */
+    String applySegmentFilterTxt();
+
+    /**
+     * To get label for confirmationMsg.
+     * 
+     * @return String
+     */
+    String confirmationMsg();
+
+    /**
+     * To get label for cancelConfirmationMsg.
+     * 
+     * @return String
+     */
+    String cancelConfirmationMsg();
+
+    /**
+     * To get label for modifyAccountFailureMsg.
+     * 
+     * @return String
+     */
+    String modifyAccountFailureMsg();
+
+    /**
+     * To get label for modifyAccountSuccessMsg.
+     * 
+     * @return String
+     */
+    String modifyAccountSuccessMsg();
+
+    /**
+     * To get label for superAdminListText.
+     * 
+     * @return String
+     */
+    String superAdminListText();
+
+    /**
+     * To get label for removeConfirmationMsg.
+     * 
+     * @return String
+     */
+    String removeConfirmationMsg();
+
+    /**
+     * To get label for partnerFailureMessage.
+     * 
+     * @return String
+     */
+    String partnerFailureMessage();
+
+    /**
+     * To get label for partnerNoCusPlanMessage.
+     * 
+     * @return String
+     */
+    String partnerNoCusPlanMessage();
+
+    /**
+     * To get label for insertNumericDataMSG.
+     * 
+     * @return String
+     */
+    String insertNumericDataMSG();
+
+    /**
+     * To get label for insertValidDataMSG.
+     * 
+     * @return String
+     */
+    String insertValidDataMSG();
+
+    /**
+     * To get label for userAlreadyLocked.
+     * 
+     * @return String
+     */
+    String userAlreadyLocked();
+
+    /**
+     * To get label for selectOneResellerMsg.
+     * 
+     * @return String
+     */
+    String selectOneResellerMsg();
+
+    /**
+     * To get label for userAlreadyUnlocked.
+     * 
+     * @return String
+     */
+    String userAlreadyUnlocked();
+
+    /**
+     * To get label for selectOneUserMsg.
+     * 
+     * @return String
+     */
+    String selectOneUserMsg();
+
+    /**
+     * To get label for validateDataMsg.
+     * 
+     * @return String
+     */
+    String validateDataMsg();
+
+    /**
+     * To get label for validateDataMsg.
+     * 
+     * @return String
+     */
+    String validateSpaceInPasswordMsg();
+
+    /**
+     * To get label for resetPswdSuccessMsg.
+     * 
+     * @return String
+     */
+    String resetPswdSuccessMsg();
+
+    /**
+     * 
+     * @return - passwordForTheCustomer.
+     */
+    String resetPasswordConfirmationMsg();
+
+    /**
+     * To get label for changesNotMadeMsg.
+     * 
+     * @return String
+     */
+    String changesNotMadeMsg();
+
+    /**
+     * To get label for customers.
+     * 
+     * @return String
+     */
+    String customers();
+
+    /**
+     * To get label for partners.
+     * 
+     * @return String
+     */
+    String partners();
+
+    /**
+     * To get label for and.
+     * 
+     * @return String
+     */
+    String andLabel();
+
+    /**
+     * To get label for OR.
+     * 
+     * @return String
+     */
+    String orLabel();
+
+    /**
+     * To get label forparam .
+     * 
+     * @return String
+     */
+    String paramLabel();
+
+    /**
+     * To get label for addFilter.
+     * 
+     * @return String
+     */
+    String addFilterLabel();
+
+    /**
+     * To get label for paramValidationMessage.
+     * 
+     * @return String
+     */
+    String paramValidationMessage();
+
+    /**
+     * To get label for finishButton.
+     * 
+     * @return String
+     */
+    String finishButton();
+
+    /**
+     * To get label for allLabel.
+     * 
+     * @return String
+     */
+    String allLabel();
+
+    /**
+     * To get label for allLabel.
+     * 
+     * @return String
+     */
+    String providersLabel();
+
+    /**
+     * To get label for createSegmentSuccessMessage.
+     * 
+     * @return String
+     */
+    String createSegmentSuccessMessage();
+
+    /**
+     * To get label for createSegmentFailureMessage.
+     * 
+     * @return String
+     */
+    String createSegmentFailureMessage();
+
+    /**
+     * To get label for modifySegmentSuccessMessage.
+     * 
+     * @return String
+     */
+    String modifySegmentSuccessMessage();
+
+    /**
+     * To get label for modifySegmentFailureMessage.
+     * 
+     * @return String
+     */
+    String modifySegmentFailureMessage();
+
+    /**
+     * To get label for deleteSegmentSuccessMessage.
+     * 
+     * @return String
+     */
+    String deleteSegmentSuccessMessage();
+
+    /**
+     * To get label for deleteSegmentFailureMessage.
+     * 
+     * @return String
+     */
+    String deleteSegmentFailureMessage();
+
+    // Reporting Constants
+    /**
+     * To get label for reportName.
+     * 
+     * @return String
+     */
+    String reportName();
+
+    /**
+     * To get label for execuetReport.
+     * 
+     * @return String
+     */
+    String execuetReport();
+
+    /**
+     * To get label for viewSystemParamTxt.
+     * 
+     * @return String
+     */
+    String viewSystemParamTxt();
+
+    /**
+     * To get label for furnishReportAttributesValuesText.
+     * 
+     * @return String
+     */
+    String furnishReportAttributesValuesText();
+
+    /**
+     * To get label for modify System Parameters Text.
+     * 
+     * @return String
+     */
+    String modifySystemParamTxt();
+
+    /**
+     * To get label for startDate.
+     * 
+     * @return String
+     */
+    String startDate();
+
+    /**
+     * To get label for endDate.
+     * 
+     * @return String
+     */
+    String endDate();
+
+    /**
+     * To get label for addPartner.
+     * 
+     * @return String
+     */
+    String addPartner();
+
+    /**
+     * To get label for viewPartner.
+     * 
+     * @return String
+     */
+    String viewPartner();
+
+    /**
+     * To get label for editPartner.
+     * 
+     * @return String
+     */
+    String editPartner();
+
+    /**
+     * To get label for createSegmentTxt.
+     * 
+     * @return String
+     */
+    String createSegmentTxt();
+
+    /**
+     * To get label for importUserTxt.
+     * 
+     * @return String
+     */
+    String importUserTxt();
+
+    /**
+     * To get label for segmentationTxt.
+     * 
+     * @return String
+     */
+    String segmentationTxt();
+
+    /**
+     * To get label for executeReportTxt.
+     * 
+     * @return String
+     */
+    String executeReportTxt();
+
+    // Import user constants
+    /**
+     * To get label for completedMsg.
+     * 
+     * @return String
+     */
+    String completedMsg();
+
+    /**
+     * To get label for htmlCompletedMsg.
+     * 
+     * @return String
+     */
+    String htmlCompletedMsg();
+
+    /**
+     * To get label for importUserSuccessMsg.
+     * 
+     * @return String
+     */
+    String importUserSuccessMsg();
+
+    /**
+     * To get label for importUserFailureMsg.
+     * 
+     * @return String
+     */
+    String importUserFailureMsg();
+
+    /**
+     * To get label for addTaxSystemInfo.
+     * 
+     * @return String
+     */
+    String addTaxSystemInfo();
+
+    /**
+     * To get label for specifyFilenameMsg.
+     * 
+     * @return String
+     */
+    String specifyFilenameMsg();
+
+    /**
+     * To get label for fileNameLengthExceedMsg.
+     * 
+     * @return String
+     */
+    String fileNameLengthExceedMsg();
+
+    /**
+     * To get label for imageExtensionValidationMsg.
+     * 
+     * @return String
+     */
+    String imageExtensionValidationMsg();
+
+    /**
+     * To get label for importuserValidationMsg.
+     * 
+     * @return String
+     */
+    String importuserValidationMsg();
+
+    /**
+     * To get label for fetchFiltersFailureMsg.
+     * 
+     * @return String
+     */
+    String fetchFiltersFailureMsg();
+
+    /**
+     * To get label for fetchSegmentFailureMsg.
+     * 
+     * @return String
+     */
+    String fetchSegmentFailureMsg();
+
+    // Template constants
+    /**
+     * To get label for deleteTemplateFailureMsg.
+     * 
+     * @return String
+     */
+    String deleteTemplateFailureMsg();
+
+    /**
+     * To get label for deleteTemplateSuccessMsg.
+     * 
+     * @return String
+     */
+    String deleteTemplateSuccessMsg();
+
+    /**
+     * To get label for modifyTemplateFailureMsg.
+     * 
+     * @return String
+     */
+    String modifyTemplateFailureMsg();
+
+    /**
+     * To get label for modifyTemplateSuccessMsg.
+     * 
+     * @return String
+     */
+    String modifyTemplateSuccessMsg();
+
+    /**
+     * To get label for htmlContent.
+     * 
+     * @return String
+     */
+    String htmlContentLabel();
+
+    /**
+     * To get label for textContent.
+     * 
+     * @return String
+     */
+    String textContentLabel();
+
+    // Segment Constants
+    /**
+     * To get label for viewSegmentDetailsTxt.
+     * 
+     * @return String
+     */
+    String viewSegmentDetailsTxt();
+
+    /**
+     * To get label for filter.
+     * 
+     * @return String
+     */
+    String filterLabel();
+
+    /**
+     * To get label for parameter.
+     * 
+     * @return String
+     */
+    String parameterLabel();
+
+    /**
+     * To get label for operator.
+     * 
+     * @return String
+     */
+    String operatorLabel();
+
+    /**
+     * To get label for segmentationCriteriaTxt.
+     * 
+     * @return String
+     */
+    String segmentationCriteriaTxt();
+
+    /**
+     * To get label for fetchSegmentDetailsFaiureMsg.
+     * 
+     * @return String
+     */
+    String fetchSegmentDetailsFaiureMsg();
+    // Reseller Management Constants
+
+    /**
+     * To get Label for fetchPartneresFailureMsg.
+     * 
+     * @return String
+     */
+    String fetchPartnersFailureMsg();
+
+    /**
+     * To get label for eventCustomerUserAdd.
+     * 
+     * @return String
+     */
+    String eventCustomerUserAdd();
+
+    /**
+     * To get label for eventSubscription.
+     * 
+     * @return String
+     */
+    String eventSubscription();
+
+    /**
+     * To get label for eventAutoSubscription.
+     * 
+     * @return String
+     */
+    String eventAutoSubscription();
+
+    /**
+     * To get label for eventSubscriptionAutoApproval.
+     * 
+     * @return String
+     */
+    String eventSubscriptionAutoApproval();
+
+    /**
+     * To get label for eventUnsubscription.
+     * 
+     * @return String
+     */
+    String eventUnsubscription();
+
+    /**
+     * To get label for eventUpdateCustomer.
+     * 
+     * @return String
+     */
+    String eventUpdateCustomer();
+
+    /**
+     * To get label for eventUpdateUser.
+     * 
+     * @return String
+     */
+    String eventUpdateUser();
+
+    /**
+     * To get label for eventUpdateUser.
+     * 
+     * @return String
+     */
+    String eventUpdatePswd();
+
+    /**
+     * To get label for eventRemoveUser.
+     * 
+     * @return String
+     */
+    String eventRemoveUser();
+
+    /**
+     * To get label for Offer.
+     * 
+     * @return String
+     */
+    String offerLabel();
+
+    /**
+     * To get label for validity.
+     * 
+     * @return String
+     */
+    String validityLabel();
+
+    /**
+     * To get label for eventPartnerApproval.
+     * 
+     * @return String
+     */
+    String eventPartnerApproval();
+
+    /**
+     * To get label for AutoCustomerRegistration.
+     * 
+     * @return String
+     */
+    String autoCustomerRegistrationLabelTxt();
+
+    /**
+     * To get label for AutoInstanceProvisioning.
+     * 
+     * @return String
+     */
+    String autoInstanceProvisioningLabelTxt();
+
+    /**
+     * To get the label for Duplicate screening rule.
+     * 
+     * @return String
+     */
+    String dupScreeningRuleLabelTxt();
+
+    /**
+     * To get the label for Black list cc screening rule.
+     * 
+     * @return String
+     */
+    String blCCScreeningRuleLabelTxt();
+
+    /**
+     * To get the label for Black list email screening rule.
+     * 
+     * @return String
+     */
+    String blEmailScreeningRuleLabelTxt();
+
+    /**
+     * To get label for fetchCountries.
+     * 
+     * @return String
+     */
+    String fetchCountries();
+
+    /**
+     * To get label for default.
+     * 
+     * @return String
+     */
+    String defaultLabel();
+
+    /**
+     * To get label for Offers.
+     * 
+     * @return String
+     */
+    String offersLabel();
+
+    /**
+     * To get the label for promotional code.
+     * 
+     * @return String
+     */
+    String promoCodeLabelTxt();
+
+    /**
+     * To get the label for record.
+     * 
+     * @return String
+     */
+    String recordLabel();
+
+    /**
+     * To get the label for user edit.
+     * 
+     * @return String
+     */
+    String userEditTxt();
+
+    /**
+     * To get the label for template view.
+     * 
+     * @return String
+     */
+    String templateViewTxt();
+
+    /**
+     * To get the label for user view.
+     * 
+     * @return String
+     */
+    String userViewTxt();
+
+    /**
+     * To get the label for user delete.
+     * 
+     * @return String
+     */
+    String userDeleteTxt();
+
+    /**
+     * To get the label for Delinquency screening rule.
+     * 
+     * @return String
+     */
+    String delScreeningRuleLabelTxt();
+
+    /**
+     * To get the label for segment delete.
+     * 
+     * @return String
+     */
+    String segmentDeleteTxt();
+
+    /**
+     * To get label for SelectUserLockLabel.
+     * 
+     * @return String
+     */
+    String selectModifiedLabel();
+
+    /**
+     * @return String
+     */
+    String showingLabelTxt();
+
+    /**
+     * @return String
+     */
+    String actionTxt();
+
+    /**
+     * To get label for currentStep.
+     * 
+     * @return String
+     */
+    String currentStep();
+
+    /**
+     * 
+     * @return String
+     */
+    String resetPswdConfirmMsg();
+
+    /**
+     * 
+     * @return String
+     */
+    String resetCompPswdConfirmMsg();
+
+    /**
+     * 
+     * @return String
+     */
+    String lockPswdConfirmMsg();
+
+    /**
+     * 
+     * @return String
+     */
+    String unlockPswdConfirmMsg();
+
+    /**
+     * Default RebrandMessage.
+     * 
+     * @return String
+     */
+    String defaultRebrandConformation();
+
+    /**
+     * To get label for fetchNotifTemplateFailureMsg.
+     * 
+     * @return String
+     */
+    String fetchNotifTemplateFailureMsg();
+
+    /**
+     * To get label for fetchAllTemplateFailureMsg.
+     * 
+     * @return String
+     */
+    String fetchAllNotifTemplateFailureMsg();
+
+    /**
+     * To get label for editNotifTemplateTxt.
+     * 
+     * @return String
+     */
+    String editNotifTemplateTxt();
+
+    /**
+     * To get label for modifyNotifTemplateFailureMsg.
+     * 
+     * @return String
+     */
+    String modifyNotifTemplateFailureMsg();
+
+    /**
+     * To get label for modifyNotifTemplateSuccessMsg.
+     * 
+     * @return String
+     */
+    String modifyNotifTemplateSuccessMsg();
+
+    /**
+     * To get label for chooseDiffCountry.
+     * 
+     * @return String
+     */
+    String chooseDiffCountry();
+
+    /**
+     * To get label for selectCountry.
+     * 
+     * @return String
+     */
+    String selectCountry();
+
+    /**
+     * To get label for repopulateUsersFailedMsg.
+     * 
+     * @return String -
+     */
+    String repopulateUsersFailedMsg();
+
+    /**
+     * To get label for searchCountry.
+     * 
+     * @return String
+     */
+    String searchCountry();
+
+    /**
+     * To get label for currencyTxt.
+     * 
+     * @return String
+     */
+    String currencyTxt();
+
+    /**
+     * To get label for ofLabelTxt.
+     * 
+     * @return String
+     */
+    String ofLabelTxt();
+
+    /**
+     * To get label for userSegments.
+     * 
+     * @return String
+     */
+    String userSegmentsTxt();
+
+    /**
+     * To get label for tenantSegments.
+     * 
+     * @return String
+     */
+    String tenantSegmentsTxt();
+
+    /**
+     * To get label for blankContentMsg.
+     * 
+     * @return String -
+     */
+    String blankContentMsg();
+
+    /**
+     * To get label for price.
+     * 
+     * @return String
+     */
+    String price();
+
+    /**
+     * To get label for noCountriesAvailableMsg.
+     * 
+     * @return String -
+     */
+    String noCountriesAvailableMsg();
+
+    /**
+     * To get label for selectColorTxt.
+     * 
+     * @return String -
+     */
+    String selectColorTxt();
+
+    /**
+     * To get label for modifyPartnerFailureMsg.
+     * 
+     * @return String -
+     */
+    String modifyPartnerFailureMsg();
+
+    /**
+     * To get label for componentCreationSuccessImage.
+     * 
+     * @return String -
+     */
+    String componentCreationSuccessImage();
+
+    /**
+     * To get label for add customer.
+     * 
+     * @return String -
+     */
+    String addCustomerLabelTxt();
+
+    /**
+     * To get label for configuration.
+     * 
+     * @return String -
+     */
+    String configuration();
+
+    /**
+     * To get label for viewCustomerDetails.
+     * 
+     * @return String -
+     */
+    String viewCustomerDetails();
+
+    /**
+     * @return String -
+     */
+    String percentageSymbol();
+
+    /**
+     * @return String -
+     */
+    String trueTxt();
+
+    /**
+     * @return String -
+     */
+    String equalsLabelTxt();
+
+    /**
+     * @return String -
+     */
+    String greaterLabelTxt();
+
+    /**
+     * @return String -
+     */
+    String lessLabelTxt();
+
+    /**
+     * @return managePrinters
+     */
+    String managePrinters();
+
+    /**
+     * @return ratePlan
+     */
+    String ratePlan();
+
+    /**
+     * @return String -
+     */
+    String managePrintersTxt();
+
+    /**
+     * @return String -
+     */
+    String printersTxt();
+
+    /**
+     * @return String -
+     */
+    String serialNumberTxt();
+
+    /**
+     * @return String -
+     */
+    String modelIdTxt();
+
+    /**
+     * @return String -
+     */
+    String modelNameTxt();
+
+    /**
+     * @return String -
+     */
+    String printerImageTxt();
+
+    /**
+     * @return String -
+     */
+    String firmWareTxt();
+
+    /**
+     * @return String -
+     */
+    String addPrinterModelTxt();
+
+    /**
+     * @return edit printermodel text
+     */
+    String editPrinterModelTxt();
+
+    /**
+     * @return String -
+     */
+    String printerModelTxt();
+
+    /**
+     * @return String -
+     */
+    String printerFetchFailureMessage();
+
+    /**
+     * @return String -
+     */
+    String thresholdValuesTxt();
+
+    /**
+     * @return String -
+     */
+    String installedRamTxt();
+
+    /**
+     * @return String -
+     */
+    String thresholdValuesHighTxt();
+
+    /**
+     * @return String -
+     */
+    String thresholdValuesMediumTxt();
+
+    /**
+     * @return String -
+     */
+    String thresholdValuesLowTxt();
+
+    /**
+     * @return String -
+     */
+    String viewPrinterModelDetails();
+
+    /**
+     * @return String -
+     */
+    String modifyPrinterModelDetails();
+
+    /**
+     * @return String -
+     */
+    String modifyOpcoHeader();
+
+    /**
+     * @return String -
+     */
+    String viewOpcoHeader();
+
+    /**
+     * @return String -
+     */
+    String selectOpcoMsg();
+
+    /**
+     * @return String -
+     */
+    String createOpcoSuccessMsg();
+
+    /**
+     * @return String -
+     */
+    String createOpcoFailMsg();
+
+    /**
+     * @return String -
+     */
+    String modifyOpcoSuccessMsg();
+
+    /**
+     * @return String -
+     */
+    String modifyOpcoFailMsg();
+
+    /**
+     * @return String -
+     */
+    String removeOpcoSuccessMsg();
+
+    /**
+     * @return String -
+     */
+    String modifyPartnerProgramHeader();
+
+    /**
+     * @return String -
+     */
+    String viewPartnerProgramHeader();
+
+    /**
+     * @return String -
+     */
+    String removeOpcoFailMsg();
+
+    /**
+     * @return String -
+     */
+    String spclCustRatePlansHeader();
+
+    /**
+     * @return String -
+     */
+    String addSpclCustRatePlansHeader();
+
+    /**
+     * @return String -
+     */
+    String viewSpclCustRatePlansHeader();
+
+    /**
+     * @return String -
+     */
+    String editSpclCustRatePlansHeader();
+
+    /**
+     * @return String -
+     */
+    String clickHere();
+
+    /**
+     * @return String -
+     */
+    String createDiscountGroupFromRatePlan();
+
+    /**
+     * @return String -
+     */
+    String retailRateLbl();
+
+    /**
+     * @return String -
+     */
+    String floorRateLbl();
+
+    /**
+     * @return String -
+     */
+    String modifyDiscountGroupHeader();
+
+    /**
+     * @return String -
+     */
+    String viewDiscountGroupHeader();
+
+    /**
+     * @return String -
+     */
+    String dollorSymbol();
+
+    /**
+     * @return String -
+     */
+    String openBraceLbl();
+
+    /**
+     * @return String -
+     */
+    String closeBraceLbl();
+
+    /**
+     * @return String -
+     */
+    String baseRateLbl();
+
+    /**
+     * @return String -
+     */
+    String upliftLbl();
+
+    /**
+     * @return String -
+     */
+    String programNamesLbl();
+
+    /**
+     * @return String -
+     */
+    String programNameLbl();
+
+    /**
+     * @return String -
+     */
+    String marginLbl();
+
+    /**
+     * @return String -
+     */
+    String deviceModelTxt();
+
+    /**
+     * @return String -
+     */
+    String planCategoryLbl();
+
+    /**
+     * @return String -
+     */
+    String postPayRateLbl();
+
+    /**
+     * @return String -
+     */
+    String price1Lbl();
+
+    /**
+     * @return String -
+     */
+    String price2Lbl();
+
+    /**
+     * @return String -
+     */
+    String price3Lbl();
+
+    /**
+     * @return String -
+     */
+    String price4Lbl();
+
+    /**
+     * @return String -
+     */
+    String partnerMarginRateLbl();
+
+    /**
+     * @return String -
+     */
+    String customerRateLbl();
+
+    /**
+     * @return String -
+     */
+    String resellerTxt();
+
+    /**
+     * @return String -
+     */
+    String customerTxt();
+
+    /**
+     * @return String -
+     */
+    String creditAmtTxt();
+
+    /**
+     * @return String -
+     */
+    String monochromeTxt();
+
+    /**
+     * @return String -
+     */
+    String colorTxt();
+
+    /**
+     * @return String -
+     */
+    String rateTxt();
+
+    /**
+     * @return String -
+     */
+    String expiredTxt();
+
+    /**
+     * @return String -
+     */
+    String notStartedTxt();
+
+    /**
+     * @return String -
+     */
+    String failedToFetchRatePlanDetailsMsg();
+
+    /**
+     * To get label for specifyValidFilenameMsg.
+     * 
+     * @return String
+     */
+    String specifyValidFilenameMsg();
+
+    /**
+     * To get label for specifyUnsupportedImageType.
+     * 
+     * @return String
+     * 
+     */
+    String specifyUnsupportedImageType();
+
+    /**
+     * To get label for imageSizeExceedsMsg.
+     * 
+     * @return String
+     */
+    String imageSizeExceedsMsg();
+
+    /**
+     * To get label for phoneExtnsionLabel.
+     * 
+     * @return String
+     */
+    String phoneExtnsionLabel();
+
+    /**
+     * To get label for addressLine1Txt.
+     * 
+     * @return String
+     */
+    String addressLine1Txt();
+
+    /**
+     * To get label for addressLine2Txt.
+     * 
+     * @return String
+     */
+    String addressLine2Txt();
+
+    /**
+     * To get label for emailAlertsTxt.
+     * 
+     * @return String
+     */
+    String emailAlertsTxt();
+
+    /**
+     * To get label for tomerLowLbl.
+     * 
+     * @return String
+     */
+    String tomerLowLbl();
+
+    /**
+     * To get label for estimPrintsLowLbl.
+     * 
+     * @return String
+     */
+    String estimPrintsLowLbl();
+
+    /**
+     * To get label for hardwareErrorsLbl.
+     * 
+     * @return String
+     */
+    String hardwareErrorsLbl();
+
+    /**
+     * To get label for addressLine2Txt.
+     * 
+     * @return String
+     */
+    String promotionalEmailLbl();
+
+    /**
+     * To get label for devicesHeader.
+     * 
+     * @return String
+     */
+    String devicesHeader();
+
+    /**
+     * To get label for devices.
+     * 
+     * @return String
+     */
+    String devices();
+
+    /**
+     * To get label for resetPswdSuccessMsg.
+     * 
+     * @return String
+     */
+    String resetPswdSucMsg();
+
+    /**
+     * To get label for shippingInfo.
+     * 
+     * @return String
+     */
+    String shippingInfo();
+
+    /**
+     * To get label for contactInfo.
+     * 
+     * @return String
+     */
+    String contactInfo();
+
+    /**
+     * To get label for accountInfo.
+     * 
+     * @return String
+     */
+    String accountInfo();
+
+    /**
+     * To get label for iAgreeLbl.
+     * 
+     * @return String
+     */
+    String iAgreeLbl();
+
+    /**
+     * To get label for termsAndCondition.
+     * 
+     * @return String
+     */
+    String termsAndCondition();
+
+    /**
+     * To get label for legalLbl.
+     * 
+     * @return String
+     */
+    String legalLbl();
+
+    /**
+     * To get label for faqLbl.
+     * 
+     * @return String
+     */
+    String faqLbl();
+
+    /**
+     * To get label for registerNowLbl.
+     * 
+     * @return String
+     */
+    String registerNowLbl();
+
+    /**
+     * To get label for overviewLbl.
+     * 
+     * @return String
+     */
+    String overviewLbl();
+
+    /**
+     * To get label for helpfulResourcesLbl.
+     * 
+     * @return String
+     */
+    String helpfulResourcesLbl();
+
+    /**
+     * To get label for greaterSymbol.
+     * 
+     * @return String
+     */
+    String greaterSymbol();
+
+    /**
+     * To get label for visuallyImpairedTxt.
+     * 
+     * @return String
+     */
+    String visuallyImpairedTxt();
+
+    /**
+     * To get label for agentDownloadStepTxt.
+     * 
+     * @return String
+     */
+    String agentDownloadStepTxt();
+
+    /**
+     * To get label for agentDownloadStepTxt.
+     * 
+     * @return String
+     */
+    String fcpAgentDownloadStepTxt();
+
+    /**
+     * To get label for agentDownloadStepLbl.
+     * 
+     * @return String
+     */
+    String agentDownloadStepLbl();
+
+    /**
+     * To get label for troubleShootingLbl.
+     * 
+     * @return String
+     */
+    String troubleShootingLbl();
+
+    /**
+     * To get label for installationLbl.
+     * 
+     * @return String
+     */
+    String installationLbl();
+
+    /**
+     * To get label for agentDownloadLbl.
+     * 
+     * @return String
+     */
+    String agentDownloadLbl();
+
+    /**
+     * To get label for appleLbl.
+     * 
+     * @return String
+     */
+    String appleLbl();
+
+    /**
+     * To get label for linuxLbl.
+     * 
+     * @return String
+     */
+    String linuxLbl();
+
+    /**
+     * To get label for windowsLbl.
+     * 
+     * @return String
+     */
+    String windowsLbl();
+
+    /**
+     * To get label for operatingSysLbl.
+     * 
+     * @return String
+     */
+    String operatingSysLbl();
+
+    /**
+     * To get label for custRegConfirmStepTxt.
+     * 
+     * @return String
+     */
+    String custRegConfirmStepTxt();
+
+    /**
+     * To get label for custRegConfirmStep.
+     * 
+     * @return String
+     */
+    String custRegConfirmStep();
+
+    /**
+     * To get label for setEmailForNotification.
+     * 
+     * @return String
+     */
+    String setEmailForNotification();
+
+    /**
+     * To get label for cautionGoingBack.
+     * 
+     * @return String
+     */
+    String cautionGoingBack();
+
+    /**
+     * To get label for confirmFollowing.
+     * 
+     * @return String
+     */
+    String confirmFollowing();
+
+    /**
+     * To get label for additionalSuppTxt.
+     * 
+     * @return String
+     */
+    String additionalSuppTxt();
+
+    /**
+     * To get label for fileNotExistMsg.
+     * 
+     * @return String
+     */
+    String fileNotExistMsg();
+
+    /**
+     * To get label for additionalSupportLbl.
+     * 
+     * @return String
+     */
+    String additionalSupportLbl();
+
+    /**
+     * To get label for relatedHelpLbl.
+     * 
+     * @return String
+     */
+    String relatedHelpLbl();
+
+    /**
+     * To get label for errorHandlingLbl.
+     * 
+     * @return String
+     */
+    String errorHandlingLbl();
+
+    /**
+     * To get label for configureAgentLbl.
+     * 
+     * @return String
+     */
+    String configureAgentLbl();
+
+    /**
+     * To get label for installAgentLbl.
+     * 
+     * @return String
+     */
+    String installAgentLbl();
+
+    /**
+     * To get label for linuxAgentLbl.
+     * 
+     * @return String
+     */
+    String linuxAgentLbl();
+
+    /**
+     * To get label for macPayGoAgentLbl.
+     * 
+     * @return String
+     */
+    String macPayGoAgentLbl();
+
+    /**
+     * To get label for winPayGoAgentLbl.
+     * 
+     * @return String
+     */
+    String winPayGoAgentLbl();
+
+    /**
+     * To get label for startUsingPayGoLbl.
+     * 
+     * @return String
+     */
+    String startUsingPayGoLbl();
+
+    /**
+     * To get label for congratsTxt.
+     * 
+     * @return String
+     */
+    String congratsTxt();
+
+    /**
+     * To get label for prefEntryMsg.
+     * 
+     * @return String
+     */
+    String prefEntryMsg();
+
+    /**
+     * To get label for captchaValidationMsg.
+     * 
+     * @return String
+     */
+    String captchaValidationMsg();
+
+    /**
+     * To get label for doneTxt.
+     * 
+     * @return String
+     */
+    String doneTxt();
+
+    /**
+     * To get label for confirmLbl.
+     * 
+     * @return String
+     */
+    String confirmLbl();
+
+    /**
+     * To get label for changeBtnTxt.
+     * 
+     * @return String
+     */
+    String changeBtnTxt();
+
+    /**
+     * To get label for fetchSecQuesFailureMsg.
+     * 
+     * @return String
+     */
+    String fetchSecQuesFailureMsg();
+
+    /**
+     * To get label for registerDeviceSuccessMsg.
+     * 
+     * @return String
+     */
+    String registerDeviceSuccessMsg();
+
+    /**
+     * To get label for registerDeviceFailureMsg.
+     * 
+     * @return String
+     */
+    String registerDeviceFailureMsg();
+
+    /**
+     * To get label for model.
+     * 
+     * @return String
+     */
+    String deviceModel();
+
+    /**
+     * To get label for purchaseDate.
+     * 
+     * @return String
+     */
+    String purchaseDate();
+
+    /**
+     * To get label for purchaseOrder.
+     * 
+     * @return String
+     */
+    String purchaseOrder();
+
+    /**
+     * To get label for customerOrdrNo.
+     * 
+     * @return String
+     */
+    String customerOrdrNo();
+
+    /**
+     * To get label for salesPersonLbl.
+     * 
+     * @return String
+     */
+    String salesPersonLbl();
+
+    /**
+     * To get label for noOfCustLbl.
+     * 
+     * @return String
+     */
+    String noOfCustLbl();
+
+    /**
+     * To get label for revMonthToDateLbl.
+     * 
+     * @return String
+     */
+    String revMonthToDateLbl();
+
+    /**
+     * To get label for revYrToDateLbl.
+     * 
+     * @return String
+     */
+    String revYrToDateLbl();
+
+    /**
+     * To get label for lastUpdatedLbl.
+     * 
+     * @return String
+     */
+    String lastUpdatedLbl();
+
+    /**
+     * To get label for serialLbl.
+     * 
+     * @return String
+     */
+    String serialLbl();
+
+    /**
+     * To get label for regDeviceLbl.
+     * 
+     * @return String
+     */
+    String regDeviceLbl();
+
+    /**
+     * To get label for confirmButtonLbl.
+     * 
+     * @return String
+     */
+    String confirmButtonLbl();
+
+    /**
+     * To get label for promoEmailTxt.
+     * 
+     * @return String
+     */
+    String promoEmailTxt();
+
+    /**
+     * To get label for addContactLbl.
+     * 
+     * @return String
+     */
+    String addContactLbl();
+
+    /**
+     * To get label for forLbl.
+     * 
+     * @return String
+     */
+    String forLbl();
+
+    /**
+     * To get label for toLbl.
+     * 
+     * @return String
+     */
+    String toLbl();
+
+    /**
+     * To get label for maxLimitMsg.
+     * 
+     * @return String
+     */
+    String maxLimitMsg();
+
+    /**
+     * To get label for rowLbl.
+     * 
+     * @return String
+     */
+    String rowLbl();
+
+    /**
+     * To get label for andLblTxt.
+     * 
+     * @return String
+     */
+    String andLblTxt();
+
+    /**
+     * To get label for emailNotifPrefLbl.
+     * 
+     * @return String
+     */
+    String emailNotifPrefLbl();
+
+    /**
+     * To get label for inLbl.
+     * 
+     * @return String
+     */
+    String inLbl();
+
+    /**
+     * To get label for validationFailMsg.
+     * 
+     * @return String
+     */
+    String validationFailMsg();
+
+    /**
+     * To get label for ratePlanName.
+     * 
+     * @return String
+     */
+    String ratePlanName();
+
+    /**
+     * To get label for selectOneMsg.
+     * 
+     * @return String
+     */
+    String selectOneMsg();
+
+    /**
+     * To get label for viewPlanCategoryHeader.
+     * 
+     * @return String
+     */
+    String viewPlanCategoryHeader();
+
+    /**
+     * To get label for editPlanCategoryHeader.
+     * 
+     * @return String
+     */
+    String editPlanCategoryHeader();
+
+    /**
+     * To get label for listAllDevicesLbl.
+     * 
+     * @return String
+     */
+    String listAllDevicesLbl();
+
+    /**
+     * To get label for listAllRatePlans.
+     * 
+     * @return String
+     */
+    String listAllRatePlans();
+
+    /**
+     * To get label for addNewRatePlanLbl.
+     * 
+     * @return String
+     */
+    String addNewRatePlanLbl();
+
+    /**
+     * To get label for viewMessageDetails.
+     * 
+     * @return String
+     */
+    String viewMessageDetails();
+
+    /**
+     * To get label for listAllResellers.
+     * 
+     * @return String
+     */
+    String listAllResellers();
+
+    /**
+     * To get label for lastDateLbl.
+     * 
+     * @return String
+     */
+    String lastDateLbl();
+
+    /**
+     * To get label for ongoingLabel.
+     * 
+     * @return String
+     */
+    String ongoingLabel();
+
+    /**
+     * To get label for alreadyConfiguredMsg.
+     * 
+     * @return String
+     */
+    String alreadyConfiguredMsg();
+
+    /**
+     * To get label for estimPgsLbl.
+     * 
+     * @return String
+     */
+    String estimPgsLbl();
+
+    /**
+     * To get label for colorPerceLbl.
+     * 
+     * @return String
+     */
+    String colorPerceLbl();
+
+    /**
+     * To get label for activDateLbl.
+     * 
+     * @return String
+     */
+    String activDateLbl();
+
+    /**
+     * To get label for customerNameLbl.
+     * 
+     * @return String
+     */
+    String customerNameLbl();
+
+    /**
+     * To get label for devModelHeader.
+     * 
+     * @return String
+     */
+    String devModelHeader();
+
+    /**
+     * To get label for plsRegLbl.
+     * 
+     * @return String
+     */
+    String plsRegLbl();
+
+    /**
+     * To get label for mandtryInfoLbl.
+     * 
+     * @return String
+     */
+    String mandtryInfoLbl();
+
+    /**
+     * To get label for largeImageLbl.
+     * 
+     * @return String
+     */
+    String largeImageLbl();
+
+    /**
+     * To get label for shouldBeGreater.
+     * 
+     * @return String
+     */
+    String shouldBeGreater();
+
+    /**
+     * To get label for printedPagesLbl.
+     * 
+     * @return String
+     */
+    String printedPagesLbl();
+
+    /**
+     * To get label for revenueTodayLbl.
+     * 
+     * @return String
+     */
+    String revenueTodayLbl();
+
+    /**
+     * To get label for addNewDeviceModel.
+     * 
+     * @return String
+     */
+    String addNewDeviceModel();
+
+    /**
+     * To get label for upgradableLbl.
+     * 
+     * @return String
+     */
+    String upgradableLbl();
+
+    /**
+     * To get label for config1Lbl.
+     * 
+     * @return String
+     */
+    String config1Lbl();
+
+    /**
+     * To get label for config2Lbl.
+     * 
+     * @return String
+     */
+    String config2Lbl();
+
+    /**
+     * To get label for config3Lbl.
+     * 
+     * @return String
+     */
+    String config3Lbl();
+
+    /**
+     * To get label for config4Lbl.
+     * 
+     * @return String
+     */
+    String config4Lbl();
+
+    /**
+     * To get label for config5Lbl.
+     * 
+     * @return String
+     */
+    String config5Lbl();
+
+    /**
+     * To get label for tierLbl.
+     * 
+     * @return String
+     */
+    String tierLbl();
+
+    /**
+     * To get label for tier1Lbl.
+     * 
+     * @return String
+     */
+    String tier1Lbl();
+
+    /**
+     * To get label for tier2Lbl.
+     * 
+     * @return String
+     */
+    String tier2Lbl();
+
+    /**
+     * To get label for pricingTiersLabel.
+     * 
+     * @return String
+     */
+    String pricingTiersLabel();
+
+    /**
+     * To get label for addOneOrMoreTierLabel.
+     * 
+     * @return String
+     */
+    String addOneOrMoreTierLabel();
+
+    /**
+     * To get label for addOneOrMoreTierLabel.
+     * 
+     * @return String
+     */
+    String defaultPagesLabel();
+
+    /**
+     * To get label for addOneOrMoreTierLabel.
+     * 
+     * @return String
+     */
+    String defaultColorPercentageLabel();
+
+    /**
+     * To get label for addOneOrMoreTierLabel.
+     * 
+     * @return String
+     */
+    String forCalculator();
+
+    /**
+     * To get label for highColorTxt.
+     * 
+     * @return String
+     */
+    String highColorTxt();
+
+    /**
+     * To get label for mbLbl.
+     * 
+     * @return String
+     */
+    String mbLbl();
+
+    /**
+     * To get label for totalRvnLbl.
+     * 
+     * @return String
+     */
+    String totalRvnLbl();
+
+    /**
+     * To get label for mnthToDate.
+     * 
+     * @return String
+     */
+    String mnthToDate();
+
+    /**
+     * To get label for yrToDate.
+     * 
+     * @return String
+     */
+    String yrToDate();
+
+    /**
+     * To get label for enlargeLink.
+     * 
+     * @return String
+     */
+    String enlargeLink();
+
+    /**
+     * To get label for platformConfigHeader.
+     * 
+     * @return String
+     */
+    String platformConfigHeader();
+
+    /**
+     * To get label for configurationSettings.
+     * 
+     * @return String
+     */
+    String configurationSettings();
+
+    /**
+     * To get label for engineVersionLbl.
+     * 
+     * @return String
+     */
+    String engineVersionLbl();
+
+    /**
+     * To get label for osVersionLbl.
+     * 
+     * @return String
+     */
+    String osVersionLbl();
+
+    /**
+     * To get label for postScriptVersionLbl.
+     * 
+     * @return String
+     */
+    String postScriptVersionLbl();
+
+    /**
+     * To get label for netVersionLbl.
+     * 
+     * @return String
+     */
+    String netVersionLbl();
+
+    /**
+     * To get label for sysObjIdLbl.
+     * 
+     * @return String
+     */
+    String sysObjIdLbl();
+
+    /**
+     * To get label for enterSysObjMsg.
+     * 
+     * @return String
+     */
+    String enterSysObjMsg();
+
+    /**
+     * To get label for enterConfigMsg.
+     * 
+     * @return String
+     */
+    String enterConfigMsg();
+
+    /**
+     * To get label for denominationTxt.
+     * 
+     * @return String
+     */
+    String denominationTxt();
+
+    /**
+     * To get label for minDenomLabel.
+     * 
+     * @return String
+     */
+    String minDenomLabel();
+
+    /**
+     * To get label for pagesTxt.
+     * 
+     * @return String
+     */
+    String pagesTxt();
+
+    /**
+     * To get label for tonerMediumLbl.
+     * 
+     * @return String
+     */
+    String tonerMediumLbl();
+
+    /**
+     * To get label for tonerHighLbl.
+     * 
+     * @return String
+     */
+    String tonerHighLbl();
+
+    /**
+     * To get label for pagesLowLbl.
+     * 
+     * @return String
+     */
+    String pagesLowLbl();
+
+    /**
+     * To get label for defaultColorPrcntLbl.
+     * 
+     * @return String
+     */
+    String defaultColorPrcntLbl();
+
+    /**
+     * To get label for replaceThresholdOne.
+     * 
+     * @return String
+     */
+    String replaceThresholdOne();
+
+    /**
+     * To get label for replaceThresholdTwo.
+     * 
+     * @return String
+     */
+    String replaceThresholdTwo();
+
+    /**
+     * To get label for daemonTrgrFrqncyLbl.
+     * 
+     * @return String
+     */
+    String daemonTrgrFrqncyLbl();
+
+    /**
+     * To get label for timesPerDayLbl.
+     * 
+     * @return String
+     */
+    String timesPerDayLbl();
+
+    /**
+     * To get label for shouldBeLesser.
+     * 
+     * @return String
+     */
+    String shouldBeLesser();
+
+    /**
+     * To get label for addOneOrMoreLabel.
+     * 
+     * @return String
+     */
+    String addOneOrMoreLabel();
+
+    /**
+     * To get label for fetchConfigSettingsFailMsg.
+     * 
+     * @return String
+     */
+    String fetchConfigSettingsFailMsg();
+
+    /**
+     * To get label for selectCurrencyMsg.
+     * 
+     * @return String
+     */
+    String selectCurrencyMsg();
+
+    /**
+     * To get label for enterDenominationMsg.
+     * 
+     * @return String
+     */
+    String enterDenominationMsg();
+
+    /**
+     * To get label for denomAlreadyAddedMsg.
+     * 
+     * @return String
+     */
+    String denomAlreadyAddedMsg();
+
+    /**
+     * To get label for selectDenomRemoveMsg.
+     * 
+     * @return String
+     */
+    String selectDenomRemoveMsg();
+
+    /**
+     * To get label for productCodeLabel.
+     * 
+     * @return String
+     */
+    String productCodeLabel();
+
+    /**
+     * To get label for resellerNameLabel.
+     * 
+     * @return String
+     */
+    String resellerNameLabel();
+
+    /**
+     * To get label for resellerNameLabel.
+     * 
+     * @return String
+     */
+    String resellerNameInRegLabel();
+
+    /**
+     * To get label for resellerUserIdInRegLabel.
+     * 
+     * @return String
+     */
+    String resellerUserIdInRegLabel();
+
+    /**
+     * To get label for customersLabel.
+     * 
+     * @return String
+     */
+    String customersLabel();
+
+    /**
+     * @return String -
+     */
+    String ratePlanExpiredMsg();
+
+    /**
+     * @return String -
+     */
+    String enterValidDenom();
+
+    /**
+     * @return String -
+     */
+    String unSentListMsg();
+
+    /**
+     * @return String -
+     */
+    String sentListMsg();
+
+    /**
+     * @return String -
+     */
+    String allListMsg();
+
+    /**
+     * @return String -
+     */
+    String joinDateLbl();
+
+    /**
+     * @return String -
+     */
+    String creditBalLbl();
+
+    /**
+     * @return String -
+     */
+    String creditLimitLbl();
+
+    /**
+     * @return String -
+     */
+    String hyphenLabel();
+
+    /**
+     * @return String -
+     */
+    String colonLbl();
+
+    /**
+     * @return String -
+     */
+    String equalSymbol();
+
+    /**
+     * @return String -
+     */
+    String listOfCustAndRevLbl();
+
+    /**
+     * @return String -
+     */
+    String extnLbl();
+
+    /**
+     * @return String -
+     */
+    String selectCustDetailsLbl();
+
+    /**
+     * @return String -
+     */
+    String modifySegmentTxt();
+
+    /**
+     * @return String -
+     */
+    String selectSegmentMsg();
+
+    /**
+     * @return String -
+     */
+    String selctCustMsg();
+
+    /**
+     * @return String -
+     */
+    String custFetchFailMsg();
+
+    /**
+     * @return String -
+     */
+    String failedToFetchOrderDetails();
+
+    /**
+     * @return String -
+     */
+    String deviceCountTxt();
+
+    /**
+     * @return String -
+     */
+    String emptyContentTxt();
+
+    /**
+     * @return String -
+     */
+    String opcoHeader();
+
+    /**
+     * @return String -
+     */
+    String addOpcoHeader();
+
+    /**
+     * @return String -
+     */
+    String partnerProgramHeader();
+
+    /**
+     * @return String -
+     */
+    String addPartnerProgramHeader();
+
+    /**
+     * @return String -
+     */
+    String planCategoryHeader();
+
+    /**
+     * @return String -
+     */
+    String addPlanCategoryHeader();
+
+    /**
+     * @return String -
+     */
+    String discountGroupHeader();
+
+    /**
+     * @return String -
+     */
+    String addDiscountGroupHeader();
+
+    /**
+     * @return String -
+     */
+    String planCategoryName();
+
+    /**
+     * @return String -
+     */
+    String planCategoryNameLbl();
+
+    /**
+     * @return String -
+     */
+    String discountGroupName();
+
+    /**
+     * @return String -
+     */
+    String discountGroupLbl();
+
+    /**
+     * @return String -
+     */
+    String baseLbl();
+
+    /**
+     * @return String -
+     */
+    String postPayLbl();
+
+    /**
+     * @return String -
+     */
+    String discountLbl();
+
+    /**
+     * @return String -
+     */
+    String percentSymbolLbl();
+
+    /**
+     * @return String -
+     */
+    String specialRateLbl();
+
+    /**
+     * @return String -
+     */
+    String volumeRateLbl();
+
+    /**
+     * @return String -
+     */
+    String baseDiscLbl();
+
+    /**
+     * @return String -
+     */
+    String postPayDiscLbl();
+
+    /**
+     * @return String -
+     */
+    String volumeRateDiscLbl();
+
+    /**
+     * @return String -
+     */
+    String consumableItemsListHeader();
+
+    /**
+     * @return String -
+     */
+    String consumableItemsStatusListHeader();
+
+    /**
+     * @return String -
+     */
+    String addEditconsumableItemsHeader();
+
+    /**
+     * @return String -
+     */
+    String consumableItemsLabel();
+
+    /**
+     * @return String -
+     */
+    String consumableItemsStatusLabel();
+
+    /**
+     * @return String -
+     */
+    String itemNameLabel();
+
+    /**
+     * @return String -
+     */
+    String replacementLevel1Label();
+
+    /**
+     * @return String -
+     */
+    String replacementLevel2Label();
+
+    /**
+     * @return String -
+     */
+    String orderSourceLabel();
+
+    /**
+     * @return String -
+     */
+    String consumableNameLabel();
+
+    /**
+     * @return String -
+     */
+    String statusIndicatorOnDeviceLabel();
+
+    /**
+     * @return String -
+     */
+    String displayInAgentLabel();
+
+    /**
+     * @return String -
+     */
+    String fulfillmentProcessLabel();
+
+    /**
+     * @return String -
+     */
+    String imageSizeInfoLabel();
+
+    /**
+     * @return String -
+     */
+    String imageTypeInfoLabel();
+
+    /**
+     * @return String -
+     */
+    String commProfileTypeInfoLabel();
+
+    /**
+     * @return String -
+     */
+    String deviceProfileTypeInfoLabel();
+
+    /**
+     * @return String -
+     */
+    String viewConsumableItemsHeader();
+
+    /**
+     * @return String -
+     */
+    String sumDefaultColorPercentMsg();
+
+    /**
+     * @return String -
+     */
+    String linkedAccounts();
+
+    /**
+     * @return String -
+     */
+    String custRegMessageHeader();
+
+    /**
+     * @return String -
+     */
+    String custRegMessageFooter();
+
+    /**
+     * @return String -
+     */
+    String isARequiredField();
+
+    /**
+     * @return String -
+     */
+    String captchaMsg();
+
+    /**
+     * @return String -
+     */
+    String dataEnteredFor();
+
+    /**
+     * @return String -
+     */
+    String isNotValid();
+
+    /**
+     * @return String -
+     */
+    String selectCountryToAssociateMsg();
+
+    /**
+     * @return String -
+     */
+    String caseSensitive();
+
+    /**
+     * @return String -
+     */
+    String chooseCaseSensitivePwd1();
+
+    /**
+     * @return String -
+     */
+    String chooseCaseSensitivePwd2();
+
+    /**
+     * @return String -
+     */
+    String prohibitedChars();
+
+    /**
+     * @return String -
+     */
+    String mandatoryCategories();
+
+    /**
+     * @return String -
+     */
+    String modifyCustAccountSuccess();
+
+    /**
+     * @return String -
+     */
+    String editCustomerDetailsTxt();
+
+    /**
+     * @return String -
+     */
+    String addCustomerHeader();
+
+    /**
+     * @return String -
+     */
+    String userNameInfo1();
+
+    /**
+     * @return String -
+     */
+    String userNameInfo2();
+
+    /**
+     * @return String -
+     */
+    String upperCaseInfo();
+
+    /**
+     * @return String -
+     */
+    String lowerCaseInfo();
+
+    /**
+     * @return String -
+     */
+    String numericInfo();
+
+    /**
+     * @return String -
+     */
+    String nonAlphaNumericInfo();
+
+    /**
+     * @return String -
+     */
+    String passwordPolicyCheckErrMsg();
+
+    /**
+     * @return String -
+     */
+    String promotionName();
+
+    /**
+     * @return String -
+     */
+    String usageFrequency();
+
+    /**
+     * @return String -
+     */
+    String offerAmount();
+
+    /**
+     * @return String -
+     */
+    String recharge();
+
+    /**
+     * @return String -
+     */
+    String usage();
+
+    /**
+     * @return String -
+     */
+    String activationDate();
+
+    /**
+     * @return String -
+     */
+    String times();
+
+    /**
+     * @return String -
+     */
+    String promoCondition();
+
+    /**
+     * @return String -
+     */
+    String advancedSearchLbl();
+
+    /**
+     * @return String -
+     */
+    String lessThanEqulsLbl();
+
+    /**
+     * @return String -
+     */
+    String mediumColorLbl();
+
+    /**
+     * @return String -
+     */
+    String lowColorLbl();
+
+    /**
+     * @return String -
+     */
+    String supportedTiersLbl();
+
+    /**
+     * @return String -
+     */
+    String defPercentLbl();
+
+    /**
+     * @return String -
+     */
+    String thresholdPxlsLbl();
+
+    /**
+     * @return String -
+     */
+    String tierNameLbl();
+
+    /**
+     * @return String -
+     */
+    String allPromotions();
+
+    /**
+     * @return String -
+     */
+    String addPromotion();
+
+    /**
+     * @return String -
+     */
+    String viewPromotion();
+
+    /**
+     * @return String -
+     */
+    String editPromotion();
+
+    /**
+     * @return String -
+     */
+    String allPromoCodes();
+
+    /**
+     * @return String -
+     */
+    String fetchAllPromotionsFailureMsg();
+
+    /**
+     * @return String -
+     */
+    String removePromotionFailureMsg();
+
+    /**
+     * @return String -
+     */
+    String folowUpInfo();
+
+    /**
+     * @return String -
+     */
+    String emailType();
+
+    /**
+     * @return String -
+     */
+    String selectMail();
+
+    /**
+     * @return String -
+     */
+    String launchedDate();
+
+    /**
+     * @return String -
+     */
+    String segmentName();
+
+    /**
+     * @return String -
+     */
+    String createKeyFailMsg();
+
+    /**
+     * @return String -
+     */
+    String saveNotificationFailure();
+
+    /**
+     * @return String -
+     */
+    String fetchNotificationFailure();
+
+    /**
+     * @return String -
+     */
+    String saveNotificationSuccess();
+
+    /**
+     * @return String -
+     */
+    String fetchKeyFailMsg();
+
+    /**
+     * @return String -
+     */
+    String keyListHeader();
+
+    /**
+     * @return String -
+     */
+    String notificationsTxt();
+
+    /**
+     * @return String -
+     */
+    String validThresholdPxlsValue();
+
+    /**
+     * @return String -
+     */
+    String lastUpdatedDateLbl();
+
+    /**
+     * @return String -
+     */
+    String addKeyHeader();
+
+    /**
+     * @return String -
+     */
+    String customerEmail();
+
+    /**
+     * @return String -
+     */
+    String checkDefaultCheckBox();
+
+    /**
+     * @return String -
+     */
+    String fileUploadSizeText();
+
+    /**
+     * @return String -
+     */
+    String aboveLbl();
+
+    /**
+     * @return String -
+     */
+    String fileUploadSizeUnit();
+
+    /**
+     * @return String -
+     */
+    String logoLabel();
+
+    /**
+     * @return String -
+     */
+    String titleLabel();
+
+    /**
+     * @return String -
+     */
+    String custSupportLabel();
+
+    /**
+     * @return String -
+     */
+    String custSupportPhoneLabel();
+
+    /**
+     * @return String -
+     */
+    String mailToLabel();
+
+    /**
+     * @return String -
+     */
+    String colorSelectionLabel();
+
+    /**
+     * @return String -
+     */
+    String colorPickerLabel();
+
+    /**
+     * @return String -
+     */
+    String clickCellOne();
+
+    /**
+     * @return String -
+     */
+    String clickCellTwo();
+
+    /**
+     * @return String -
+     */
+    String clickCellThree();
+
+    /**
+     * @return String - sourceLocTxt
+     */
+    String sourceLocTxt();
+
+    /**
+     * @return String - listSrcLocation
+     */
+    String listSrcLocation();
+
+    /**
+     * @return String - locationName
+     */
+    String locationName();
+
+    /**
+     * @return String - sourcingType
+     */
+    String sourcingType();
+
+    /**
+     * @return String - orderConfirmInterface
+     */
+    String orderConfirmInterface();
+
+    /**
+     * @return String - shipConfirmInterface
+     */
+    String shipConfirmInterface();
+
+    /**
+     * @return String - addSrcLocationTxt
+     */
+    String addSrcLocationTxt();
+
+    /**
+     * @return String - editSrcLocationTxt
+     */
+    String editSrcLocationTxt();
+
+    /**
+     * @return String - viewSrcLocationTxt
+     */
+    String viewSrcLocationTxt();
+
+    /**
+     * @return String - certInterfaceTxt
+     */
+    String certInterfaceTxt();
+
+    /**
+     * @return String -
+     */
+    String linkedToLbl();
+
+    /**
+     * @return String -
+     */
+    String baseDataLbl();
+
+    /**
+     * @return String -
+     */
+    String valuesLbl();
+
+    /**
+     * @return String -
+     */
+    String countiresLbl();
+
+    /**
+     * @return String -
+     */
+    String statesLbl();
+
+    /**
+     * @return String -
+     */
+    String currenciesLbl();
+
+    /**
+     * @return String -
+     */
+    String revenueTypeLbl();
+
+    /**
+     * @return String -
+     */
+    String paymentTypeLbl();
+
+    /**
+     * @return String -
+     */
+    String deviceCertificationLbl();
+
+    /**
+     * @return String -
+     */
+    String promotionTypeLbl();
+
+    /**
+     * @return String -
+     */
+    String customerBillingMethodLbl();
+
+    /**
+     * @return String -
+     */
+    String sourcingTypeLbl();
+
+    /**
+     * @return String -
+     */
+    String agentDelegateAccessTypeLbl();
+
+    /**
+     * @return String -
+     */
+    String partnerPricingModelLbl();
+
+    /**
+     * @return String -
+     */
+    String creditCardTypesLbl();
+
+    /**
+     * @return String -
+     */
+    String serviceEntitlementLbl();
+
+    /**
+     * @return String -
+     */
+    String defaultDistiLockInPeriodLbl();
+
+    /**
+     * @return String -
+     */
+    String monthsLbl();
+
+    /**
+     * @return String -
+     */
+    String customerClassCodesLbl();
+
+    /**
+     * @return String -
+     */
+    String productClassCodesLbl();
+
+    /**
+     * @return String -
+     */
+    String productClassCode();
+
+    /**
+     * @return String -
+     */
+    String shippingHandlingFeeTypesLbl();
+
+    /**
+     * @return String -
+     */
+    String fetchCreditCardTypesFailureMsg();
+
+    /**
+     * @return String -
+     */
+    String tcTempaltesLbl();
+
+    /**
+     * @return String -
+     */
+    String notificationsLbl();
+
+    /**
+     * @return String -
+     */
+    String editTcTemplateLbl();
+
+    /**
+     * @return String -
+     */
+    String viewTcTemplateLbl();
+
+    /**
+     * @return String -
+     */
+    String selectTcTemplateMsg();
+
+    /**
+     * @return String -
+     */
+    String modifyTcTemplateSuccessMsg();
+
+    /**
+     * @return String -
+     */
+    String modifyTcTemplateFailureMsg();
+
+    /**
+     * @return String -
+     */
+    String fetchTcTemplatesFailureMsg();
+
+    /**
+     * @return String -
+     */
+    String viewNotificationTemplateLbl();
+
+    /**
+     * @return String -
+     */
+    String editNotificationTemplateLbl();
+
+    /**
+     * @return String -
+     */
+    String selectNotificationTemplateMsg();
+
+    /**
+     * @return String -
+     */
+    String modifyNotificationTemplateSuccessMsg();
+
+    /**
+     * @return String -
+     */
+    String modifyNotificationTemplateFailureMsg();
+
+    /**
+     * @return String -
+     */
+    String fetchNotificationTemplatesFailureMsg();
+
+    /**
+     * @return String - partNbrLabel
+     */
+    String partNbrLabel();
+
+    /**
+     * @return String - ERP
+     */
+    String eRP();
+
+    /**
+     * @return String - costToPartner
+     */
+    String costToPartner();
+
+    /**
+     * @return String - descriptionsLabel
+     */
+    String descriptionsLabel();
+
+    /**
+     * @return String -
+     */
+    String programCategoryNameLbl();
+
+    /**
+     * @return String -
+     */
+    String programCategoryName();
+
+    /**
+     * @return String -
+     */
+    String programCategoryHeader();
+
+    /**
+     * @return String -
+     */
+    String addProgramCategoryHeader();
+
+    /**
+     * @return String -
+     */
+    String editProgramCategoryHeader();
+
+    /**
+     * @return String -
+     */
+    String viewProgramCategoryHeader();
+
+    /**
+     * @return String -
+     */
+    String partnerCategoryHeader();
+
+    /**
+     * @return String -
+     */
+    String addPartnerCategoryHeader();
+
+    /**
+     * @return String -
+     */
+    String editPartnerCategoryHeader();
+
+    /**
+     * @return String -
+     */
+    String viewPartnerCategoryHeader();
+
+    /**
+     * To get label for manufacturer.
+     * 
+     * @return String
+     */
+    String manufacturer();
+
+    /**
+     * To get label for consumable category.
+     * 
+     * @return String
+     */
+    String consumableCategoryLbl();
+
+    /**
+     * To get label for comparator.
+     * 
+     * @return String
+     */
+    String comparatorLbl();
+
+    /**
+     * Success message for Program consumable deletion.
+     * 
+     * @return String
+     */
+    String deleteProgramConsumableSuccessMsg();
+
+    /**
+     * Failure message for Program consumable deletion.
+     * 
+     * @return String
+     */
+    String deleteProgramConsumableFailureMsg();
+
+    /**
+     * Failure message for fetching one Program consumable.
+     * 
+     * @return String
+     */
+    String fetchProgramConsumableFailureMsg();
+
+    /**
+     * @return String - Header for Program consumables.
+     */
+    String consumablesHeader();
+
+    /**
+     * @return String - Header for Program consumables.
+     */
+    String addEditConsumablesHeader();
+
+    /**
+     * @return String - addHeader for Program consumables.
+     */
+    String addConsumablesHeader();
+
+    /**
+     * @return String - editHeader for Program consumables.
+     */
+    String editConsumablesHeader();
+
+    /**
+     * @return String - Header for Program consumables.
+     */
+    String viewProgramConsumableHeader();
+
+    /**
+     * label for download.
+     * 
+     * @return String
+     */
+    String downloadLbl();
+
+    /**
+     * upload program consumable failure message.
+     * 
+     * @return String
+     */
+    String uploadPgmConsumableFailureMsg();
+
+    /**
+     * @return String - Header for Program consumables.
+     */
+    String uploadProgramConsumableHeader();
+
+    /**
+     * @return String - Header for consumable Price.
+     */
+    String consumablePriceListHeader();
+
+    /**
+     * @return String - Header for priceListDetails.
+     */
+    String priceListDetailsTxt();
+
+    /**
+     * @return String - Header for Add/Edit consumable Price.
+     */
+    String addEditconsumablePriceHeader();
+
+    /**
+     * @return String - Header for View consumable Price.
+     */
+    String viewconsumablePriceHeader();
+
+    /**
+     * To get label for noCurrenciesAvailableMsg.
+     * 
+     * @return String -
+     */
+    String noCurrenciesAvailableMsg();
+
+    /**
+     * To get label for noModelsAvailableMsg.
+     * 
+     * @return String -
+     */
+    String noModelsAvailableMsg();
+
+    /**
+     * To get label for noConsumableCategoriesAvailableMsg.
+     * 
+     * @return String -
+     */
+    String noConsumableCategoriesAvailableMsg();
+
+    /**
+     * To get label for noProgramsAvailableMsg.
+     * 
+     * @return String -
+     */
+    String noProgramsAvailableMsg();
+
+    /**
+     * @return String - Header for consumables price upload.
+     */
+    String uploadConsumablePriceHeader();
+
+    /**
+     * To get label for importValidationMsg.
+     * 
+     * @return String
+     */
+    String importValidationMsg();
+
+    /**
+     * To get label for uploadConsumablePriceSuccessMsg.
+     * 
+     * @return String
+     */
+    String uploadConsumablePriceSuccessMsg();
+
+    /**
+     * To get label for uploadConsumablePriceFailureMsg.
+     * 
+     * @return String
+     */
+    String uploadConsumablePriceFailureMsg();
+
+    /**
+     * @return String -
+     */
+    String consumablePriceTemplateLabel();
+
+    /**
+     * @return String -
+     */
+    String consumablePriceTemplateDownloadLabel();
+
+    /**
+     * @return String - addManufacturerTxt
+     */
+    String addManufacturerTxt();
+
+    /**
+     * @return String - editManufacturerTxt
+     */
+    String editManufacturerTxt();
+
+    /**
+     * @return String - viewManufacturerTxt
+     */
+    String viewManufacturerTxt();
+
+    /**
+     * @return String - selectManufacturerMsg
+     */
+    String selectManufacturerMsg();
+
+    /**
+     * @return String - selectInterfaceNameMsg
+     */
+    String selectInterfaceNameMsg();
+
+    /**
+     * @return String - fetchManufacturerFailureMsg
+     */
+    String fetchManufacturerFailureMsg();
+
+    /**
+     * @return String - duplicateInterfaceMappingMsg
+     */
+    String duplicateInterfaceMappingMsg();
+
+    /**
+     * @return String - requiredMappingMsg
+     */
+    String requiredMappingMsg();
+
+    /**
+     * @return String - fetchSrcFieldValuesFailuregMsg
+     */
+    String fetchSrcFieldValuesFailuregMsg();
+
+    /**
+     * @return String - listofManufacturers
+     */
+    String listofManufacturers();
+
+    /**
+     * @return String - manufacturerName
+     */
+    String manufacturerName();
+
+    /**
+     * @return String - changePortalLbl
+     */
+    String changePortalLbl();
+
+    /**
+     * @return String - certInterSelLbl
+     */
+    String certInterSelLbl();
+
+    /**
+     * @return String - eligPayOptSelLbl
+     */
+    String eligPayOptSelLbl();
+
+    /**
+     * @return String - payOptSelLbl
+     */
+    String payOptSelLbl();
+
+    /**
+     * @return String - prePayLbl
+     */
+    String prePayLbl();
+
+    /**
+     * @return String - custNotifEmailsTitle
+     */
+    String custNotifEmailsTitle();
+
+    /**
+     * @return String - stockCheckRetryTitle
+     */
+    String stockCheckRetryTitle();
+
+    /**
+     * @return String - prePayDescLbl
+     */
+    String prePayDescLbl();
+
+    /**
+     * @return String - payPostLbl
+     */
+    String payPostLbl();
+
+    /**
+     * @return String - postPayDescLbl
+     */
+    String postPayDescLbl();
+
+    /**
+     * @return String - buyNowLbl
+     */
+    String buyNowLbl();
+
+    /**
+     * @return String - buyNowDescLbl
+     */
+    String buyNowDescLbl();
+
+    /**
+     * @return String - providerNameLbl
+     */
+    String providerNameLbl();
+
+    /**
+     * @return String - fetchcreditCardsFailureMsg
+     */
+    String fetchcreditCardsFailureMsg();
+
+    /**
+     * @return String - viewProviderLbl
+     */
+    String viewProviderLbl();
+
+    /**
+     * @return String - listProviderLbl
+     */
+    String listProviderLbl();
+
+    /**
+     * @return String - addEditProvLbl
+     */
+    String addEditProvLbl();
+
+    /**
+     * @return String - addProvLbl
+     */
+    String addProvLbl();
+
+    /**
+     * @return String - EditProvLbl
+     */
+    String editProvLbl();
+
+    /**
+     * @return String - cardTypeLbl
+     */
+    String cardTypeLbl();
+
+    /**
+     * @return String - merchantIdLbl
+     */
+    String merchantIdLbl();
+
+    /**
+     * @return String - adminUserNameLbl
+     */
+    String adminUserNameLbl();
+
+    /**
+     * @return String - payOptLbl
+     */
+    String payOptLbl();
+
+    /**
+     * @return String - fillBasicDtlsHdrLbl
+     */
+    String fillBasicDtlsHdrLbl();
+
+    /**
+     * @return String - fillUserDtlsHdrLbl
+     */
+    String fillUserDtlsHdrLbl();
+
+    /**
+     * @return String - basicDtlsHdrLbl
+     */
+    String basicDtlsHdrLbl();
+
+    /**
+     * @return String - userDtlsHdrLbl
+     */
+    String userDtlsHdrLbl();
+
+    /**
+     * @return String - programsHeader
+     */
+    String programsHeader();
+
+    /**
+     * @return String - addEditProgramsHeader
+     */
+    String addEditProgramsHeader();
+
+    /**
+     * @return String - EditProgramsHeader
+     */
+    String editProgramsHeader();
+
+    /**
+     * @return String - addProgramsHeader
+     */
+    String addProgramsHeader();
+
+    /**
+     * @return String - viewProgramsHeader
+     */
+    String viewProgramsHeader();
+
+    /**
+     * @return String - custBillingMethod
+     */
+    String custBillingMethod();
+
+    /**
+     * @return String - defaultShipHandlingFeeShdle
+     */
+    String defaultShipHandlingFeeShdle();
+
+    /**
+     * @return String - eligibleModelsHeader
+     */
+    String eligibleModelsHeader();
+
+    /**
+     * @return String - selectedModelsHeader
+     */
+    String selectedModelsHeader();
+
+    /**
+     * @return String - sourcingLocationsLbl
+     */
+    String sourcingLocationsLbl();
+
+    /**
+     * @return String - device
+     */
+    String device();
+
+    /**
+     * @return String - models
+     */
+    String models();
+
+    /**
+     * @return String - consumableCategoryNameLbl
+     */
+    String consumableCategoryNameLbl();
+
+    /**
+     * @return String - additionalInfo
+     */
+    String additionalInfo();
+
+    /**
+     * message for fectchModelsFailureMsg.
+     * 
+     * @return String
+     */
+    String fectchModelsFailureMsg();
+
+    /**
+     * message for fectchSrcLocsFailureMsg.
+     * 
+     * @return String
+     */
+    String fectchSrcLocsFailureMsg();
+
+    /**
+     * @return String - listofConsumableThresholds
+     */
+    String listofConsumableThresholds();
+
+    /**
+     * @return String - addConsumableTypeTxt
+     */
+    String addConsumableTypeTxt();
+
+    /**
+     * @return String - editdConsumableTypeTxt
+     */
+    String editConsumableTypeTxt();
+
+    /**
+     * @return String - viewConsumableTypeTxt
+     */
+    String viewConsumableTypeTxt();
+
+    /**
+     * @return String - addConsumableCategoryTxt
+     */
+    String addConsumableCategoryTxt();
+
+    /**
+     * @return String - editConsumableCategoryTxt
+     */
+    String editConsumableCategoryTxt();
+
+    /**
+     * @return String - viewConsumableCategoryTxt
+     */
+    String viewConsumableCategoryTxt();
+
+    /**
+     * @return String - addConsumableThresholdTxt
+     */
+    String addConsumableThresholdTxt();
+
+    /**
+     * @return String - editConsumableThresholdTxt
+     */
+    String editConsumableThresholdTxt();
+
+    /**
+     * @return String - viewConsumableThresholdTxt
+     */
+    String viewConsumableThresholdTxt();
+
+    /**
+     * @return String - ConsumableTypeName
+     */
+    String consumableTypeName();
+
+    /**
+     * @return String - listofConsumables
+     */
+    String listofConsumables();
+
+    /**
+     * @return String - associatingConsumableCategoryWithProgram
+     */
+    String selectConsumableCategoryProgram();
+
+    /**
+     * @return String - listofConsumableTypes
+     */
+    String listofConsumableTypes();
+
+    /**
+     * @return String - listofConsumableCategories
+     */
+    String listofConsumableCategories();
+
+    /**
+     * @return String - fetchConsumablesFailureMsg
+     */
+    String fetchConsumablesFailureMsg();
+
+    /**
+     * @return String - fetchConsumableCategoryFailureMsg
+     */
+    String fetchConsumableCategoryFailureMsg();
+
+    /**
+     * @return String - onsiteSupport
+     */
+    String onsiteSupport();
+
+    /**
+     * @return String - fullSupport
+     */
+    String fullSupport();
+
+    /**
+     * @return String - selectServiceLbl
+     */
+    String selectServiceLbl();
+
+    /**
+     * @return String - certifiedUseMonitorOption
+     */
+    String certifiedUseMonitorOption();
+
+    /**
+     * @return String - addCertifiedDeviceLbl
+     */
+    String addCertifiedDeviceLbl();
+
+    /**
+     * @return String - consumableProfileNameLbl
+     */
+    String consumableProfileNameLbl();
+
+    /**
+     * @return String - billingProfileNameLbl
+     */
+    String billingProfileNameLbl();
+
+    /**
+     * @return String - certifiedUsageMonitoring
+     */
+    String certifiedUsageMonitoring();
+
+    /**
+     * @return String - profileMappingLbl
+     */
+    String profileMappingLbl();
+
+    /**
+     * 
+     * @return String - communicationProfileLbl
+     */
+    String communicationProfileLbl();
+
+    /**
+     * 
+     * @return deviceProfileLbl
+     */
+    String deviceProfileLbl();
+
+    /**
+     * @return String - prepaidPagesLbl
+     */
+    String prepaidPagesLbl();
+
+    /**
+     * @return String - postPaidPagesLbl
+     */
+    String postPaidPagesLbl();
+
+    /**
+     * @return String - suppliesLbl
+     */
+    String suppliesLbl();
+
+    /**
+     * @return String - phoneSupportLbl
+     */
+    String phoneSupportLbl();
+
+    /**
+     * message for ignorePaletteSaveMsg.
+     * 
+     * @return String
+     */
+    String ignorePaletteSaveMsg();
+
+    /**
+     * message for themeSuccessMsg.
+     * 
+     * @return String
+     */
+    String themeSuccessMsg();
+
+    /**
+     * message for themeFailureMsg.
+     * 
+     * @return String
+     */
+    String themeFailureMsg();
+
+    /**
+     * message for incompletePaletteMsg.
+     * 
+     * @return String
+     */
+    String incompletePaletteMsg();
+
+    /**
+     * message for enterConfigDataMsg.
+     * 
+     * @return String
+     */
+    String enterConfigDataMsg();
+
+    /**
+     * message for modifyConfigSettings.
+     * 
+     * @return String
+     */
+    String modifyConfigSettings();
+
+    /**
+     * @return String - viewShippingMethodTxt
+     */
+    String viewShippingMethodTxt();
+
+    /**
+     * @return String - addShippingMethodTxt
+     */
+    String addShippingMethodTxt();
+
+    /**
+     * @return String - editShippingMethodTxt
+     */
+    String editShippingMethodTxt();
+
+    /**
+     * @return String - listofShippingMethods
+     */
+    String listofShippingMethods();
+
+    /**
+     * message for fetchShipMethodFailureMsg.
+     * 
+     * @return String
+     */
+    String fetchShipMethodFailureMsg();
+
+    /**
+     * message for invalidDataInCSVMsg.
+     * 
+     * @return String
+     */
+    String invalidDataInCSVMsg();
+
+    /**
+     * message for consumableCategoryWithPart.
+     * 
+     * @return String
+     */
+    String consumableCategoryWithPart();
+
+    /**
+     * message for noneLabel.
+     * 
+     * @return String
+     */
+    String noneLabel();
+
+    /**
+     * message for priceListNameLabel.
+     * 
+     * @return String
+     */
+    String priceListNameLabel();
+
+    /**
+     * message for priceListLabel.
+     * 
+     * @return String
+     */
+    String priceListLabel();
+
+    /**
+     * message for partDescLabel.
+     * 
+     * @return String
+     */
+    String partDescLabel();
+
+    /**
+     * message for transactionFeeLabel.
+     * 
+     * @return String
+     */
+    String transactionFeeLabel();
+
+    /**
+     * message for distiCostLabel.
+     * 
+     * @return String
+     */
+    String distiCostLabel();
+
+    /**
+     * message for avgDistiCostLabel.
+     * 
+     * @return String
+     */
+    String avgDistiCostLabel();
+
+    /**
+     * @return String - drepMsg
+     */
+    String drepMsg();
+
+    /**
+     * @return String - drepMsg
+     */
+    String commMsg();
+
+    /**
+     * @return String - drepMsg
+     */
+    String validFileMsg();
+
+    /**
+     * @return String - duplicateCCdetails
+     */
+    String duplicateCCdetails();
+
+    /**
+     * To get the label for data.
+     * 
+     * @return String
+     */
+    String dataTxt();
+
+    /**
+     * @return String - viewFeeScheduleTxt
+     */
+    String viewFeeSchedulesTxt();
+
+    /**
+     * @return String - addFeeScheduleTxt
+     */
+    String addFeeSchedulesTxt();
+
+    /**
+     * @return String - listofFeeSchedules
+     */
+    String listofFeeSchedules();
+
+    /**
+     * @return String - editofFeeSchedules
+     */
+    String editFeeSchedulesTxt();
+
+    /**
+     * @return String - editShippingSurchargesTxt
+     */
+    String editShippingSurchargesTxt();
+
+    /**
+     * @return String - selectShipMethodMsg
+     */
+    String selectFeeSchedulesMsg();
+
+    /**
+     * @return String - removeFeeSchedulesFailureMsg
+     */
+    String removeFeeSchedulesFailureMsg();
+
+    /**
+     * message for removeFeeSchedulesSuccessMsg.
+     * 
+     * @return String
+     */
+    String removeFeeSchedulesSuccessMsg();
+
+    /**
+     * message for createFeeSchedulesFailureMsg.
+     * 
+     * @return String
+     */
+    String createFeeSchedulesFailureMsg();
+
+    /**
+     * message for modifyFeeSchedulesFailureMsg.
+     * 
+     * @return String
+     */
+    String modifyFeeSchedulesFailureMsg();
+
+    /**
+     * message for createFeeSchedulesSuccessMsg.
+     * 
+     * @return String
+     */
+    String createFeeSchedulesSuccessMsg();
+
+    /**
+     * message for modifyFeeSchedulesSuccessMsg.
+     * 
+     * @return String
+     */
+    String modifyFeeSchedulesSuccessMsg();
+
+    /**
+     * Label for shippingMethod.
+     * 
+     * @return String
+     */
+    String shippingMethod();
+
+    /**
+     * Label for feeTypeLbl.
+     * 
+     * @return String
+     */
+    String feeTypeLbl();
+
+    /**
+     * Label for carrierLbl.
+     * 
+     * @return String
+     */
+    String carrierLbl();
+
+    /**
+     * Label for priceLbl.
+     * 
+     * @return String
+     */
+    String priceLbl();
+
+    /**
+     * set the Fee schedule Range.
+     * 
+     * @return String
+     */
+    String feescheduleRange();
+
+    /**
+     * Label for consumablePartTemplate.
+     * 
+     * @return String
+     */
+    String consumablePartTemplate();
+
+    /**
+     * Label for distiSKUTemplate.
+     * 
+     * @return String
+     */
+    String distiSKUTemplate();
+
+    /**
+     * Label for distiSKU.
+     * 
+     * @return String
+     */
+    String distiSKU();
+
+    /**
+     * Label for previewThemeLbl.
+     * 
+     * @return String
+     */
+    String previewThemeLbl();
+
+    /**
+     * Label for logoUploadInfo.
+     * 
+     * @return String
+     */
+    String logoUploadInfo();
+
+    /**
+     * Label for maxTitleLength.
+     * 
+     * @return String
+     */
+    String maxTitleLength();
+
+    /**
+     * Label for previewLink.
+     * 
+     * @return String
+     */
+    String previewLink();
+
+    /**
+     * Label for partnerCategory.
+     * 
+     * @return String
+     */
+    String partnerCategory();
+
+    /**
+     * Label for selectCertifiedInterfaces.
+     * 
+     * @return String
+     */
+    String selectCertifiedInterfaces();
+
+    /**
+     * Label for partnerBOS.
+     * 
+     * @return String
+     */
+    String partnerBOS();
+
+    /**
+     * Label for editConsumableSKUMappingHeader.
+     * 
+     * @return String
+     */
+    String editConsumableSKUMappingHeader();
+
+    /**
+     * Label for listConsumablesSKUMappingHeader.
+     * 
+     * @return String
+     */
+    String listConsumablesSKUMappingHeader();
+
+    /**
+     * Label for srcLoc.
+     * 
+     * @return String
+     */
+    String srcLoc();
+
+    /**
+     * Label for uploadConsumablesSKUMappingHeader.
+     * 
+     * @return String
+     */
+    String uploadConsumablesSKUMappingHeader();
+
+    /**
+     * Label for uploadConsumablesSKUMappingMsg.
+     * 
+     * @return String
+     */
+    String uploadConsumablesSKUMappingMsg();
+
+    /**
+     * Label for editModelImagesTxt.
+     * 
+     * @return String
+     */
+    String editModelImagesTxt();
+
+    /**
+     * Label for viewModelImagesTxt.
+     * 
+     * @return String
+     */
+    String viewModelImagesTxt();
+
+    /**
+     * Label for Click PDF help.
+     * 
+     * @return - - String
+     */
+    String clickPdfHelp();
+
+    /**
+     * Label for Click PDF help.
+     * 
+     * @return - String
+     */
+    String clickCsvHelp();
+
+    /**
+     * Label for versionNumberLbl.
+     * 
+     * @return - String
+     */
+    String versionNumberLbl();
+
+    /**
+     * Label for partnerEditableLbl.
+     * 
+     * @return - String
+     */
+    String partnerEditableLbl();
+
+    /**
+     * Label for revenueModelLbl.
+     * 
+     * @return - String
+     */
+    String revenueModelLbl();
+
+    /**
+     * Label for programsLbl.
+     * 
+     * @return - String
+     */
+    String programsLbl();
+
+    /**
+     * Label for providerLabel.
+     * 
+     * @return - String
+     */
+    String providerLabel();
+
+    /**
+     * Label for programLabel.
+     * 
+     * @return - String
+     */
+    String programLabel();
+
+    /**
+     * Label for partManufacturerLabel.
+     * 
+     * @return - String
+     */
+    String partManufacturerLabel();
+
+    /**
+     * Label for modelLabel.
+     * 
+     * @return - String
+     */
+    String modelLabel();
+
+    /**
+     * Label for partLabel.
+     * 
+     * @return - String
+     */
+    String partLabel();
+
+    /**
+     * Label for includeRetiredLabel.
+     * 
+     * @return - String
+     */
+    String includeRetiredLabel();
+
+    /**
+     * Label for priceListDateLabel.
+     * 
+     * @return - String
+     */
+    String priceListDateLabel();
+
+    /**
+     * Label for companyNameLbl.
+     * 
+     * @return - String
+     */
+    String companyNameLbl();
+
+    /**
+     * Label for phoneLbl.
+     * 
+     * @return - String
+     */
+    String phoneLbl();
+
+    /**
+     * Label for companyLbl.
+     * 
+     * @return - String
+     */
+    String companyLbl();
+
+    /**
+     * Label for classcodeLbl.
+     * 
+     * @return - String
+     */
+    String classcodeLbl();
+    /**
+     * Label for taxCaluclationLocationLbl.
+     * 
+     * @return - String
+     */
+    String taxCaluclationLocationLbl();
+
+    /**
+     * Label for certificateNoLbl.
+     * 
+     * @return - String
+     */
+    String certificateNoLbl();
+
+    /**
+     * Label for expirationDateLbl.
+     * 
+     * @return - String
+     */
+    String expirationDateLbl();
+
+    /**
+     * Label for createFailedCustomer.
+     * 
+     * @return - String
+     */
+    String createFailedCustomer();
+
+    /**
+     * Label for customerHeader.
+     * 
+     * @return - String
+     */
+    String customerHeader();
+
+    /**
+     * Header for PriceList.
+     * 
+     * @return - String
+     */
+    String consumablePriceListTxt();
+
+    /**
+     * Label for orderDateLabel.
+     * 
+     * @return - String
+     */
+    String orderDateLabel();
+
+    /**
+     * Label for createdByLabel.
+     * 
+     * @return - String
+     */
+    String createdByLabel();
+
+    /**
+     * Label for orderIdLabel.
+     * 
+     * @return - String
+     */
+    String orderIdLabel();
+
+    /**
+     * Label for STARTDATE.
+     * 
+     * @return - String
+     */
+    String orderTotalLabel();
+
+    /**
+     * Label for shipDateLabel.
+     * 
+     * @return - String
+     */
+    String shipDateLabel();
+
+    /**
+     * Label for serviceLoyalityThresholdTxt.
+     * 
+     * @return - String
+     */
+    String serviceLoyalityThresholdTxt();
+
+    /**
+     * Label for Address.
+     * 
+     * @return - String
+     */
+    String addressTxt();
+
+    /**
+     * Label for platform.
+     * 
+     * @return - String
+     */
+    String platformLabel();
+
+    /**
+     * Label for selectOs.
+     * 
+     * @return - String
+     */
+    String fcpSelectOs();
+
+    /**
+     * Label for installation help.
+     * 
+     * @return - String
+     */
+    String installationHelpLabel();
+
+    /**
+     * @return String - ConsumableTypeName.
+     */
+    String iconColorName();
+
+    /**
+     * @return String - All consumable Types.
+     */
+    String allConsumableType();
+
+    /**
+     * @return String - All Icon Colors.
+     */
+    String allIconColors();
+
+    /**
+     * @return String - customerPriceLbl.
+     */
+    String customerPriceLbl();
+
+    /**
+     * @return String - selectOnePriceListMsg.
+     */
+    String selectOnePriceListMsg();
+
+    /**
+     * @return String - validationMsgforUpload.
+     */
+    String validationMsgforUpload();
+
+    /**
+     * @return String - addCustomersTxt.
+     */
+    String inviteCustomersTxt();
+
+    /**
+     * @return String - makePromotionalPageTxt.
+     */
+    String makePromotionalPageTxt();
+
+    /**
+     * @return String - publishProgramsTxt.
+     */
+    String publishProgramsTxt();
+
+    /**
+     * @return String - publishProgramsLink.
+     */
+    String publishProgramsLink();
+
+    /**
+     * @return String - addUsersTxt.
+     */
+    String addAdminUsersTxt();
+
+    /**
+     * @return String - reviewMsgsTxt.
+     */
+    String reviewMsgsTxt();
+
+    /**
+     * @return String - viewTCLink.
+     */
+    String viewTCLink();
+
+    /**
+     * @return String - taxRegistrations.
+     */
+    String taxRegistrations();
+
+    /**
+     * @return String - finalEstiTime.
+     */
+    String finalEstiTime();
+
+    /**
+     * @return String - createCustomersLink.
+     */
+    String inviteCustomersLink();
+
+    /**
+     * @return String - seeSamplePageLink.
+     */
+    String seeSamplePageLink();
+
+    /**
+     * @return String - makeYourPageLink.
+     */
+    String makeYourPageLink();
+
+    /**
+     * @return String - createUsersLink.
+     */
+    String addUsersLink();
+
+    /**
+     * @return String - viewLink.
+     */
+    String viewLink();
+
+    /**
+     * @return String - beginSetupBtn.
+     */
+    String beginSetupBtn();
+
+    /**
+     * @return String - ShippingMethodLblTxt.
+     */
+    String shippingMethodLblTxt();
+
+    /**
+     * @return String - PriceLabelTxt.
+     */
+    String priceLabelTxt();
+
+    /**
+     * @return String - selectedThemeLabel.
+     */
+    String selectedThemeLabel();
+
+    /**
+     * @return String - previewSelThemeLbl.
+     */
+    String previewSelThemeLbl();
+
+    /**
+     * @return String - supportEmail.
+     */
+    String supportEmail();
+
+    /**
+     * @return String - custSupportLbl.
+     */
+    String custSupportLbl();
+
+    /**
+     * @return String - accNumberLabel.
+     */
+    String accNumberLabel();
+
+    /**
+     * @return String - ftpLabel.
+     */
+    String ftpLabel();
+
+    /**
+     * @return String - passwordLbl.
+     */
+    String passwordLbl();
+
+    /**
+     * @return String - mandatryFieldsMsg.
+     */
+    String mandatryFieldsMsg();
+
+    /**
+     * @return String - mandatryInfoMsg.
+     */
+    String mandatryInfoMsg();
+
+    /**
+     * @return String - addtnlShipping.
+     */
+    String addtnlShipping();
+
+    /**
+     * @return String - previewPortal .
+     */
+    String previewPortal();
+
+    /**
+     * @return String - previewAgent .
+     */
+    String previewAgent();
+
+    /**
+     * 
+     * @return String - phoneLbl.
+     */
+    String phoneNumberLbl();
+
+    /**
+     * 
+     * @return String - phoneLbl.
+     */
+    String mobilePhoneLbl();
+
+    /**
+     * 
+     * @return String - windowOSTxt.
+     */
+    String windowOSTxt();
+
+    /**
+     * 
+     * @return String - macOsTxt.
+     */
+    String macOsTxt();
+
+    /**
+     * 
+     * @return String - linuxOSTxt.
+     */
+    String linuxOSTxt();
+
+    /**
+     * To get label for packageQunatity.
+     * 
+     * @return String
+     */
+    String packageQunatityLabel();
+
+    /**
+     * To get msg for packageQunatity.
+     * 
+     * @return String
+     */
+    String packageQtyMsg();
+
+    /**
+     * To get msg for custPortalUrlMsg.
+     * 
+     * @return String
+     */
+    String urlUsageMsg();
+
+    /**
+     * To get msg for distributorConfigDetailHeader.
+     * 
+     * @return String
+     */
+    String distributorConfigDetailHeader();
+
+    /**
+     * To get msg for distiPreferenceHeader.
+     * 
+     * @return String
+     */
+    String distiPreferenceHeader();
+
+    /**
+     * To get msg for distributorLabel.
+     * 
+     * @return String
+     */
+    String distributorLabel();
+
+    /**
+     * @return String - printButtonText.
+     */
+    String printButtonLabel();
+
+    /**
+     * @return String - fetchPartnerSetUp.
+     */
+    String fetchPartnerSetUp();
+
+    /**
+     * @return String - sysSettingsHeader.
+     */
+    String sysSettingsHeader();
+
+    /**
+     * @return String - shipToAddr.
+     */
+    String shipToAddr();
+
+    /**
+     * @return String - salesPersonId.
+     */
+    String salesPersonId();
+
+    /**
+     * @return String - carrier.
+     */
+    String carrier();
+
+    /**
+     * @return String - method.
+     */
+    String method();
+
+    /**
+     * @return String - tracking.
+     */
+    String tracking();
+
+    /**
+     * @return String - orderSubTot.
+     */
+    String orderSubTot();
+
+    /**
+     * @return String - qty.
+     */
+    String qty();
+
+    /**
+     * @return String - mfg.
+     */
+    String mfg();
+
+    /**
+     * @return String - serialNum.
+     */
+    String serialNum();
+
+    /**
+     * @return String - orderNum.
+     */
+    String orderNum();
+
+    /**
+     * @return String - gotLabel.
+     */
+    String gotLabel();
+
+    /**
+     * @return String - isLabel.
+     */
+    String isLabel();
+
+    /**
+     * @return String - gotRejectedByLabel.
+     */
+    String gotRejectedByLabel();
+
+    /**
+     * @return String - changePref.
+     */
+    String chngPrefs();
+
+    /**
+     * @return String - fetchOrderDetls.
+     */
+    String fetchOrderDetls();
+
+    /**
+     * @return String - viewFailure.
+     */
+    String viewFailure();
+
+    /**
+     * @return String - modifystrAccDetls.
+     */
+    String modifystrAccDetls();
+
+    /**
+     * @return String - dwnldCsvFile.
+     */
+    String dwnldCsvFile();
+
+    /**
+     * @return String - updtShippingHandlng.
+     */
+    String updtShippingHandlng();
+
+    /**
+     * @return String - upldPriceLst.
+     */
+    String upldPriceLst();
+
+    /**
+     * @return String - agentPortal.
+     */
+    String agentPortal();
+
+    /**
+     * @return String - strFrntPortal.
+     */
+    String strFrntPortal();
+
+    /**
+     * @return String - ecommercePortal.
+     */
+    String ecommercePortal();
+
+    /**
+     * @return String - secureCheckout.
+     */
+    String secureCheckout();
+
+    /**
+     * @return String - shopFrTisAddr.
+     */
+    String shopFrTisAddr();
+
+    /**
+     * @return String - securityPolicy.
+     */
+    String securityPolicy();
+
+    /**
+     * @return String - devicename.
+     */
+    String devicename();
+
+    /**
+     * @return String - searchTextValue.
+     */
+    String searchTextValue();
+
+    /**
+     * @return String - searchTextValue.
+     */
+    String editConsumablePriceHeader();
+
+    /**
+     * @return String - ovrview.
+     */
+    String ovrview();
+
+    /**
+     * @return String - open.
+     */
+    String open();
+
+    /**
+     * @return String - close.
+     */
+    String close();
+
+    /**
+     * @return String - hideDetailsBtLbl.
+     */
+    String hideDetailsBtLbl();
+
+    /**
+     * @return String - showDetailsBtLbl.
+     */
+    String showDetailsBtLbl();
+
+    /**
+     * @return String - errorDescription.
+     */
+    String errorDescription();
+
+    /**
+     * @return String - rowNo.
+     */
+    String rowNo();
+
+    /**
+     * @return String - greaterTxt.
+     */
+    String greaterTxt();
+
+    /**
+     * @return String - lesserTxt.
+     */
+    String lesserTxt();
+
+    /**
+     * 
+     * @return String
+     */
+    String certifiedChangesMadeMsg();
+
+    /**
+     * 
+     * @return String
+     */
+    String value();
+
+    /**
+     * 
+     * @return String
+     */
+    String shldb();
+
+    /**
+     * 
+     * @return partnerMerchtID
+     */
+    String partnerMerchtID();
+
+    /**
+     * 
+     * @return prePayLbl
+     */
+    String prepayLbl();
+
+    /**
+     * 
+     * @return - csvExtensionValidationMsg.
+     */
+    String csvExtensionValidationMsg();
+
+    /**
+     * 
+     * @return - pdfExtInvalidMsg.
+     */
+    String pdfExtInvalidMsg();
+
+    /**
+     * 
+     * @return - currentTxt.
+     */
+    String currentTxt();
+
+    /**
+     * 
+     * @return - futureTxt.
+     */
+    String futureTxt();
+
+    /**
+     * @return - enterValidEndDate
+     */
+    String enterValidEndDate();
+
+    /**
+     * @return - partNumberStepTwoLbl
+     */
+    String partNumberStepTwoLbl();
+
+    /**
+     * @return - chngeSrcLocPref
+     */
+    String chngeSrcLocPref();
+
+    /**
+     * 
+     * @return - actvUsr.
+     */
+    String actvUsr();
+
+    /**
+     * 
+     * @return - updateConsumablePricingLbl.
+     */
+    String updateConsumablePricingLbl();
+
+    /**
+     * 
+     * @return - updateUsersLbl.
+     */
+    String updateUsersLbl();
+
+    /**
+     * 
+     * @return - alertsLbl.
+     */
+    String alertsLbl();
+
+    /**
+     * 
+     * @return - quickLinksLbl.
+     */
+    String quickLinksLbl();
+
+    /**
+     * 
+     * @return - topProductsLbl.
+     */
+    String topProductsLbl();
+
+    /**
+     * 
+     * @return - topAccountsLastMonthLbl.
+     */
+    String topAccountsLastMonthLbl();
+
+    /**
+     * 
+     * @return - topAccountsProgramToDateLbl.
+     */
+    String topAccountsProgramToDateLbl();
+
+    /**
+     * 
+     * @return - topAccountsRevenuePerDeviceLbl.
+     */
+    String topAccountsRevenuePerDeviceLbl();
+
+    /**
+     * 
+     * @return - topStoresLastMonthLbl.
+     */
+    String topStoresLastMonthLbl();
+
+    /**
+     * 
+     * @return - topStoresProgramToDateLbl.
+     */
+    String topStoresProgramToDateLbl();
+
+    /**
+     * 
+     * @return - topStoresRevenuePerDeviceLbl.
+     */
+    String topStoresRevenuePerDeviceLbl();
+
+    /**
+     * 
+     * @return - revenueLbl.
+     */
+    String revenueLbl();
+
+    /**
+     * 
+     * @return - customerTrendLbl.
+     */
+    String customerTrendLbl();
+
+    /**
+     * 
+     * @return - deviceTrendLbl.
+     */
+    String deviceTrendLbl();
+
+    /**
+     * 
+     * @return - fetchDashboardDetailsFailureMsg.
+     */
+    String fetchDashboardDetailsFailureMsg();
+
+    /**
+     * 
+     * @return - fetchQuickAlertsFailureMsg.
+     */
+    String fetchQuickAlertsFailureMsg();
+
+    /**
+     * 
+     * @return - revenueTrendToolTip.
+     */
+    String revenueTrendToolTip();
+
+    /**
+     * 
+     * @return - deviceTrendToolTip.
+     */
+    String deviceTrendToolTip();
+
+    /**
+     * 
+     * @return - customerTrendToolTip.
+     */
+    String customerTrendToolTip();
+
+    /**
+     * 
+     * @return - topProductsToolTip.
+     */
+    String topProductsToolTip();
+
+    /**
+     * 
+     * @return - snapShotInfo.
+     */
+    String snapShotInfo();
+
+    /**
+     * 
+     * @return - dashboardLbl.
+     */
+    String dashboardLbl();
+
+    /**
+     * 
+     * @return -mandatoryMsg.
+     */
+    String mandatoryMsg();
+
+    /**
+     * 
+     * @return - modelAssWithPart.
+     */
+    String modelAssWithPart();
+
+    /**
+     * 
+     * @return - sticksLbl.
+     */
+    String sticksLbl();
+
+    /**
+     * 
+     * @return - listofServiceLoyalityThresholdMethods.
+     */
+    String listofServiceLoyalityThresholdMethods();
+
+    /**
+     * 
+     * @return - addServiceLoyalityThresholdTxt.
+     */
+    String addServiceLoyalityThresholdTxt();
+
+    /**
+     * 
+     * @return - editServiceLoyalityThresholdTxt.
+     */
+    String editServiceLoyalityThresholdTxt();
+
+    /**
+     * 
+     * @return - viewServiceLoyalityThresholdTxt.
+     */
+    String viewServiceLoyalityThresholdTxt();
+
+    /**
+     * 
+     * @return - fetchServiceLoyalityThresholdFailureMsg.
+     */
+    String fetchServiceLoyalityThresholdFailureMsg();
+
+    /**
+     * 
+     * @return - loyaltyServiceLbl.
+     */
+    String loyaltyServiceLbl();
+
+    /**
+     * 
+     * @return - programTypeLbl.
+     */
+    String programTypeLbl();
+
+    /**
+     * 
+     * @return - pixelsperStickLbl.
+     */
+    String pixelsperStickLbl();
+
+    /**
+     * 
+     * @return - purgesperStickLbl.
+     */
+    String purgesperStickLbl();
+
+    /**
+     * 
+     * @return - initialStickEstimateLbl.
+     */
+    String initialStickEstimateLbl();
+
+    /**
+     * 
+     * @return - inkLowStickLevelLbl.
+     */
+    String inkLowStickLevelLbl();
+
+    /**
+     * 
+     * @return - pixelLbl.
+     */
+    String pixelLbl();
+
+    /**
+     * 
+     * @return - stepTwoMsgOne.
+     */
+    String stepTwoMsgOne();
+
+    /**
+     * 
+     * @return - stepTwoTipMsg.
+     */
+    String stepTwoTipMsg();
+
+    /**
+     * 
+     * @return - stepThreeTipMsg.
+     */
+    String stepThreeTipMsg();
+
+    /**
+     * 
+     * @return - editEconAccInfoMsg.
+     */
+    String editEconAccInfoMsg();
+
+    /**
+     * 
+     * @return - membersOfEconCmpnyUsgMsg.
+     */
+    String membersOfEconCmpnyUsgMsg();
+
+    /**
+     * 
+     * @return - staplesMembersOfEconCmpnyUsgMsg.
+     */
+    String staplesMembersOfEconCmpnyUsgMsg();
+
+    /**
+     * 
+     * @return - viewEconAccInfoMsgView.
+     */
+    String viewEconAccInfoMsgView();
+
+    /**
+     * 
+     * @return - editStaplesEconAccInfoMsg.
+     */
+    String editStaplesEconAccInfoMsg();
+
+    /**
+     * 
+     * @return - viewStaplesEconAccInfoMsgView.
+     */
+    String viewStaplesEconAccInfoMsgView();
+
+    /**
+     * 
+     * @return - defaultPartLbl.
+     */
+    String defaultPartLbl();
+
+    /**
+     * 
+     * @return - dwnldAgentErrMsg.
+     */
+    String dwnldAgentErrMsg();
+
+    /**
+     * 
+     * @return - deviceSerialNum.
+     */
+    String deviceSerialNum();
+
+    /**
+     * 
+     * @return - deviceSerialNum.
+     */
+    String serialNumber();
+
+    /**
+     * 
+     * @return - entrSegVals.
+     */
+    String entrSegVals();
+
+    /**
+     * 
+     * @return - fileSizeExceedMsg.
+     */
+    String fileSizeExceedMsg();
+
+    /**
+     * 
+     * @return - flag.
+     */
+    String flag();
+
+    /**
+     * 
+     * @return - upldConsPriceLst.
+     */
+    String upldConsPriceLst();
+
+    /**
+     * 
+     * @return - upldPromoCouponLst.
+     */
+    String upldPromoCouponLst();
+
+    /**
+     * 
+     * @return - uploadPartnersList
+     */
+    String uploadPartnersList();
+
+    /**
+     * 
+     * @return - uploadCustomersList
+     */
+    String uploadCustomersList();
+
+    /**
+     * 
+     * @return - selectOneSrcLocMsg.
+     */
+    String selectOneSrcLocMsg();
+
+    /**
+     * 
+     * @return - chngPwdMsgTwo.
+     */
+    String chngPwdMsgTwo();
+
+    /**
+     * 
+     * @return - accLbl.
+     */
+    String accLbl();
+
+    /**
+     * 
+     * @return - econAppln.
+     */
+    String econAppln();
+
+    /**
+     * 
+     * @return - tmpPwdExpMsgTwo.
+     */
+    String tmpPwdExpMsgTwo();
+
+    /**
+     * 
+     * @return - serviceLoyalityMessagesTxt.
+     */
+    String serviceLoyalityMessagesTxt();
+
+    /**
+     * 
+     * @return - listofServiceLoyalityMessages.
+     */
+    String listofServiceLoyalityMessages();
+
+    /**
+     * 
+     * @return - addServiceLoyalityMessagesTxt.
+     */
+    String addServiceLoyalityMessagesTxt();
+
+    /**
+     * 
+     * @return - editServiceLoyalityMessagesTxt.
+     */
+    String editServiceLoyalityMessagesTxt();
+
+    /**
+     * 
+     * @return - prevYear.
+     */
+    String prevYear();
+
+    /**
+     * 
+     * @return - nxtYear.
+     */
+    String nxtYear();
+
+    /**
+     * 
+     * @return - prevMnth.
+     */
+    String prevMnth();
+
+    /**
+     * 
+     * @return - nxtMnth.
+     */
+    String nxtMnth();
+
+    /**
+     * 
+     * @return - prevPage.
+     */
+    String prevPage();
+
+    /**
+     * 
+     * @return - nxtPage.
+     */
+    String nxtPage();
+
+    /**
+     * 
+     * @return - statusIndicatorLbl.
+     */
+    String statusIndicatorLbl();
+
+    /**
+     * 
+     * @return - removeAttachment.
+     */
+    String removeAttachment();
+
+    /**
+     * 
+     * @return - partnerSetupStatFailureMsg.
+     */
+    String partnerSetupStatFailureMsg();
+
+    /**
+     * 
+     * @return - fetchVersionNumFailure.
+     */
+    String fetchVersionNumFailure();
+
+    /**
+     * 
+     * @return - failedToRemove.
+     */
+    String failedToRemove();
+
+    /**
+     * 
+     * @return - imgSizeExceedMsg.
+     */
+    String imgSizeExceedMsg();
+
+    /**
+     * 
+     * @return - fileTypeMsg.
+     */
+    String fileTypeMsg();
+
+    /**
+     * 
+     * @return - fileSizeExceededMaxLmt.
+     */
+    String fileSizeExceededMaxLmt();
+
+    /**
+     * 
+     * @return - fileSizeShouldNotExceed10Mb.
+     */
+    String fileSizeShouldNotExceed10Mb();
+
+    /**
+     * 
+     * @return - listServiceLoyaltyWarrantyUpload.
+     */
+    String listServiceLoyaltyWarrantyUpload();
+
+    /**
+     * 
+     * @return - fetchPartnerPrcingDtlsFailMsg.
+     */
+    String fetchPartnerPrcingDtlsFailMsg();
+
+    /**
+     * 
+     * @return - officePhoneLbl.
+     */
+    String officePhoneLbl();
+
+    /**
+     * 
+     * @return - plsEntrValidUserId.
+     */
+    String plsEntrValidUserId();
+
+    /**
+     * 
+     * @return - page1Of1.
+     */
+    String page1Of1();
+
+    /**
+     * 
+     * @return - zeroOfZero.
+     */
+    String zeroOfZero();
+
+    /**
+     * 
+     * @return - entrOnlyNumbers.
+     */
+    String entrOnlyNumbers();
+
+    /**
+     * 
+     * @return - entrProperZip.
+     */
+    String entrProperZip();
+
+    /**
+     * 
+     * @return - invalidUserInfoLbl.
+     */
+    String invalidUserInfoLbl();
+
+    /**
+     * @return String - contactReseller.
+     */
+    String contactReseller();
+
+    /**
+     * @return String - contactProvider.
+     */
+    String contactProvider();
+
+    /**
+     * 
+     * @return - fileNameLbl.
+     */
+    String fileNameLbl();
+
+    /**
+     * 
+     * @return - fileLbl.
+     */
+    String fileLbl();
+
+    /**
+     * 
+     * @return - configurationFilesTxt.
+     */
+    String configurationFilesTxt();
+
+    /**
+     * 
+     * @return - configurationFilesUploadTxt.
+     */
+    String configurationFilesUploadTxt();
+
+    /**
+     * 
+     * @return - modifiedDateLbl.
+     */
+    String modifiedDateLbl();
+
+    /**
+     * 
+     * @return - versionLbl.
+     */
+    String versionLbl();
+
+    /**
+     * 
+     * @return - configurationFilesDownloadFailureMsg.
+     */
+    String configurationFilesDownloadFailureMsg();
+
+    /**
+     * 
+     * @return - supportedConfigFile.
+     */
+    String supportedConfigFile();
+
+    /**
+     * 
+     * @return - signedUpForEconcierge.
+     */
+    String signedUpForEconcierge();
+
+    /**
+     * 
+     * @return - freePhoneSupport.
+     */
+    String freePhoneSupport();
+
+    /**
+     * 
+     * @return - firstPurchase.
+     */
+    String firstPurchase();
+
+    /**
+     * 
+     * @return - secondPurchase.
+     */
+    String secondPurchase();
+
+    /**
+     * 
+     * @return - thirtyDaysEnroll.
+     */
+    String thirtyDaysEnroll();
+
+    /**
+     * To get label for snmp version.
+     * 
+     * @return String
+     */
+    String snmpVersionLabel();
+
+    /**
+     * To get label for backToDashBoard.
+     * 
+     * @return String
+     */
+    String backToDashBoard();
+
+    /**
+     * To get label for moreLink.
+     * 
+     * @return String
+     */
+    String moreLink();
+
+    /**
+     * To get label for isPendingFrReview.
+     * 
+     * @return String
+     */
+    String isPendingFrReview();
+
+    /**
+     * To get label for isCreditReview.
+     * 
+     * @return String
+     */
+    String isCreditReview();
+
+    /**
+     * To get the transaction Length Message.
+     *
+     * @return transactionLengthMsg.
+     */
+    String transactionLengthMsg();
+
+    /**
+     * To get label for oops.
+     *
+     * @return oops.
+     */
+    String oops();
+
+    /**
+     * To get Msg for taxSysNtAvailMsg.
+     *
+     * @return taxSysNtAvailMsg.
+     */
+    String taxSysNtAvailMsg();
+
+    /**
+     * To get Msg for DistiNotRespondingMsg.
+     *
+     * @return taxSysNtAvailMsg.
+     */
+    String distiNotRespondingMsg();
+
+    /**
+     * To get Text For Test.
+     *
+     * @return Test.
+     */
+    String test();
+
+    /**
+     * To get Text For InvalidCredentials.
+     *
+     * @return invalidCredentials.
+     */
+    String invalidCredentials();
+
+    /**
+     * To get Text For validCredentials.
+     *
+     * @return validCredentials.
+     */
+    String validCredentials();
+
+    /**
+     * To get the text for useStickLoadedCal.
+     *
+     * @return useStickLoadedCal.
+     */
+    String useStickLoadedCal();
+
+    /**
+     * To get the ink Stick Percent Loader.
+     * 
+     * @return the inkStickPercentLoader.
+     */
+    String inkStickPercentLoader();
+
+    /**
+     * To get the Stick Label.
+     * 
+     * @return the stickLbl.
+     */
+    String stickLbl();
+
+    /* Custom Dialog Box Message Constants */
+    /**
+     * To get label for dialogInfoMessage.
+     * 
+     * @return String
+     */
+    String dialogInfoMessage();
+
+    /**
+     * To get label for dialogSuccessMessage.
+     * 
+     * @return String
+     */
+    String dialogSuccessMessage();
+
+    /**
+     * To get label for dialogFailureMessage.
+     * 
+     * @return String
+     */
+    String dialogFailureMessage();
+
+    /**
+     * To get label for dialogWarningMessage.
+     * 
+     * @return String
+     */
+    String dialogWarningMessage();
+
+    /**
+     * To get label for dialogResetPasswdSuccMessage.
+     * 
+     * @return String
+     */
+    String dialogResetPasswdSuccMessage();
+
+    /**
+     * To get label for mandatoryFieldMsg.
+     * 
+     * @return String
+     */
+    String mandatoryFieldMsg();
+
+    /**
+     * 
+     * @return - pwdRstSuccMsg.
+     */
+    String pwdRstSuccMsg();
+
+    /**
+     * 
+     * @return - tmpPwdExpMsg.
+     */
+    String tmpPwdExpMsg();
+
+    /**
+     * 
+     * @return - tempPwdEmlSentMsg.
+     */
+    String tempPwdEmlSentMsg();
+
+    /**
+     * 
+     * @return - ansIncTryAgn.
+     */
+    String ansIncTryAgn();
+
+    /**
+     * 
+     * @return - ansSecQuesMsg.
+     */
+    String ansSecQuesMsg();
+
+    /**
+     * 
+     * @return - fcpAnsSecQuesMsg.
+     */
+    String fcpAnsSecQuesMsg();
+
+    /**
+     * 
+     * @return - plsEntrUserId.
+     */
+    String plsEntrUserId();
+
+    /**
+     * 
+     * @return - chkSpllTryAgnMsg.
+     */
+    String chkSpllTryAgnMsg();
+
+    /**
+     * 
+     * @return - theUsrID.
+     */
+    String theUsrID();
+
+    /**
+     * 
+     * @return - entrUserId.
+     */
+    String entrUserId();
+
+    /**
+     * 
+     * @return - fcpentrUserId.
+     */
+    String fcpentrUserId();
+
+    /**
+     * 
+     * @return - entrUserId.
+     */
+    String entrMailId();
+
+    /**
+     * 
+     * @return - reEntrMailId.
+     */
+    String reEntrMailId();
+
+    /**
+     * 
+     * @return - forgotUserIdMsg.
+     */
+    String forgotUserIdMsg();
+
+    /**
+     * 
+     * @return - fcpForgotUserIdMsg.
+     */
+    String fcpForgotUserIdMsg();
+
+    /**
+     * 
+     * @return - fcpForgotUserIdMsg.
+     */
+    String enterEmailLabelMsg();
+
+    /**
+     * 
+     * @return - stpOneOfTwo.
+     */
+    String stpOneOfTwo();
+
+    /**
+     * 
+     * @return - stpTwoOfTwo.
+     */
+    String stpTwoOfTwo();
+
+    /**
+     * @return tmpPwdExpMsgThree.
+     */
+    String tmpPwdExpMsgThree();
+
+    /**
+     * @return fcpTmpPwdExpMsgThree.
+     */
+    String fcpTmpPwdExpMsgThree();
+
+    /**
+     * To get label for fetchStatesFailureMsg.
+     * 
+     * @return String
+     */
+    String fetchStatesFailureMsg();
+
+    /**
+     * To get label for forgotPasswordHeader.
+     * 
+     * @return String
+     */
+    String forgotPasswordHeader();
+
+    /**
+     * @return String - srcLocation.
+     */
+    String srcLocation();
+
+    /**
+     * 
+     * @return - chngEconAccPwdMsg.
+     */
+    String chngEconAccPwdMsg();
+
+    /**
+     * 
+     * @return - chngStaplesEconAccPwdMsg.
+     */
+    String chngStaplesEconAccPwdMsg();
+
+    /**
+     * To get label for old password.
+     * 
+     * @return String
+     */
+    String oldPasswordLabel();
+
+    /**
+     * To get label for tempPasswordLabel.
+     * 
+     * @return String
+     */
+    String tempPasswordLabel();
+
+    /**
+     * To get label for modifyPasswordSuccessMessage.
+     * 
+     * @return String
+     */
+    String modifyPasswordSuccessMessage();
+
+    /**
+     * To get label for modifyPasswordFailureMessage.
+     * 
+     * @return String
+     */
+    String modifyPasswordFailureMessage();
+
+    /**
+     * To get label for nonReportingThreshold.
+     * 
+     * @return String
+     */
+    String nonReportingThreshold();
+
+    /**
+     * To get label for daysSinceLastReport.
+     * 
+     * @return String
+     */
+    String daysSinceLastReport();
+
+    /**
+     * To get label for agentVersion.
+     * 
+     * @return String
+     */
+    String agentVersion();
+
+    /**
+     * To get label for createConsumablePriceHeaderTxt.
+     * 
+     * @return String
+     */
+    String createConsumablePriceHeaderTxt();
+
+    /**
+     * To get label for modifyConsumablePriceHeaderTxt.
+     * 
+     * @return String
+     */
+    String modifyConsumablePriceHeaderTxt();
+
+    /**
+     * to get the label for sysPasswordFetchFail.
+     * 
+     * @return String
+     */
+    String sysPasswordFetchFail();
+
+    /**
+     * To get label for erpModified.
+     * 
+     * @return String
+     */
+    String erpModified();
+
+    /**
+     * To get label for priceListCreated.
+     * 
+     * @return String
+     */
+    String priceListCreated();
+
+    /**
+     * @return String - rangeLbl
+     */
+    String pleValidateDataMsg();
+
+    /**
+     * Label for Confirm button.
+     * 
+     * @return -
+     */
+    String confirmLabl();
+
+    /**
+     * Label constants for supplies sub total.
+     * 
+     * @return String - supplies sub total.
+     */
+    String suppliesSubTotal();
+
+    /**
+     * Label constants for supplies total.
+     * 
+     * @return String - supplies total.
+     */
+    String suppliesTotal();
+
+    /**
+     * @return String - companyWebsite.
+     */
+    String companyWebsite();
+
+    /**
+     * Label constants for tax.
+     * 
+     * @return String - tax.
+     */
+    String tax();
+
+    /**
+     * Label constants for shippingAndHandling.
+     * 
+     * @return String - shippingAndHandling.
+     */
+    String shpngAndHndlng();
+
+    /**
+     * @return String -
+     */
+    String customerTermsAndConditionsAlertMsg();
+
+    /**
+     * Label constants for upLbl.
+     * 
+     * @return String - upLbl.
+     */
+    String upLbl();
+
+    /**
+     * 
+     * @return - newAndOldPwdDiff.
+     */
+    String oldAndNewPwdDiff();
+
+    /**
+     * 
+     * @return - tempAndNewPwdDiff.
+     */
+    String tempAndNewPwdDiff();
+
+    /**
+     * 
+     * @return - serviceLoyalityAdjustmentTxt.
+     */
+    String serviceLoyalityAdjustmentTxt();
+
+    /**
+     * Label for Total.
+     * 
+     * @return - totalLbl.
+     */
+    String totalLbl();
+
+    /**
+     * To get label for listOfPartnerReportsHeaderTxt.
+     * 
+     * @return String
+     */
+    String listOfPartnerReportsHeaderTxt();
+
+    /**
+     * To get label for addPartnerReportsHeaderTxt.
+     * 
+     * @return String
+     */
+    String addPartnerReportsHeaderTxt();
+
+    /**
+     * To get label for identifyReportsHeaderTxt.
+     * 
+     * @return String
+     */
+    String identifyReportsHeaderTxt();
+
+    /**
+     * To get label for selectedReportsHeaderTxt.
+     * 
+     * @return String
+     */
+    String selectedReportsHeaderTxt();
+
+    /**
+     * To get label for selectedReportsHeaderTxt.
+     * 
+     * @return String
+     */
+    String editPartnerReportsHeaderTxt();
+
+    /**
+     * Label for list the EligibleModelLbl.
+     * 
+     * @return - listEligibleModelLbl.
+     */
+    String listEligibleModelLbl();
+
+    /**
+     * Label for add the EligibleModelLbl.
+     * 
+     * @return - addEligibleModelLbl.
+     */
+    String addEligibleModelLbl();
+
+    /**
+     * Label for edit the EligibleModelLbl.
+     * 
+     * @return - editEligibleModelLbl.
+     */
+    String editEligibleModelLbl();
+
+    /**
+     * Label for list the ConsumableThreshodLbl.
+     * 
+     * @return - listConsumableThreshodLbl.
+     */
+    String listConsumableThreshodLbl();
+
+    /**
+     * Label for configureConsumableThresholdLbl.
+     * 
+     * @return - configureConsumableThresholdLbl.
+     */
+    String configureConsumableThresholdLbl();
+
+    /**
+     * 
+     * @return -
+     */
+    String defaultBranding();
+
+    /**
+     * 
+     * @return - selectedPartsHeaderTxt
+     */
+    String selectedPartsHeaderTxt();
+
+    /**
+     * 
+     * @return - availablePartsHeaderTxt
+     */
+    String availablePartsHeaderTxt();
+
+    /**
+     * 
+     * @return - listOfPartnerpartsHeaderTxt
+     */
+    String listOfPartnerPartsHeaderTxt();
+
+    /**
+     * 
+     * @return - addPartnerPartsHeaderTxt
+     */
+    String addPartnerPartsHeaderTxt();
+
+    /**
+     * 
+     * @return - editPartnerPartsHeaderTxt
+     */
+    String editPartnerPartsHeaderTxt();
+
+    /**
+     * To get label for basicDetails.
+     * 
+     * @return String
+     */
+    String basicDetails();
+
+    /**
+     * To get label for selectCategory.
+     * 
+     * @return String
+     */
+    String selectCategory();
+
+    /**
+     * message for fetchProgramFailureMsg.
+     * 
+     * @return String
+     */
+    String fetchProgramFailureMsg();
+
+    /**
+     * @return String -
+     */
+    String removeModelMsg();
+
+    /**
+     * 
+     * @return - modelHasDefaultPartMsg.
+     */
+    String modelHasDefaultPartMsg();
+
+    /**
+     * To get info label for sourcing override location.
+     * 
+     * @return String
+     */
+    String sourceoverridelocInfoLbl();
+
+    /**
+     * @return String - isDefaultpartLabel
+     */
+    String isDefaultpartLabel();
+
+    /**
+     * To get label for sourcing override location.
+     * 
+     * @return String
+     */
+    String sourceoverridelocLbl();
+
+    /**
+     * @return String -
+     */
+    String partNumberLabel();
+
+    /**
+     * Label for upldLoyaltyThreshold.
+     * 
+     * @return - String
+     */
+    String upldLoyaltyThreshold();
+
+    /**
+     * Label for resellerLbl.
+     * 
+     * @return - String
+     */
+    String resellerLbl();
+
+    /**
+     * Label for creditLimt.
+     * 
+     * @return - String
+     */
+    String creditLimt();
+
+    /**
+     * Label for systemNotificationsLabel.
+     * 
+     * @return - String
+     */
+    String systemNotificationsLabel();
+
+    /**
+     * Label for onOffLabel.
+     * 
+     * @return - String
+     */
+    String onOffLabel();
+
+    /**
+     * Label for onLabel.
+     * 
+     * @return - String
+     */
+    String onLabel();
+
+    /**
+     * Label for offLabel.
+     * 
+     * @return - String
+     */
+    String offLabel();
+
+    /**
+     * Label for reviewOrdersLbl.
+     * 
+     * @return - String
+     */
+    String reviewOrdersLbl();
+
+    /**
+     * Label for approveLbl.
+     * 
+     * @return - String
+     */
+    String approveLbl();
+
+    /**
+     * Label for rejectLbl.
+     * 
+     * @return - String
+     */
+    String rejectLbl();
+
+    /**
+     * Label for availableCreditLbl.
+     * 
+     * @return - String
+     */
+    String availableCreditLbl();
+
+    /**
+     * Label for saveConfirmationMsg.
+     * 
+     * @return - String
+     */
+    String saveConfirmationMsg();
+
+    /**
+     * Label for mustContainAllLbl.
+     * 
+     * @return - String
+     */
+    String mustContainAllLbl();
+
+    /**
+     * Label for mustContainAllLbl.
+     * 
+     * @return - String
+     */
+    String fromCategoriesLbl();
+
+    /**
+     * Label for close Preview.
+     * 
+     * @return - String
+     */
+    String closePreviewLbl();
+
+    /**
+     * @return showAllResellers -
+     */
+    String showAllResellers();
+
+    /**
+     * @return showResellersWithActivity -
+     */
+    String showResellersWithActivity();
+
+    /**
+     * @return showResellersNotPublished -
+     */
+    String showResellersNotPublished();
+
+    /**
+     * @return publishedWithNoActivity -
+     */
+    String publishedWithNoActivity();
+
+    /**
+     * @return selectResellers -
+     */
+    String selectResellers();
+
+    /**
+     * @return openAccount -
+     */
+    String openAccount();
+
+    /**
+     * @return creditCard -
+     */
+    String creditCard();
+
+    /**
+     * @return authenticationquestionLbl -
+     */
+    String authenticationquestionLbl();
+
+    /**
+     * @return ascendingLbl -
+     */
+    String ascendingLbl();
+
+    /**
+     * @return decendingLbl -
+     */
+    String decendingLbl();
+
+    /**
+     * @return sundayLbl -
+     */
+    String sundayLbl();
+
+    /**
+     * @return mondayLbl -
+     */
+    String mondayLbl();
+
+    /**
+     * @return tuesdayLbl -
+     */
+    String tuesdayLbl();
+
+    /**
+     * @return wednesdayLbl -
+     */
+    String wednesdayLbl();
+
+    /**
+     * @return thursdayLbl -
+     */
+    String thursdayLbl();
+
+    /**
+     * @return fridayLbl -
+     */
+    String fridayLbl();
+
+    /**
+     * @return saturdayLbl -
+     */
+    String saturdayLbl();
+
+    /**
+     * @return janLbl -
+     */
+    String janLbl();
+
+    /**
+     * @return febLbl -
+     */
+    String febLbl();
+
+    /**
+     * @return marLbl -
+     */
+    String marLbl();
+
+    /**
+     * @return aprLbl -
+     */
+    String aprLbl();
+
+    /**
+     * @return mayLbl -
+     */
+    String mayLbl();
+
+    /**
+     * @return junLbl -
+     */
+    String junLbl();
+
+    /**
+     * @return julLbl -
+     */
+    String julLbl();
+
+    /**
+     * @return augLbl -
+     */
+    String augLbl();
+
+    /**
+     * @return sepLbl -
+     */
+    String sepLbl();
+
+    /**
+     * @return octLbl -
+     */
+    String octLbl();
+
+    /**
+     * @return novLbl -
+     */
+    String novLbl();
+
+    /**
+     * @return decLbl -
+     */
+    String decLbl();
+
+    /**
+     * @return kbLbl -
+     */
+    String kbLbl();
+
+    /**
+     * @return orderLbl -
+     */
+    String orderLbl();
+
+    /**
+     * @return validCombinationLbl -
+     */
+    String validCombinationLbl();
+
+    /**
+     * @return orderDetailLbl -
+     */
+    String orderDetailLbl();
+
+    /**
+     * @return pendingLbl -
+     */
+    String pendingLbl();
+
+    /**
+     * @return orderedPartsOnly -
+     */
+    String orderedPartsOnly();
+
+    /**
+     * @return includeActivatedPlans -
+     */
+    String includeActivatedPlans();
+
+    /**
+     * @return selectValidCombination -
+     */
+    String selectValidCombination();
+
+    /**
+     * @return fetchResellerTypeFailure -
+     */
+    String fetchResellerTypeFailure();
+
+    /**
+     * @return showContentsLbl -
+     */
+    String showContentsLbl();
+
+    /**
+     * @return endUserLbl -
+     */
+    String endUserLbl();
+
+    /**
+     * @return partnerLabel -
+     */
+    String partnerLabel();
+
+    /**
+     * @return categoryNameUniqueMsg -
+     */
+    String categoryNameUniqueMsg();
+
+    /**
+     * @return ratedImpression -
+     */
+    String ratedImpression();
+
+    /**
+     * 
+     * @return - createPlanTxt.
+     */
+    String createPlanTxt();
+
+    /**
+     * 
+     * @return - addNewPlanTxt.
+     */
+    String addNewPlanTxt();
+
+    /**
+     * @return shipmentDetailLbl -
+     */
+    String shipmentDetailLbl();
+
+    /**
+     * @return storeNum -
+     */
+    String storeNum();
+
+    /**
+     * @return planName -
+     */
+    String planName();
+
+    /**
+     * @return addAnotherPlan -
+     */
+    String addAnotherPlan();
+
+    /**
+     * @return orderNumber -
+     */
+    String orderNumber();
+
+    /**
+     * @return clearEntry -
+     */
+    String clearEntry();
+
+    /**
+     * @return selectWeb -
+     */
+    String selectWeb();
+
+    /**
+     * @return calculateBuyOut -
+     */
+    String calculateBuyOut();
+
+    /**
+     * @return removeThisPlan -
+     */
+    String removeThisPlan();
+
+    /**
+     * @return skuPlanName -
+     */
+    String skuPlanName();
+
+    /**
+     * @return columnHeaderLbl -
+     */
+    String columnHeaderLbl();
+
+    /**
+     * @return duplicateEntryHeaderLbl -
+     */
+    String duplicateEntryHeaderLbl();
+
+    /**
+     * @return nonReportedDevice -
+     */
+    String nonReportedDevice();
+
+    /**
+     * To get label for staplesCustomerActivationLbl.
+     * 
+     * @return String
+     */
+    String staplesCustomerActivationLbl();
+
+    /**
+     * To get label for agentDownloadStaplesStepTxt.
+     * 
+     * @return String
+     */
+    String agentDownloadStaplesStepTxt();
+
+    /**
+     * To get label for wrongEmailMsg.
+     * 
+     * @return String
+     */
+    String wrongEmailMsg();
+
+    /**
+     * To get label for forgotUserIdSuccessMsg.
+     * 
+     * @return String
+     */
+    String forgotUserIdSuccessMsg();
+
+    /**
+     * To get label for forgotUserIdSuccessMsg.
+     * 
+     * @return String
+     */
+    String forgotEconciergeUserIdSuccessMsg();
+
+    /**
+     * To get label for forgotUserIdLabel.
+     * 
+     * @return String
+     */
+    String forgotUserIdLabel();
+
+    /**
+     * To get label for forgotUserIdLabel.
+     * 
+     * @return String
+     */
+    String forgotEconciergeUserIdLabel();
+
+    /**
+     * To get Label for fetchUserIdAndPwdLabel.
+     * 
+     * @return String
+     */
+    String fetchUserIdAndPwdLabel();
+
+    /**
+     * To get label for emailMandtLbl.
+     * 
+     * @return String
+     */
+    String emailMandtLbl();
+
+    /**
+     * To get label for invalidEmailLbl.
+     * 
+     * @return String
+     */
+    String invalidEmailLbl();
+
+    /**
+     * To get label for userIdDesc.
+     * 
+     * @return String
+     */
+    String userIdDesc();
+
+    /**
+     * To get label for userIdExistLbl.
+     * 
+     * @return String
+     */
+    String userIdExistLbl();
+
+    /**
+     * To get label for orderNumberInfoTxt.
+     * 
+     * @return String
+     */
+    String orderNumberInfoTxt();
+
+    /**
+     * To get label for planPrice.
+     * 
+     * @return String
+     */
+    String planPrice();
+
+    /**
+     * To get label for reason.
+     * 
+     * @return String
+     */
+    String reason();
+
+    /**
+     * To get label for serialHashLabel.
+     * 
+     * @return String
+     */
+    String serialHashLabel();
+
+    /**
+     * @return planInvoiceDetail.
+     */
+    String planInvoiceDetail();
+
+    /**
+     * Label for addressLbl.
+     * 
+     * @return - String
+     */
+    String addressLbl();
+
+    /**
+     * Label for orderStatusLabel.
+     * 
+     * @return - String
+     */
+    String orderStatusLabel();
+
+    /**
+     * @return planLbl.
+     */
+    String planLbl();
+
+    /**
+     * @return invoiceStatus.
+     */
+    String invoiceStatus();
+
+    /**
+     * @return invoiceStatus.
+     */
+    String invoiceId();
+
+    /**
+     * @return invoiceStatus.
+     */
+    String invoiceDate();
+
+    /**
+     * @return invoiceTotal.
+     */
+    String invoiceTotal();
+
+    /**
+     * @return continueLbl.
+     */
+    String continueLbl();
+
+    /**
+     * @return usageThreshold.
+     */
+    String usageThreshold();
+
+    /**
+     * 
+     * @return - stpOneOfThree.
+     */
+    String stpOneOfThree();
+
+    /**
+     * 
+     * @return - stpTwoOfThree.
+     */
+    String stpTwoOfThree();
+
+    /**
+     * 
+     * @return - stpThreeOfThree.
+     */
+    String stpThreeOfThree();
+
+    /**
+     * 
+     * @return - pleaseEnterNewPassword.
+     */
+    String pleaseEnterNewPassword();
+
+    /**
+     * 
+     * @return - enterValidValues.
+     */
+    String enterValidValues();
+
+    /**
+     * 
+     * @return - enterValuesInLbl.
+     */
+    String enterValuesInLbl();
+
+    /**
+     * 
+     * @return - rejectReasonLbl.
+     */
+    String rejectReasonLbl();
+
+    /**
+     * @return - daysSinceLastReported.
+     */
+    String daysSinceLastReported();
+
+    /**
+     * @return - supplyValue.
+     */
+    String supplyValue();
+
+    /**
+     * @return - orderValue.
+     */
+    String orderValue();
+
+    /**
+     * @return - shipmentTotalValue.
+     */
+    String shipmentTotalValue();
+
+    /**
+     * @return - shipmentDate.
+     */
+    String shipmentDate();
+
+    /**
+     * @return - invalidEmailLbl.
+     */
+    String invalidEmailTxt();
+
+    /**
+     * @return - invalidHeadersTxt.
+     */
+    String invalidHeadersTxt();
+
+    /**
+     * @return - duplicateTransactionidTxt.
+     */
+    String duplicateTransactionidTxt();
+
+    /**
+     * @return - duplicateTransactionMsgTxt.
+     */
+    String duplicateTransactionMsgTxt();
+
+    /**
+     * @return - correctHeadersTxt.
+     */
+    String correctHeadersTxt();
+
+    /**
+     * @return - missingHeadersTxt.
+     */
+    String missingHeadersTxt();
+
+    /**
+     * @return - overrideDefaultPartHash.
+     */
+    String overrideDefaultPartHash();
+
+    /**
+     * @return provinceLbl.
+     */
+    String provinceLbl();
+
+    /**
+     * @return postcdeLbl.
+     */
+    String postcdeLbl();
+
+    /**
+     * @return entrCanadaPostalCode.
+     */
+    String entrCanadaPostalCode();
+
+    /**
+     * @return uploadOverrideDefaultPart.
+     */
+    String uploadOverrideDefaultPart();
+
+    /**
+     * Label for platformDefault.
+     * 
+     * @return - String
+     */
+    String platformDefault();
+
+    /**
+     * Label for programDefault.
+     * 
+     * @return - String
+     */
+    String programDefault();
+
+    /**
+     * @return plsCntctUrSrvProMsg.
+     */
+    String plsCntctUrSrvProMsg();
+
+    /**
+     * @return proceedLbl.
+     */
+    String proceedLbl();
+
+    /**
+     * @return confirmPassWrdLbl.
+     */
+    String confirmPassWrdLbl();
+
+    /**
+     * @return orderByModel -
+     */
+    String orderByModel();
+
+    /**
+     * @return allowPromotions -
+     */
+    String allowPromotions();
+
+    /**
+     * /**
+     * 
+     * @return gotCancelledLbl -
+     */
+    String gotCancelledLbl();
+
+    /**
+     * @return deviceManufacturer -
+     */
+    String deviceManufacturer();
+
+    /**
+     * @return partManufacturer -
+     */
+    String partManufacturer();
+
+    /**
+     * blackListSerialNumber.
+     * 
+     * @return String
+     */
+    String blackListSerialNumber();
+
+    /**
+     * prevPassAlertMsg.
+     * 
+     * @return String
+     */
+    String prevPassAlertMsg();
+
+    /**
+     * plewaitRedirectMsg.
+     * 
+     * @return String
+     */
+    String plewaitRedirectMsg();
+
+    /**
+     * languageLbl.
+     * 
+     * @return String
+     */
+    String languageLbl();
+
+    /**
+     * To get msg for replacementValueMsg.
+     * 
+     * @return String
+     */
+    String replacementValueMsg();
+
+    /**
+     * @return supportPhoneNumber.
+     */
+    String supportPhoneNumber();
+
+    /**
+     * @return hardwareServiceCompanyName
+     */
+    String hardwareServiceCompanyName();
+
+    /**
+     * @return hardwareServiceCompanyPhoneNumber
+     */
+    String hardwareServiceCompanyPhoneNumber();
+
+    /**
+     * To get msg for addHelpDocsTxt.
+     * 
+     * @return String
+     */
+    String addHelpDocsTxt();
+
+    /**
+     * To get msg for helpDocsTxt.
+     * 
+     * @return String
+     */
+    String helpDocsTxt();
+
+    /**
+     * To get msg for documentNameLabel.
+     * 
+     * @return String
+     */
+    String documentNameLabel();
+
+    /**
+     * To get msg for selectOneProgramType.
+     * 
+     * @return String
+     */
+    String selectOneProgramTypeMsg();
+
+    /**
+     * To get msg for selectOneProgramType.
+     * 
+     * @return String
+     */
+    String problemFetchingDetails();
+
+    /**
+     * To get msg for removeReportProgramTypeFailed.
+     * 
+     * @return String
+     */
+    String removeReportProgramTypeFailed();
+
+    /**
+     * To get msg for removeReportProgramTypeSuccess.
+     * 
+     * @return String
+     */
+    String removeReportProgramTypeSuccess();
+
+    /**
+     * To get msg for failedToEdit.
+     * 
+     * @return String
+     */
+    String failedToEdit();
+
+    /**
+     * To get msg for failedToModifyReports.
+     * 
+     * @return String
+     */
+    String failedToModifyReports();
+
+    /**
+     * To get msg for reportModifiedSuccessfully.
+     * 
+     * @return String
+     */
+    String reportModifiedSuccessfully();
+
+    /**
+     * To get msg for reportProgramTypeAssociation.
+     * 
+     * @return String
+     */
+    String reportProgramTypeAssociation();
+
+    /**
+     * To get msg for failedToAddReports.
+     * 
+     * @return String
+     */
+    String failedToAddReports();
+
+    /**
+     * To get msg for reportAddedSuccessfully.
+     * 
+     * @return String
+     */
+    String reportAddedSuccessfully();
+
+    /**
+     * To get msg for reportAddedSuccessfully.
+     * 
+     * @return String
+     */
+    String listOfProviderReportsHeaderTxt();
+
+    /**
+     * To get msg for addProviderReportsHeaderTxt.
+     * 
+     * @return String
+     */
+    String addProviderReportsHeaderTxt();
+
+    /**
+     * To get msg for editProviderReportsHeaderTxt.
+     * 
+     * @return String
+     */
+    String editProviderReportsHeaderTxt();
+
+    /**
+     * To get msg for storeLocTxt.
+     * 
+     * @return String
+     */
+    String storeLocTxt();
+
+    /**
+     * To get msg for storeLocList.
+     * 
+     * @return String
+     */
+    String storeLocList();
+
+    /**
+     * To get msg for uploadStoreLoc.
+     * 
+     * @return String
+     */
+    String uploadStoreLoc();
+
+    /**
+     * To get msg for fileLabel.
+     * 
+     * @return String
+     */
+    String fileLabel();
+
+    /**
+     * 
+     * @return - docExtensionValidationMsg.
+     */
+    String docExtensionValidationMsg();
+
+    /**
+     * To get msg for viewStockLevelAdj.
+     * 
+     * @return String
+     */
+    String viewStockLevelAdj();
+
+    /**
+     * To get msg for partLbl.
+     * 
+     * @return String
+     */
+    String partLbl();
+
+    /**
+     * To get msg for actionLbl1.
+     * 
+     * @return String
+     */
+    String actionLbl();
+
+    /**
+     * To get msg for valueLbl.
+     * 
+     * @return String
+     */
+    String valueLbl();
+
+    /**
+     * 
+     * @return - replacementLbl.
+     */
+    String replacementLbl();
+
+    /**
+     * 
+     * @return - starterReplacementLbl.
+     */
+    String starterReplacementLbl();
+
+    /**
+     * 
+     * @return - levelOneLbl.
+     */
+    String levelOneLbl();
+
+    /**
+     * 
+     * @return - levelTwoLbl.
+     */
+    String levelTwoLbl();
+
+    /**
+     * To get msg for removeProviderReportsConfirmationMsg.
+     * 
+     * @return String
+     */
+    String removeProviderReportsConfirmationMsg();
+
+    /**
+     * 
+     * @return - textLbl.
+     */
+    String textLbl();
+
+    /**
+     * 
+     * @return - inc.
+     */
+    String inc();
+
+    /**
+     * 
+     * @return - dec.
+     */
+    String dec();
+
+    /**
+     * @return - confirmLanguageLabel.
+     */
+    String confirmLanguageLabel();
+
+    /**
+     * @return - noThanksLbl.
+     */
+    String noThanksLbl();
+
+    /**
+     * @return String - clickLbl.
+     */
+    String clickLbl();
+
+    /**
+     * @return String - hereLbl.
+     */
+    String hereLbl();
+
+    /**
+     * @return String - notificationTextLbl.
+     */
+    String notificationTextLbl();
+
+    /**
+     * @return -
+     */
+    String outOfStockNotificationConfirmationMessage();
+
+    /**
+     * @return -
+     */
+    String resetLbl();
+
+    /**
+     * @return -
+     */
+    String resetLblTxt();
+
+    /**
+     * @return - failedToCreateBackOrder
+     */
+    String failedToCreateBackOrder();
+
+    /**
+     * @return - taxTypeLbl
+     */
+    String taxTypeLbl();
+
+    /**
+     * @return - registrationNoLbl
+     */
+    String registrationNoLbl();
+
+    /**
+     * @return - partnerInfoLbl
+     */
+    String partnerInfoLbl();
+
+    /**
+     * @return - gstHstLbl
+     */
+    String gstHstLbl();
+
+    /**
+     * @return - qstNoLbl
+     */
+    String qstNoLbl();
+
+    /**
+     * @return - gstRegistrationIdLbl
+     */
+    String gstRegistrationIdLbl();
+
+    /**
+     * @return - qstRegistrationIdLbl
+     */
+    String qstRegistrationIdLbl();
+
+    /**
+     * @return - enableStatus
+     */
+    String enableStatus();
+
+    /**
+     * @return - disableStatus
+     */
+    String disableStatus();
+
+    /**
+     * @return - valueNotMatched
+     */
+    String valueNotMatched();
+
+    /**
+     * @return - hashKeyLbl
+     */
+    String hashKeyLabel();
+
+    /**
+     * @return - paymentGatewayLbl
+     */
+    String paymentGatewayLbl();
+
+    /**
+     * @return - apiLoginLbl
+     */
+    String apiLoginLbl();
+
+    /**
+     * @return - transactinKeyLbl
+     */
+    String transactionKeyLbl();
+
+    /**
+     * @return - notificationFilterLbl
+     */
+    String notificationFilterLbl();
+
+    /**
+     * @return - resellerTypeLbl
+     */
+    String resellerTypeLbl();
+
+    /**
+     * @return String - localSalesAndUseTax.
+     */
+    String localSalesAndUseTax();
+
+    /**
+     * @return String - salesAndUseTax.
+     */
+    String salesAndUseTax();
+
+    /**
+     * @return String - noSalesOrUseTaxImposed.
+     */
+    String noSalesOrUseTaxImposed();
+
+    /**
+     * @return String - retailSalesAndUseTax.
+     */
+    String retailSalesAndUseTax();
+
+    /**
+     * @return String - retailSalesTax.
+     */
+    String retailSalesTax();
+
+    /**
+     * @return String - quebecSalesTax.
+     */
+    String quebecSalesTax();
+
+    /**
+     * @return String - revenueTax.
+     */
+    String revenueTax();
+
+    /**
+     * @return String - pstTax.
+     */
+    String pstTax();
+
+    /**
+     * @return String - gstOrHst.
+     */
+    String gstOrHst();
+
+    /**
+     * @return String - declinedBy.
+     */
+    String declinedBy();
+
+    /**
+     * @return String - orderPendingForReview.
+     */
+    String orderPendingForReview();
+
+    /**
+     * @return String - range.
+     */
+    String rangeLbl();
+
+    /**
+     * @return String - hashValidationDisabled.
+     */
+    String hashValidationDisabled();
+
+    /**
+     * @return String - orderPendingForReview.
+     */
+    String requesterIsaOrSenderId();
+
+    /**
+     * @return String - receiverId.
+     */
+    String receiverId();
+
+    /**
+     * @return String - contactId.
+     */
+    String contactId();
+    /**
+     * @return String - contactId.
+     */
+    String apiKey();
+
+
+    /**
+     * @return selectLocaleEmailLbl.
+     */
+    String selectLocaleEmailLbl();
+
+    /**
+     * @return taxExemptCertificateNo.
+     */
+    String taxExemptCertificateNo();
+
+    /**
+     * Label for resellerRegistrationURL.
+     * 
+     * @return - String
+     */
+    String resellerRegistrationURL();
+
+    /**
+     * Label for resellerDownloadURL.
+     * 
+     * @return - String
+     */
+    String resellerDownloadURL();
+
+    /**
+     * Label for distiLabelText.
+     * 
+     * @return - String
+     */
+    String distiLabelText();
+
+    /**
+     * @return String - addPromoCouponTxt
+     */
+    String addPromoCouponTxt();
+
+    /**
+     * @return String - viewPromoCouponTxt
+     */
+
+    String viewPromoCouponTxt();
+
+    /**
+     * @return String - editPromoCouponTxt
+     */
+
+    String editPromoCouponTxt();
+
+    /**
+     * 
+     * @return - deviceLocationAddressLbl.
+     */
+    String deviceLocationLbl();
+
+    /**
+     * 
+     * @return - shipToAddressLbl.
+     */
+    String shipToLbl();
+
+    /**
+     * @return String - addDeviceTxt
+     */
+    String addDeviceTxt();
+
+    /**
+     * 
+     * @return - fetchUserIdAndPwdSuccessMsg.
+     */
+    String fetchUserIdAndPwdSuccessMsg();
+
+    /**
+     * 
+     * @return - fetchUserIdAndPwdSuccessMsg1.
+     */
+    String fetchUserIdAndPwdSuccessMsg1();
+
+    /**
+     * 
+     * @return - fetchFCPInvalidEmailMsg.
+     */
+    String fetchFCPInvalidEmailMsg();
+
+    /**
+     * 
+     * @return - fetchFCPAlreadyActivatedMsg.
+     */
+    String fetchFCPAlreadyActivatedMsg();
+
+    /**
+     * 
+     * @return - forgotYourUserId.
+     */
+    String forgotYourUserId();
+
+    /**
+     * 
+     * @return - forgotYourPwd.
+     */
+    String forgotYourPwd();
+
+    /**
+     * 
+     * @return - paymenProblemLabel.
+     */
+    String paymenProblemLabel();
+
+    /**
+     * 
+     * @return - sameAddressLabel.
+     */
+    String sameAddressLabel();
+
+    /**
+     * 
+     * @return - addressTwoOptionalLabel.
+     */
+    String addressTwoOptionalLabel();
+
+    /**
+     * 
+     * @return - changeLoginInfoLbl.
+     */
+    String changeLoginInfoLbl();
+
+    /**
+     * 
+     * @return - jobTitleLbl.
+     */
+    String jobTitleLbl();
+
+    /**
+     * 
+     * @return - fcpAgentPortal.
+     */
+    String fcpAgentPortal();
+
+    /**
+     * 
+     * @return - npPlusLbl.
+     */
+    String npPlusLbl();
+
+    /**
+     * To get label for selectListText.
+     * 
+     * @return String
+     */
+    String cdwPlusLbl();
+
+    /**
+     * To get label for userIdLabel.
+     * 
+     * @return String
+     */
+
+    String userIdLabel();
+
+    /**
+     * To get label for serialNumberLbl.
+     * 
+     * @return String
+     */
+
+    String serialNumberLbl();
+
+    /**
+     * To get label for manualActivityContract.
+     * 
+     * @return String
+     */
+
+    String manualActivityContract();
+
+    /**
+     * To get label for manualActivityContract.
+     * 
+     * @return String
+     */
+    String consolidatedStackCategoryLbl();
+
+    /**
+     * To get label for lastSynchDateLbl.
+     * 
+     * @return String
+     */
+    String lastSynchDateLbl();
+
+    /**
+     * 
+     * @return - paymentMethodsLbl.
+     */
+    String paymentMethodsLbl();
+
+    /**
+     * To get label for agreementPages.
+     * 
+     * @return String
+     */
+    String agreementPages();
+
+    /**
+     * 
+     * @return - accountInvalidLabl.
+     */
+    String accountInvalidLabl();
+
+    /**
+     * 
+     * @return - duplicateRecordLbl.
+     */
+    String duplicateRecordLbl();
+
+    /**
+     * 
+     * @return - unusedCouponLbl.
+     */
+    String unusedCouponLbl();
+
+    /**
+     * To get label for dateInPastLbl.
+     * 
+     * @return String
+     */
+    String dateInPastLbl();
+
+    /**
+     * To get label for campaignNameInvalidLbl.
+     * 
+     * @return String
+     */
+
+    String campaignNameInvalidLbl();
+
+    /**
+     * To get label for discountTypeInvalidLbl.
+     * 
+     * @return String
+     */
+
+    String discountTypeInvalidLbl();
+
+    /**
+     * To get label for usageInvalidLbl.
+     * 
+     * @return String
+     */
+
+    String usageInvalidLbl();
+
+    /**
+     * To get label for discountMisalignLbl.
+     * 
+     * @return String
+     */
+    String discountMisalignLbl();
+
+    /**
+     * To get label for usedYetNoLbl.
+     * 
+     * @return String
+     */
+    String usedYetNoLbl();
+
+    /**
+     * 
+     * @return - missingColoumnLbl.
+     */
+    String missingColoumnLbl();
+
+    /**
+     * 
+     * @return - missingColoumnLbl.
+     */
+    String discountInvalidLbl();
+
+    /**
+     * 
+     * @return - durationInvalidLbl.
+     */
+    String durationInvalidLbl();
+
+    /**
+     * To get label for interfaceDataMapHeader.
+     * 
+     * @return String
+     */
+    String interfaceDataMapHeader();
+
+    /**
+     * To get label for addInterfaceDataMapHeader.
+     * 
+     * @return String
+     */
+    String addInterfaceDataMapHeader();
+
+    /**
+     * To get label for editInterfaceDataMapHeader.
+     * 
+     * @return String
+     */
+    String editInterfaceDataMapHeader();
+
+    /**
+     * To get label for addAtleastOneInterfaceDataMsg.
+     * 
+     * @return String
+     */
+    String addAtleastOneInterfaceDataMsg();
+
+    /**
+     * To get label for deviceNoLongerMsg.
+     * 
+     * @return
+     */
+    String deviceNoLongerMsg();
+
+    /**
+     * To get label for devicedetails.
+     * 
+     * @return
+     */
+    String deviceDetailsHeader();
+
+    /**
+     * 
+     * @return level
+     */
+    String levelHeader();
+
+    /**
+     * 
+     * @return part
+     */
+    String partHeader();
+
+    /**
+     * 
+     * @return item
+     */
+    String itemHeader();
+
+    /**
+     * 
+     * @return order
+     */
+    String orderHeader();
+
+    /**
+     * @return occurred
+     */
+    String occurredHeader();
+
+    /**
+     * @return learnAboutRewards
+     */
+    String learnAbountRewaredButtonLbl();
+
+    /**
+     * 
+     * @return edit
+     */
+    String editBtnLbl();
+
+    /**
+     * 
+     * @return shop by device
+     */
+    String shopDeviceBtnLbl();
+
+    /**
+     * 
+     * @return shop for this model
+     */
+    String shopModelBtnLbl();
+
+    /**
+     * 
+     * @return Device Alerts
+     */
+    String deviceAlertLbl();
+
+    /**
+     * 
+     * @return Low
+     */
+    String statusLowLbl();
+
+    /**
+     * 
+     * @return OK
+     */
+    String statusOkLbl();
+
+    /**
+     * 
+     * @return Missing
+     */
+    String statusMissingLbl();
+
+    /**
+     * 
+     * @return Empty
+     */
+    String statusEmptyLbl();
+
+    /**
+     * 
+     * @return Neary Low
+     */
+    String statusNearlyLowLbl();
+
+    /**
+     * 
+     * @return Free Phone Support
+     */
+    String freePhoneSupportCustomer();
+
+    /**
+     * 
+     * @return Service Entitlement
+     */
+    String serviceEntitlement();
+
+    /**
+     * 
+     * @return Active Orders
+     */
+    String activeOrdersTabLbl();
+
+    /**
+     * 
+     * @return Order History
+     */
+    String orderHistoryTabLbl();
+
+    /**
+     * 
+     * @return Purchases
+     */
+    String purchasesTabLbl();
+
+    /**
+     * 
+     * @return Orders
+     */
+    String ordersTabLbl();
+
+    /**
+     * 
+     * @return Failed to fetch customer dashboard details
+     */
+    String failedDashboardDetails();
+
+    /**
+     * 
+     * @return Failed to fetch customer device details
+     */
+    String failedCustomerDeviceDetails();
+
+    /**
+     * @return Account
+     * 
+     */
+    String accountsTabLbl();
+
+    /**
+     * 
+     * @return ALL
+     */
+    String allTabLbl();
+
+    /**
+     * 
+     * @return Low Status
+     */
+    String lowStatusTabLbl();
+
+    /**
+     * 
+     * @return Recently Added
+     */
+    String recentlyAddedTabLbl();
+
+    /**
+     * 
+     * @return Reward Eligible
+     */
+    String rewardEligibleTabLbl();
+
+    /**
+     * 
+     * @return DEvice
+     */
+    String cpDeviceLbl();
+
+    /**
+     * 
+     * @return Model
+     */
+    String cpModelLbl();
+
+    /**
+     * 
+     * @return Alerts
+     */
+    String cpAlertsLbl();
+
+    /**
+     * 
+     * @return Location
+     */
+    String cpLocLbl();
+
+    /**
+     * 
+     * @return Order
+     */
+    String cpOrderLbl();
+
+    /**
+     * 
+     * @return Remove Device
+     */
+    String removeDevLbl();
+
+    /**
+     * 
+     * @return Supplies Assistant Information
+     */
+    String cpSuppAssInfoLbl();
+
+    /**
+     * 
+     * @return Help Document
+     */
+    String cpHelpDocLbl();
+
+    /**
+     * 
+     * @return Download and Install Supplies Assistant
+     */
+    String cpDownSuppAssLbL();
+
+    /**
+     * 
+     * @return Version:
+     */
+    String cpVersionLbl();
+
+    /**
+     * 
+     * @return View/Download Help Document
+     */
+    String cpViewHelpDocLbl();
+
+    /**
+     * 
+     * @return Support Email
+     */
+    String cpSuppEmailLbl();
+
+    /**
+     * 
+     * @return Web
+     */
+    String cpWebLbl();
+
+    /**
+     * @return ...
+     */
+    String cpThreeDot();
+
+    /**
+     * @return quickBuysHeaderText.
+     */
+    String quickBuysHeaderText();
+
+    /**
+     * 
+     * @return smeCodeLbl
+     */
+    String smeCodeLbl();
+
+    /**
+     * @return String -
+     */
+    String percentageIncreaseAllowedLabel();
+
+    /**
+     * @return customerAccNoLbl -
+     */
+    String customerAccNoLabel();
+
+    /**
+     * @return lastRefreshLabel -
+     */
+    String lastRefreshLabel();
+
+    /**
+     * @return lastRefreshLabel -
+     */
+    String clearBtnLabel();
+
+    /**
+     * @return refreshBtnLabel -
+     */
+    String refreshBtnLabel();
+
+    /**
+     * @return noteContent -
+     */
+    String noteContent();
+
+    /**
+     * @return noteLabel -
+     */
+    String noteLabel();
+
+    /**
+     * @return shipStartDate -
+     */
+    String shipStartDate();
+
+    /**
+     * @return shipEndDate -
+     */
+    String shipEndDate();
+
+    /**
+     * 
+     * @return valid ship end date -
+     */
+    String shipValidEndDate();
+
+    /**
+     * @return refreshBtnLabel -
+     */
+    String resubmitBtnLbl();
+
+    /**
+     * @return mfgDotLabel -
+     */
+    String mfgDot();
+
+    /**
+     * 
+     * @return selectCompaignNameMsg
+     */
+    String selectCompaignNameMsg();
+
+    /**
+     * 
+     * @return selectOneAtMsg
+     */
+    String selectOneAtMsg();
+
+    /**
+     * 
+     * @return failureMsgForRemovePromoCoupon
+     */
+    String failureMsgForRemovePromoCoupon();
+
+    /**
+     * 
+     * @return successMsgForPromoCoupon
+     */
+    String successMsgForRemovePromoCoupon();
+
+    /**
+     * 
+     * @return failureMsgForRemovePromoCoupon
+     */
+    String failureMsgForAddPromoCoupon();
+
+    /**
+     * 
+     * @return successMsgForPromoCoupon
+     */
+    String successMsgForAddPromoCoupon();
+
+    /**
+     * 
+     * @return removePromoCouponAlertMsg
+     */
+    String removePromoCouponAlertMsg();
+
+    /**
+     * 
+     * @return expiredEditPromoCouponMsg
+     */
+    String expiredEditPromoCouponMsg();
+
+    /**
+     * 
+     * @return providerInvalidHeadersTxt
+     */
+    String providerInvalidHeadersTxt();
+
+    /**
+     * 
+     * @return providerInvalidHeadersTxt
+     */
+    String providerCorrectHeadersTxt();
+
+    /**
+     * 
+     * @return bannersTxt
+     */
+    String bannersTxt();
+
+    /**
+     * 
+     * @return addPartnerBanner
+     */
+    String addPartnerBanner();
+
+    /**
+     * 
+     * @return addCustomerBanner
+     */
+    String addCustomerBanner();
+
+    /**
+     * 
+     * @return failToFetchBanner
+     */
+    String failToFetchBanner();
+
+    /**
+     * 
+     * @return bannerConfigSuccess
+     */
+    String bannerConfigSuccess();
+
+    /**
+     * 
+     * @return bannerDetailSuccess
+     */
+    String bannerDetailSuccess();
+
+    /**
+     * 
+     * @return bannerImageExtensionValidationMsg
+     */
+    String bannerImageExtensionValidationMsg();
+
+    /**
+     * 
+     * @return bannerImageHeightWidthValidation
+     */
+    String bannerImageHeightWidthValidation();
+
+    /**
+     * 
+     * @return darkHeaderColor
+     */
+    String darkHeaderColor();
+
+    /**
+     * @return RWD preview link for medium devices
+     */
+    String mdPreviewLink();
+
+    /**
+     * @return RWD preview link for small devices
+     */
+    String smPreviewLink();
+
+    /**
+     * @return RWD preview link for extra small devices
+     */
+    String xsPreviewLink();
+
+    /**
+     * @return RWD preview portal container header
+     */
+    String rwdPreviewThemeHeader();
+
+    /**
+     * @return Desktop String
+     */
+    String desktop();
+
+    /**
+     * @return Tablet String
+     */
+    String tablet();
+
+    /**
+     * @return Mobile String
+     */
+    String mobile();
+
+    // Partner Portal Orders Tab properties.
+
+    /**
+     * Label for ordersListLbl.
+     * 
+     * @return ordersListLbl
+     */
+    String ordersListLbl();
+
+    /**
+     * Label for ordersHeader.
+     * 
+     * @return ordersHeader
+     */
+    String ordersHeader();
+
+    /**
+     * @Purpose
+     * @return String
+     * @return
+     *
+     */
+    String partTypeMsg();
+
+    /**
+     * @Purpose
+     * @return String
+     * @return
+     */
+    String capacityTypeMsg();
+
+    /**
+     * @Purpose
+     * @return String
+     * @return
+     */
+    String devicePurchasingEnabledLbl();
+
+    /**
+     * @return String - devicePurchaseConfigLbl
+     */
+    String devicePurchaseConfigLbl();
+
+    /**
+     * @return String - sendDeviceNotConnectedEmailLbl
+     */
+    String sendDeviceNotConnectedEmailLbl();
+
+    /**
+     * @return String - thresholdLbl
+     */
+    String thresholdLbl();
+
+    /**
+     * @return String - numberOfRepeatsLbl
+     */
+    String numberOfRepeatsLbl();
+
+    /**
+     * @return String - repeatAfterDaysLbl
+     */
+    String repeatAfterDaysLbl();
+
+    /**
+     * @Purpose
+     * @return String
+     * @return
+     *
+     */
+    String orderSubTotal();
+
+    /**
+     * @Purpose
+     * @return String
+     * @return
+     *
+     */
+    String extendedPrice();
+
+    /**
+     * @Purpose
+     * @return String
+     * @return
+     *
+     */
+    String uploadPartNumberHeader();
+
+    /**
+     * @return String - uploadShippingSurcharges
+     */
+    String uploadShippingSurcharges();
+
+    /**
+     * @Purpose
+     * @return String
+     * @return
+     *
+     */
+    String testButtonLabel();
+
+    /**
+     * /**
+     * 
+     * @return updateDistFailureMsg
+     */
+    String updateDistFailureMsg();
+
+    /**
+     * @return createDistiSuccessMsg
+     */
+    String createDistiSuccessMsg();
+
+    /**
+     * @return distributorModifiedSuccessMsg
+     */
+    String distributorModifiedSuccessMsg();
+
+    /**
+     * @return providerPromoUploadMsg
+     *
+     */
+    String providerPromoUploadMsg();
+
+    /**
+     * @return String
+     *
+     */
+    String accept();
+
+    /**
+     * 
+     * @return String
+     */
+    String customerInfo();
+
+    /**
+     * @return String - Order Conf label
+     */
+    String orderConf();
+
+    /**
+     * 
+     * @return - shippingtLbl.
+     */
+    String shippingLbl();
+
+    /**
+     * 
+     * @return - taxStatusLbl.
+     */
+    String taxStatusLbl();
+
+    /**
+     * @return partnerDevicePurchasingTxt
+     */
+    String partnerDevicePurchasingTxt();
+
+    /**
+     * 
+     * @return - ordersNotExistMsg.
+     */
+    String ordersNotExistMsg();
+    
+    /**
+    *
+    * @return - REPLACEMENT.
+    */
+   String replacementPartLbl();
+
+   /**
+    *
+    * @return - BOTH OEM AND REPLACEMENT.
+    */
+   String bothPartLbl();
+
+   /**
+    *
+    * @return - OEM.
+    */
+   String oemPartLbl();
+   
+   /**
+   *
+   * @return - ProviderInfo.
+   */
+   String providerInfoLbl();
+   
+   /**
+    * @return
+    */
+   String exemptLbl();
+   /**
+   *
+   * @return - disrtibutorSelection
+   */
+   String disrtibutorSelection();
+   /**
+   *
+   * @return - paymentTermsLbl
+   */
+   String paymentTermsLbl();
+   /**
+    * @return PP_invalidshipping
+    */
+   String invalidshipping();
+   /**
+    * @return PP_invalidSurcharge
+    */
+   String invalidsurcharge();
+   /**
+    * @return PP_notConfigured
+    */
+   String notConfigured();
+   /**
+    * @return  PP_error
+    */
+   String errorMSg();
+   /**
+    * @return  PP_wrongManufacture
+    */
+   String wrongManufacture();
+   /**
+    * @return  PP_invalidPart
+    */
+   String inavalidPart();
+   /**
+    * @return  PP_partNumNotExist
+    */
+   String partNumNotExist();
+   /**
+    * @return  PP_partNotConfigured
+    */
+   String partNotConfigured();
+   /**
+    * @return  PP_invalidPartNumManufacture
+    */
+   String invalidPartNumManufacture();
+   /**
+    * @return  PP_duplicateEntry
+    */
+   String duplicateEntry();
+   /**
+    * @return  pp_notUpload
+    */
+   String notUpload();
+   /**
+    * @return passCode
+    */
+   String passCode();
+   /**
+    * @return SKU warning message
+    */
+   String warningMsg1();
+      /**
+    * @return SKU warning message
+    */
+   String warningMsg2();
+   /**
+    * @return SKU warning message
+    */
+   String warningMsg3();
+   
+   /**
+    * @return Supply message
+    */
+   String partTypeSupply();
+   
+   /**
+    * @return Device message
+    */
+   String partTypeDevice();
+
+   /**
+    * @return Upgrade/Accessory message
+    */
+   String partTypeUpgradeAccessory();
+   
+   /**
+    * @return Surcharges Amount message
+    */
+   String surchargesAmount();
+   
+   /**
+    * @return ShipDateRange message
+    */
+   String ShipDateRange();
+   
+   /**
+    * @return ShipDateRange message
+    */
+   String OrderDateRange();
+   /**
+    * @return nonMonitored  message
+    */
+   String nonMonitored();
+   
+   
+   /**
+    * @return erp  message
+    */
+   String erp_notExist();
+}
